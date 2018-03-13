@@ -10,6 +10,9 @@
 -- Table structure for table banner
 --
 
+CREATE DATABASE testing;
+USE testing;
+
 CREATE TABLE IF NOT EXISTS banner (
   banner_id int(11) NOT NULL,
   banner_title varchar(200) NOT NULL,
