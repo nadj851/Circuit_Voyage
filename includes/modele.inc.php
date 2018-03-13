@@ -11,7 +11,7 @@ function __construct($requete=null,$params=null){
 }
 	
 function obtenirConnexion(){
-	$maConnexion = new Connexion("localhost", "root", "", "h18bdfilms");
+	$maConnexion = new Connexion("localhost", "root", "", "munarela");
 	$maConnexion->connecter();
 	return $maConnexion->getConnexion();
 }
@@ -37,7 +37,7 @@ function verserFichier($dossier, $inputNom, $fichierDefaut, $chaine){
 		$fichier= $_FILES[$inputNom]['name'];
 		$extension=strrchr($fichier,'.');
 		@move_uploaded_file($tmp,$dossier.$nomPochette.$extension);
-		// Enlever le fichier temporaire chargé
+		// Enlever le fichier temporaire chargï¿½
 		@unlink($tmp); //effacer le fichier temporaire
 		$pochette=$nomPochette.$extension;
 	}
