@@ -61,7 +61,7 @@
 			unset($unModele);
 		}
 	}
-	
+	//methode fiche
 	function fiche(){
 		global $tabRes;
 		$idf=$_POST['numF'];
@@ -110,7 +110,7 @@
 		}
 	}
 	//******************************************************
-	//Contrôleur
+	//Contrï¿½leur
 	$action=$_POST['action'];
 	switch($action){
 		case "enregistrer" :
