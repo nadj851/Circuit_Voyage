@@ -7,3 +7,12 @@ and open the template in the editor.
     Created on : 2018-03-12, 14:37:05
     Author     : e1695946
 */
+.titrepass { 
+    width: 25%;
+}
+.col-sm-10 { 
+    width: 40%;
+}
+.col-form-label{ 
+    width: 25%;
+}
