@@ -1,3 +1,4 @@
+
 <?php
 	require_once("../includes/modele.inc.php");
 	$tabRes=array();
@@ -17,6 +18,8 @@
 			unset($unModele);
 		}
 	}
+        //create dynamic  form with jquery php mysql
+        //http://talkerscode.com/webtricks/create-dynamic-form-using-php-jquery-and-mysql.php
 	
 	function lister(){
 		global $tabRes;
