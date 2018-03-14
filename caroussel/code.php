@@ -1,6 +1,6 @@
 <?php
 //index.php
-$connect = mysqli_connect("localhost", "root", "", "testing");
+$connect = mysqli_connect("localhost", "root", "", "munarela");
 function make_query($connect)
 {
  $query = "SELECT * FROM banner ORDER BY banner_id ASC";
