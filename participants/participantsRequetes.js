@@ -1,10 +1,10 @@
-//requêtes films
+//requï¿½tes films
 function enregistrer(){
 	var formFilm = new FormData(document.getElementById('formEnreg'));
 	formFilm.append('action','enregistrer');
 	$.ajax({
 		type : 'POST',
-		url : 'Films/filmsControleur.php',
+		url : 'participants/participantsControleur.php',
 		data : formFilm,
 		dataType : 'json', //text pour le voir en format de string
 		//async : false,
@@ -25,7 +25,7 @@ function lister(){
 	formFilm.append('action','lister');//alert(formFilm.get("action"));
 	$.ajax({
 		type : 'POST',
-		url : 'Films/filmsControleur.php',
+		url : 'participants/participantsControleur.php',
 		data : formFilm,
 		contentType : false,
 		processData : false,
@@ -44,7 +44,7 @@ function enlever(){
 	formFilm.append('action','enlever');//alert(formFilm.get("action"));
 	$.ajax({
 		type : 'POST',
-		url : 'Films/filmsControleur.php',
+		url : 'participants/participantsControleur.php',
 		data : formFilm,//leForm.serialize(),
 		contentType : false, //Enlever ces deux directives si vous utilisez serialize()
 		processData : false,
@@ -64,7 +64,7 @@ function obtenirFiche(){
 	formFilm.append('action','fiche');
 	$.ajax({
 		type : 'POST',
-		url : 'Films/filmsControleur.php',
+		url : 'participants/participantsControleur.php',
 		data : formFilm,
 		contentType : false, 
 		processData : false,
@@ -83,7 +83,7 @@ function modifier(){
 	formFilm.append('action','modifier');
 	$.ajax({
 		type : 'POST',
-		url : 'Films/filmsControleur.php',
+		url : 'participants/participantsControleur.php',
 		data : formFilm,
 		contentType : false, 
 		processData : false,
