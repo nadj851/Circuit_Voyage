@@ -38,6 +38,24 @@ function lister(){
 	});
 }
 
+function afficherFormulaire(){
+	var formFilm = new FormData();
+	formFilm.append('action','afficherFormulaires');//alert(formFilm.get("action"));
+	$.ajax({
+		type : 'POST',
+		url : 'participants/participantsControleur.php',
+		data : formFilm,
+		contentType : false,
+		processData : false,
+		dataType : 'json', //text pour le voir en format de string
+		success : function (reponse){//alert(reponse);
+					filmsVue(reponse);
+		},
+		fail : function (err){
+		}
+	});
+}
+
 function enlever(){
 	var leForm=document.getElementById('formEnlever');
 	var formFilm = new FormData(leForm);
