@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="./js/style.css">
         <script src="./js/global.js"></script>
     </head>
-    <body >
+    <body>
         <div>
             <div>
                 <img src="./images/logo.png" alt="logo" style="float: left">
@@ -369,7 +369,7 @@
                             </div>
                         </div>
                     </div>   
-                    
+
                     <div class="container" style="width: 40% ; float: left; margin-left: 60px" >
                         <label for="nomParticipant" class="col-sm-2 col-form-label" style=" width: 100%; float: left">Informations sur le passeport</label>
                         <br><br>
@@ -382,4 +382,4 @@
                 </form>
 
                 </body>
-                </html>
+</html>
