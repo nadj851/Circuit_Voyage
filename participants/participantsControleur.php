@@ -45,9 +45,7 @@
 			$tabRes['action']="afficherFormulaire";
                         
                         $rep = "";
-    /*$rep .= "<input type=\"button\" class=\"btn\" value=\"Ajouter participants\" onClick=\" $(\'#contenuParticpants\').show();\">";
-    $rep .= "                <br>";
-    $rep .= "                <br>";*/
+    
     $rep .= "                <div class=\"container-fluid\" >";
     $rep .= "                    <form id=\"contenuParticpants\"class=\"form-group row\" >";
     $rep .= "                  <div class=\"container\" style=\"width: 40% ; float: left; margin-left: 20px\" >";
@@ -217,6 +215,9 @@
     $rep .= "                                </div>";
     $rep .= "                      </div>";
     $rep .= "            </div>";
+    $rep .= "<input type=\"button\" class=\"btn\" value=\"Ajouter participants\" onClick=\" ajouterParticipant();\" style=\"float: right; \">";
+    $rep .= "                <br>";
+    $rep .= "                <br>";
     $rep .= "  </form>";
 
     $rep .= "                    </div>";

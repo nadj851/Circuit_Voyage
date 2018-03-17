@@ -20,6 +20,27 @@ function enregistrer(){
 	});
 }
 
+function ajouterParticipant(){
+	var formFilm = new FormData(document.getElementById('contenuParticpants'));
+	formFilm.append('action','enregistrer');
+	$.ajax({
+		type : 'POST',
+		url : 'participants/participantsControleur.php',
+		data : formFilm,
+		dataType : 'json', //text pour le voir en format de string
+		//async : false,
+		//cache : false,
+		contentType : false,
+		processData : false,
+		success : function (reponse){//alert(reponse);
+					filmsVue(reponse);
+		},
+		fail : function (err){
+		   
+		}
+	});
+}
+
 function lister(){
 	var formFilm = new FormData();
 	formFilm.append('action','lister');//alert(formFilm.get("action"));
