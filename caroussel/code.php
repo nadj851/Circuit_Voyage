@@ -76,7 +76,13 @@ function make_slides($connect)
 ?>
  <br />
   <br />
-  <div style="width: 1000px">
+  
+  
+  
+  <div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-12">
      
    <div id="dynamic_slide_show" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -98,4 +104,6 @@ function make_slides($connect)
 
    </div>
   </div>
- 
+  </div>
+  </div>
+      
