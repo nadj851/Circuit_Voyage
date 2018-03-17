@@ -80,7 +80,7 @@
                                 <li><a href="#"class='category' cid='HORREUR'>Horreur</a></li>
                                 <li><a href="#"class='category' cid='SUSPENSE'>Suspense</a></li> 
                                 <li><a href="#"class='category' cid='POUR LA FAMILLE'>Pour la famille</a></li>
-
+                                <li><a href="#"class='category' cid='POUR LA FAMILLE'>test</a></li>  
 
 
                             </div> 
