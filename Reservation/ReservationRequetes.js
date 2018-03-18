@@ -1,18 +1,18 @@
-//requ�tes films
-function enregistrer(){
-	var formFilm = new FormData(document.getElementById('formEnreg'));
-	formFilm.append('action','enregistrer');
+//requ�tes thematique
+function enregistrerR(){
+	var formthematique = new FormData(document.getElementById('formEnregthems'));
+	formthematique.append('action','enregistrer');
 	$.ajax({
 		type : 'POST',
-		url : 'Films/filmsControleur.php',
-		data : formFilm,
+		url : 'Thematique/ThematiqueControleur.php',
+		data : formthematique,
 		dataType : 'json', //text pour le voir en format de string
 		//async : false,
 		//cache : false,
 		contentType : false,
 		processData : false,
 		success : function (reponse){//alert(reponse);
-					filmsVue(reponse);
+					thematiqueVue(reponse);
 		},
 		fail : function (err){
 		   
@@ -20,37 +20,37 @@ function enregistrer(){
 	});
 }
 
-function lister(){
-	var formilmF = new FormData();
-	formFilm.append('action','lister');//alert(formFilm.get("action"));
+function listerRR(){
+	var formthematique = new FormData();
+	formthematique.append('action','lister');//alert(formFilm.get("action"));
 	$.ajax({
 		type : 'POST',
-		url : 'Films/filmsControleur.php',
-		data : formFilm,
+		url : 'Thematique/ThematiqueControleur.php',
+		data : formthematique,
 		contentType : false,
 		processData : false,
 		dataType : 'json', //text pour le voir en format de string
 		success : function (reponse){//alert(reponse);
-					filmsVue(reponse);
+					thematiqueVue(reponse);
 		},
 		fail : function (err){
 		}
 	});
 }
 
-function enlever(){
-	var leForm=document.getElementById('formEnlever');
-	var formFilm = new FormData(leForm);
-	formFilm.append('action','enlever');//alert(formFilm.get("action"));
+/*function enlever(){
+	var leForm=document.getElementById('formEnleverThem');
+	var formthem = new FormData(leForm);
+	formthem.append('action','enlever');//alert(formFilm.get("action"));
 	$.ajax({
 		type : 'POST',
-		url : 'Films/filmsControleur.php',
-		data : formFilm,//leForm.serialize(),
+		url : 'Thematique/ThematiqueControleur.php',
+		data : formthem,//leForm.serialize(),
 		contentType : false, //Enlever ces deux directives si vous utilisez serialize()
 		processData : false,
 		dataType : 'json', //text pour le voir en format de string
 		success : function (reponse){//alert(reponse);
-					filmsVue(reponse);
+					thematiqueVue(reponse);
 		},
 		fail : function (err){
 		}
@@ -64,13 +64,13 @@ function obtenirFiche(){
 	formFilm.append('action','fiche');
 	$.ajax({
 		type : 'POST',
-		url : 'Films/filmsControleur.php',
+		url : 'Thematique/ThematiqueControleur.php',
 		data : formFilm,
 		contentType : false, 
 		processData : false,
 		dataType : 'json', 
 		success : function (reponse){//alert(reponse);
-					filmsVue(reponse);
+					thematiqueVue(reponse);
 		},
 		fail : function (err){
 		}
@@ -78,21 +78,27 @@ function obtenirFiche(){
 }
 
 function modifier(){
-	var leForm=document.getElementById('formFicheF');
-	var formFilm = new FormData(leForm);
-	formFilm.append('action','modifier');
+	var leForm=document.getElementById('formFicheT');
+	var formthem = new FormData(leForm);
+	formthem.append('action','modifier');
 	$.ajax({
 		type : 'POST',
-		url : 'Films/filmsControleur.php',
-		data : formFilm,
+		url : 'Thematique/ThematiqueControleur.php',
+		data : formthem,
 		contentType : false, 
 		processData : false,
 		dataType : 'json', 
 		success : function (reponse){//alert(reponse);
 					$('#divFormFiche').hide();
-					filmsVue(reponse);
+					thematiqueVue(reponse);
 		},
 		fail : function (err){
 		}
 	});
+}*/
+/////////////////////////
+function FormulaireR(){
+        var reponse={"action":"formulaire"};
+        	thematiqueVue(reponse);
+	
 }

@@ -27,7 +27,7 @@
 
     </head>
 
-    <body onload="lister()">
+    <body>
         <div>
             <div style="display: inline">
                 <img src="./images/logo.png" alt="logo" style="float: left">
@@ -85,9 +85,9 @@
                             </div>
                            <div class="nav nav-pills nav-stacked">
                                 <li class="active"><a href="#"><h4>Categories</h4></a></li>
-                                <li><a href="#" class='category' cid='ACTION'>Action</a></li>
-                                <li><a href="#"class='category' cid='DRAME'>Drame at répertoire</a></li>
-                                <li><a href="#"class='category' cid='COMEDIE'>Comédie</a></li>
+                                <li><a href="#" class='category' cid='ACTION'>Reservation</a></li>
+                                <li><a href="#"class='category' cid='DRAME' onclick="FormulaireT();">Thematique</a></li>
+                                <li><a href="#"class='category' cid='COMEDIE'  onclick="afficherFormulaire();">Participant</a></li>
                                 <li><a href="#"class='category' cid='SCIENCE FICTION'>Science-ﬁction</a></li>
                                 <li><a href="#"class='category' cid='HORREUR'>Horreur</a></li>
                                 <li><a href="#"class='category' cid='SUSPENSE'>Suspense</a></li> 
@@ -128,39 +128,11 @@
                                 <div class="panel-body">
                                     <div id="get_result">
 
-                           
-
+                        
+                                       
                                         
-                                        
-     <!--
-             <div class="col-md-4 col-md-push-4">
-               
-            <form id="formEnregthems">
-                <h3>Ajouter une thematique</h3>
-                <div class="form-group">
-                    <label for="nom">nom:</label>
-                    <input type="text" class="form-control" id="nom" name="nom">
-                </div>
-
-                <div class="form-group">
-                    <label for="description">description:</label>
-                    <input type="text" class="form-control" id="description" name="description">
-                </div>
-                            
-                
-                <div class="form-group">
-                    <label for="pochette">image:</label>
-                    <input type="file" class="form-control-file" id="pochette" name="pochette" aria-describedby="fileHelp">
-                </div>
-               <input type="button" class="btn btn-primary" value="Ajouter" onClick="enregistrer();"><br><br>
-                            
-            </form>
-                            </div>  
-                   
--->
-                        
-                        
-                        
+                 
+                                
                         
                         <!--onload="lister()"
                                         <input type="button" class="btn" value="Ajouter participants" onClick=" $('#contenuParticpants').show();">

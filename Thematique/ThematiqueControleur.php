@@ -13,7 +13,7 @@
 			$unModele=new filmsModele($requete,array($nom,$description,$pochete));
 			$stmt=$unModele->executer();
 			$tabRes['action']="enregistrer";
-			$tabRes['msg']="thamatique bien enregistre";
+			$tabRes['msg']="thamatique bien enregistrer";
 		}catch(Exception $e){
 		}finally{
 			unset($unModele);

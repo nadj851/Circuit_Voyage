@@ -1,5 +1,5 @@
 //requ�tes thematique
-function enregistrer(){
+function enregistrerT(){
 	var formthematique = new FormData(document.getElementById('formEnregthems'));
 	formthematique.append('action','enregistrer');
 	$.ajax({
@@ -20,7 +20,7 @@ function enregistrer(){
 	});
 }
 
-function lister(){
+function listerTT(){
 	var formthematique = new FormData();
 	formthematique.append('action','lister');//alert(formFilm.get("action"));
 	$.ajax({
@@ -96,3 +96,9 @@ function modifier(){
 		}
 	});
 }*/
+/////////////////////////
+function FormulaireT(){
+        var reponse={"action":"formulaire"};
+        	thematiqueVue(reponse);
+	
+}

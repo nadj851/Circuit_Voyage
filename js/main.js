@@ -1,6 +1,6 @@
 $(document).ready(function () {
-
-afficherFormulaire();
+listerTT();
+//afficherFormulaire();
 
 //lister();
 //commit

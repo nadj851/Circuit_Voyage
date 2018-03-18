@@ -1,4 +1,53 @@
 //vue films
+function message(reponse){
+         var mes="";
+	
+        mes+="<div class='alert alert-success'>";
+	mes+="<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
+	mes+="<b>"+reponse+"</b>";
+	mes+="</div>";
+              $('#messages').html(mes);   
+              setTimeout(function(){ $('#messages').html(""); }, 5000);
+                                        
+                                        }
+
+function formulaireT(){
+	
+         var result= "";	  
+                   
+                 result+="<div class='col-md-4 col-md-push-4'>";
+               
+             result+="<form id='formEnregthems'>";
+                 result+="<h3>Ajouter une thematique</h3>";
+                 result+="<div class='form-group'>";
+                     result+="<label for='nom'>nom:</label>";
+                     result+="<input type='text' class='form-control' id='nom' name='nom'>";
+                 result+="</div>";
+
+                 result+="<div class='form-group'>";
+                     result+="<label for='description'>description:</label>";
+                    result+=" <input type='text' class='form-control' id='description' name='description'>";
+                result+=" </div>";
+                                            
+                 result+="<div class='form-group'>";
+                     result+="<label for='pochette'>image:</label>";
+                     result+="<input type='file' class='form-control-file' id='pochette' name='pochette' aria-describedby='fileHelp'";
+                 result+="</div><br><br>";
+               result+="<input type='button' class='btn btn-primary' value='Ajouter' onClick='enregistrerT();'><br><br>";                            
+             result+="</form>";
+             result+="</div>"; 
+	         	                     
+        $('#get_result').html(result);
+        
+}
+
+
+
+
+
+
+
+
 
 function listerT(listetheme){
 	var taille;
@@ -27,15 +76,9 @@ function listerT(listetheme){
 		                    
 		    result+="</div>";
                     result+="</div>"; 
-	}
-		    
-                   
-		   
-		     
-		                           
-
-			     
-        
+	}            
+	      
+	       
         
         $('#get_result').html(result);
         
@@ -65,11 +108,14 @@ var thematiqueVue=function(reponse){
 		case "enregistrer" :
 		//case "enlever" :
 		//case "modifier" :
-			$('#messages').html(reponse.msg);
-			setTimeout(function(){ $('#messages').html(""); }, 5000);
+                message(reponse.msg);
+			
 		break;
 		case "lister" :
 			listerT(reponse.listetheme);
+                        break;
+                case "formulaire" :
+			formulaireT();        
 		break;
 		//case "fiche" :
 		//	afficherFiche(reponse);

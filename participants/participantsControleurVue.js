@@ -57,7 +57,7 @@ var filmsVue = function (reponse) {
             listerF(reponse.listeFilms);
             break;
         case "afficherFormulaire" :
-            // $('#get_result').html(reponse.msg);
+             $('#get_result').html(reponse.msg);
             break;
         case "fiche" :
             afficherFiche(reponse);
