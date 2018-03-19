@@ -429,6 +429,7 @@ var reservationVue=function(reponse){
                 message(reponse.msg);
 			
 		break;
+                
 		case "lister" :
 			listerR(reponse.listetheme);
                         break;
