@@ -1,5 +1,5 @@
 $(document).ready(function() {
-   //listerTT();
+  listerTT();
   // $("#devenirMembre").click();
   //afficherFormulaire();
   //lister();

@@ -254,7 +254,7 @@ function formulaireR(){
         
         result+= "                <div class=\"form-group row\" >";           
         result+= "       <div class=\"col-sm-10 contenupass\">";
-         result+= "                                <a href='#'class='btn btn-primary' cid='ajouter'>Ajouter participants </a>";
+         result+= "                                <a href='#'class='btn btn-primary' cid='ajouter' onclick='afficherFormulaire();'>Ajouter participants </a>";
 
         result+= "                                </div>";
         result+= "                      </div>";  
