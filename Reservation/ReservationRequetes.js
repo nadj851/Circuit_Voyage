@@ -1,18 +1,18 @@
-//requ�tes thematique
+//requ�tes RESERVATION
 function enregistrerR(){
-	var formthematique = new FormData(document.getElementById('formEnregthems'));
-	formthematique.append('action','enregistrer');
+	var formreservation = new FormData(document.getElementById('formEnrReserv'));
+	formreservation.append('action','enregistrer');
 	$.ajax({
 		type : 'POST',
-		url : 'Thematique/ThematiqueControleur.php',
-		data : formthematique,
+		url : 'Reservation/ReservationControleur.php',
+		data : formreservation,
 		dataType : 'json', //text pour le voir en format de string
 		//async : false,
 		//cache : false,
 		contentType : false,
 		processData : false,
 		success : function (reponse){//alert(reponse);
-					thematiqueVue(reponse);
+					reservationVue(reponse);
 		},
 		fail : function (err){
 		   
@@ -21,17 +21,17 @@ function enregistrerR(){
 }
 
 function listerRR(){
-	var formthematique = new FormData();
-	formthematique.append('action','lister');//alert(formFilm.get("action"));
+	var formreservation = new FormData();
+	formreservation.append('action','lister');//alert(formFilm.get("action"));
 	$.ajax({
 		type : 'POST',
-		url : 'Thematique/ThematiqueControleur.php',
-		data : formthematique,
+		url : 'Reservation/ReservationControleur.php',
+		data : formreservation,
 		contentType : false,
 		processData : false,
 		dataType : 'json', //text pour le voir en format de string
 		success : function (reponse){//alert(reponse);
-					thematiqueVue(reponse);
+					reservationVue(reponse);
 		},
 		fail : function (err){
 		}
@@ -99,6 +99,6 @@ function modifier(){
 /////////////////////////
 function FormulaireR(){
         var reponse={"action":"formulaire"};
-        	thematiqueVue(reponse);
+        	reservationVue(reponse);
 	
 }

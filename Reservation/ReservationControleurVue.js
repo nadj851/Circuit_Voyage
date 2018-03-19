@@ -11,35 +11,351 @@ function message(reponse){
                                         
                                         }
 
-function formulaireT(){
-	
-         var result= "";	  
-                   
-                 result+="<div class='col-md-4 col-md-push-4'>";
-               
-             result+="<form id='formEnregthems'>";
-                 result+="<h3>Ajouter une thematique</h3>";
-                 result+="<div class='form-group'>";
-                     result+="<label for='nom'>nom:</label>";
-                     result+="<input type='text' class='form-control' id='nom' name='nom'>";
-                 result+="</div>";
+function formulaireR(){
+	var result="";
+         result+= "                <div class=\"container-fluid\" >";
+        result+= "                    <form id=\"contenuParticpants\"class=\"form-group row\" >";
+        
+        result+= "                  <div class=\"container\" style=\"width: 40% ; float: left; margin-left: 20px\" >";
+        result+= "					<div class=\"form-group row\">";
+        result+= "                          <label for=\"nomParticipant\" class=\"col-sm-2 col-form-label\">Nom</label>";
+        result+= "                                <div class=\"col-sm-10\">";
+        result+= "                                    <input type=\"text\" class=\"form-control\" id=\"nomParticipant\" name=\"nomParticipant\" placeholder=\"Entrer nom du participant\" required>";
+        result+= "                                </div>";
+        result+= "                            </div>";
+        result+= "                            <div class=\"form-group row\">";
+        result+= "                                <label for=\"prenomParticipant\" class=\"col-sm-2 col-form-label\">Prénom</label>";
+        result+= "                                <div class=\"col-sm-10\">";
+        result+= "                                    <input type=\"text\" class=\"form-control\" id=\"prenomParticipant\" name=\"prenomParticipant\" placeholder=\"Entrer prénom    du participant\" required>";
+        result+= "                                </div>";
+        result+= "                            </div>";
 
-                 result+="<div class='form-group'>";
-                     result+="<label for='description'>description:</label>";
-                    result+=" <input type='text' class='form-control' id='description' name='description'>";
-                result+=" </div>";
-                                            
-                 result+="<div class='form-group'>";
-                     result+="<label for='pochette'>image:</label>";
-                     result+="<input type='file' class='form-control-file' id='pochette' name='pochette' aria-describedby='fileHelp'";
-                 result+="</div><br><br>";
-               result+="<input type='button' class='btn btn-primary' value='Ajouter' onClick='enregistrerT();'><br><br>";                            
-             result+="</form>";
-             result+="</div>"; 
-	         	                     
+        result+= "                            <div class=\"form-group row\">";
+        result+= "                                <label for=\"sexeParticipant\" class=\"col-sm-2 col-form-label\">Sexe</label>";
+        result+= "                                <div class=\"col-sm-10\" >";
+        result+= "                                    <select class=\"form-control\" id=\"sexeParticipant\" name=\"sexeParticipant\" required>";
+        result+= "                                        <option></option>";
+        result+= "                                        <option>Femme</option>";
+        result+= "                                        <option>Homme</option>";
+        result+= "                                        <option>Autre</option>";
+        result+= "                                    </select>    ";
+        result+= "                                </div>";
+        result+= "                            </div>";
+        result+= "                            <div class=\"form-group row\">";
+        result+= "                                <label for=\"courielParticipant\" class=\"col-sm-2 col-form-label\">Couriel</label>";
+        result+= "                                <div class=\"col-sm-10\">";
+        result+= "                                    <input type=\"text\" class=\"form-control\" id=\"courielParticipant\" name=\"courielParticipant\" placeholder=\"Entrer courriel du participant\" required>";
+        result+= "                                </div>";
+        result+= "                            </div>";
+
+                                  
+        result+= "                            <div class=\"form-group row\">";
+        result+= "                                <label for=\"paysParticipant\" class=\"col-sm-2 col-form-label\">Pays</label>";
+        result+= "                                <div class=\"col-sm-10\">";
+        result+= "                                    <select name=\"country\" class=\"form-control\"  id=\"paysParticipant\" name=\"paysParticipant\" required>";
+        result+= "                                        <option value=\"\">Pays...</option>";
+        result+= "                                        <option value=\"AF\">Afghanistan</option>";
+        result+= "                                  <option value=\"AL\">Albania</option>";
+        result+= "                            <option value=\"DZ\">Algeria</option>";
+        result+= "                      <option value=\"AS\">American Samoa</option>";
+        result+= "                <option value=\"AD\">Andorra</option>";
+        result+= "          <option value=\"AG\">Angola</option>";
+        result+= "    <option value=\"AI\">Anguilla</option>";
+
+        result+= "                                        <option value=\"AR\">Argentina</option>";
+        result+= "                                  <option value=\"AA\">Armenia</option>";
+        result+= "                            <option value=\"AW\">Aruba</option>";
+        result+= "                      <option value=\"AU\">Australia</option>";
+        result+= "                <option value=\"AT\">Austria</option>";
+        result+= "          <option value=\"AZ\">Azerbaijan</option>";
+        result+= "    <option value=\"BS\">Bahamas</option>";
+        result+= "                                        <option value=\"BH\">Bahrain</option>";
+        result+= "                                  <option value=\"BD\">Bangladesh</option>";
+        result+= "                            <option value=\"BB\">Barbados</option>";
+        result+= "                      <option value=\"BY\">Belarus</option>";
+        result+= "                <option value=\"BE\">Belgium</option>";
+        result+= "          <option value=\"BZ\">Belize</option>";
+        result+= "    <option value=\"BJ\">Benin</option>";
+        result+= "                                        <option value=\"BM\">Bermuda</option>";
+        result+= "                                        <option value=\"BT\">Bhutan</option>";
+        result+= "                                        <option value=\"BO\">Bolivia</option>";
+        result+= "                                  <option value=\"BL\">Bonaire</option>";
+        result+= "                            <option value=\"BA\">Bosnia &amp; Herzegovina </option>";
+        result+= "                                        <option value=\"BW\">Botswana</option>";
+        result+= "                                  <option value=\"BR\">Brazil</option>";
+        result+= "                            <option value=\"BC\">British Indian Ocean Ter</option>";
+        result+= "                                        <option value=\"BN\">Brunei</option>";
+        result+= "                                  <option value=\"BG\">Bulgaria</option>";
+        result+= "                            <option value=\"BF\">Burkina Faso</option>";
+        result+= "                      <option value=\"BI\">Burundi</option>";
+        result+= "                <option value=\"KH\">Cambodia</option>";
+        result+= "          <option value=\"CM\">Cameroon</option>";
+        result+= "    <option value=\"CA\">Canada</option>";
+        result+= "                                        <option value=\"IC\">Canary Islands</option>";
+        result+= "                                  <option value=\"CV\">Cape Verde</option>";
+        result+= "                            <option value=\"KY\">Cayman Islands</option>";
+        result+= "                      <option value=\"CF\">Central African Republic</option>";
+        result+= "                <option value=\"TD\">Chad</option>";
+        result+= "          <option value=\"CD\">Channel Islands</option>";
+        result+= "    <option value=\"CL\">Chile</option>";
+        result+= "                                        <option value=\"CN\">China</option>";
+        result+= "                                  <option value=\"CI\">Christmas Island</option>";
+        result+= "                            <option value=\"CS\">Cocos Island</option>";
+        result+= "                      <option value=\"CO\">Colombia</option>";
+        result+= "                <option value=\"CC\">Comoros</option>";
+        result+= "          <option value=\"CG\">Congo</option>";
+        result+= "    <option value=\"CK\">Cook Islands</option>";
+        result+= "                                        <option value=\"CR\">Costa Rica</option>";
+        result+= "                                  <option value=\"CT\">Cote D\'Ivoire</option>";
+        result+= "                            <option value=\"HR\">Croatia</option>";
+        result+= "                      <option value=\"CU\">Cuba</option>";
+        result+= "                <option value=\"CB\">Curacao</option>";
+        result+= "          <option value=\"CY\">Cyprus</option>";
+        result+= "    <option value=\"CZ\">Czech Republic</option>";
+        result+= "<option value=\"DK\">Denmark</option>";
+        result+= "                                        <option value=\"DJ\">Djibouti</option>";
+        result+= "                                  <option value=\"DM\">Dominica</option>";
+        result+= "                            <option value=\"DO\">Dominican Republic</option>";
+        result+= "                      <option value=\"TM\">East Timor</option>";
+        result+= "                <option value=\"EC\">Ecuador</option>";
+        result+= "          <option value=\"EG\">Egypt</option>";
+        result+= "    <option value=\"SV\">El Salvador</option>";
+
+        result+= "                                    </select>";
+        result+= "                          </div>";
+        result+= "                </div>";
+        result+= "          <div class=\"form-group row\">";
+        result+= "        <label for=\"villeParticipant\" class=\"col-sm-2 col-form-label\">Ville</label>";
+        result+= "  <div class=\"col-sm-10\">";
+        result+= "                                    <input type=\"text\" class=\"form-control\" id=\"villeParticipant\" name=\"villeParticipant\" placeholder=\"Entrer ville du participant\">";
+        result+= "                          </div>";
+        result+= "                </div>";
+        result+= "          <div class=\"form-group row\">";
+        result+= "        <label for=\"codePostalParticipant\" class=\"col-sm-2 col-form-label\">Code Postal</label>";
+        result+= "  <div class=\"col-sm-10\">";
+        result+= "<input type=\"text\" class=\"form-control\" id=\"codePostalParticipant\" name=\"codePostalParticipant\" placeholder=\"Entrer code postal du participant\">";
+        result+= "                                </div>";
+        result+= "                      </div>";
+        
+        result+= "                <div class=\"form-group row\" >";
+        result+= "             <label for=\"tel\" class=\"col-sm-2 col-form-label titrepass\">Tel</label>";
+        result+= "       <div class=\"col-sm-10 contenupass\">";
+        result+= "     <input type=\"text\" class=\"form-control\" id=\"tel\" name=\"tel\" placeholder=\"Entrer telephone\" required>";
+        result+= "                                </div>";
+        result+= "                      </div>";
+        
+        result+= "                <div class=\"form-group row\" >";
+        result+= "             <label for=\"fax\" class=\"col-sm-2 col-form-label titrepass\">Fax</label>";
+        result+= "       <div class=\"col-sm-10 contenupass\">";
+        result+= "     <input type=\"text\" class=\"form-control\" id=\"fax\" name=\"fax\" placeholder=\"Entrer Fax\" required>";
+        result+= "                                </div>";
+        result+= "                      </div>";   
+         result+= "                      </div>";  
+         
+         
+         
+        result+= "                        <div class=\"container\" style=\"width: 40% ; float: left; margin-left: 60px\" >";
+        result+= "                      <label for=\"nomParticipant\" class=\"col-sm-2 col-form-label\" style=\" width: 100%; float: left\">Informations sur le passeport</label>";
+        result+= "                <br><br>";
+        result+= "          <div class=\"form-group row\" >";
+        result+= "        <label for=\"numeroPasseport\" class=\"col-sm-2 col-form-label titrepass\" >Numéro</label>";
+        result+= "  <div class=\"col-sm-10 contenupass\" >";
+        result+= "<input type=\"text\" class=\"form-control \" id=\"numeroPasseport\" name=\"numeroPasseport\" placeholder=\"Entrer Numéro du passeport\" required>";
+        result+= "                                </div>";
+        result+= "                      </div>";
+        result+= "                <div class=\"form-group row\" >";
+        result+= "              <label for=\"dateDelPasseport\" class=\"col-sm-2 col-form-label titrepass\" >Date délivrance</label>";
+        result+= "        <div class=\"col-sm-10 contenupass\" >";
+        result+= "      <input type=\"text\" class=\"form-control\" id=\"dateDelPasseport\" name=\"dateDelPasseport\" placeholder=\"Entrer Date de délivrance du passeport\" required>";
+        result+= "                                </div>";
+        result+= "                      </div>";
+        result+= "                <div class=\"form-group row\" >";
+        result+= "              <label for=\"dateExpPasseport\" class=\"col-sm-2 col-form-label titrepass\">Date expiration</label>";
+        result+= "        <div class=\"col-sm-10 contenupass\">";
+        result+= "      <input type=\"text\" class=\"form-control\" id=\"dateExpPasseport\" name=\"dateExpPasseport\" placeholder=\"Entrer date dèxpération du passeport\" required>";
+        result+= "                                </div>";
+        result+= "                      </div>";
+        result+= "                <div class=\"form-group row\" >";
+        result+= "              <label for=\"delivrerAExpPasseport\" class=\"col-sm-2 col-form-label titrepass\">Délivré à</label>";
+        result+= "        <div class=\"col-sm-10 contenupass\">";
+        result+= "      <input type=\"text\" class=\"form-control\" id=\"delivrerAExpPasseport\" name=\"delivrerAExpPasseport\" placeholder=\"Entrer Numéro du passeport\" required>";
+        result+= "                                </div>";
+        result+= "                      </div>";
+        result+= "                <div class=\"form-group row\" >";
+        result+= "             <label for=\"nationalite\" class=\"col-sm-2 col-form-label titrepass\">Nationalité</label>";
+        result+= "       <div class=\"col-sm-10 contenupass\">";
+        result+= "     <input type=\"text\" class=\"form-control\" id=\"nationalite\" name=\"nationalite\" placeholder=\"Entrer la nationalité\" required>";
+        result+= "                                </div>";
+        result+= "                      </div>";
+        
+        result+= "                      </div>";
+        
+        
+        //*******************************************************************
+           result+="<hr class='ligne_horizontal'></hr>";      
+        result+="<h4 class='titre'>Ajouter participants</h4>";
+        
+        result+= " <div class=\"container\">";                                      
+      
+        
+         result+= "  <div class=\"container fluid\" style=\"width: 40% ; float: left; \" >";
+                         
+        result+= "                            <div class=\"form-group row\">";
+        result+= "                                <label for=\"NombreAdulte\" class=\"col-sm-2 col-form-label\">Nombre d'adulte</label>";
+        result+= "                                <div class=\"col-sm-10\" >";
+        result+= "                                    <select class=\"form-control\" id=\"NombreAdulte\" name=\"NombreAdulte\" required>";
+        result+= "                                        <option></option>";
+        result+= "                                        <option>0</option>";
+        result+= "                                        <option>1</option>";
+        result+= "                                        <option>2</option>";
+        result+= "                                        <option>3</option>";
+        result+= "                                        <option>4</option>";
+        result+= "                                        <option>5</option>";
+        result+= "                                        <option>6</option>";        
+        result+= "                                    </select>    ";
+        result+= "                                </div>";
+        result+= "                            </div>";  
+        
+        result+= "                            <div class=\"form-group row\">";
+        result+= "                                <label for=\"NombreEnfantBTO\" class=\"col-sm-2 col-form-label\">Nombre d'enfant de 3 à 11 ans </label>";
+        result+= "                                <div class=\"col-sm-10\" >";
+        result+= "                                    <select class=\"form-control\" id=\"NombreEnfantBTO\" name=\"NombreEnfantBTO\" required>";
+        result+= "                                        <option></option>";
+        result+= "                                        <option>0</option>";
+        result+= "                                        <option>1</option>";
+        result+= "                                        <option>2</option>";
+        result+= "                                        <option>3</option>";
+        result+= "                                        <option>4</option>";
+        result+= "                                        <option>5</option>";
+        result+= "                                        <option>6</option>";        
+        result+= "                                    </select>    ";
+        result+= "                                </div>";
+        result+= "                            </div>";    
+         
+     result+= "                            <div class=\"form-group row\">";
+        result+= "                                <label for=\"NombreEnfantMT\" class=\"col-sm-2 col-form-label\">Nombre d'enfant de moins de 3 ans </label>";
+        result+= "                                <div class=\"col-sm-10\" >";
+        result+= "                                    <select class=\"form-control\" id=\"NombreEnfantMT\" name=\"NombreEnfantMT\" required>";
+        result+= "                                        <option></option>";
+        result+= "                                        <option>0</option>";
+        result+= "                                        <option>1</option>";
+        result+= "                                        <option>2</option>";
+        result+= "                                        <option>3</option>";
+        result+= "                                        <option>4</option>";
+        result+= "                                        <option>5</option>";
+        result+= "                                        <option>6</option>";        
+        result+= "                                    </select>    ";
+        result+= "                                </div>";
+        result+= "                            </div>";  
+        
+        result+= "                <div class=\"form-group row\" >";           
+        result+= "       <div class=\"col-sm-10 contenupass\">";
+         result+= "                                <a href='#'class='btn btn-primary' cid='ajouter'>Ajouter participants </a>";
+
+        result+= "                                </div>";
+        result+= "                      </div>";  
+        
+        result+= "                      </div>"; 
+              
+       
+        result+= "                        <div class=\"container fluid\" style=\"width: 40% ; float: left; margin-left: 60px\" >";
+        result+= "                            <div class=\"form-group \" >";
+        result+= "                                <label for=\"texttotalCircuit\">Prix total du circuit:</label>";       
+         result+= " <label for=\"totalCircuit\" style='color:red;font-size:25px;margin:5px' >45 000 $</label>";
+        result+= "                                </div>";
+        
+        result+= "                                </div>";                                   
+        
+        result+= "            </div>";
+        
+       //*************************************************
+       result+="<hr class='ligne_horizontal'></hr>";
+        result+="<h4>Informations sur les participants</h4>";
+       result+= " <div class=\"container\">";                                      
+      
+        
+         result+= "  <div class=\"container fluid\" style=\"width: 40% ; float: left; \" >";
+                         
+        result+= "                            <div class=\"form-group row\">";
+        result+= "                                <label for=\"Participants\" class=\"col-sm-2 col-form-label\">Participants </label>";
+        result+= "                                <div class=\"col-sm-10\" >";
+        result+= "                                    <select class=\"form-control\" id=\"Participants\" name=\"Participants\" required>";
+        result+= "                                        <option></option>";                                                 
+        result+= "                                    </select>    ";
+        result+= "                                </div>";
+        result+= "                            </div>";   
+         result+= "                <br>";
+        result+= "                <br>";            
+                                                         
+         result+= "                                <a href='#'class='btn btn-primary' cid='previsualiser'>Previsualiser la Reservation </a>";       
+        result+= "                      </div>"; 
+        
+              
+       
+        result+= "                        <div class=\"container fluid\" style=\"width: 40% ; float: left; margin-left: 60px\" >";
+        result+= "                            <div class=\"form-group \" >";
+        result+= "                                <a href='#'class='category' cid='modifier'>Modifier   </a>";
+        result+= "                                <a href='#'class='category' cid='modifier'>supprimer  </a>";
+        result+= "                         <a href='#'class='category' cid='modifier'>details   </a>";
+         
+        result+= "                                </div>";
+        
+        result+= "                                </div>";                                   
+            
+        result+= "            </div>";
+                                                      
+           result+="<input type='hidden' name='return' value='http://localhost/project1/payment_success.php'/>";
+result+="<input type='hidden' name='notify_url' value='http://localhost/project1/payment_success.php'>";
+result+="<input type='hidden' name='cancel_return' value='http://localhost/project1/cancel.php'/>";
+result+="<input type='hidden' name='currency_code' value='USD'/>";
+result+="<input type='hidden' name='custom' value='Monarela@hotmail.fr'/>";
+result+="<input style='float:right;margin-right:80px;' type='image' name='submit'";
+result+="src='https://www.paypalobjects.com/webstatic/en_US/i/btn/png/blue-rect-paypalcheckout-60px.png' alt='PayPal '";
+result+="alt='PayPal - The safer, easier way to pay online'>";           
+                               
+        //******************************************************
+         result+= "                <br>";
+        result+= "                <br>";
+                    
+                  
+                           
+        result+= "  </form>";
+        result+= " </div>";    
+                                                
+	    	                     
         $('#get_result').html(result);
         
 }
+                   
+        
+            
+       
+      
+         
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                             
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                 
+                
+                                
+                
+  
 
 
 
@@ -47,9 +363,7 @@ function formulaireT(){
 
 
 
-
-
-function listerT(listetheme){
+function listerR(listetheme){
 	var taille;
 	/*var rep="<div class='table-users' style='overflow: scroll; height: 500px;'>";
 	rep+="<div class='header'>Liste des films<span style='float:right;padding-right:10px;cursor:pointer;' onClick=\"$('#contenu').hide();\">X</span></div>";
@@ -102,7 +416,7 @@ function listerT(listetheme){
 
 }
 */
-var thematiqueVue=function(reponse){
+var reservationVue=function(reponse){
 	var action=reponse.action; 
 	switch(action){
 		case "enregistrer" :
@@ -112,10 +426,10 @@ var thematiqueVue=function(reponse){
 			
 		break;
 		case "lister" :
-			listerT(reponse.listetheme);
+			listerR(reponse.listetheme);
                         break;
                 case "formulaire" :
-			formulaireT();        
+			formulaireR();        
 		break;
 		//case "fiche" :
 		//	afficherFiche(reponse);

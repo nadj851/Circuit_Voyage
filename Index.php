@@ -13,12 +13,14 @@
         <link rel="stylesheet" href="./js/style.css">
         <script src="js/main.js" type="text/javascript"></script>
         <script src="./js/global.js"></script>
+        <link rel="stylesheet" href="css/style.css">
         <script src="participants/participantsControleurVue.js" type="text/javascript"></script>
         <script src="participants/participantsRequetes.js" type="text/javascript"></script>
         <script src="Thematique/ThematiqueControleurVue.js" type="text/javascript"></script>
         <script src="Thematique/ThematiqueRequetes.js" type="text/javascript"></script>
-        
-   
+        <script src="Reservation/ReservationControleurVue.js" type="text/javascript"></script>
+        <script src="Reservation/ReservationRequetes.js" type="text/javascript"></script>
+          
     
     <link rel="stylesheet" href="Untitled_fichiers/ionicons.css">
     <link rel="stylesheet" href="Untitled_fichiers/footer-servitech.css">
@@ -85,7 +87,7 @@
                             </div>
                            <div class="nav nav-pills nav-stacked">
                                 <li class="active"><a href="#"><h4>Categories</h4></a></li>
-                                <li><a href="#" class='category' cid='ACTION'>Reservation</a></li>
+                                <li><a href="#" class='category' cid='ACTION' onclick="FormulaireR();">Reservation </a></li>
                                 <li><a href="#"class='category' cid='DRAME' onclick="FormulaireT();">Thematique</a></li>
                                 <li><a href="#"class='category' cid='COMEDIE'  onclick="afficherFormulaire();">Participant</a></li>
                                 <li><a href="#"class='category' cid='SCIENCE FICTION'>Science-ﬁction</a></li>
