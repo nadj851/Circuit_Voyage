@@ -27,12 +27,12 @@ function enregistrer() {
         $requete = "INSERT INTO adresse VALUES(0,?,?,?)";
         $unModele = new filmsModele($requete, array($villeParticipant, $codePostalParticipant, $paysParticipant));
         $stmt = $unModele->executer();
-        $idAdresse = $unModele->lastInsertedId;
+        $idAdresse = $unModele->lastID;
 
         $requete = "INSERT INTO passeport VALUES(0,?,?,?,?,?)";
         $unModele = new filmsModele($requete, array($numeroPasseport,$dateDelPasseport,$dateExpPasseport, $nationalite, $delivrerAExpPasseport));
         $stmt = $unModele->executer();
-        $idPasseport = $unModele->lastInsertedId;
+        $idPasseport = $unModele->lastID;
         
         $requete = "INSERT INTO participants VALUES(0,?,?,?,?,?,?,?)";
         $unModele = new filmsModele($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone, $idAdresse, $idPasseport));

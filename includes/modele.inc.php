@@ -5,6 +5,7 @@ class filmsModele
     private $requete;
     private $params;
     private $connexion;
+    public $lastID;
 
     public function __construct($requete = null, $params = null)
     {
@@ -23,7 +24,9 @@ class filmsModele
     {
         $this->connexion = $this->obtenirConnexion();
         $stmt = $this->connexion->prepare($this->requete);
+       
         $stmt->execute($this->params);
+        $this->lastID=$this->connexion->lastInsertId();
         $this->deconnecter();
         return $stmt;
     }
