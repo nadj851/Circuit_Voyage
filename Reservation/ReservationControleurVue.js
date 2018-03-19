@@ -319,10 +319,8 @@ result+="alt='PayPal - The safer, easier way to pay online'>";
                                
         //******************************************************
          result+= "                <br>";
-        result+= "                <br>";
-                    
-                  
-                           
+        result+= "                <br>";                    
+                                             
         result+= "  </form>";
         result+= " </div>";    
                                                 
@@ -331,17 +329,13 @@ result+="alt='PayPal - The safer, easier way to pay online'>";
         
 }
                    
-        
-            
-       
-      
-         
+             
                     
                     
                     
                     
                     
-                    
+               
                     
                              
                   
