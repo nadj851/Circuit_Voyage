@@ -4,7 +4,11 @@ require_once("../includes/modele.inc.php");
 $tabRes = array();
 
 function enregistrer() {
+
     global $tabRes;
+
+
+
     $nomParticipant = $_POST['nomParticipant'];
     $prenomParticipant = $_POST['prenomParticipant'];
     $sexeParticipant = $_POST['sexeParticipant'];
@@ -16,16 +20,28 @@ function enregistrer() {
     $numeroPasseport = $_POST['numeroPasseport'];
     $dateDelPasseport = $_POST['dateDelPasseport'];
     $delivrerAExpPasseport = $_POST['delivrerAExpPasseport'];
-    $dateDelPasseport = $_POST['dateDelPasseport'];
+    $dateExpPasseport = $_POST['dateExpPasseport'];
     $nationalite = $_POST['nationalite'];
+    $telephone = $_POST['telPostalParticipant'];
     try {
-        $requete = "INSERT INTO participants VALUES(0,?,?,?,?)";
-        $unModele = new filmsModele($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant));
+        $requete = "INSERT INTO adresse VALUES(0,?,?,?)";
+        $unModele = new filmsModele($requete, array($villeParticipant, $codePostalParticipant, $paysParticipant));
         $stmt = $unModele->executer();
+        $idAdresse = $unModele->lastInsertedId;
+
+        $requete = "INSERT INTO passeport VALUES(0,?,?,?,?,?)";
+        $unModele = new filmsModele($requete, array($numeroPasseport,$dateDelPasseport,$dateExpPasseport, $nationalite, $delivrerAExpPasseport));
+        $stmt = $unModele->executer();
+        $idPasseport = $unModele->lastInsertedId;
+        
+        $requete = "INSERT INTO participants VALUES(0,?,?,?,?,?,?,?)";
+        $unModele = new filmsModele($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone, $idAdresse, $idPasseport));
+        $stmt = $unModele->executer();
+        
         $tabRes['action'] = "enregistrer";
         $tabRes['msg'] = "Participant bien enregistré";
     } catch (Exception $e) {
-        
+        $tabRes['msg'] = $e;
     } finally {
         unset($unModele);
     }
@@ -63,18 +79,20 @@ function afficher() {
 
         $rep .= "                <div class=\"container-fluid\" >";
         $rep .= "                    <form id=\"contenuParticpants\"class=\"form-group row\" >";
-        $rep .= "                  <div class=\"container\" style=\"width: 40% ; float: left; margin-left: 20px\" >";
-        $rep .= "					<div class=\"form-group row\">";
-        $rep .= "                          <label for=\"nomParticipant\" class=\"col-sm-2 col-form-label\">Nom</label>";
-        $rep .= "                                <div class=\"col-sm-10\">";
+        
+        $rep .= "                          <div class=\"container\" style=\"width: 40% ; float: left; margin-left: 20px\" >";
+        $rep .= "				<div class=\"form-group row\">";
+        $rep .= "                                  <label for=\"nomParticipant\" class=\"col-sm-2 col-form-label\">Nom</label>";
+        $rep .= "                                    <div class=\"col-sm-10\">";
         $rep .= "                                    <input type=\"text\" class=\"form-control\" id=\"nomParticipant\" name=\"nomParticipant\" placeholder=\"Entrer nom du participant\" required>";
         $rep .= "                                </div>";
         $rep .= "                            </div>";
+        
         $rep .= "                            <div class=\"form-group row\">";
         $rep .= "                                <label for=\"prenomParticipant\" class=\"col-sm-2 col-form-label\">Prénom</label>";
-        $rep .= "                                <div class=\"col-sm-10\">";
+        $rep .= "                                    <div class=\"col-sm-10\">";
         $rep .= "                                    <input type=\"text\" class=\"form-control\" id=\"prenomParticipant\" name=\"prenomParticipant\" placeholder=\"Entrer prénom    du participant\" required>";
-        $rep .= "                                </div>";
+        $rep .= "                                    </div>";
         $rep .= "                            </div>";
 
         $rep .= "                            <div class=\"form-group row\">";
@@ -88,6 +106,7 @@ function afficher() {
         $rep .= "                                    </select>    ";
         $rep .= "                                </div>";
         $rep .= "                            </div>";
+        
         $rep .= "                            <div class=\"form-group row\">";
         $rep .= "                                <label for=\"courielParticipant\" class=\"col-sm-2 col-form-label\">Couriel</label>";
         $rep .= "                                <div class=\"col-sm-10\">";
@@ -101,17 +120,19 @@ function afficher() {
         $rep .= "                                <div class=\"form-check\">";
         $rep .= "                                    <input class=\"form-check-input\" type=\"radio\" name=\"memeAdresse\" id=\"oui\" value=\"option1\" checked>";
         $rep .= "                                    <label class=\"form-check-label\" for=\"exampleRadios1\">Oui</label>";
-        $rep .= "                                </div>";
-        $rep .= "                                <div class=\"form-check\">";
+        $rep .= "                                   </div>";
+        
+        $rep .= "                                   <div class=\"form-check\">";
         $rep .= "                                    <input class=\"form-check-input\" type=\"radio\" name=\"memeAdresse\" id=\"non\" value=\"option2\" >";
         $rep .= "                                    <label class=\"form-check-label\" for=\"exampleRadios1\">Non</label>";
         $rep .= "                                </div>";
         $rep .= "                                </div>";
         $rep .= "                            </div>";
+        
         $rep .= "                            <div class=\"form-group row\">";
         $rep .= "                                <label for=\"paysParticipant\" class=\"col-sm-2 col-form-label\">Pays</label>";
         $rep .= "                                <div class=\"col-sm-10\">";
-        $rep .= "                                    <select name=\"country\" class=\"form-control\"  id=\"paysParticipant\" name=\"paysParticipant\" required>";
+        $rep .= "                                    <select class=\"form-control\"  id=\"paysParticipant\" name=\"paysParticipant\" required>";
         $rep .= "                                        <option value=\"\">Pays...</option>";
         $rep .= "                                        <option value=\"AF\">Afghanistan</option>";
         $rep .= "                                  <option value=\"AL\">Albania</option>";
@@ -195,7 +216,17 @@ function afficher() {
         $rep .= "<input type=\"text\" class=\"form-control\" id=\"codePostalParticipant\" name=\"codePostalParticipant\" placeholder=\"Entrer code postal du participant\">";
         $rep .= "                                </div>";
         $rep .= "                      </div>";
+        
+        $rep .= "           <div class=\"form-group row\">";
+        $rep .= "               <label for=\"telPostalParticipant\" class=\"col-sm-2 col-form-label\">Téléphone</label>";
+        $rep .= "               <div class=\"col-sm-10\">";
+        $rep .= "                   <input type=\"text\" class=\"form-control\" id=\"telPostalParticipant\" name=\"telPostalParticipant\" placeholder=\"Entrer téléphone du participant\">";
+        $rep .= "               </div>";
+        $rep .= "           </div>";
+       
         $rep .= "            </div>   ";
+        
+        
         $rep .= "                        <div class=\"container\" style=\"width: 40% ; float: left; margin-left: 60px\" >";
         $rep .= "                      <label for=\"nomParticipant\" class=\"col-sm-2 col-form-label\" style=\" width: 100%; float: left\">Informations sur le passeport</label>";
         $rep .= "                <br><br>";
@@ -230,7 +261,7 @@ function afficher() {
         $rep .= "                                </div>";
         $rep .= "                      </div>";
         $rep .= "            </div>";
-        $rep .= "<input type=\"hidden\" name=\"action\" value=\"enregistrer\">";
+
         $rep .= "<input type=\"button\" class=\"btn\" value=\"Ajouter participants\" onClick=\" ajouterParticipant();\" style=\"float: right; \">";
         $rep .= "                <br>";
         $rep .= "                <br>";
@@ -326,6 +357,7 @@ function modifier() {
 $action = $_POST['action'];
 switch ($action) {
     case "enregistrer" :
+
         enregistrer();
         break;
     case "lister" :

@@ -21,10 +21,10 @@ function enregistrer(){
 }
 
 function ajouterParticipant(){
-	//var formFilm = new FormData(document.getElementById('contenuParticpants'));
-	var formParticpants = $("#ajouterParticipant").serialize();
+	var formParticpants = new FormData(document.getElementById('contenuParticpants'));
+	//var formParticpants = $("#ajouterParticipant").serialize();
         //formParticpants.push({"action":"enregistrer"}); 
-         //   formParticpants.append('action','enregistrer');
+           formParticpants.append('action','enregistrer');
 	$.ajax({
 		type : 'POST',
 		url : 'participants/participantsControleur.php',
@@ -34,8 +34,8 @@ function ajouterParticipant(){
 		//cache : false,
 		contentType : false,
 		processData : false,
-		success : function (reponse){alert(reponse);
-					//filmsVue(reponse);
+		success : function (reponse){//alert(reponse);
+					filmsVue(reponse);
 		},
 		fail : function (err){
 		   
