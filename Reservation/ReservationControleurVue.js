@@ -14,8 +14,12 @@ function message(reponse){
 function formulaireR(){
 	var result="";
          result+= "                <div class=\"container-fluid\" >";
-        result+= "                    <form id=\"contenuParticpants\"class=\"form-group row\" >";
+        result+= "                    <form id=\"formreservation\"class=\"form-group row\" action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' >";
         
+        result+="<input type='hidden' name='cmd' value='_cart'>";
+       result+="<input type='hidden' name='business' value='Monarela@hotmail.com'>";
+       result+="<input type='hidden' name='upload' value='1'>";
+
         result+= "                  <div class=\"container\" style=\"width: 40% ; float: left; margin-left: 20px\" >";
         result+= "					<div class=\"form-group row\">";
         result+= "                          <label for=\"nomParticipant\" class=\"col-sm-2 col-form-label\">Nom</label>";
@@ -304,7 +308,7 @@ function formulaireR(){
             
         result+= "            </div>";
                                                       
-           result+="<input type='hidden' name='return' value='http://localhost/project1/payment_success.php'/>";
+ result+="<input type='hidden' name='return' value='http://localhost/project1/payment_success.php'/>";
 result+="<input type='hidden' name='notify_url' value='http://localhost/project1/payment_success.php'>";
 result+="<input type='hidden' name='cancel_return' value='http://localhost/project1/cancel.php'/>";
 result+="<input type='hidden' name='currency_code' value='USD'/>";
