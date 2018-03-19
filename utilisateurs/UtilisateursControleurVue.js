@@ -1,4 +1,21 @@
 //vue utilisateurs
+function afficherForm() {
+  $("#conteneur").css("background-color", "cornflowerblue");
+  $("#get_result").html(
+    "   <div class='formDevenirMembre'>  " +
+      ' <h1 class="h1DevenirMembre"> ' +
+      "     Subscription Form  " +
+      "   </h1>  " +
+      "     " +
+      '     <form action="">  ' +
+      '       <input type="text" name="name" class="formStyle" placeholder="Name (required)" required />  ' +
+      '       <input type="email" name="email" class="formStyle" placeholder="Email (required)" required />  ' +
+      '       <a href="#" class="formButton">Subscribe</a>  ' +
+      "     </form>  " +
+      "  </div>  "
+  );
+}
+
 function listerF(listFilms) {
   var taille;
   var rep =

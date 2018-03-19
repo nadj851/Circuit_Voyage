@@ -1,13 +1,11 @@
-$(document).ready(function () {
-listerTT();
-//afficherFormulaire();
-
-//lister();
-//commit
-
-    //film();
-
-    //tous les films
+$(document).ready(function() {
+   //listerTT();
+  // $("#devenirMembre").click();
+  //afficherFormulaire();
+  //lister();
+  //commit
+  //film();
+  //tous les films
   /*  function film() {
         $.ajax({
             url: "gestionFilms.php",
@@ -59,7 +57,7 @@ listerTT();
             }
         });
     });
-    //ajouter les films au panier 
+    //ajouter les films au panier
     //par utilisateur
     count_item();
     function count_item() {
@@ -83,26 +81,4 @@ listerTT();
 
 
 */
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

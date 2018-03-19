@@ -3,16 +3,11 @@
 }
 */
 
-.ligne_horizontal
-{
-    width:900px;
-    border:2px solid black;
-  
+.ligne_horizontal {
+  width: 900px;
+  border: 2px solid black;
 }
 
-.total
-{
-     color: red;
-  
+.total {
+  color: red;
 }
-

@@ -20,12 +20,15 @@
         <script src="Thematique/ThematiqueRequetes.js" type="text/javascript"></script>
         <script src="Reservation/ReservationControleurVue.js" type="text/javascript"></script>
         <script src="Reservation/ReservationRequetes.js" type="text/javascript"></script>
-          
-    
+        <script src="utilisateurs/UtilisateursControleurVue.js" type="text/javascript"></script>
+        <script src="utilisateurs/UtilisateurControleur.js" type="text/javascript"></script>
+
+
+
     <link rel="stylesheet" href="Untitled_fichiers/ionicons.css">
     <link rel="stylesheet" href="Untitled_fichiers/footer-servitech.css">
     <link rel="stylesheet" href="Untitled_fichiers/aos.css">
-    
+
 
     </head>
 
@@ -63,7 +66,7 @@
                                 </li>
                                 <li><a href="#">Nous contacter</a></li>
                             </ul>
-                            <ul class="nav navbar-nav navbar-right">
+                            <ul id="devenirMembre" class="nav navbar-nav navbar-right" onClick="afficherForm()">
                                 <li><a href="#" ><span class="glyphicon glyphicon-user"></span> Devenir membre</a></li>
                                 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a></li>
                             </ul>
@@ -73,7 +76,7 @@
             </nav>
             <div>
                 <br>    <br>
-                <?php include './caroussel/code.php' ?>
+                <?php include './caroussel/code.php'?>
 
 
                 <br>    <br>
@@ -92,12 +95,12 @@
                                 <li><a href="#"class='category' cid='COMEDIE'  onclick="afficherFormulaire();">Participant</a></li>
                                 <li><a href="#"class='category' cid='SCIENCE FICTION'>Science-ﬁction</a></li>
                                 <li><a href="#"class='category' cid='HORREUR'>Horreur</a></li>
-                                <li><a href="#"class='category' cid='SUSPENSE'>Suspense</a></li> 
+                                <li><a href="#"class='category' cid='SUSPENSE'>Suspense</a></li>
                                 <li><a href="#"class='category' cid='POUR LA FAMILLE'>Pour la famille</a></li>
-                                <li><a href="#"class='category' cid='POUR LA FAMILLE'>test</a></li>  
+                                <li><a href="#"class='category' cid='POUR LA FAMILLE'>test</a></li>
 
 
-                            </div> 
+                            </div>
 <div class="nav nav-pills nav-stacked">
                                 <li class="active"><a href="#"><h4>Categories</h4></a></li>
                                 <li><a href="#" class='category' cid='ACTION'>Action</a></li>
@@ -105,17 +108,17 @@
                                 <li><a href="#"class='category' cid='COMEDIE'>Comédie</a></li>
                                 <li><a href="#"class='category' cid='SCIENCE FICTION'>Science-ﬁction</a></li>
                                 <li><a href="#"class='category' cid='HORREUR'>Horreur</a></li>
-                                <li><a href="#"class='category' cid='SUSPENSE'>Suspense</a></li> 
+                                <li><a href="#"class='category' cid='SUSPENSE'>Suspense</a></li>
                                 <li><a href="#"class='category' cid='POUR LA FAMILLE'>Pour la famille</a></li>
-                                <li><a href="#"class='category' cid='POUR LA FAMILLE'>test</a></li>  
+                                <li><a href="#"class='category' cid='POUR LA FAMILLE'>test</a></li>
 
 
-                            </div> 
+                            </div>
 
 
                         </div>
-                        
-                       
+
+
                         <div class="col-md-10 col-md-12">
                             <div class="row">
 
@@ -127,15 +130,8 @@
                             </div>
                             <div class="panel panel-success">
                                 <div class="panel-heading">Tous les Themes</div>
-                                <div class="panel-body">
+                                <div id="conteneur" class="panel-body">
                                     <div id="get_result">
-
-                        
-                                       
-                                        
-                 
-                                
-                        
                         <!--onload="lister()"
                                         <input type="button" class="btn" value="Ajouter participants" onClick=" $('#contenuParticpants').show();">
                                         <br>
@@ -164,7 +160,7 @@
                                                                 <option>Femme</option>
                                                                 <option>Homme</option>
                                                                 <option>Autre</option>
-                                                            </select>    
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
@@ -455,7 +451,7 @@
                                                             <input type="text" class="form-control" id="codePostalParticipant" name="codePostalParticipant" placeholder="Entrer code postal du participant">
                                                         </div>
                                                     </div>
-                                                </div>   
+                                                </div>
 
                                                 <div class="container" style="width: 40% ; float: left; margin-left: 60px" >
                                                     <label for="nomParticipant" class="col-sm-2 col-form-label" style=" width: 100%; float: left">Informations sur le passeport</label>
@@ -492,35 +488,14 @@
                                                     </div>
                                                 </div>
                                             </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        </div>
--->
+                                        </div>-->
                                     </div>
-                                   
                                 </div>
                                  <div class="panel-footer">&copy; 2018</div>
                             </div>
                             <div class="col-md-1"></div>
                         </div>
                     </div>
-
-
-
-
-
-
 
 <div data-aos="zoom-in" class="footer-dark degra-azul aos-init aos-animate">
  <footer>
@@ -570,7 +545,7 @@
                 <p class="copyright">By Monarela© 2018</p>
             </div>
         </footer>
-    
+
 </div>
 
 
