@@ -109,6 +109,26 @@
 			unset($unModele);
 		}
 	}*/
+        
+        //lister les particpants
+      function listerParticipant() {
+    global $tabRes;
+    $tabRes['action'] = "listerParticpants";
+    $requete = "SELECT * FROM participants";
+    try {
+        $unModele = new filmsModele($requete, array());
+        $stmt = $unModele->executer();
+        $tabRes['listeParticpants'] = array();
+        while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $tabRes['listeParticpants'][] = $ligne;
+        }
+    } catch (Exception $e) {
+        
+    } finally {
+        unset($unModele);
+    }
+}
+        
 	//******************************************************
 	//Contr�leur
 	$action=$_POST['action'];
@@ -119,6 +139,10 @@
 		case "lister" :
 			lister();
 		break;
+            
+            case "listerParticipant" :
+        listerParticipant();
+        break;
 		
 	}
     echo json_encode($tabRes);

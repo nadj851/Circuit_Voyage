@@ -79,19 +79,20 @@ function afficherFormulaire(){
 	});
 }
 
-function enlever(){
-	var leForm=document.getElementById('formEnlever');
+function supprimerParticipant(){
+    
+	var leForm=document.getElementById('formreservation');
 	var formFilm = new FormData(leForm);
-	formFilm.append('action','enlever');//alert(formFilm.get("action"));
+	formFilm.append('action','supprimerParticipant');//alert(formFilm.get("action"));
 	$.ajax({
 		type : 'POST',
 		url : 'participants/participantsControleur.php',
 		data : formFilm,//leForm.serialize(),
 		contentType : false, //Enlever ces deux directives si vous utilisez serialize()
 		processData : false,
-		dataType : 'json', //text pour le voir en format de string
-		success : function (reponse){//alert(reponse);
-					filmsVue(reponse);
+		dataType : 'text', //text pour le voir en format de string
+		success : function (reponse){alert(reponse);
+					//filmsVue(reponse);
 		},
 		fail : function (err){
 		}

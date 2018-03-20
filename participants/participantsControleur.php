@@ -295,28 +295,30 @@ function afficher() {
     }
 }
 
-function enlever() {
+function enleverParticipant() {
     global $tabRes;
-    $idf = $_POST['numE'];
+    
+    $idParticpant = $_POST['listParticipant'];
     try {
-        $requete = "SELECT * FROM participants WHERE idf=?";
-        $unModele = new filmsModele($requete, array($idf));
+        $requete = "SELECT * FROM participants WHERE idparticipants=?";
+        $unModele = new filmsModele($requete, array($idParticpant));
         $stmt = $unModele->executer();
         if ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
-            $unModele->enleverFichier("pochettes", $ligne->pochette);
-            $requete = "DELETE FROM participants WHERE idf=?";
-            $unModele = new filmsModele($requete, array($idf));
+//            $unModele->enleverFichier("pochettes", $ligne->pochette);
+            $requete = "DELETE FROM participants WHERE idparticipants=?";
+            $unModele = new filmsModele($requete, array($idParticpant));
             $stmt = $unModele->executer();
-            $tabRes['action'] = "enlever";
-            $tabRes['msg'] = "Film " . $idf . " bien enleve";
+            $tabRes['action'] = "enleverParticpant";
+            $tabRes['msg'] = "Film " . $idParticpant . " bien enleve";
         } else {
             $tabRes['action'] = "enlever";
-            $tabRes['msg'] = "Film " . $idf . " introuvable";
+            $tabRes['msg'] = "Film " . $idParticpant . " introuvable";
         }
     } catch (Exception $e) {
-        
+        echo $e;
     } finally {
         unset($unModele);
+        
     }
 }
 
@@ -381,8 +383,8 @@ switch ($action) {
     case "lister" :
         listerParticipant();
         break;
-    case "enlever" :
-        enlever();
+    case "supprimerParticipant" :
+        enleverParticipant();
         break;
     case "fiche" :
         fiche();
