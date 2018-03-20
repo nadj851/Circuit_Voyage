@@ -89,10 +89,10 @@
                            <div class="nav nav-pills nav-stacked">
                                 <li class="active"><a href="#"><h4>Categories</h4></a></li>
                                 <li><a href="#" class='category' cid='ACTION' onclick="FormulaireR();listerParticipants()">Reservation </a></li>
-                                <li><a href="#"class='category' cid='DRAME' onclick="FormulaireT();">Thematique</a></li>
-                                <li><a href="#"class='category' cid='COMEDIE'  onclick="afficherFormulaire();">Participant</a></li>
+                                <li><a href="#" class='category' cid='DRAME' onclick="FormulaireT();">Thematique</a></li>
+                                <li><a href="#" class='category' cid='COMEDIE'  onclick="afficherFormulaire();">Participant</a></li>
                                 <li><a href="#"class='category' cid='SCIENCE FICTION' onclick="lister();">lister participant</a></li>
-                                <li><a href="#"class='category' cid='HORREUR'>Horreur</a></li>
+                                <li><a href="#"class='category' cid='HORREUR' onclick="afficherCircuit();">circuit</a></li>
                                 <li><a href="#"class='category' cid='SUSPENSE'>Suspense</a></li>
                                 <li><a href="#"class='category' cid='POUR LA FAMILLE'>Pour la famille</a></li>
                                 <li><a href="#"class='category' cid='POUR LA FAMILLE'>test</a></li>
@@ -130,6 +130,9 @@
                                 <div class="panel-heading">Tous les Themes</div>
                                 <div id="conteneur" class="panel-body">
                                     <div id="get_result">
+                                        
+
+                                        
                         <!--onload="lister()"
                                         <input type="button" class="btn" value="Ajouter participants" onClick=" $('#contenuParticpants').show();">
                                         <br>

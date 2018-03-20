@@ -32,6 +32,7 @@
 			    $tabRes['listetheme'][]=$ligne;
 			}
 		}catch(Exception $e){
+                    echo $e;
 		}finally{
 			unset($unModele);
 		}
