@@ -91,7 +91,7 @@
                                 <li><a href="#" class='category' cid='ACTION' onclick="FormulaireR();">Reservation </a></li>
                                 <li><a href="#"class='category' cid='DRAME' onclick="FormulaireT();">Thematique</a></li>
                                 <li><a href="#"class='category' cid='COMEDIE'  onclick="afficherFormulaire();">Participant</a></li>
-                                <li><a href="#"class='category' cid='SCIENCE FICTION'>Science-ﬁction</a></li>
+                                <li><a href="#"class='category' cid='SCIENCE FICTION' onclick="lister();">lister participant</a></li>
                                 <li><a href="#"class='category' cid='HORREUR'>Horreur</a></li>
                                 <li><a href="#"class='category' cid='SUSPENSE'>Suspense</a></li>
                                 <li><a href="#"class='category' cid='POUR LA FAMILLE'>Pour la famille</a></li>

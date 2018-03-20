@@ -1,17 +1,22 @@
 //vue films
-function listerF(listFilms) {
-    var taille;
-    var rep = "<div class='table-users' style='overflow: scroll; height: 500px;'>";
-    rep += "<div class='header'>Liste des films<span style='float:right;padding-right:10px;cursor:pointer;' onClick=\"$('#contenu').hide();\">X</span></div>";
-    rep += "<table cellspacing='0'>";
-    rep += "<tr><th>NUMERO</th><th>TITRE</th><th>DUREE</th><th>REALISATEUR</th><th>POCHETTE</th></tr>";
-    taille = listFilms.length;
+function listerP(listeParticpants) {
+    var taille= listeParticpants.length;;
+    var rep = "<div class='form-group row'>";
+        rep += "                                <label for=\"listParticipant\" class=\"col-sm-2 col-form-label\">Liste Participants</label>";
+        rep += "                                <div class=\"col-sm-10\" >";
+        rep += "                                    <select class=\"form-control\" id=\"listParticipant\" name=\"listParticipant\" required>";
+        rep += "                                        <option></option>";
     for (var i = 0; i < taille; i++) {
-        rep += "<tr><td>" + listFilms[i].idf + "</td><td>" + listFilms[i].titre + "</td><td>" + listFilms[i].duree + "</td><td>" + listFilms[i].res + "</td><td><img src='pochettes/" + listFilms[i].pochette + "' width=80 height=80></td></tr>";
-    }
-    rep += "</table>";
-    rep += "</div>";
-    $('#contenu').html(rep);
+        rep += "<option>" + listeParticpants[i].nom + "</option>" ;
+    }    
+   
+        rep += "                                    </select>    ";
+        rep += "                                </div>";
+        rep += "                            </div>";
+        rep += "<input type=\"button\" class=\"btn\" value=\"Modifier\" onClick=\" modifier();\" style=\"float: right; \"><br><br>";
+        rep += "<input type=\"button\" class=\"btn\" value=\"Supprimer\" onClick=\" supprimer();\" style=\"float: right; \">";
+    
+    $('#get_result').html(rep);
 }
 
 function AfficherForm() {
@@ -54,7 +59,7 @@ var filmsVue = function (reponse) {
             }, 5000);
             break;
         case "lister" :
-            listerF(reponse.listeFilms);
+            listerP(reponse.listeParticpants);
             break;
         case "afficherFormulaire" :
              $('#get_result').html(reponse.msg);
