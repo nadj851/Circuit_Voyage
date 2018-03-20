@@ -68,6 +68,24 @@ function lister() {
     }
 }
 
+function listerParticipant() {
+    global $tabRes;
+    $tabRes['action'] = "lister";
+    $requete = "SELECT * FROM participants";
+    try {
+        $unModele = new filmsModele($requete, array());
+        $stmt = $unModele->executer();
+        $tabRes['listeParticpants'] = array();
+        while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $tabRes['listeParticpants'][] = $ligne;
+        }
+    } catch (Exception $e) {
+        
+    } finally {
+        unset($unModele);
+    }
+}
+
 function afficher() {
     global $tabRes;
 
@@ -262,7 +280,7 @@ function afficher() {
         $rep .= "                      </div>";
         $rep .= "            </div>";
 
-        $rep .= "<input type=\"button\" class=\"btn\" value=\"Ajouter participants\" onClick=\" ajouterParticipant();\" style=\"float: right; \">";
+        $rep .= "<input type=\"button\" class=\"btn\" value=\"Ajouter participants\" onClick=\" ajouterParticipant(); listerTT();\" style=\"float: right; \">";
         $rep .= "                <br>";
         $rep .= "                <br>";
         $rep .= "  </form>";
@@ -361,7 +379,7 @@ switch ($action) {
         enregistrer();
         break;
     case "lister" :
-        lister();
+        listerParticipant();
         break;
     case "enlever" :
         enlever();
