@@ -280,7 +280,7 @@ function afficher() {
         $rep .= "                      </div>";
         $rep .= "            </div>";
 
-        $rep .= "<input type=\"button\" class=\"btn\" value=\"Ajouter participants\" onClick=\" ajouterParticipant();\" style=\"float: right; \">";
+        $rep .= "<input type=\"button\" class=\"btn\" value=\"Ajouter participants\" onClick=\" ajouterParticipant(); listerTT();\" style=\"float: right; \">";
         $rep .= "                <br>";
         $rep .= "                <br>";
         $rep .= "  </form>";
