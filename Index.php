@@ -431,8 +431,6 @@ include_once "includes/init.php";
 </div>
 
 
-
-
 <!--    <script src="Untitled_fichiers/jquery-3.js"></script>
     <script src="Untitled_fichiers/bootstrap.js"></script>
     <script src="Untitled_fichiers/bs-animation.js"></script>
