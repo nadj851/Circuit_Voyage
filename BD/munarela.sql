@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mar. 20 mars 2018 à 00:40
+-- Généré le :  mer. 21 mars 2018 à 08:08
 -- Version du serveur :  5.7.17
 -- Version de PHP :  7.1.3
 
@@ -62,7 +62,8 @@ INSERT INTO `adresse` (`idAdresse`, `ville`, `codePostale`, `pays`) VALUES
 (18, 'alo', 'a12a12', 'BY'),
 (19, 'alo', 'a12a12', 'BY'),
 (20, 'alo', 'asdasd', 'BS'),
-(21, 'alo', 'aaaaaa', 'AT');
+(21, 'alo', 'aaaaaa', 'AT'),
+(22, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -324,13 +325,28 @@ INSERT INTO `thematique` (`idThematique`, `nom`, `description`, `image`) VALUES
 --
 
 CREATE TABLE `utilisateur` (
-  `idUtilisateur` int(11) NOT NULL,
-  `nom` varchar(100) DEFAULT NULL,
-  `prenom` varchar(100) DEFAULT NULL,
-  `motDePasse` varchar(256) DEFAULT NULL,
-  `courriel` varchar(64) DEFAULT NULL,
-  `actif` tinyint(4) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `display_name` varchar(50) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `date_added` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id`, `first_name`, `last_name`, `display_name`, `email`, `password`, `date_added`) VALUES
+(1, 'Jay', 'Pabs', 'jaypabs', 'asdf@gmail.com', '202cb962ac59075b964b07152d234b70', '2016-11-12 20:24:33'),
+(2, 'nadjib', 'larkem', 'nadj851', 'nadjiblar@hotmail.fr', '21232f297a57a5a743894a0e4a801fc3', '2018-02-19 21:53:07'),
+(3, 'NONO', 'LOLO', 'nadj851', 'naar8@hotmail.com', '202cb962ac59075b964b07152d234b70', '2018-02-21 03:57:17'),
+(4, 'admin', 'admin', 'admin', 'admin@admin.com', '21232f297a57a5a743894a0e4a801fc3', '2018-02-25 20:39:53'),
+(5, 'nana', 'lala', 'jas', 'jas@hotmail.com', '202cb962ac59075b964b07152d234b70', '2018-03-03 18:39:43'),
+(6, 'nadjib', 'larkem', 'nadjib', 'nadjib@hotmail.com', '202cb962ac59075b964b07152d234b70', '2018-03-04 07:54:41'),
+(7, 'lara', 'mara', 'lara', 'lara@hotmail.com', '202cb962ac59075b964b07152d234b70', '2018-03-04 16:13:27'),
+(8, 'haha', 'lala', 'lala', 'lala@hotmail.com', '202cb962ac59075b964b07152d234b70', '2018-03-04 16:32:50');
 
 --
 -- Index pour les tables déchargées
@@ -444,8 +460,7 @@ ALTER TABLE `thematique`
 -- Index pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  ADD PRIMARY KEY (`idUtilisateur`),
-  ADD UNIQUE KEY `CourrielUtilisateur_UNIQUE` (`courriel`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -455,7 +470,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `adresse`
 --
 ALTER TABLE `adresse`
-  MODIFY `idAdresse` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idAdresse` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT pour la table `banner`
 --
@@ -525,7 +540,7 @@ ALTER TABLE `thematique`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
