@@ -39,7 +39,7 @@
 		}
 	}
 	
-	function register(){
+	/*function register(){
            global $tabRes;
 	$tabRes['action']="register";
         $first_name= $_POST['first_name'];
@@ -89,7 +89,7 @@
 	}
         
         
-        
+      */  
         
         function logout(){
 		global $tabRes;
