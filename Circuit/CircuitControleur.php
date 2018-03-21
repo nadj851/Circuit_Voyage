@@ -4,26 +4,37 @@ require_once("../includes/modele.inc.php");
 $tabRes = array();
 
 
-//function enregistrer() {
-//    global $tabRes;
-//    $nom = $_POST['nom'];
-//    $description = $_POST['description'];
-//
-//    try {
-//        $unModele = new filmsModele();
-//        $pochete = $unModele->verserFichier("pochettes", "pochette", "avatar.jpg", $nom);
-//        $requete = "INSERT INTO thematique VALUES(0,?,?,?)";
-//        $unModele = new filmsModele($requete, array($nom, $description, $pochete));
-//        $stmt = $unModele->executer();
-//        $tabRes['action'] = "enregistrer";
-//        $tabRes['msg'] = "thamatique bien enregistrer";
-//    } catch (Exception $e) {
-//        
-//    } finally {
-//        unset($unModele);
-//    }
-//}
-//
+function enregistrerCircuit() {
+    global $tabRes;
+    
+    $nomCircuit = $_POST['nomCircuit'];
+    $dateDepart = $_POST['dateDepartCircuit'];
+    $dateRetour = $_POST['dateRetourCircuit'];
+    $nbPersonnesMax = $_POST['nbPersonnesMax'];
+    $nbPersonnesMin = $_POST['nbPersonnesMin'];
+    $description = $_POST['descripCircuit'];
+    $prix = $_POST['prixCircuit'];
+    $idthematique = $_POST['themeCircuit'];
+    $imageCircuit = $_POST['imageCircuit'];
+    $guide = $_POST['guide'];
+    $idPromo = $_POST['idPromo'];
+
+
+    try {
+        $unModele = new filmsModele();
+        $pochete = $unModele->verserFichier("pochettes", "pochette", "avatar.jpg", $nomCircuit);
+        $requete = "INSERT INTO circuit VALUES(0,?,?,?,?,?,?,?,?,?,?,?)";
+        $unModele = new filmsModele($requete, array($nomCircuit, $dateDepart, $dateRetour,$nbPersonnesMax,$nbPersonnesMin,$description,$prix,$pochete,null,null,$idthematique,));
+        $stmt = $unModele->executer();
+        $tabRes['action'] = "enregistrer";
+        $tabRes['msg'] = "circuit bien enregistrer";
+    } catch (Exception $e) {
+        echo $e;
+    } finally {
+        unset($unModele);
+    }
+}
+
 //function lister() {
 //    global $tabRes;
 //    $tabRes['action'] = "lister";
@@ -138,8 +149,8 @@ $tabRes = array();
 //Contr�leur
 $action = $_POST['action'];
 switch ($action) {
-    case "enregistrer" :
-        enregistrer();
+    case "enregistrerCircuit" :
+        enregistrerCircuit();
         break;
     case "afficherFormCircuit" :
         afficherFormCircuit();

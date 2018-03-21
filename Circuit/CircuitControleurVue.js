@@ -48,15 +48,31 @@ function formulaireCircuit(reponse) {
     input += "                                                <div class=\"form-group row\">";
     input += "                                                    <label for=\"dateDepartCircuit\" class=\"col-sm-2 col-form-label\">Date de départ<\/label>";
     input += "                                                    <div class=\"col-sm-10\">";
-    input += "                                                        <input type=\"text\" class=\"form-control\" id=\"dateDepartCircuit\" name=\"dateDepartCircuit\" placeholder=\"Entrer prénom    du participant\" required>";
+    input += "                                                        <input type=\"text\" class=\"form-control\" id=\"dateDepartCircuit\" name=\"dateDepartCircuit\" placeholder=\"Entrer départ date\" required>";
     input += "                                                    <\/div>";
     input += "                                                <\/div>";
     input += "";
     input += "";
     input += "                                                <div class=\"form-group row\">";
-    input += "                                                    <label for=\"NbPersonneMin\" class=\"col-sm-2 col-form-label\">Nombre personnes minimum<\/label>";
+    input += "                                                    <label for=\"dateRetourCircuit\" class=\"col-sm-2 col-form-label\">Date de départ<\/label>";
     input += "                                                    <div class=\"col-sm-10\">";
-    input += "                                                        <input type=\"text\" class=\"form-control\" id=\"NbPersonneMin\" name=\"NbPersonneMin\" placeholder=\"Entrer courriel du participant\" required>";
+    input += "                                                        <input type=\"text\" class=\"form-control\" id=\"dateRetourCircuit\" name=\"dateRetourCircuit\" placeholder=\"Entrer retour date\" required>";
+    input += "                                                    <\/div>";
+    input += "                                                <\/div>";
+    input += "";
+    input += "";
+    input += "                                                <div class=\"form-group row\">";
+    input += "                                                    <label for=\"nbPersonneMin\" class=\"col-sm-2 col-form-label\">Nombre personnes minimum<\/label>";
+    input += "                                                    <div class=\"col-sm-10\">";
+    input += "                                                        <input type=\"text\" class=\"form-control\" id=\"nbPersonneMin\" name=\"nbPersonneMin\" placeholder=\"Entrer courriel du participant\" required>";
+    input += "                                                    <\/div>";
+    input += "                                                <\/div>";
+    input += "";
+    input += "";
+    input += "                                                <div class=\"form-group row\">";
+    input += "                                                    <label for=\"nbPersonneMax\" class=\"col-sm-2 col-form-label\">Nombre personnes maximum<\/label>";
+    input += "                                                    <div class=\"col-sm-10\">";
+    input += "                                                        <input type=\"text\" class=\"form-control\" id=\"nbPersonneMax\" name=\"nbPersonneMax\" placeholder=\"Entrer courriel du participant\" required>";
     input += "                                                    <\/div>";
     input += "                                                <\/div>";
     input += "";
@@ -91,7 +107,7 @@ function formulaireCircuit(reponse) {
     input += "                                                        <\/select>";
     input += "                                                    <\/div>";
     input += "                                                <\/div>";
-    input += "                                                <input type=\"button\" id=\"ajouterCircuit\"class=\"btn\" onclick='$(\"#contenuCircuit\").hide(); $(\"#contenuEtape\").show();' value=\"Sauvegarder et passer aux étapes\" >";
+    input += "                                                <input type=\"button\" id=\"ajouterCircuit\"class=\"btn\" onclick='$(\"#contenuCircuit\").hide(); $(\"#contenuEtape\").show(); AjouterCircuit();' value=\"Sauvegarder et passer aux étapes\" >";
     input += "                                            <\/div>";
     input += "";
     input += "";
@@ -245,5 +261,3 @@ var CircuitVue = function (reponse) {
 
     }
 }
-
-

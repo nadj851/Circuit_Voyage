@@ -1,18 +1,18 @@
 ////requ�tes RESERVATION
 function AjouterCircuit() {
-    var formreservation = new FormData(document.getElementById('formEnrReserv'));
-    formreservation.append('action', 'enregistrer');
+    var formCircuit = new FormData(document.getElementById('contenuCircuit'));
+    formCircuit.append('action', 'enregistrerCircuit');
     $.ajax({
         type: 'POST',
-        url: 'Reservation/ReservationControleur.php',
-        data: formreservation,
-        dataType: 'json', //text pour le voir en format de string
+        url: 'Circuit/CircuitControleur.php',
+        data: formCircuit,
+        dataType: 'text', //text pour le voir en format de string
         //async : false,
         //cache : false,
         contentType: false,
         processData: false,
-        success: function (reponse) {//alert(reponse);
-            reservationVue(reponse);
+        success: function (reponse) {alert(reponse);
+            //CircuitVue(reponse);
         },
         fail: function (err) {
 
