@@ -1,6 +1,9 @@
 $(document).ready(function () {
-    listerTT();
-
+   // listerTT();
+$("#ajouterCircuit").click(function(){
+        $("#contenuCircuit").hide();
+        $("#contenuEtape").show();
+        });
     //afficher les circuits
     $("a[name=afficherCircuit]").click(function () {
         
