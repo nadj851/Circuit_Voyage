@@ -4,31 +4,21 @@ require_once("../includes/modele.inc.php");
 $tabRes = array();
 
 
-function enregistrerCircuit() {
+function enregistrerEtape() {
     global $tabRes;
     
-    $nomCircuit = $_POST['nomCircuit'];
-    $dateDepart = $_POST['dateDepartCircuit'];
-    $dateRetour = $_POST['dateRetourCircuit'];
-    $nbPersonnesMax = $_POST['nbPersonnesMax'];
-    $nbPersonnesMin = $_POST['nbPersonnesMin'];
-    $description = $_POST['descripCircuit'];
-    $prix = $_POST['prixCircuit'];
-    $idthematique = $_POST['themeCircuit'];
-    $imageCircuit = $_POST['imageCircuit'];
-    $guide = $_POST['guide'];
-    $idPromo = $_POST['idPromo'];
-
+    $nomEtape = $_POST['nomEtape'];
+    $descriptionEtape = $_POST['descripEtape'];
+    $idCircuit=$_SESSION["idCircuit"];
 
     try {
         $unModele = new filmsModele();
-        $pochete = $unModele->verserFichier("pochettes", "pochette", "avatar.jpg", $nomCircuit);
-        $requete = "INSERT INTO circuit VALUES(0,?,?,?,?,?,?,?,?,?,?,?)";
-        $unModele = new filmsModele($requete, array($nomCircuit, $dateDepart, $dateRetour,$nbPersonnesMax,$nbPersonnesMin,$description,$prix,$pochete,null,null,$idthematique));
+        //$pochete = $unModele->verserFichier("pochettes", "pochette", "avatar.jpg", $nomCircuit);
+        $requete = "INSERT INTO etape VALUES(0,?,?,?)";
+        $unModele = new filmsModele($requete, array($nomEtape,$descriptionEtape,$idCircuit));
         $stmt = $unModele->executer();
-        $_SESSION["idCircuit"] = $unModele->lastID;
         $tabRes['action'] = "enregistrer";
-        $tabRes['msg'] = "circuit bien enregistrer";
+        $tabRes['msg'] = "étape bien enregistrer";
     } catch (Exception $e) {
         echo $e;
     } finally {
@@ -150,16 +140,16 @@ function enregistrerCircuit() {
 //Contr�leur
 $action = $_POST['action'];
 switch ($action) {
-    case "enregistrerCircuit" :
-        enregistrerCircuit();
+    case "enregistrerEtape" :
+        enregistrerEtape();
         break;
-    case "afficherFormCircuit" :
-        afficherFormCircuit();
-        break;
-
-    case "listerParticipant" :
-        listerParticipant();
-        break;
+//    case "afficherFormCircuit" :
+//        afficherFormCircuit();
+//        break;
+//
+//    case "listerParticipant" :
+//        listerParticipant();
+//        break;
 }
 echo json_encode($tabRes);
 ?>

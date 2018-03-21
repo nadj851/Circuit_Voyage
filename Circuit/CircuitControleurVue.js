@@ -125,18 +125,17 @@ function formulaireCircuit(reponse) {
     input += "                                                        <input type=\"text\" class=\"form-control\" id=\"nomEtape\" name=\"nomEtape\" placeholder=\"Entrer nom du participant\" required>";
     input += "                                                    <\/div>";
     input += "                                                <\/div>";
-    input += "";
-    input += "                                                <div class=\"form-group row\">";
-    input += "                                                    <label for=\"duree1\" class=\"col-sm-2 col-form-label\">Durée<\/label>";
-    input += "                                                    <div class=\"col-sm-10\">";
-    input += "                                                        <label for=\"duree2\" class=\"col-sm-2 col-form-label\">      jours<\/label>";
-    input += "                                                    <\/div>";
-    input += "                                                <\/div>";
-    input += "                                                <div id=\"premierJour\">";
     input += "                                                    <div class=\"form-group row\">";
-    input += "                                                        <h3 for=\"Hotels\" class=\"col-sm-2 col-form-label\">Jour 1<\/h3>";
+    input += "                                                        <label for=\"descripEtape\" class=\"col-sm-2 col-form-label\">Déscription étape<\/label>";
+    input += "                                                        <div class=\"col-sm-10\">";
+    input += "                                                            <textarea class=\"form-control\" rows=\"5\" id=\"descripEtape\" name=\"descripEtape\"><\/textarea>";
     input += "";
+    input += "                                                        <\/div>";
     input += "                                                    <\/div>";
+    
+    input += "                                                <input type=\"button\" class=\"btn\" value=\"Enregistrer étape\" onClick='  AjouterEtape();'><br><br>";
+    input += "                                        <\/form>";
+    input += "";
     input += "";
     input += "";
     input += "                                                    <div class=\"form-group row\">";
@@ -222,11 +221,11 @@ function formulaireCircuit(reponse) {
     input += "                                                        <\/div>";
     input += "                                                    <\/div>";
     input += "                                                <\/div>";
-    input += "                                                <input type=\"button\" class=\"btn\" value=\"Jour suivant\" onClick=\" $('#deuxJour').show();\">";
+    input += "                                                <input type=\"button\" class=\"btn\" value=\"Jour suivant\" onClick=' $('#deuxJour').show(); AjouterEtape();'>";
     input += "                                            <\/div>";
     input += "";
     input += "";
-    input += "                                        <\/form>";
+
     input += "                                    <\/div>";
 
     $('#get_result').html(input);

@@ -33,7 +33,10 @@ include_once "includes/init.php";
         
         <script src="Circuit/CircuitControleurVue.js" type="text/javascript"></script>
         <script src="Circuit/CircuitRequetes.js" type="text/javascript"></script>
-
+        
+        <script src="Etape/EtapeControleurVue.js" type="text/javascript"></script>
+        <script src="Etape/EtapeRequetes.js" type="text/javascript"></script>
+        
         <link rel="stylesheet" href="Untitled_fichiers/ionicons.css">
         <link rel="stylesheet" href="Untitled_fichiers/footer-servitech.css">
         <link rel="stylesheet" href="Untitled_fichiers/aos.css">

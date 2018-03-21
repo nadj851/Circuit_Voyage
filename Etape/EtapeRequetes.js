@@ -1,18 +1,18 @@
 ////requ�tes RESERVATION
-function AjouterCircuit() {
-    var formCircuit = new FormData(document.getElementById('contenuCircuit'));
-    formCircuit.append('action', 'enregistrerCircuit');
+function AjouterEtape() {
+    var formEtape = new FormData(document.getElementById('contenuEtape'));
+    formEtape.append('action', 'enregistrerEtape');
     $.ajax({
         type: 'POST',
-        url: 'Circuit/CircuitControleur.php',
-        data: formCircuit,
-        dataType: 'json', //text pour le voir en format de string
+        url: 'Etape/EtapeControleur.php',
+        data: formEtape,
+        dataType: 'text', //text pour le voir en format de string
         //async : false,
         //cache : false,
         contentType: false,
         processData: false,
-        success: function (reponse) {//alert(reponse);
-            CircuitVue(reponse);
+        success: function (reponse) {alert(reponse);
+            //CircuitVue(reponse);
         },
         fail: function (err) {
 
@@ -106,22 +106,22 @@ function AjouterCircuit() {
 //}
 
 //lister les participant
-function FormulaireCircuit() {
-    var formFilm = new FormData();
-    formFilm.append('action','lister');//alert(formFilm.get("action"));
-    $.ajax({
-        type: 'POST',
-        url: 'Thematique/ThematiqueControleur.php',
-        data: formFilm,
-        contentType: false,
-        processData: false,
-        dataType: 'json', //text pour le voir en format de string
-        success: function (reponse) {
-            //alert(reponse);
-            CircuitVue(reponse);
-        },
-        fail: function (err) {
-        }
-    });
-}
+//function FormulaireCircuit() {
+//    var formFilm = new FormData();
+//    formFilm.append('action','lister');//alert(formFilm.get("action"));
+//    $.ajax({
+//        type: 'POST',
+//        url: 'Thematique/ThematiqueControleur.php',
+//        data: formFilm,
+//        contentType: false,
+//        processData: false,
+//        dataType: 'json', //text pour le voir en format de string
+//        success: function (reponse) {
+//            //alert(reponse);
+//            CircuitVue(reponse);
+//        },
+//        fail: function (err) {
+//        }
+//    });
+//}
 
