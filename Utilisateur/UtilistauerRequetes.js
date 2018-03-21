@@ -174,14 +174,14 @@ function registerU(){
 		//cache : false,
 		contentType : false,
 		processData : false,
-		success : function (reponse){alert(reponse);
+		success : function (reponse){ alert(reponse);
                                         
-                 if (reponse.msg=="index") {
-                window.location.href = 'index.php';
+                // if (reponse.msg=="index") {
+                //window.location.href = 'index.php';
                 utilisateurVue(reponse);
-            } else {
-            }
-		utilisateurVue(reponse);
+          //  } else {
+           // }
+		//utilisateurVue(reponse);
                                        
                                         
 		},

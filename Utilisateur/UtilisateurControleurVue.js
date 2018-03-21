@@ -102,7 +102,7 @@ resul+="<div class='row'>";
                     resul+="</div>";
                 resul+="</div>";
             resul+="</div>";
-            resul+="<div class='row'>";
+           /* resul+="<div class='row'>";
                 resul+="<div class='col-xs-4 col-sm-3 col-md-3 checkbox'>";
                         
                     resul+="<label>";
@@ -112,7 +112,7 @@ resul+="<div class='row'>";
                 resul+="<div class='col-xs-8 col-sm-9 col-md-9'>";
                     resul+="En cliquant <strong class='label label-primary'>Enregistrer</strong>, vous acceptez le <a href='#' data-toggle='modal' data-target='#t_and_c_m'>Termes et conditions</a> mis en place par ce site, y compris notre utilisation des cookies.";
                 resul+="</div>";
-            resul+="</div>";
+            resul+="</div>";*/
 
             resul+="<hr class='colorgraph'>";
             resul+="<div class='row'>";

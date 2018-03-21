@@ -39,20 +39,42 @@
 		}
 	}
 	
-	/*function register(){
+	function register(){
            global $tabRes;
 	$tabRes['action']="register";
+        
         $first_name= $_POST['first_name'];
 	$last_name= $_POST['last_name'];
 	$display_name= $_POST['display_name'];
 	$email	= $_POST['email'];
 	$password= md5($_POST['password']);
 	$confirm_password= $_POST['confirm_password'];
-	$errors = [];
+        $date=now();
+        
+            
+		
+		try{
+			$unModele=new filmsModele();
+			
+			$requete="INSERT INTO utilisateur VALUES(0,?,?,?,?,?,?,?)";
+			$unModele=new filmsModele($requete,array($first_name,$last_name,$display_name,$email,$password,$confirm_password,$date));
+			$stmt=$unModele->executer();
+			$tabRes['action']="register";
+			$tabRes['msg']="utilisateur bien enregistrer";
+		}catch(Exception $e){
+		}finally{
+			unset($unModele);
+		}
+        
+        
+        
+        
+        
+	///$errors = [];
                 
 		
                   /////////////
-                  if ($_SERVER['REQUEST_METHOD'] == 'POST')
+      /*            if ($_SERVER['REQUEST_METHOD'] == 'POST')
               {	
                       if (email_exists($email))
 	{
@@ -79,7 +101,7 @@
 		$connexion->close();
 	}
 }
-                 //////////////       //////////////
+          */       //////////////       //////////////
                         
                         
                         
@@ -89,7 +111,7 @@
 	}
         
         
-      */  
+      
         
         function logout(){
 		global $tabRes;
