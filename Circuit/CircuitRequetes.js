@@ -1,24 +1,24 @@
 ////requ�tes RESERVATION
-//function enregistrerR(){
-//	var formreservation = new FormData(document.getElementById('formEnrReserv'));
-//	formreservation.append('action','enregistrer');
-//	$.ajax({
-//		type : 'POST',
-//		url : 'Reservation/ReservationControleur.php',
-//		data : formreservation,
-//		dataType : 'json', //text pour le voir en format de string
-//		//async : false,
-//		//cache : false,
-//		contentType : false,
-//		processData : false,
-//		success : function (reponse){//alert(reponse);
-//					reservationVue(reponse);
-//		},
-//		fail : function (err){
-//		   
-//		}
-//	});
-//}
+function AjouterCircuit(){
+	var formreservation = new FormData(document.getElementById('formEnrReserv'));
+	formreservation.append('action','enregistrer');
+	$.ajax({
+		type : 'POST',
+		url : 'Reservation/ReservationControleur.php',
+		data : formreservation,
+		dataType : 'json', //text pour le voir en format de string
+		//async : false,
+		//cache : false,
+		contentType : false,
+		processData : false,
+		success : function (reponse){//alert(reponse);
+					reservationVue(reponse);
+		},
+		fail : function (err){
+		   
+		}
+	});
+}
 //
 //function listerRR(){
 //	var formreservation = new FormData();
@@ -106,20 +106,21 @@
 //}
 
 //lister les participant
-function afficherCircuit(){
+function FormulaireCircuit(){
 	var formFilm = new FormData();
-	formFilm.append('action','lister');//alert(formFilm.get("action"));
+	formFilm.append('action','afficherFormCircuit');//alert(formFilm.get("action"));
 	$.ajax({
 		type : 'POST',
-		url : 'participants/participantsControleur.php',
+		url : 'Circuit/CircuitControleur.php',
 		data : formFilm,
 		contentType : false,
 		processData : false,
-		dataType : 'json', //text pour le voir en format de string
-		success : function (reponse){//alert(reponse);
-					filmsVue(reponse);
+		dataType : 'text', //text pour le voir en format de string
+		success : function (reponse){alert(reponse);
+					CircuitVue(reponse);
 		},
 		fail : function (err){
 		}
 	});
 }
+

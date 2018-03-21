@@ -140,8 +140,8 @@ switch ($action) {
     case "enregistrer" :
         enregistrer();
         break;
-    case "lister" :
-        lister();
+    case "afficherFormCircuit" :
+        afficherFormCircuit();
         break;
 
     case "listerParticipant" :
