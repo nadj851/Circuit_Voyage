@@ -1,3 +1,8 @@
+<?php
+include_once "includes/init.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,18 +19,22 @@
         <script src="js/main.js" type="text/javascript"></script>
         <script src="./js/global.js"></script>
         <link rel="stylesheet" href="css/style.css">
-
+        
         <script src="participants/participantsControleurVue.js" type="text/javascript"></script>
         <script src="participants/participantsRequetes.js" type="text/javascript"></script>
-
+        
         <script src="Thematique/ThematiqueControleurVue.js" type="text/javascript"></script>
         <script src="Thematique/ThematiqueRequetes.js" type="text/javascript"></script>
+       
         <script src="Reservation/ReservationControleurVue.js" type="text/javascript"></script>
         <script src="Reservation/ReservationRequetes.js" type="text/javascript"></script>
-
-        <link rel="stylesheet" href="Untitled_fichiers/ionicons.css">
-        <link rel="stylesheet" href="Untitled_fichiers/footer-servitech.css">
-        <link rel="stylesheet" href="Untitled_fichiers/aos.css">
+        
+        <script src="Utilisateur/UtilisateurControleurVue.js" type="text/javascript"></script>
+        <script src="Utilisateur/UtilistauerRequetes.js" type="text/javascript"></script>
+       
+    <link rel="stylesheet" href="Untitled_fichiers/ionicons.css">
+    <link rel="stylesheet" href="Untitled_fichiers/footer-servitech.css">
+    <link rel="stylesheet" href="Untitled_fichiers/aos.css">
 
 
     </head>
@@ -44,8 +53,7 @@
                 <div class="container">
                     <div class="navbar-header">
                         <div class="container-fluid" >
-
-                            <ul class="nav navbar-nav " >
+       <ul class="nav navbar-nav " >
                                 <li class="active" ><a href="#"><span class="glyphicon glyphicon-home" style="font-size: 25px; color: white"></span></a></li>
                                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Circuits <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
@@ -64,42 +72,62 @@
                                 </li>
                                 <li><a href="#">Nous contacter</a></li>
                             </ul>
-                            <ul id="devenirMembre" class="nav navbar-nav navbar-right" onClick="afficherForm()">
-                                <li><a href="#" ><span class="glyphicon glyphicon-user"></span> Devenir membre</a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a></li>
+                            
+                            <ul id="devenirMembre" class="nav navbar-nav navbar-right" >
+                                <li><a href="#" onClick="formulaireregister();"><span class="glyphicon glyphicon-user"></span> Devenir membre</a></li>
+                                
+                               <?php if (!logged_in()) : ?>
+                                <li><a href="#" onClick="formulairelogin();"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a></li>
+                                 <?php else : ?>
+                                <li><a href="#" onClick="logoutU();">Deconnecter</a></li>
+                            <li><a href=""><?php echo "Bonjour " . $_SESSION['email']; ?></a></li>
+
+                           <?php endif; ?>
+
+
+                                
+                                
+                            <li> <a href="login.php"><span class="glyphicon glyphicon-shopping-cart"></span>Panier<span class="badge">0</span></a>  </li>		
+                      					                                                     
+                                             
+                       
                             </ul>
+                            
+                    
                         </div>
                     </div>
                 </div>
             </nav>
             <div>
                 <br>    <br>
-                <?php include './caroussel/code.php' ?>
-
-
+                <?php include './caroussel/code.php'?>
+<br>    
+  <div style='margin-left:30px;margin-top: 5px;background-color: yellow;font-size: 15px;float:left'><span class="glyphicon glyphicon-cog"></span><a href="lister.php" >Dashboard</a>    </div>
                 <br>    <br>
 
 
                 <div class="container-fluid">
                     <div class="row">
 
-                        <div class="col-md-2 col-md-12">
+                       <div class="col-md-2 col-md-12">
                             <div id="get_cat">
-                            </div>
-                            <div class="nav nav-pills nav-stacked">
+                          
+                           <div class="nav nav-pills nav-stacked">
                                 <li class="active"><a href="#"><h4>Categories</h4></a></li>
                                 <li><a href="#" class='category' cid='ACTION' onclick="FormulaireR();listerParticipants()">Reservation </a></li>
                                 <li><a href="#" class='category' cid='DRAME' onclick="FormulaireT();">Thematique</a></li>
-                                <li><a href="#" class='category' cid='COMEDIE'  onclick="afficherFormulaire();">Participant</a></li>
+                                <li><a href="#" class='category' cid='COMEDIE'  id="circuitDepart">Participant</a></li>
                                 <li><a href="#"class='category' cid='SCIENCE FICTION' onclick="lister();">lister participant</a></li>
-                                <li><a href="#"class='category' cid='HORREUR' onclick="afficherCircuit();">circuit</a></li>
+                                <li><a href="#"class='category' cid='HORREUR' >circuit</a></li>
                                 <li><a href="#"class='category' cid='SUSPENSE'>Suspense</a></li>
                                 <li><a href="#"class='category' cid='POUR LA FAMILLE'>Pour la famille</a></li>
                                 <li><a href="#"class='category' cid='POUR LA FAMILLE'>test</a></li>
-
+                            
 
                             </div>
-                            <div class="nav nav-pills nav-stacked">
+                                  </div>
+                  <div id="get_cat1">         
+                    <div class="nav nav-pills nav-stacked">
                                 <li class="active"><a href="#"><h4>Categories</h4></a></li>
                                 <li><a href="#" class='category' cid='ACTION'>Action</a></li>
                                 <li><a href="#"class='category' cid='DRAME'>Drame at répertoire</a></li>
@@ -112,7 +140,7 @@
 
 
                             </div>
-
+                           </div>
 
                         </div>
 
@@ -130,14 +158,20 @@
                                 <div class="panel-heading">Tous les Themes</div>
                                 <div id="conteneur" class="panel-body">
                                     <div id="get_result">
+                                        
+                                        
+                             <!--  ici les amis tous  nos resultats  -->        
 
+                      
+                                    </div>
+                                    
 
 
 
 
                                         <br>
                                         <br>
-                                        <div class="container-fluid" >
+                                        <div class="container-fluid" id="conteneurCircuit" >
                                             <form id="contenuCircuit"class="form-group row" style="display: block">
                                                 <div class="form-group row">
                                                     <h2 for="nomCircuit" class="col-sm-2 col-form-label">Création circuit</h2>
@@ -331,76 +365,76 @@
 
                                             </form>
                                         </div>
-                                    </div>
+                                    
                                 </div>
-                                <div class="panel-footer">&copy; 2018</div>
+                                 <div class="panel-footer">&copy; 2018</div>
                             </div>
                             <div class="col-md-1"></div>
                         </div>
                     </div>
 
-                    <div data-aos="zoom-in" class="footer-dark degra-azul aos-init aos-animate">
-                        <footer>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-sm-4 col-md-3 item" style="font-family:Lato, sans-serif;">
-                                        <h3>Servitech </h3>
-                                        <h3><img src="Untitled_fichiers/separa_34.png" id="imagen-separa"> </h3>
-                                        <ul>
-                                            <li><a href="#">Somos una empresa que&nbsp;brinda soluciones integralesen el área de tecnología.&nbsp; </a></li>
-                                            <li><a href="#">Reparación, mantenimiento&nbsp;de computadores, celularestablets, impresoras , soporte&nbsp;técnico, cableado estructurado. </a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-4 col-md-3 item" style="font-family:Lato, sans-serif;">
-                                        <h3>Donde estamos</h3>
-                                        <h3><img src="Untitled_fichiers/separa_34.png" id="imagen-separa"> </h3>
-                                        <ul>
-                                            <li><i class="fa fa-map-marker espacio-ico-01"></i><a href="#">Dirección Carrera&nbsp;48 # 16 Sur 43 Int 102,, Cerca al ropmpoi la Aguacatala, Medellin -Poblado.</a></li>
-                                            <li><i class="fa fa-phone espacio-ico-01"></i><a href="#">Teléfono: 3224993Movil: 310-3736281 </a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-4 col-md-3 item" style="font-family:Lato, sans-serif;">
-                                        <h3>Servitech </h3>
-                                        <h3><img src="Untitled_fichiers/separa_34.png" id="imagen-separa"> </h3>
-                                        <ul>
-                                            <li><a href="#">Mantenimiento <i class="fa fa-arrow-circle-right espacio-ico-01"></i></a></li>
-                                            <li><a href="#">ReparaciónPC - portatiles <i class="fa fa-arrow-circle-right espacio-ico-01"></i></a></li>
-                                            <li><a href="#">Reparación Impresoras <i class="fa fa-arrow-circle-right espacio-ico-01"></i></a></li>
-                                            <li><a href="#">Redes <i class="fa fa-arrow-circle-right espacio-ico-01"></i></a></li>
-                                            <li><a href="#">Reparación Celulares <i class="fa fa-arrow-circle-right espacio-ico-01"></i></a></li>
-                                            <li><a href="#">MantenimInsta. Cámaras Seguridad <i class="fa fa-arrow-circle-right espacio-ico-01"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-4 col-md-3 item" style="font-family:Lato, sans-serif;">
-                                        <h3>Boletines </h3>
-                                        <h3><img src="Untitled_fichiers/separa_34.png" id="imagen-separa"> </h3>
-                                        <ul>
-                                            <li><a href="#">Mantenimiento <i class="fa fa-arrow-circle-right espacio-ico-01"></i></a></li>
-                                        </ul>
-                                        <form class="form-inline" method="post" style="margin-top:19px;">
-                                            <div class="form-group"><input class="form-control" name="email" placeholder="Your Email" type="email"></div>
-                                            <div class="form-group"><button class="btn btn-primary" type="submit">Subscribe </button></div>
-                                        </form>
-                                    </div>
-                                    <div class="col-sm-4 col-md-12 item social" style="padding-top:30px;"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
-                                </div>
-                                <p class="copyright">By Monarela© 2018</p>
-                            </div>
-                        </footer>
-
+<div data-aos="zoom-in" class="footer-dark degra-azul aos-init aos-animate">
+ <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 col-md-3 item" style="font-family:Lato, sans-serif;">
+                        <h3>Servitech </h3>
+                        <h3><img src="Untitled_fichiers/separa_34.png" id="imagen-separa"> </h3>
+                        <ul>
+                            <li><a href="#">Somos una empresa que&nbsp;brinda soluciones integralesen el área de tecnología.&nbsp; </a></li>
+                            <li><a href="#">Reparación, mantenimiento&nbsp;de computadores, celularestablets, impresoras , soporte&nbsp;técnico, cableado estructurado. </a></li>
+                        </ul>
                     </div>
+                    <div class="col-sm-4 col-md-3 item" style="font-family:Lato, sans-serif;">
+                        <h3>Donde estamos</h3>
+                        <h3><img src="Untitled_fichiers/separa_34.png" id="imagen-separa"> </h3>
+                        <ul>
+                            <li><i class="fa fa-map-marker espacio-ico-01"></i><a href="#">Dirección Carrera&nbsp;48 # 16 Sur 43 Int 102,, Cerca al ropmpoi la Aguacatala, Medellin -Poblado.</a></li>
+                            <li><i class="fa fa-phone espacio-ico-01"></i><a href="#">Teléfono: 3224993Movil: 310-3736281 </a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4 col-md-3 item" style="font-family:Lato, sans-serif;">
+                        <h3>Servitech </h3>
+                        <h3><img src="Untitled_fichiers/separa_34.png" id="imagen-separa"> </h3>
+                        <ul>
+                            <li><a href="#">Mantenimiento <i class="fa fa-arrow-circle-right espacio-ico-01"></i></a></li>
+                            <li><a href="#">ReparaciónPC - portatiles <i class="fa fa-arrow-circle-right espacio-ico-01"></i></a></li>
+                            <li><a href="#">Reparación Impresoras <i class="fa fa-arrow-circle-right espacio-ico-01"></i></a></li>
+                            <li><a href="#">Redes <i class="fa fa-arrow-circle-right espacio-ico-01"></i></a></li>
+                            <li><a href="#">Reparación Celulares <i class="fa fa-arrow-circle-right espacio-ico-01"></i></a></li>
+                            <li><a href="#">MantenimInsta. Cámaras Seguridad <i class="fa fa-arrow-circle-right espacio-ico-01"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4 col-md-3 item" style="font-family:Lato, sans-serif;">
+                        <h3>Boletines </h3>
+                        <h3><img src="Untitled_fichiers/separa_34.png" id="imagen-separa"> </h3>
+                        <ul>
+                            <li><a href="#">Mantenimiento <i class="fa fa-arrow-circle-right espacio-ico-01"></i></a></li>
+                        </ul>
+                        <form class="form-inline" method="post" style="margin-top:19px;">
+                            <div class="form-group"><input class="form-control" name="email" placeholder="Your Email" type="email"></div>
+                            <div class="form-group"><button class="btn btn-primary" type="submit">Subscribe </button></div>
+                        </form>
+                    </div>
+                    <div class="col-sm-4 col-md-12 item social" style="padding-top:30px;"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p class="copyright">By Monarela© 2018</p>
+            </div>
+        </footer>
+
+</div>
 
 
 
 
-                    <script src="Untitled_fichiers/jquery-3.js"></script>
-                    <script src="Untitled_fichiers/bootstrap.js"></script>
-                    <script src="Untitled_fichiers/bs-animation.js"></script>
-                    <script src="Untitled_fichiers/aos.js"></script>
-                    <script id="bs-live-reload" data-sseport="3478" data-lastchange="1521367081176" src="Untitled_fichiers/livereload.js"></script>
+    <script src="Untitled_fichiers/jquery-3.js"></script>
+    <script src="Untitled_fichiers/bootstrap.js"></script>
+    <script src="Untitled_fichiers/bs-animation.js"></script>
+    <script src="Untitled_fichiers/aos.js"></script>
+    <script id="bs-live-reload" data-sseport="3478" data-lastchange="1521367081176" src="Untitled_fichiers/livereload.js"></script>
 
 
-                    <script src="Untitled_fichiers/analytics.htm"></script>
+<script src="Untitled_fichiers/analytics.htm"></script>
 
                     </body>
                     </html>

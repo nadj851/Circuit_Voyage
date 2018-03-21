@@ -21,6 +21,7 @@ function enregistrerT(){
 }
 
 function listerTT(){
+    alert("alo");
 	var formthematique = new FormData();
 	formthematique.append('action','lister');//alert(formFilm.get("action"));
 	$.ajax({
@@ -29,9 +30,9 @@ function listerTT(){
 		data : formthematique,
 		contentType : false,
 		processData : false,
-		dataType : 'json', //text pour le voir en format de string
-		success : function (reponse){//alert(reponse);
-					thematiqueVue(reponse);
+		dataType : 'text', //text pour le voir en format de string
+		success : function (reponse){alert(reponse);
+					//thematiqueVue(reponse);
 		},
 		fail : function (err){
 		}

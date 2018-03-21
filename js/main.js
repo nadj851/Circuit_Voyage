@@ -1,26 +1,28 @@
 $(document).ready(function () {
-   // listerTT();
+    
+    listerTT();
+    
 $("#ajouterCircuit").click(function(){
         $("#contenuCircuit").hide();
         $("#contenuEtape").show();
         });
     //afficher les circuits
-    $("a[name=afficherCircuit]").click(function () {
-        
-       var cid = $(this).prop("id");
-       $.ajax({
-            url: "gestionFilms.php",
-            method: "POST",
-            data: {get_seleted_Category: 1, cat_id: cid},
-            success: function (data) {
-                $("#get_film").html(data);
-                if ($("body").width() < 480) {
-                    $("body").scrollTop(683);
-                }
-            }
-        });
-        
-    });
+//    $("a[name=afficherCircuit]").click(function () {
+//        
+//       var cid = $(this).prop("id");
+//       $.ajax({
+//            url: "gestionFilms.php",
+//            method: "POST",
+//            data: {get_seleted_Category: 1, cat_id: cid},
+//            success: function (data) {
+//                $("#get_film").html(data);
+//                if ($("body").width() < 480) {
+//                    $("body").scrollTop(683);
+//                }
+//            }
+//        });
+//        
+//    });
 
     
 
