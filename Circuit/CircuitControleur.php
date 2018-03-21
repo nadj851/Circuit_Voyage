@@ -3,6 +3,7 @@
 require_once("../includes/modele.inc.php");
 $tabRes = array();
 
+
 //function enregistrer() {
 //    global $tabRes;
 //    $nom = $_POST['nom'];
