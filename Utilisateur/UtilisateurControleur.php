@@ -48,19 +48,21 @@
 	$email	= $_POST['email'];
 	$password= md5($_POST['password']);
 	//$confirm_password= $_POST['confirm_password'];
-        $date= gettimeofday();
+       
         
             
 		
 		try{
 			$unModele=new filmsModele();
 			
-			$requete="INSERT INTO utilisateur VALUES(0,?,?,?,?,?,?)";
-			$unModele=new filmsModele($requete,array($first_name,$last_name,$display_name,$email,$password,$date));
+			$requete="INSERT INTO utilisateur VALUES(0,?,?,?,?,?)";
+			$unModele=new filmsModele($requete,array($first_name,$last_name,$display_name,$email,$password));
 			$stmt=$unModele->executer();
 			$tabRes['action']="register";
 			$tabRes['msg']="utilisateur bien enregistrer";
 		}catch(Exception $e){
+                    
+                    echo $e;
 		}finally{
 			unset($unModele);
 		}

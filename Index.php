@@ -102,7 +102,13 @@ include_once "includes/init.php";
                 <br>    <br>
                 <?php include './caroussel/code.php'?>
 <br>    
-  <div style='margin-left:30px;margin-top: 5px;background-color: yellow;font-size: 15px;float:left'><span class="glyphicon glyphicon-cog"></span><a href="lister.php" >Dashboard</a>    </div>
+  <?php if (logged_in() && $_SESSION['email'] == 'admin@admin.com') : ?>
+
+    <div style='margin-left:30px;margin-top: 5px;background-color: yellow;font-size: 15px;float:left'><span class="glyphicon glyphicon-cog"></span><a href="lister.php" >Dashboard</a>    </div>							                         
+
+
+<?php endif; ?>
+
                 <br>    <br>
 
 
@@ -427,11 +433,11 @@ include_once "includes/init.php";
 
 
 
-    <script src="Untitled_fichiers/jquery-3.js"></script>
+<!--    <script src="Untitled_fichiers/jquery-3.js"></script>
     <script src="Untitled_fichiers/bootstrap.js"></script>
     <script src="Untitled_fichiers/bs-animation.js"></script>
     <script src="Untitled_fichiers/aos.js"></script>
-    <script id="bs-live-reload" data-sseport="3478" data-lastchange="1521367081176" src="Untitled_fichiers/livereload.js"></script>
+    <script id="bs-live-reload" data-sseport="3478" data-lastchange="1521367081176" src="Untitled_fichiers/livereload.js"></script>-->
 
 
 <script src="Untitled_fichiers/analytics.htm"></script>

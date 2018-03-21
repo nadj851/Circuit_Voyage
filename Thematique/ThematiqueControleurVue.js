@@ -65,7 +65,7 @@ function listerT(listetheme) {
         result += "<div class='panel panel-success'>";
         result += "<div class='panel-heading'>" + "<span style='font-weight: bold;font-size: 15px;'>" + listetheme[i].nom + "</span></div>";
         result += "<div class='panel-body'>";
-        result += "<a name='afficherCircuit'  id='" + listetheme[i].id + "' class=\"thumbnail\">	<img src='pochettes/" + listetheme[i].image + "' style='width:400px; height:300px;'></a>";
+        result += "<a href='#' name='afficherCircuit'  id='" + listetheme[i].idThematique + "' class=\"thumbnail\">	<img src='pochettes/" + listetheme[i].image + "' style='width:400px; height:300px;'></a>";
         result += "</div>";
         result += "</div>";
         result += "</div>";
