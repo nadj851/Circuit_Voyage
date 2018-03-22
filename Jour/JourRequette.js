@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-function AjouterJour() {
-    var formEtape = new FormData(document.getElementById('contenuEtape'));
-    formEtape.append('action', 'enregistrerEtape');
+function ajouterJour() {
+    var formEtape = new FormData(document.getElementById('contenuJour'));
+    formEtape.append('action', 'enregistrerJour');
     $.ajax({
         type: 'POST',
-        url: 'Etape/EtapeControleur.php',
+        url: 'Jour/JourControleur.php',
         data: formEtape,
         dataType: 'json', //text pour le voir en format de string
         //async : false,
@@ -17,7 +17,7 @@ function AjouterJour() {
         contentType: false,
         processData: false,
         success: function (reponse) {//alert(reponse);
-            CircuitVue(reponse);
+            JourVue(reponse);
         },
         fail: function (err) {
 

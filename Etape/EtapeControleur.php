@@ -18,6 +18,7 @@ function enregistrerEtape() {
         $requete = "INSERT INTO etape VALUES(0,?,?,?)";
         $unModele = new filmsModele($requete, array($nomEtape,$descriptionEtape,$idCircuit));
         $stmt = $unModele->executer();
+       $_SESSION["idEtape"]=$unModele->lastID;
         $tabRes['action'] = "enregistrer";
         $tabRes['msg'] = "étape bien enregistrer";
     } catch (Exception $e) {

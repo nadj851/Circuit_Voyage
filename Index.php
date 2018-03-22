@@ -37,6 +37,9 @@ include_once 'includes/init.php';
         <script src='Etape/EtapeControleurVue.js' type='text/javascript'></script>
         <script src='Etape/EtapeRequetes.js' type='text/javascript'></script>
         
+        <script src="Jour/JourControleurVue.js" type="text/javascript"></script>
+        <script src="Jour/JourRequette.js" type="text/javascript"></script>
+        
         <link rel='stylesheet' href='Untitled_fichiers/ionicons.css'>
         <link rel='stylesheet' href='Untitled_fichiers/footer-servitech.css'>
         <link rel='stylesheet' href='Untitled_fichiers/aos.css'>
