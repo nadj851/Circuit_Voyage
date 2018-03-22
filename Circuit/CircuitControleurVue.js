@@ -107,13 +107,21 @@ function formulaireCircuit(reponse) {
     input += "                                                        <\/select>";
     input += "                                                    <\/div>";
     input += "                                                <\/div>";
+
+    input += "                                              <div class=\"form-group\">";
+    input += "                                                      <label for=\"pochetteCircuit\">Pochette:<\/label>";
+    input += "                                                      <input type=\"file\" class=\"form-control-file\" id=\"pochetteCircuit\" name=\"pochetteCircuit\" aria-describedby=\"fileHelp\">";
+    input += "                                              <\/div>";
+
+
+
     input += "                                                <input type=\"button\" id=\"ajouterCircuit\"class=\"btn\" onclick='$(\"#contenuCircuit\").hide(); $(\"#contenuEtape\").show(); AjouterCircuit();' value=\"Sauvegarder et passer aux étapes\" >";
     input += "                                            <\/div>";
     input += "";
     input += "";
     input += "                                        <\/form>";//fin formulaire circuit
-    
-    
+
+
     input += "";                                                //formulaire étape
     input += "                                        <form id=\"contenuEtape\"class=\"form-group row\" style=\"display: none\">";
     input += "                                            <div class=\"form-group row\">";
@@ -121,14 +129,14 @@ function formulaireCircuit(reponse) {
     input += "                                            <\/div>";
     input += "";
     input += "                                            <div class=\"container\" style=\"width: 60% ; float: left; margin-left: 20px\" >";
-    
+
     input += "                                                <div class=\"form-group row\">";
     input += "                                                    <label for=\"nomEtape\" class=\"col-sm-2 col-form-label\">Nom de l'étape<\/label>";
     input += "                                                    <div class=\"col-sm-10\">";
     input += "                                                        <input type=\"text\" class=\"form-control\" id=\"nomEtape\" name=\"nomEtape\" placeholder=\"Entrer nom du participant\" required>";
     input += "                                                    <\/div>";
     input += "                                                <\/div>";
-    
+
     input += "                                                    <div class=\"form-group row\">";
     input += "                                                        <label for=\"descripEtape\" class=\"col-sm-2 col-form-label\">Déscription étape<\/label>";
     input += "                                                        <div class=\"col-sm-10\">";
@@ -139,7 +147,7 @@ function formulaireCircuit(reponse) {
 
     input += "                                                <input type=\"button\" class=\"btn\" value=\"Enregistrer étape\" onClick='  $(\"#contenuEtape\").hide(); $(\"#contenuJour\").show(); AjouterEtape();'><br><br>";
     input += "                                         <\/div>";
-        
+
     input += "                                        <\/form>";//fin formulaire étape--------------------------------------------------
     input += "";
     input += "";
@@ -151,14 +159,14 @@ function formulaireCircuit(reponse) {
     input += "                                            <\/div>";
     input += "";
     input += "                                            <div class=\"container\" style=\"width: 60% ; float: left; margin-left: 20px\" >";
-     
-     input += "                                                    <div class=\"form-group row\">";
+
+    input += "                                                    <div class=\"form-group row\">";
     input += "                                                        <label for=\"nomHotel\" class=\"col-sm-2 col-form-label\">Hotel<\/label>";
     input += "                                                        <div class=\"col-sm-10\">";
     input += "                                                            <input type=\"text\" class=\"form-control\" id=\"nomHotel\" name=\"nomHotel\" placeholder=\"Entrer courriel du participant\" required>";
     input += "                                                        <\/div>";
     input += "                                                    <\/div>";
-    
+
     input += "                                                    <div class=\"form-group row\">";
     input += "                                                        <label for=\"UrlHotel\" class=\"col-sm-2 col-form-label\">URL(Hotel)<\/label>";
     input += "                                                        <div class=\"col-sm-10\">";
@@ -189,7 +197,7 @@ function formulaireCircuit(reponse) {
     input += "                                                            <label><input type=\"checkbox\" name=\"souper\" value=\"Souper\">Souper<\/label>";
     input += "                                                        <\/div>";
     input += "                                                    <\/div>";
-    
+
     input += "                                                    <div class=\"form-group row\">";
     input += "                                                        <label for=\"descripJour\" class=\"col-sm-2 col-form-label\">Déscription étape<\/label>";
     input += "                                                        <div class=\"col-sm-10\">";
@@ -198,14 +206,14 @@ function formulaireCircuit(reponse) {
     input += "                                                        <\/div>";
     input += "                                                    <\/div>";
     input += "                                                <\/div>";
-    
+
     input += "                                                <input type=\"button\" class=\"btn\" value=\"Enregistrer Jour\" onClick=\"ajouterJour();\"><br><br>";
     input += "                                         <\/div>";
-        
+
     input += "                                        <\/form>";//fin formulaire jour-----------------------------------------------------------------------------------
-    
-    
-    
+
+
+
     input += "                                            <\/div>";
     input += "";
     input += "";

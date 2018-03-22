@@ -33,11 +33,7 @@ function listerTT(){
 		dataType : 'json', //text pour le voir en format de string
 		success : function (reponse){//alert(reponse);
 					thematiqueVue(reponse);
-                                        $("a").click( function(){
-    alert("happenig");
-    AfficherCircuits($(this).prop("id"));    
-});
-                                        
+                                       
 		},
 		fail : function (err){
 		}
