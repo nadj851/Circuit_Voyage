@@ -123,3 +123,27 @@ function listerParticipants(){
 		}
 	});
 }
+
+
+//information sur  user connecter
+function infoUser(){
+	var formFilm = new FormData();
+	formFilm.append('action','infouser');//alert(formFilm.get("action"));
+	$.ajax({
+		type : 'POST',
+		url : 'Utilisateur/UtilisateurControleur.php',
+		data : formFilm,
+		contentType : false,
+		processData : false,
+		dataType : 'json', //text pour le voir en format de string
+		success : function (reponse){//alert(reponse);
+		//reponse = JSON.parse(reponse);			//filmsVue(reponse);
+                                    
+                 $( "input[type=text][id=nomParticipant]" ).val(reponse.information[0].last_name);  
+                 $( "input[type=text][id=prenomParticipant]" ).val(reponse.information[0].first_name); 
+                 $( "input[type=text][id=courielParticipant]" ).val(reponse.information[0].email); 
+		},
+		fail : function (err){
+		}
+	});
+}
