@@ -135,6 +135,7 @@ include_once 'includes/init.php';
                                     <li><a href='#' class='category' cid='COMEDIE'  id='circuitDepart'>Participant</a></li>
                                     <li><a href='#'class='category' cid='SCIENCE FICTION' onclick='lister();'>lister participant</a></li>
                                     <li><a href='#'class='category' cid='HORREUR' onclick='FormulaireCircuit();'>Créer un circuit</a></li>
+                                    <li><a href='#'class='category' cid='SUSPENSE'onclick='SupprimerCircuit();' >Supprimer Circuit</a></li>
                                     <li><a href='#'class='category' cid='SUSPENSE'>Suspense</a></li>
                                     <li><a href='#'class='category' cid='POUR LA FAMILLE'>Pour la famille</a></li>
                                     <li><a href='#'class='category' cid='POUR LA FAMILLE'>test</a></li>

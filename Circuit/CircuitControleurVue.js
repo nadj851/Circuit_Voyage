@@ -88,9 +88,6 @@ function formulaireCircuit(reponse) {
     input += "                                                    <label for=\"descripCircuit\" class=\"col-sm-2 col-form-label\">Déscription du circuit<\/label>";
     input += "                                                    <div class=\"col-sm-10\">";
     input += "                                                        <textarea class=\"form-control\" rows=\"5\" id=\"descripCircuit\" name=\"descripCircuit\"><\/textarea>";
-    input += "";
-    input += "";
-    input += "";
     input += "                                                    <\/div>";
     input += "                                                <\/div>";
     input += "";
@@ -109,9 +106,11 @@ function formulaireCircuit(reponse) {
     input += "                                                <\/div>";
 
     input += "                                              <div class=\"form-group\">";
-    input += "                                                      <label for=\"pochetteCircuit\">Pochette:<\/label>";
-    input += "                                                      <input type=\"file\" class=\"form-control-file\" id=\"pochetteCircuit\" name=\"pochetteCircuit\" aria-describedby=\"fileHelp\">";
-    input += "                                              <\/div>";
+    input += "                                                      <label for=\"pochette\">Pochette:<\/label>";
+
+    input += "                                                      <input type=\"file\" class=\"form-control-file\" id=\"pochette\" name=\"pochette\" aria-describedby=\"fileHelp\">";
+
+    input += "                                          <\/div>";
 
 
 

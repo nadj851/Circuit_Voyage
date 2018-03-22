@@ -38,7 +38,7 @@ function AjouterCircuit() {
 //	});
 //}
 //
-function enleverCircuit(){
+function SupprimerCircuit(){
 	var leForm=document.getElementById('formEnleverThem');
 	var formthem = new FormData(leForm);
 	formthem.append('action','enlever');//alert(formFilm.get("action"));
