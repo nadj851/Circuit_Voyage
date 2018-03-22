@@ -5,7 +5,7 @@ $tabRes = array();
     global $tabRes;
     $idThem = $_GET['idThem'];
     $tabRes['action'] = "afficherCircuits";
-    $requete = "SELECT * FROM cicuit WHERE idThematique=?";
+    $requete = "SELECT * FROM circuit WHERE idThematique=?";
     try {
         $unModele = new filmsModele($requete, array($idThem));
         $stmt = $unModele->executer();
@@ -14,7 +14,7 @@ $tabRes = array();
             $tabRes['affichageCircuits'][] = $ligne;
         }
     } catch (Exception $e) {
-        
+        $tabRes['affichageCircuits'][] = $e;
     } finally {
         unset($unModele);
     }

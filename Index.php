@@ -43,6 +43,8 @@ include_once 'includes/init.php';
         <link rel='stylesheet' href='Untitled_fichiers/ionicons.css'>
         <link rel='stylesheet' href='Untitled_fichiers/footer-servitech.css'>
         <link rel='stylesheet' href='Untitled_fichiers/aos.css'>
+        
+        <script src='Circuit/CircuitAPIJQuery.js' type='text/javascript'></script>
 
 
     </head>
