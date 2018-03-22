@@ -1,4 +1,4 @@
-////requ�tes RESERVATION
+//Requetes Circuit
 function AjouterCircuit() {
     var formCircuit = new FormData(document.getElementById('contenuCircuit'));
     formCircuit.append('action', 'enregistrerCircuit');
@@ -77,25 +77,25 @@ function enleverCircuit(){
 //	});
 //}
 //
-//function modifier(){
-//	var leForm=document.getElementById('formFicheT');
-//	var formthem = new FormData(leForm);
-//	formthem.append('action','modifier');
-//	$.ajax({
-//		type : 'POST',
-//		url : 'Thematique/ThematiqueControleur.php',
-//		data : formthem,
-//		contentType : false, 
-//		processData : false,
-//		dataType : 'json', 
-//		success : function (reponse){//alert(reponse);
-//					$('#divFormFiche').hide();
-//					thematiqueVue(reponse);
-//		},
-//		fail : function (err){
-//		}
-//	});
-//}*/
+function modifierCircuit(){
+	var leForm=document.getElementById('formFicheT');
+	var formthem = new FormData(leForm);
+	formthem.append('action','modifier');
+	$.ajax({
+		type : 'POST',
+		url : 'Thematique/ThematiqueControleur.php',
+		data : formthem,
+		contentType : false, 
+		processData : false,
+		dataType : 'json', 
+		success : function (reponse){//alert(reponse);
+					$('#divFormFiche').hide();
+					thematiqueVue(reponse);
+		},
+		fail : function (err){
+		}
+	});
+}
 ///////////////////////////
 //
 //
