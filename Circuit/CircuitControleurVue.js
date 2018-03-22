@@ -112,7 +112,9 @@ function formulaireCircuit(reponse) {
     input += "";
     input += "";
     input += "                                        <\/form>";//fin formulaire circuit
-    input += "";
+    
+    
+    input += "";                                                //formulaire étape
     input += "                                        <form id=\"contenuEtape\"class=\"form-group row\" style=\"display: none\">";
     input += "                                            <div class=\"form-group row\">";
     input += "                                                <h2 for=\"nomEtape\" class=\"col-sm-2 col-form-label\">Création étape<\/h2>";
@@ -142,6 +144,7 @@ function formulaireCircuit(reponse) {
     input += "";
     input += "";
     input += "";
+    input += "";                                                //formulaire Jour
     input += "                                        <form id=\"contenuJour\"class=\"form-group row\" style=\"display: none\">";
     input += "                                            <div class=\"form-group row\">";
     input += "                                                <h2 for=\"nomJour\" class=\"col-sm-2 col-form-label\">Création Jour<\/h2>";
@@ -165,38 +168,38 @@ function formulaireCircuit(reponse) {
     input += "";
     input += "";
     input += "                                                    <div class=\"form-group row\">";
-    input += "                                                        <label for=\"Restaurant\" class=\"col-sm-2 col-form-label\">Restaurant(s)<\/label>";
+    input += "                                                        <label for=\"nomRestaurant\" class=\"col-sm-2 col-form-label\">Restaurant(s)<\/label>";
     input += "                                                        <div class=\"col-sm-10\">";
-    input += "                                                            <input type=\"text\" class=\"form-control\" id=\"Restaurant\" name=\"Restaurant\" placeholder=\"Entrer ville du participant\">";
+    input += "                                                            <input type=\"text\" class=\"form-control\" id=\"nomRestaurant\" name=\"nomRestaurant\" placeholder=\"Entrer ville du participant\">";
     input += "                                                        <\/div>";
     input += "                                                    <\/div>";
     input += "";
     input += "                                                    <div class=\"form-group row\">";
-    input += "                                                        <label for=\"UrlRestaurant\" class=\"col-sm-2 col-form-label\">URL Restaurant(s)<\/label>";
+    input += "                                                        <label for=\"urlRestaurant\" class=\"col-sm-2 col-form-label\">URL Restaurant(s)<\/label>";
     input += "                                                        <div class=\"col-sm-10\">";
-    input += "                                                            <input type=\"text\" class=\"form-control\" id=\"UrlRestaurant\" name=\"UrlRestaurant\" placeholder=\"Entrer ville du participant\">";
+    input += "                                                            <input type=\"text\" class=\"form-control\" id=\"urlRestaurant\" name=\"urlRestaurant\" placeholder=\"Entrer ville du participant\">";
     input += "                                                        <\/div>";
     input += "                                                    <\/div>";
     input += "";
     input += "                                                    <div class=\"form-group row\">";
     input += "                                                        <label for=\"repas\" class=\"col-sm-2 col-form-label\">Repas inclus<\/label>";
     input += "                                                        <div class=\"col-sm-10\">";
-    input += "                                                            <label><input type=\"checkbox\" name=\"dejeuner\" value=\"\">Déjeuner<\/label>";
-    input += "                                                            <label><input type=\"checkbox\" name=\"diner\" value=\"\">Diner<\/label>";
-    input += "                                                            <label><input type=\"checkbox\" name=\"souper\" value=\"\">Souper<\/label>";
+    input += "                                                            <label><input type=\"checkbox\" name=\"dejeuner\" value=\"Déjeuner\">Déjeuner<\/label>";
+    input += "                                                            <label><input type=\"checkbox\" name=\"diner\" value=\"Diner\">Diner<\/label>";
+    input += "                                                            <label><input type=\"checkbox\" name=\"souper\" value=\"Souper\">Souper<\/label>";
     input += "                                                        <\/div>";
     input += "                                                    <\/div>";
     
     input += "                                                    <div class=\"form-group row\">";
-    input += "                                                        <label for=\"descripEtape\" class=\"col-sm-2 col-form-label\">Déscription étape<\/label>";
+    input += "                                                        <label for=\"descripJour\" class=\"col-sm-2 col-form-label\">Déscription étape<\/label>";
     input += "                                                        <div class=\"col-sm-10\">";
-    input += "                                                            <textarea class=\"form-control\" rows=\"5\" id=\"descripEtape\" name=\"descripEtape\"><\/textarea>";
+    input += "                                                            <textarea class=\"form-control\" rows=\"5\" id=\"descripJour\" name=\"descripJour\"><\/textarea>";
     input += "";
     input += "                                                        <\/div>";
     input += "                                                    <\/div>";
     input += "                                                <\/div>";
     
-    input += "                                                <input type=\"button\" class=\"btn\" value=\"Enregistrer Jour\" onClick='  AjouterJour();'><br><br>";
+    input += "                                                <input type=\"button\" class=\"btn\" value=\"Enregistrer Jour\" onClick=\"ajouterJour();\"><br><br>";
     input += "                                         <\/div>";
         
     input += "                                        <\/form>";//fin formulaire jour-----------------------------------------------------------------------------------

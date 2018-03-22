@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 22 Mars 2018 à 16:56
+-- Généré le :  Jeu 22 Mars 2018 à 19:42
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.5.8
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `munarela`
 --
-CREATE DATABASE IF NOT EXISTS `munarela` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `munarela`;
 
 -- --------------------------------------------------------
 
@@ -109,17 +107,16 @@ CREATE TABLE IF NOT EXISTS `circuit` (
   PRIMARY KEY (`idCircuit`,`idThematique`),
   KEY `fk_Circuit_Promotion1_idx` (`idPromotion`),
   KEY `fk_Circuit_Thematique1_idx` (`idThematique`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
 
 --
 -- Contenu de la table `circuit`
 --
 
 INSERT INTO `circuit` (`idCircuit`, `titre`, `dateDeDepart`, `dateDeRetour`, `nbPersonnesMax`, `nbPersonnesMin`, `description`, `prix`, `imageCircuit`, `guide`, `idPromotion`, `idThematique`) VALUES
-(1, 'aa', '2002-02-02 05:00:00.000000', '2002-02-02 05:00:00.000000', NULL, NULL, '1', 1, '8f10240becb5c9eaf445e1f2bb8d340fca1051e5', NULL, NULL, 11),
-(2, 'test1', '2002-02-02 05:00:00.000000', '2002-02-02 05:00:00.000000', NULL, NULL, '1', 1, '052daa729946df141f28fc96bf0cdf649d268830', NULL, NULL, 15),
-(11, 'essaiEtape', '2001-01-01 05:00:00.000000', '2002-02-02 05:00:00.000000', NULL, NULL, '111', 1, '3235c20d69715938ffc4cbfe8c6655a63a817f31', NULL, NULL, 15),
-(12, 'eta1', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', NULL, NULL, '', 0, 'd8ef7a80e6188f1d6784fd8bb832dcb7340ab2b7', NULL, NULL, 11);
+(31, 'mal', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', NULL, NULL, '', 0, 'f1d299bec6543f6807864b5a5740214b525b6a62', NULL, NULL, 11),
+(32, 'ssss', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', NULL, NULL, '', 0, '3d66d765c45e5e6f32813eefb317f2903ccf1f01', NULL, NULL, 11),
+(33, 'alo', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', NULL, NULL, '', 0, '523bcf58b642ab843073d90b8f7bc8b05377852d', NULL, NULL, 11);
 
 -- --------------------------------------------------------
 
@@ -134,21 +131,16 @@ CREATE TABLE IF NOT EXISTS `etape` (
   `idCircuit` int(11) NOT NULL,
   PRIMARY KEY (`idEtape`,`idCircuit`),
   KEY `fk_Etape_Circuit1_idx` (`idCircuit`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
--- Structure de la table `hotels`
+-- Contenu de la table `etape`
 --
 
-CREATE TABLE IF NOT EXISTS `hotels` (
-  `idHotels` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(256) DEFAULT NULL,
-  `urlHotel` varchar(256) DEFAULT NULL,
-  `description` varchar(256) DEFAULT NULL,
-  PRIMARY KEY (`idHotels`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+INSERT INTO `etape` (`idEtape`, `nomEtape`, `descriptionEtape`, `idCircuit`) VALUES
+(19, 'pal', '', 31),
+(20, 'sssss', '', 32),
+(21, 'aloetape', '', 33);
 
 -- --------------------------------------------------------
 
@@ -158,19 +150,30 @@ CREATE TABLE IF NOT EXISTS `hotels` (
 
 CREATE TABLE IF NOT EXISTS `jour` (
   `idJour` int(11) NOT NULL AUTO_INCREMENT,
-  `description` varchar(256) DEFAULT NULL,
   `nomhotel` varchar(256) DEFAULT NULL,
+  `urlHotel` varchar(100) DEFAULT NULL,
+  `nomRestaurant` varchar(100) DEFAULT NULL,
+  `urlRestaurant` varchar(100) DEFAULT NULL,
+  `dejeuner` tinyint(1) NOT NULL DEFAULT '0',
+  `diner` tinyint(1) NOT NULL DEFAULT '0',
+  `souper` tinyint(1) NOT NULL DEFAULT '0',
+  `description` varchar(256) DEFAULT NULL,
   `idEtape` int(11) NOT NULL,
-  `dejeuner` varchar(100) NOT NULL,
-  `diner` varchar(100) NOT NULL,
-  `souper` varchar(100) NOT NULL,
-  `idRestaurant` int(11) NOT NULL,
-  `idHotels` int(11) NOT NULL,
   PRIMARY KEY (`idJour`,`idEtape`,`dejeuner`,`diner`,`souper`),
-  KEY `fk_Jour_Etape1_idx` (`idEtape`),
-  KEY `fk_Jour_Restaurant1_idx` (`idRestaurant`),
-  KEY `fk_Jour_Hotels1_idx` (`idHotels`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  KEY `fk_Jour_Etape1_idx` (`idEtape`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Contenu de la table `jour`
+--
+
+INSERT INTO `jour` (`idJour`, `nomhotel`, `urlHotel`, `nomRestaurant`, `urlRestaurant`, `dejeuner`, `diner`, `souper`, `description`, `idEtape`) VALUES
+(3, 'sssss', '', '', NULL, 0, 0, 0, 'ss', 20),
+(4, 'sssss', '', '', NULL, 1, 0, 0, 'ss', 20),
+(5, 'sssss', '', '', NULL, 1, 1, 0, 'ss', 20),
+(6, 'aaa', '', '', '', 0, 0, 0, '', 21),
+(7, 'aaa', '', '', '', 0, 0, 0, 'aaaaaa', 21),
+(8, 'aaa', 'xxxUH', 'xR', 'xUR', 1, 0, 0, 'des', 21);
 
 -- --------------------------------------------------------
 
@@ -311,19 +314,6 @@ CREATE TABLE IF NOT EXISTS `reservationparticipant` (
   PRIMARY KEY (`idReservation`,`idParticipants`),
   KEY `fk_ReservationParticipant_participants1_idx` (`idParticipants`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `restaurant`
---
-
-CREATE TABLE IF NOT EXISTS `restaurant` (
-  `idRestaurant` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(256) DEFAULT NULL,
-  `url` varchar(256) DEFAULT NULL,
-  PRIMARY KEY (`idRestaurant`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
