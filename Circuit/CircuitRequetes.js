@@ -38,25 +38,25 @@ function AjouterCircuit() {
 //	});
 //}
 //
-///*function enlever(){
-//	var leForm=document.getElementById('formEnleverThem');
-//	var formthem = new FormData(leForm);
-//	formthem.append('action','enlever');//alert(formFilm.get("action"));
-//	$.ajax({
-//		type : 'POST',
-//		url : 'Thematique/ThematiqueControleur.php',
-//		data : formthem,//leForm.serialize(),
-//		contentType : false, //Enlever ces deux directives si vous utilisez serialize()
-//		processData : false,
-//		dataType : 'json', //text pour le voir en format de string
-//		success : function (reponse){//alert(reponse);
-//					thematiqueVue(reponse);
-//		},
-//		fail : function (err){
-//		}
-//	});
-//}
-//
+function enleverCircuit(){
+	var leForm=document.getElementById('formEnleverThem');
+	var formthem = new FormData(leForm);
+	formthem.append('action','enlever');//alert(formFilm.get("action"));
+	$.ajax({
+		type : 'POST',
+		url : 'Thematique/ThematiqueControleur.php',
+		data : formthem,//leForm.serialize(),
+		contentType : false, //Enlever ces deux directives si vous utilisez serialize()
+		processData : false,
+		dataType : 'json', //text pour le voir en format de string
+		success : function (reponse){//alert(reponse);
+					thematiqueVue(reponse);
+		},
+		fail : function (err){
+		}
+	});
+}
+
 //function obtenirFiche(){
 //	$('#divFiche').hide();
 //	var leForm=document.getElementById('formFiche');
