@@ -30,16 +30,16 @@ include_once 'includes/init.php';
 
         <script src='Utilisateur/UtilisateurControleurVue.js' type='text/javascript'></script>
         <script src='Utilisateur/UtilistauerRequetes.js' type='text/javascript'></script>
-        
+
         <script src='Circuit/CircuitControleurVue.js' type='text/javascript'></script>
         <script src='Circuit/CircuitRequetes.js' type='text/javascript'></script>
-        
+
         <script src='Etape/EtapeControleurVue.js' type='text/javascript'></script>
         <script src='Etape/EtapeRequetes.js' type='text/javascript'></script>
-        
+
         <script src="Jour/JourControleurVue.js" type="text/javascript"></script>
         <script src="Jour/JourRequette.js" type="text/javascript"></script>
-        
+
         <link rel='stylesheet' href='Untitled_fichiers/ionicons.css'>
         <link rel='stylesheet' href='Untitled_fichiers/footer-servitech.css'>
         <link rel='stylesheet' href='Untitled_fichiers/aos.css'>
@@ -134,6 +134,7 @@ include_once 'includes/init.php';
                                     <li><a href='#'class='category' cid='SCIENCE FICTION' onclick='lister();'>lister participant</a></li>
                                     <li><a href='#'class='category' cid='HORREUR' onclick='FormulaireCircuit();'>Créer un circuit</a></li>
                                     <li><a href='#'class='category' cid='HORREUR' onclick='obtenirFicheCircuit();'>Modifier un circuit</a></li>
+                                    <li><a href='#'class='category' cid='SUSPENSE'onclick='SupprimerCircuit();' >Supprimer Circuit</a></li>
                                     <li><a href='#'class='category' cid='SUSPENSE'>Suspense</a></li>
                                     <li><a href='#'class='category' cid='POUR LA FAMILLE'>Pour la famille</a></li>
                                     <li><a href='#'class='category' cid='POUR LA FAMILLE'>test</a></li>
@@ -184,7 +185,7 @@ include_once 'includes/init.php';
 
 
 
-                                    
+
 
                                 </div>
                                 <div class='panel-footer'>&copy; 2018</div>
