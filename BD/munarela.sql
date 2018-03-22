@@ -25,6 +25,9 @@ SET time_zone = "+00:00";
 --
 -- Structure de la table `adresse`
 --
+CREATE DATABASE IF NOT EXISTS `munarela` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `munarela`;
+
 
 CREATE TABLE IF NOT EXISTS `adresse` (
   `idAdresse` int(11) NOT NULL AUTO_INCREMENT,
