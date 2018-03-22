@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 22 Mars 2018 à 19:42
+-- Généré le :  Jeu 22 Mars 2018 à 22:17
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.5.8
 
@@ -19,15 +19,14 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `munarela`
 --
+CREATE DATABASE IF NOT EXISTS `munarela` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `munarela`;
 
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `adresse`
 --
-CREATE DATABASE IF NOT EXISTS `munarela` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `munarela`;
-
 
 CREATE TABLE IF NOT EXISTS `adresse` (
   `idAdresse` int(11) NOT NULL AUTO_INCREMENT,
@@ -110,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `circuit` (
   PRIMARY KEY (`idCircuit`,`idThematique`),
   KEY `fk_Circuit_Promotion1_idx` (`idPromotion`),
   KEY `fk_Circuit_Thematique1_idx` (`idThematique`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=38 ;
 
 --
 -- Contenu de la table `circuit`
@@ -119,7 +118,11 @@ CREATE TABLE IF NOT EXISTS `circuit` (
 INSERT INTO `circuit` (`idCircuit`, `titre`, `dateDeDepart`, `dateDeRetour`, `nbPersonnesMax`, `nbPersonnesMin`, `description`, `prix`, `imageCircuit`, `guide`, `idPromotion`, `idThematique`) VALUES
 (31, 'mal', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', NULL, NULL, '', 0, 'f1d299bec6543f6807864b5a5740214b525b6a62', NULL, NULL, 11),
 (32, 'ssss', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', NULL, NULL, '', 0, '3d66d765c45e5e6f32813eefb317f2903ccf1f01', NULL, NULL, 11),
-(33, 'alo', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', NULL, NULL, '', 0, '523bcf58b642ab843073d90b8f7bc8b05377852d', NULL, NULL, 11);
+(33, 'alo', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', NULL, NULL, '', 0, '523bcf58b642ab843073d90b8f7bc8b05377852d', NULL, NULL, 11),
+(34, 'malice', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', NULL, NULL, '', 0, '5bd1bf085d8dd764815d485265d591c9b5c9f28a', NULL, NULL, 14),
+(35, 'aaa', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', NULL, NULL, '', 0, 'd821292fff7813805e445b8d49d66dd70309fcf1.jpg', NULL, NULL, 11),
+(36, 'munarela circuit', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', NULL, NULL, '', 200000, 'avatar.jpg', NULL, NULL, 11),
+(37, 'alo1', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', NULL, NULL, '', 20000, '62cf1cd2b17cf02645a650610675185a166f72ca.jpg', NULL, NULL, 11);
 
 -- --------------------------------------------------------
 
@@ -134,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `etape` (
   `idCircuit` int(11) NOT NULL,
   PRIMARY KEY (`idEtape`,`idCircuit`),
   KEY `fk_Etape_Circuit1_idx` (`idCircuit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
 
 --
 -- Contenu de la table `etape`
@@ -143,7 +146,8 @@ CREATE TABLE IF NOT EXISTS `etape` (
 INSERT INTO `etape` (`idEtape`, `nomEtape`, `descriptionEtape`, `idCircuit`) VALUES
 (19, 'pal', '', 31),
 (20, 'sssss', '', 32),
-(21, 'aloetape', '', 33);
+(21, 'aloetape', '', 33),
+(22, 'alo', 'aaaa', 37);
 
 -- --------------------------------------------------------
 
@@ -164,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `jour` (
   `idEtape` int(11) NOT NULL,
   PRIMARY KEY (`idJour`,`idEtape`,`dejeuner`,`diner`,`souper`),
   KEY `fk_Jour_Etape1_idx` (`idEtape`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Contenu de la table `jour`
@@ -176,7 +180,8 @@ INSERT INTO `jour` (`idJour`, `nomhotel`, `urlHotel`, `nomRestaurant`, `urlResta
 (5, 'sssss', '', '', NULL, 1, 1, 0, 'ss', 20),
 (6, 'aaa', '', '', '', 0, 0, 0, '', 21),
 (7, 'aaa', '', '', '', 0, 0, 0, 'aaaaaa', 21),
-(8, 'aaa', 'xxxUH', 'xR', 'xUR', 1, 0, 0, 'des', 21);
+(8, 'aaa', 'xxxUH', 'xR', 'xUR', 1, 0, 0, 'des', 21),
+(9, 'mal', '', '', '', 0, 1, 0, '', 22);
 
 -- --------------------------------------------------------
 
