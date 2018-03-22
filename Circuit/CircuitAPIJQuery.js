@@ -1,10 +1,3 @@
-$(document).ready(function(){
-$("a").click( function(){
-    alert("happenig");
-    AfficherCircuits($(this).prop("id"));    
-});
-});
-
 function AfficherCircuits(idThem) {
     var formCircuit = new FormData(document.getElementById('contenuCircuit'));
     formCircuit.append('action', 'enregistrerCircuit');
