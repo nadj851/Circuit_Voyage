@@ -70,10 +70,10 @@ function listerT(listetheme) {
         result += "</div>";
         result += "</div>";
     }
-
-
-
     $('#get_result').html(result);
+    $("a[name=afficherCircuit]").click( function(){
+    AfficherCircuits($(this).prop("id"));    
+});
 
 }
 
