@@ -111,33 +111,51 @@ function formulaireCircuit(reponse) {
     input += "                                            <\/div>";
     input += "";
     input += "";
-    input += "                                        <\/form>";
+    input += "                                        <\/form>";//fin formulaire circuit
     input += "";
     input += "                                        <form id=\"contenuEtape\"class=\"form-group row\" style=\"display: none\">";
     input += "                                            <div class=\"form-group row\">";
-    input += "                                                <h2 for=\"nomCircuit\" class=\"col-sm-2 col-form-label\">Création étape<\/h2>";
+    input += "                                                <h2 for=\"nomEtape\" class=\"col-sm-2 col-form-label\">Création étape<\/h2>";
     input += "                                            <\/div>";
     input += "";
     input += "                                            <div class=\"container\" style=\"width: 60% ; float: left; margin-left: 20px\" >";
+    
     input += "                                                <div class=\"form-group row\">";
     input += "                                                    <label for=\"nomEtape\" class=\"col-sm-2 col-form-label\">Nom de l'étape<\/label>";
     input += "                                                    <div class=\"col-sm-10\">";
     input += "                                                        <input type=\"text\" class=\"form-control\" id=\"nomEtape\" name=\"nomEtape\" placeholder=\"Entrer nom du participant\" required>";
     input += "                                                    <\/div>";
     input += "                                                <\/div>";
+    
     input += "                                                    <div class=\"form-group row\">";
     input += "                                                        <label for=\"descripEtape\" class=\"col-sm-2 col-form-label\">Déscription étape<\/label>";
     input += "                                                        <div class=\"col-sm-10\">";
-    input += "                                                            <textarea class=\"form-control\" rows=\"5\" id=\"descripEtape\" name=\"descripEtape\"><\/textarea>";
+    input += "                                                            <textarea class='form-control' rows='5' id='descripEtape' name='descripEtape'><\/textarea>";
     input += "";
+    input += "                                                        <\/div>";
+    input += "                                                    <\/div>";
+
+    input += "                                                <input type=\"button\" class=\"btn\" value=\"Enregistrer étape\" onClick='  $(\"#contenuEtape\").hide(); $(\"#contenuJour\").show(); AjouterEtape();'><br><br>";
+    input += "                                         <\/div>";
+        
+    input += "                                        <\/form>";//fin formulaire étape--------------------------------------------------
+    input += "";
+    input += "";
+    input += "";
+    input += "                                        <form id=\"contenuJour\"class=\"form-group row\" style=\"display: none\">";
+    input += "                                            <div class=\"form-group row\">";
+    input += "                                                <h2 for=\"nomJour\" class=\"col-sm-2 col-form-label\">Création Jour<\/h2>";
+    input += "                                            <\/div>";
+    input += "";
+    input += "                                            <div class=\"container\" style=\"width: 60% ; float: left; margin-left: 20px\" >";
+     
+     input += "                                                    <div class=\"form-group row\">";
+    input += "                                                        <label for=\"nomHotel\" class=\"col-sm-2 col-form-label\">Hotel<\/label>";
+    input += "                                                        <div class=\"col-sm-10\">";
+    input += "                                                            <input type=\"text\" class=\"form-control\" id=\"nomHotel\" name=\"nomHotel\" placeholder=\"Entrer courriel du participant\" required>";
     input += "                                                        <\/div>";
     input += "                                                    <\/div>";
     
-    input += "                                                <input type=\"button\" class=\"btn\" value=\"Enregistrer étape\" onClick='  AjouterEtape();'><br><br>";
-    input += "                                        <\/form>";
-    input += "";
-    input += "";
-    input += "";
     input += "                                                    <div class=\"form-group row\">";
     input += "                                                        <label for=\"UrlHotel\" class=\"col-sm-2 col-form-label\">URL(Hotel)<\/label>";
     input += "                                                        <div class=\"col-sm-10\">";
@@ -168,6 +186,7 @@ function formulaireCircuit(reponse) {
     input += "                                                            <label><input type=\"checkbox\" name=\"souper\" value=\"\">Souper<\/label>";
     input += "                                                        <\/div>";
     input += "                                                    <\/div>";
+    
     input += "                                                    <div class=\"form-group row\">";
     input += "                                                        <label for=\"descripEtape\" class=\"col-sm-2 col-form-label\">Déscription étape<\/label>";
     input += "                                                        <div class=\"col-sm-10\">";
@@ -176,52 +195,14 @@ function formulaireCircuit(reponse) {
     input += "                                                        <\/div>";
     input += "                                                    <\/div>";
     input += "                                                <\/div>";
-    input += "                                                <div id=\"deuxJour\" style=\"display: none\">";
-    input += "                                                    <div class=\"form-group row\">";
-    input += "                                                        <h3 for=\"Hotels\" class=\"col-sm-2 col-form-label\">Jour 2<\/h3>";
-    input += "";
-    input += "                                                    <\/div>";
-    input += "";
-    input += "";
-    input += "                                                    <div class=\"form-group row\">";
-    input += "                                                        <label for=\"UrlHotel\" class=\"col-sm-2 col-form-label\">URL(Hotel)<\/label>";
-    input += "                                                        <div class=\"col-sm-10\">";
-    input += "                                                            <input type=\"text\" class=\"form-control\" id=\"UrlHotel\" name=\"UrlHotel\" placeholder=\"Entrer courriel du participant\" required>";
-    input += "                                                        <\/div>";
-    input += "                                                    <\/div>";
-    input += "";
-    input += "";
-    input += "                                                    <div class=\"form-group row\">";
-    input += "                                                        <label for=\"Restaurant\" class=\"col-sm-2 col-form-label\">Restaurant(s)<\/label>";
-    input += "                                                        <div class=\"col-sm-10\">";
-    input += "                                                            <input type=\"text\" class=\"form-control\" id=\"Restaurant\" name=\"Restaurant\" placeholder=\"Entrer ville du participant\">";
-    input += "                                                        <\/div>";
-    input += "                                                    <\/div>";
-    input += "";
-    input += "                                                    <div class=\"form-group row\">";
-    input += "                                                        <label for=\"UrlRestaurant\" class=\"col-sm-2 col-form-label\">URL Restaurant(s)<\/label>";
-    input += "                                                        <div class=\"col-sm-10\">";
-    input += "                                                            <input type=\"text\" class=\"form-control\" id=\"UrlRestaurant\" name=\"UrlRestaurant\" placeholder=\"Entrer ville du participant\">";
-    input += "                                                        <\/div>";
-    input += "                                                    <\/div>";
-    input += "";
-    input += "                                                    <div class=\"form-group row\">";
-    input += "                                                        <label for=\"repas\" class=\"col-sm-2 col-form-label\">Repas inclus<\/label>";
-    input += "                                                        <div class=\"col-sm-10\">";
-    input += "                                                            <label><input type=\"checkbox\" name=\"dejeuner\" value=\"\">Déjeuner<\/label>";
-    input += "                                                            <label><input type=\"checkbox\" name=\"diner\" value=\"\">Diner<\/label>";
-    input += "                                                            <label><input type=\"checkbox\" name=\"souper\" value=\"\">Souper<\/label>";
-    input += "                                                        <\/div>";
-    input += "                                                    <\/div>";
-    input += "                                                    <div class=\"form-group row\">";
-    input += "                                                        <label for=\"descripEtape\" class=\"col-sm-2 col-form-label\">Déscription étape<\/label>";
-    input += "                                                        <div class=\"col-sm-10\">";
-    input += "                                                            <textarea class=\"form-control\" rows=\"5\" id=\"descripEtape\" name=\"descripEtape\"><\/textarea>";
-    input += "";
-    input += "                                                        <\/div>";
-    input += "                                                    <\/div>";
-    input += "                                                <\/div>";
-    input += "                                                <input type=\"button\" class=\"btn\" value=\"Jour suivant\" onClick=' $('#deuxJour').show(); AjouterEtape();'>";
+    
+    input += "                                                <input type=\"button\" class=\"btn\" value=\"Enregistrer Jour\" onClick='  AjouterJour();'><br><br>";
+    input += "                                         <\/div>";
+        
+    input += "                                        <\/form>";//fin formulaire jour-----------------------------------------------------------------------------------
+    
+    
+    
     input += "                                            <\/div>";
     input += "";
     input += "";

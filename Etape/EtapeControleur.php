@@ -1,12 +1,13 @@
 <?php
 
 require_once("../includes/modele.inc.php");
+require_once("../includes/init.php");
 $tabRes = array();
 
 
 function enregistrerEtape() {
     global $tabRes;
-    
+   
     $nomEtape = $_POST['nomEtape'];
     $descriptionEtape = $_POST['descripEtape'];
     $idCircuit=$_SESSION["idCircuit"];
