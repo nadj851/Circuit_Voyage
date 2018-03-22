@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once("../includes/modele.inc.php");
 $tabRes = array();
 
@@ -133,6 +133,9 @@ function listerParticipant() {
     }
 }
 
+
+
+
 //******************************************************
 //Contr�leur
 $action = $_POST['action'];
@@ -147,6 +150,8 @@ switch ($action) {
     case "listerParticipant" :
         listerParticipant();
         break;
+    
+    
 }
 echo json_encode($tabRes);
 ?>

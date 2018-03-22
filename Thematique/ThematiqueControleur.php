@@ -1,4 +1,5 @@
 <?php
+session_start();
 	require_once("../includes/modele.inc.php");
 	$tabRes=array();
 	function enregistrer(){

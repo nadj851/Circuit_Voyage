@@ -136,6 +136,38 @@
 		}
 	}
 	
+        
+        
+        //information user connecter
+function information() {
+    global $tabRes;
+    $tabRes['action'] = "infouser";  
+    
+    
+    if (isset($_SESSION["email"])) {
+                 $email=$_SESSION["email"];
+                  
+                  }
+                  else
+                     {
+                 $email="";
+                  
+                  } 
+   
+    $requete = "SELECT last_name,first_name,email FROM utilisateur where email=?";
+    try {
+        $unModele = new filmsModele($requete, array($email));
+        $stmt = $unModele->executer();
+        $tabRes['information'] = array();
+        while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $tabRes['information'][] = $ligne;
+        }
+    } catch (Exception $e) {
+        
+    } finally {
+        unset($unModele);
+    }
+}
 	/*function enlever(){
 		global $tabRes;	
 		$idf=$_POST['numE'];
@@ -221,6 +253,9 @@
             case "logout" :
 			logout();
 		break;
+            case "infouser" :
+                    information();
+            break;
 		
 	}
     echo json_encode($tabRes);
