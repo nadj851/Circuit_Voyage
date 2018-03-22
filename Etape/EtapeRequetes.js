@@ -6,13 +6,13 @@ function AjouterEtape() {
         type: 'POST',
         url: 'Etape/EtapeControleur.php',
         data: formEtape,
-        dataType: 'text', //text pour le voir en format de string
+        dataType: 'json', //text pour le voir en format de string
         //async : false,
         //cache : false,
         contentType: false,
         processData: false,
-        success: function (reponse) {alert(reponse);
-            //CircuitVue(reponse);
+        success: function (reponse) {//alert(reponse);
+            CircuitVue(reponse);
         },
         fail: function (err) {
 
