@@ -154,7 +154,7 @@ function infoUser(){
 //ramener circuit par identifiant 
 function RamenerCircuit(rid) {
     var formcirc = new FormData();
-    formcirc.append('action',ramener);//alert(formFilm.get("action"));
+    formcirc.append('action',"ramener");//alert(formFilm.get("action"));
     formcirc.append('idc',rid);
     $.ajax({
         type: 'POST',
@@ -162,11 +162,11 @@ function RamenerCircuit(rid) {
         data: formcirc,
         contentType: false,
         processData: false,
-        dataType: 'text', //text pour le voir en format de string
-        success: function (reponse) { alert(reponse);
+        dataType: 'json', //text pour le voir en format de string
+        success: function (reponse) { //alert(reponse);
             
-           // $( "#labtotal" ).html(reponse.circuitid[0].prix);  
-           $( "#labtotal" ).html("0"); 
+         $( "#labtotal" ).html(reponse.circuitid[0].prix+" $");  
+          
         },
         fail: function (err) {
         }
