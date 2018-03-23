@@ -133,6 +133,28 @@ function listerParticipant() {
     }
 }
 
+ 
+ 
+ //lister les circuit par id
+function  circuitparid() {
+    global $tabRes;
+    $id = $_POST['rid'];
+    
+    $tabRes['action'] = "rid";
+    $requete = "SELECT * FROM circuit where idCircuit=?";
+    try {
+        $unModele = new filmsModele($requete, array($id));
+        $stmt = $unModele->executer();
+        $tabRes['circuitid'] = array();
+        while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $tabRes['circuitid'][] = $ligne;
+        }
+    } catch (Exception $e) {
+        
+    } finally {
+        unset($unModele);
+    }
+}
 
 
 
@@ -150,6 +172,12 @@ switch ($action) {
     case "listerParticipant" :
         listerParticipant();
         break;
+    
+    
+    case "rid" :
+        circuitparid();
+        break;
+    
     
     
 }

@@ -147,3 +147,26 @@ function infoUser(){
 		}
 	});
 }
+
+
+
+
+//ramener circuit par identifiant 
+function RamenerCircuit(rid) {
+    var formFilm = new FormData();
+    formFilm.append('action',rid);//alert(formFilm.get("action"));
+    $.ajax({
+        type: 'POST',
+        url: 'Circuit/CircuitControleur.php',
+        data: formFilm,
+        contentType: false,
+        processData: false,
+        dataType: 'json', //text pour le voir en format de string
+        success: function (reponse) {
+            //alert(reponse);
+            $( "#labtotal" ).html(reponse.circuitid[0].prix);  
+        },
+        fail: function (err) {
+        }
+    });
+}

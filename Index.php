@@ -141,7 +141,6 @@ include_once 'includes/init.php';
                                     <li><a href='#'class='category' cid='POUR LA FAMILLE'>Pour la famille</a></li>
                                     <li><a href='#'class='category' cid='POUR LA FAMILLE'>test</a></li>
 
-
                                 </div>
                             </div>
                             <div id='get_cat1'>         
@@ -173,7 +172,7 @@ include_once 'includes/init.php';
 
                             </div>
                             <div class='panel panel-success'>
-                                <div class='panel-heading'> <span id='sommaire'>  </span></div>
+                                <div class='panel-heading'> <span style='font-weight: bold;font-size: 15px;' id='sommaire'>  </span></div>
                                 <div id='conteneur' class='panel-body'>
                                     <div id='get_result'>
 

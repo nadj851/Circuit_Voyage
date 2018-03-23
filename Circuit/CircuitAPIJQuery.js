@@ -81,10 +81,14 @@ function AffichageDetailsCircuit(affichageCircuits) {
         result += "<a>	<img src='pochettes/" + affichageCircuits[i].imageCircuit + "' style='width:600px; height:600px;'></a>";
         result += "<div> Description: " + affichageCircuits[i].description + " <br></div>";
         result += "<div> Prix: " + affichageCircuits[i].prix + " <br></div>";
-        result += "<a href='#' class='category btn btn-danger btn-xs' cid='ACTION'  class='' style='float:right;' onclick='FormulaireR();listerParticipants();infoUser();'>Reservation </a>";
+        result += "<a href='#' class='category btn btn-danger btn-xs' cid='ACTION'  class='' style='float:right;' onclick='FormulaireR(); listerParticipants();infoUser();RamenerCircuit('"+ affichageCircuits[i].idCircuit+ "');'>Reservation </a>";
        result += "</div>";
         result += "</div>";
         result += "</div>";
+        //'"+  affichageCircuits[i].idCircuit +"'
     }
     $('#get_result').html(result);
 }
+
+
+
