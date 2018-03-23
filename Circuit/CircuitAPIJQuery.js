@@ -21,7 +21,7 @@ function AfficherCircuits(idThem) {
 
 function AffichageCircuit(affichageCircuits) {
     $('#get_result').html("");
-
+   $('#sommaire').html("Tous les circuits");
 
     taille = affichageCircuits.length;
     var result = "";
@@ -45,6 +45,7 @@ function AffichageCircuit(affichageCircuits) {
 }
 
 function AfficherDetailsCircuit(idCircuit) {
+     
     var formCircuit = new FormData(document.getElementById('contenuCircuit'));
     formCircuit.append('action', 'enregistrerCircuit');
     $.ajax({
@@ -67,7 +68,7 @@ function AfficherDetailsCircuit(idCircuit) {
 
 function AffichageDetailsCircuit(affichageCircuits) {
     $('#get_result').html("");
-
+     $('#sommaire').html("details circuits");
 
     taille = affichageCircuits.length;
     var result = "";

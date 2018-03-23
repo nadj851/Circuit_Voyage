@@ -21,7 +21,7 @@ function enregistrerT(){
 }
 
 function listerTT(){
-    
+          $('#sommaire').html("Tous les Themes"); 
 	var formthematique = new FormData();
 	formthematique.append('action','lister');//alert(formFilm.get("action"));
 	$.ajax({

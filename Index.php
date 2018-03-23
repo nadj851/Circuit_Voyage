@@ -173,7 +173,7 @@ include_once 'includes/init.php';
 
                             </div>
                             <div class='panel panel-success'>
-                                <div class='panel-heading'>Tous les Themes</div>
+                                <div class='panel-heading'> <span id='sommaire'>  </span></div>
                                 <div id='conteneur' class='panel-body'>
                                     <div id='get_result'>
 
