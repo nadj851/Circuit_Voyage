@@ -346,8 +346,8 @@ var CircuitVue = function (reponse) {
             listerR(reponse.listetheme);
             break;
 
-        case "listerParticipant" :
-            listerP(reponse.listetheme);
+        case "afficherFiche" :
+            afficherFicheCircuit(reponse.ficheCircuit);
             break;
         case "lister" :
             formulaireCircuit(reponse.listetheme);

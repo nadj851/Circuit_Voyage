@@ -38,63 +38,63 @@ function AjouterCircuit() {
 //	});
 //}
 //
-function SupprimerCircuit(){
-	var leForm=document.getElementById('formEnleverThem');
-	var formthem = new FormData(leForm);
-	formthem.append('action','enlever');//alert(formFilm.get("action"));
-	$.ajax({
-		type : 'POST',
-		url : 'Thematique/ThematiqueControleur.php',
-		data : formthem,//leForm.serialize(),
-		contentType : false, //Enlever ces deux directives si vous utilisez serialize()
-		processData : false,
-		dataType : 'json', //text pour le voir en format de string
-		success : function (reponse){//alert(reponse);
-					thematiqueVue(reponse);
-		},
-		fail : function (err){
-		}
-	});
+function SupprimerCircuit() {
+    var leForm = document.getElementById('formEnleverThem');
+    var formthem = new FormData(leForm);
+    formthem.append('action', 'enlever');//alert(formFilm.get("action"));
+    $.ajax({
+        type: 'POST',
+        url: 'Thematique/ThematiqueControleur.php',
+        data: formthem, //leForm.serialize(),
+        contentType: false, //Enlever ces deux directives si vous utilisez serialize()
+        processData: false,
+        dataType: 'json', //text pour le voir en format de string
+        success: function (reponse) {//alert(reponse);
+            thematiqueVue(reponse);
+        },
+        fail: function (err) {
+        }
+    });
 }
 
-//function obtenirFiche(){
-//	$('#divFiche').hide();
-//	var leForm=document.getElementById('formFiche');
-//	var formFilm = new FormData(leForm);
-//	formFilm.append('action','fiche');
-//	$.ajax({
-//		type : 'POST',
-//		url : 'Thematique/ThematiqueControleur.php',
-//		data : formFilm,
-//		contentType : false, 
-//		processData : false,
-//		dataType : 'json', 
-//		success : function (reponse){//alert(reponse);
-//					thematiqueVue(reponse);
-//		},
-//		fail : function (err){
-//		}
-//	});
-//}
-//
-function modifierCircuit(){
-	var leForm=document.getElementById('formFicheT');
-	var formthem = new FormData(leForm);
-	formthem.append('action','modifier');
-	$.ajax({
-		type : 'POST',
-		url : 'Thematique/ThematiqueControleur.php',
-		data : formthem,
-		contentType : false, 
-		processData : false,
-		dataType : 'json', 
-		success : function (reponse){//alert(reponse);
-					$('#divFormFiche').hide();
-					thematiqueVue(reponse);
-		},
-		fail : function (err){
-		}
-	});
+function obtenirFicheCircuit() {
+
+    var formCircuit = new FormData();
+    formCircuit.append('action', 'ficheCircuit');
+    $.ajax({
+        type: 'POST',
+        url: 'Circuit/CircuitControleur.php',
+        data: formCircuit,
+        contentType: false,
+        processData: false,
+        dataType: 'json',
+        success: function (reponse) {
+            //alert(reponse);
+            CircuitVue(reponse);
+        },
+        fail: function (err) {
+        }
+    });
+}
+
+function modifierCircuit() {
+
+    var form = new FormData();
+    form.append('action', 'modifier');
+    $.ajax({
+        type: 'POST',
+        url: 'Thematique/ThematiqueControleur.php',
+        data: form,
+        contentType: false,
+        processData: false,
+        dataType: 'json',
+        success: function (reponse) {//alert(reponse);
+            $('#divFormFiche').hide();
+            thematiqueVue(reponse);
+        },
+        fail: function (err) {
+        }
+    });
 }
 ///////////////////////////
 //
@@ -108,7 +108,7 @@ function modifierCircuit(){
 //lister les participant
 function FormulaireCircuit() {
     var formFilm = new FormData();
-    formFilm.append('action','lister');//alert(formFilm.get("action"));
+    formFilm.append('action', 'lister');//alert(formFilm.get("action"));
     $.ajax({
         type: 'POST',
         url: 'Thematique/ThematiqueControleur.php',
