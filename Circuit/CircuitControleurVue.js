@@ -221,10 +221,53 @@ function formulaireCircuit(reponse) {
 
     $('#get_result').html(input);
 
+}
 
+function lesCircuitListe(reponse) {
+    var taille;
+    taille = reponse.length;
 
+    var list = "";
+    list += "<div class=\"container\">";
+    list += "  <h3>Liste des circuits<\/h3>";
+    list += "  <p>The .table-striped class adds zebra-stripes to a table:<\/p>            ";
+    list += "  <table class=\"table table-striped\">";
+    list += "    <thead>";
+    list += "      <tr>";
+    list += "        <th>Nom<\/th>";
+    list += "        <th>Prix<\/th>";
+    list += "        <th>RUD<\/th>";
+
+    list += "      <\/tr>";
+    list += "    <\/thead>";
+    for (var i = 0; i < taille; i++) {
+        list += "    <tbody>";
+        list += "      <tr>";
+        list += "        <td>" + reponse[i].titre + "<\/td>";
+        list += "        <td>" + reponse[i].prix + "<\/td>";
+        list += "        <td>";
+        list += "           <a href=\"#\" onclick='supprimerCircuit();' class=\"btn btn-primary a-btn-slide-text\">";
+        list += "           <span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"><\/span>";
+        list += "            <\/a>      ";
+        list += "           <a href=\"#\" class=\"btn btn-primary a-btn-slide-text\">";
+        list += "           <span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"><\/span>";
+        list += "            <\/a>      ";
+        list += "           <a href=\"#\" class=\"btn btn-primary a-btn-slide-text\">";
+        list += "           <span class=\"glyphicon glyphicon-eye-open\" aria-hidden=\"true\"><\/span>";
+        list += "            <\/a>      ";
+        list += "        <\/td>";
+        list += "      <\/tr>";
+        list += "    <tbody>";
+
+    }
+
+    list += "  <\/table>";
+    list += "<\/div>";
+    $('#get_result').html(list);
 
 }
+
+
 var CircuitVue = function (reponse) {
     var action = reponse.action;
     switch (action) {
@@ -239,15 +282,18 @@ var CircuitVue = function (reponse) {
             listerR(reponse.listetheme);
             break;
 
-        case "listerParticipant" :
-            listerP(reponse.listetheme);
-            break;
+//        case "listerParticipant" :
+//            listerP(reponse.listetheme);
+//            break;
         case "lister" :
             formulaireCircuit(reponse.listetheme);
             break;
+        case "listerLesCircuits" :
+            lesCircuitListe(reponse.listecircuit);
+            break;
             //case "fiche" :
             //	afficherFiche(reponse);
-            //break;
+            //break;listerLesCircuits
 
     }
 }
