@@ -129,7 +129,7 @@ include_once 'includes/init.php';
                             <div id='get_cat'>
 
                                 <div class='nav nav-pills nav-stacked'>
-                                    <li class='active'><a href='#'><h4>Categories</h4></a></li>
+                                    <li class='active cat'><a href='#'><h4>Categories</h4></a></li>
                                     <li><a href='#' class='category' cid='ACTION' onclick='FormulaireR();listerParticipants();infoUser();'>Reservation </a></li>
                                     <li><a href='#' class='category' cid='DRAME' onclick='FormulaireT();'>Thematique</a></li>
                                     <li><a href='#' class='category' cid='COMEDIE'  id='circuitDepart'>Participant</a></li>

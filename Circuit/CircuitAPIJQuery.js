@@ -22,7 +22,8 @@ function AfficherCircuits(idThem) {
 function AffichageCircuit(affichageCircuits) {
     $('#get_result').html("");
    $('#sommaire').html("Tous les circuits");
-
+       
+     
     taille = affichageCircuits.length;
     var result = "";
     for (var i = 0; i < taille; i++) {
@@ -69,7 +70,7 @@ function AfficherDetailsCircuit(idCircuit) {
 function AffichageDetailsCircuit(affichageCircuits) {
     $('#get_result').html("");
      $('#sommaire').html("details circuits");
-
+        
     taille = affichageCircuits.length;
     var result = "";
     for (var i = 0; i < taille; i++) {
@@ -80,7 +81,8 @@ function AffichageDetailsCircuit(affichageCircuits) {
         result += "<a class=\"thumbnail\">	<img src='pochettes/" + affichageCircuits[i].imageCircuit + "' style='width:400px; height:300px;'></a>";
         result += "<div> Description: " + affichageCircuits[i].description + " <br></div>";
         result += "<div> Prix: " + affichageCircuits[i].prix + " <br></div>";
-        result += "</div>";
+        result += "<a href='#' class='category btn btn-danger btn-xs' cid='ACTION'  class='' style='float:right;' onclick='FormulaireR();listerParticipants();infoUser();'>Reservation </a>";
+       result += "</div>";
         result += "</div>";
         result += "</div>";
     }
