@@ -370,7 +370,7 @@ function afficherFicheCircuit(fiche) {
     input += "";
     input += "";
     input += "                                        <\/form>";//fin formulaire circuit
-
+    
     $('#get_result').html(input);
 }
 var CircuitVue = function (reponse) {
