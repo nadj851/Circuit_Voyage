@@ -227,8 +227,8 @@ function formulaireCircuit(reponse) {
 }
 
 function afficherFicheCircuit(fiche) {
-    
-    
+
+
     var input = "";
     input += " <div class=\"container-fluid\" id=\"conteneurCircuit\" >";
     input += "                                        <form id=\"contenuCircuit\"class=\"form-group row\" style=\"display: block\">";
@@ -241,9 +241,9 @@ function afficherFicheCircuit(fiche) {
     input += "                                                <div class=\"form-group row\">";
     input += "                                                    <label for=\"nomCircuit\" class=\"col-sm-2 col-form-label\">Nom du circuit<\/label>";
     input += "                                                    <div class=\"col-sm-10\">";
-    
-    input += "                                                        <input type=\"text\" class=\"form-control\" id=\"nomCircuit\" name=\"nomCircuit\" placeholder=\"Entrer nom du participant\"  value = "+fiche.titre+" required>";
-    
+
+    input += "                                                        <input type=\"text\" class=\"form-control\" id=\"nomCircuit\" name=\"nomCircuit\" placeholder=\"Entrer nom du participant\"  value = " + fiche.titre + " required>";
+
     input += "                                                    <\/div>";
     input += "                                                <\/div>";
     input += "";
@@ -329,7 +329,7 @@ function afficherFicheCircuit(fiche) {
     input += "";
     input += "";
     input += "                                        <\/form>";//fin formulaire circuit
-    
+
     $('#get_result').html(input);
 }
 var CircuitVue = function (reponse) {
