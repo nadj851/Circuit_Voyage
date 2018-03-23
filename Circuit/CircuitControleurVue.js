@@ -345,14 +345,11 @@ var CircuitVue = function (reponse) {
         case "listerCircuit" :
             listerR(reponse.listetheme);
             break;
-        case "afficherFiche" :
-            afficherFicheCircuit(reponse.ficheCircuit);
-            break;
 
         case "listerParticipant" :
             listerP(reponse.listetheme);
             break;
-        case "lister" ://Cette action viens de thematiques, ca nous liste les théamtiques
+        case "lister" :
             formulaireCircuit(reponse.listetheme);
             break;
             //case "fiche" :
