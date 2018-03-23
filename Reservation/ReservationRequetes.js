@@ -153,18 +153,20 @@ function infoUser(){
 
 //ramener circuit par identifiant 
 function RamenerCircuit(rid) {
-    var formFilm = new FormData();
-    formFilm.append('action',rid);//alert(formFilm.get("action"));
+    var formcirc = new FormData();
+    formcirc.append('action',ramener);//alert(formFilm.get("action"));
+    formcirc.append('idc',rid);
     $.ajax({
         type: 'POST',
-        url: 'Circuit/CircuitControleur.php',
-        data: formFilm,
+        url: 'Reservation/ReservationControleur.php',
+        data: formcirc,
         contentType: false,
         processData: false,
-        dataType: 'json', //text pour le voir en format de string
-        success: function (reponse) {
-            //alert(reponse);
-            $( "#labtotal" ).html(reponse.circuitid[0].prix);  
+        dataType: 'text', //text pour le voir en format de string
+        success: function (reponse) { alert(reponse);
+            
+           // $( "#labtotal" ).html(reponse.circuitid[0].prix);  
+           $( "#labtotal" ).html("0"); 
         },
         fail: function (err) {
         }

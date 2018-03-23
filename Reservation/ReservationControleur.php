@@ -138,9 +138,9 @@ function listerParticipant() {
  //lister les circuit par id
 function  circuitparid() {
     global $tabRes;
-    $id = $_POST['rid'];
+    $id = $_POST['idc'];
     
-    $tabRes['action'] = "rid";
+    $tabRes['action'] = "ramener";
     $requete = "SELECT * FROM circuit where idCircuit=?";
     try {
         $unModele = new filmsModele($requete, array($id));
@@ -149,6 +149,7 @@ function  circuitparid() {
         while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
             $tabRes['circuitid'][] = $ligne;
         }
+        
     } catch (Exception $e) {
         
     } finally {
@@ -174,7 +175,7 @@ switch ($action) {
         break;
     
     
-    case "rid" :
+    case "ramener" :
         circuitparid();
         break;
     
