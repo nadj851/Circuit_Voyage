@@ -36,24 +36,24 @@ function enregistrerCircuit() {
     }
 }
 
-//function lister() {
-//    global $tabRes;
-//    $tabRes['action'] = "lister";
-//    $requete = "SELECT * FROM thematique";
-//    try {
-//        $unModele = new filmsModele($requete, array());
-//        $stmt = $unModele->executer();
-//        $tabRes['listetheme'] = array();
-//        while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
-//            $tabRes['listetheme'][] = $ligne;
-//        }
-//    } catch (Exception $e) {
-//        
-//    } finally {
-//        unset($unModele);
-//    }
-//}
-//
+function listerLesCircuit() {
+    global $tabRes;
+    $tabRes['action'] = "listerLesCircuits";
+    $requete = "SELECT * FROM circuit";
+    try {
+        $unModele = new filmsModele($requete, array());
+        $stmt = $unModele->executer();
+        $tabRes['listecircuit'] = array();
+        while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $tabRes['listecircuit'][] = $ligne;
+        }
+    } catch (Exception $e) {
+        echo $e;
+    } finally {
+        unset($unModele);
+    }
+}
+
 ///* function enlever(){
 //  global $tabRes;
 //  $idf=$_POST['numE'];
@@ -150,7 +150,7 @@ function ficheCircuit() {
 //    }
 //}
 //******************************************************
-//Contr�leur
+//Controleur
 $action = $_POST['action'];
 
 switch ($action) {
@@ -160,9 +160,12 @@ switch ($action) {
     case "afficherFormCircuit" :
         afficherFormCircuit();
         break;
+case "listerCircuit" :
+        listerLesCircuit();
 
     case "ficheCircuit" :
         ficheCircuit();
         break;
+   
 }
 echo json_encode($tabRes);
