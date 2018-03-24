@@ -35,7 +35,23 @@ function formulaireloginU () {
 
                     resul+="<div style='margin-top:10px' class='form-group'>";
                         resul+="<div class='col-sm-4 controls'>";
-                            resul+="<input class='btn btn-lg btn-primary btn-block' type='button' value='se connecter' onClick='loginU();'>";
+                            resul+="<input class='btn btn-lg btn-primary btn-block' style='display:inline;'type='button' value='se connecter' onClick='loginU();'>";
+                                resul+="</br>";
+                                  resul+="</br>";
+                                  
+
+                            /////////////facebook connection
+                             resul+="<div id='fb-root'></div>";
+ resul+="<script>(function(d, s, id) {";
+   resul+="var js, fjs = d.getElementsByTagName(s)[0];";
+   resul+="if (d.getElementById(id)) return;";
+   resul+="js = d.createElement(s); js.id = id;";
+   resul+="js.src = 'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.12&appId=173921999923265&autoLogAppEvents=1';";
+   resul+="fjs.parentNode.insertBefore(js, fjs);";
+ resul+="}(document, 'script', 'facebook-jssdk'));</script>";
+      resul+="<section class='content'>";
+          resul+="<div  class='fb-login-button' data-max-rows='1' data-size='large' data-button-type='continue_with' data-show-faces='false' data-auto-logout-link='true' data-use-continue-as='false'></div>";
+          //////////////////////////////////////////////
                         resul+="</div>";
                     resul+="</div>";
                 resul+="</form>"; 
