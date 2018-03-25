@@ -1,12 +1,12 @@
 <?php
+
 session_start();
 require_once("../includes/modele.inc.php");
 $tabRes = array();
 
-
 function enregistrerCircuit() {
     global $tabRes;
-    
+
     $nomCircuit = $_POST['nomCircuit'];
     $dateDepart = $_POST['dateDepartCircuit'];
     $dateRetour = $_POST['dateRetourCircuit'];
@@ -24,7 +24,7 @@ function enregistrerCircuit() {
         $unModele = new filmsModele();
         $pochete = $unModele->verserFichier("pochettes", "pochette", "avatar.jpg", $nomCircuit);
         $requete = "INSERT INTO circuit VALUES(0,?,?,?,?,?,?,?,?,?,?,?)";
-        $unModele = new filmsModele($requete, array($nomCircuit, $dateDepart, $dateRetour,$nbPersonnesMax,$nbPersonnesMin,$description,$prix,$pochete,null,null,$idthematique));
+        $unModele = new filmsModele($requete, array($nomCircuit, $dateDepart, $dateRetour, $nbPersonnesMax, $nbPersonnesMin, $description, $prix, $pochete, null, null, $idthematique));
         $stmt = $unModele->executer();
         $_SESSION["idCircuit"] = $unModele->lastID;
         $tabRes['action'] = "enregistrer";
@@ -79,27 +79,31 @@ function listerLesCircuit() {
 //  }
 //  }
 //
-//  function fiche(){
-//  global $tabRes;
-//  $idf=$_POST['numF'];
-//  $tabRes['action']="fiche";
-//  $requete="SELECT * FROM films WHERE idf=?";
-//  try{
-//  $unModele=new filmsModele($requete,array($idf));
-//  $stmt=$unModele->executer();
-//  $tabRes['fiche']=array();
-//  if($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
-//  $tabRes['fiche']=$ligne;
-//  $tabRes['OK']=true;
-//  }
-//  else{
-//  $tabRes['OK']=false;
-//  }
-//  }catch(Exception $e){
-//  }finally{
-//  unset($unModele);
-//  }
-//  }
+function ficheCircuit() {
+   
+    global $tabRes;
+    $id = 33;
+    $tabRes['action'] = "afficherFiche";
+    $requete = "SELECT * FROM circuit WHERE idCircuit=?";
+    try {
+        $unModele = new filmsModele($requete, array($id));
+        $stmt = $unModele->executer();
+        $tabRes['ficheCircuit'] = array();
+        if ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $tabRes['ficheCircuit'] = $ligne;
+            $tabRes['OK'] = true;
+        } else {
+            $tabRes['OK'] = false;
+        }
+    } catch (Exception $e) {
+        echo $e;
+        
+    } finally {
+        unset($unModele);
+       
+    }
+}
+
 //
 //  function modifier(){
 //  global $tabRes;
@@ -145,10 +149,10 @@ function listerLesCircuit() {
 //        unset($unModele);
 //    }
 //}
-
 //******************************************************
 //Controleur
 $action = $_POST['action'];
+
 switch ($action) {
     case "enregistrerCircuit" :
         enregistrerCircuit();
@@ -158,8 +162,10 @@ switch ($action) {
         break;
 case "listerCircuit" :
         listerLesCircuit();
+
+    case "ficheCircuit" :
+        ficheCircuit();
         break;
    
 }
 echo json_encode($tabRes);
-?>

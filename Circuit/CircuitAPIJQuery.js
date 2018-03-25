@@ -21,8 +21,9 @@ function AfficherCircuits(idThem) {
 
 function AffichageCircuit(affichageCircuits) {
     $('#get_result').html("");
-
-
+   $('#sommaire').html("Tous les circuits");
+       
+     
     taille = affichageCircuits.length;
     var result = "";
     for (var i = 0; i < taille; i++) {
@@ -30,7 +31,7 @@ function AffichageCircuit(affichageCircuits) {
         result += "<div class='panel panel-success'>";
         result += "<div class='panel-heading'>" + "<span style='font-weight: bold;font-size: 15px;'>" + affichageCircuits[i].titre + "</span></div>";
         result += "<div class='panel-body'>";
-        result += "<a name='afficherDetailsCircuit'  id='" + affichageCircuits[i].idCircuit + "' class=\"thumbnail\">	<img src='pochettes/" + affichageCircuits[i].imageCircuit + "' style='width:400px; height:300px;'></a>";
+        result += "<a name='afficherDetailsCircuit'  id='" + affichageCircuits[i].idCircuit + "' >	<img src='pochettes/" + affichageCircuits[i].imageCircuit + "' style='width:350px; height:300px;'></a>";
         result += "<div> Description: " + affichageCircuits[i].description + " <br></div>";
         result += "<div> Prix: " + affichageCircuits[i].prix + " <br></div>";
         result += "</div>";
@@ -45,6 +46,7 @@ function AffichageCircuit(affichageCircuits) {
 }
 
 function AfficherDetailsCircuit(idCircuit) {
+     
     var formCircuit = new FormData(document.getElementById('contenuCircuit'));
     formCircuit.append('action', 'enregistrerCircuit');
     $.ajax({
@@ -67,21 +69,26 @@ function AfficherDetailsCircuit(idCircuit) {
 
 function AffichageDetailsCircuit(affichageCircuits) {
     $('#get_result').html("");
-
-
+     $('#sommaire').html("details circuits");
+        
     taille = affichageCircuits.length;
     var result = "";
     for (var i = 0; i < taille; i++) {
-        result += "<div class='col-md-4'>";
+        result += "<div class='col-md-12'>";
         result += "<div class='panel panel-success'>";
-        result += "<div class='panel-heading'>" + "<span style='font-weight: bold;font-size: 15px;'>"+ "Page Detaillé du Circuit" + affichageCircuits[i].titre + "</span></div>";
+        result += "<div class='panel-heading'>" + "<span style='font-weight: bold;font-size: 15px;'>"+ affichageCircuits[i].titre + "</span></div>";
         result += "<div class='panel-body'>";
-        result += "<a class=\"thumbnail\">	<img src='pochettes/" + affichageCircuits[i].imageCircuit + "' style='width:400px; height:300px;'></a>";
+        result += "<a>	<img src='pochettes/" + affichageCircuits[i].imageCircuit + "' style='width:600px; height:600px;'></a>";
         result += "<div> Description: " + affichageCircuits[i].description + " <br></div>";
         result += "<div> Prix: " + affichageCircuits[i].prix + " <br></div>";
+        result += "<a href='#' class='category btn btn-danger btn-xs' cid='ACTION'  class='' style='float:right;' onclick='FormulaireR(); listerParticipants();infoUser();RamenerCircuit("+ affichageCircuits[i].idCircuit+ ");'>Reservation </a>";
+       result += "</div>";
         result += "</div>";
         result += "</div>";
-        result += "</div>";
+        //'"+  affichageCircuits[i].idCircuit +"'
     }
     $('#get_result').html(result);
 }
+
+
+

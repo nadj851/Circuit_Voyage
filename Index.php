@@ -30,16 +30,16 @@ include_once 'includes/init.php';
 
         <script src='Utilisateur/UtilisateurControleurVue.js' type='text/javascript'></script>
         <script src='Utilisateur/UtilistauerRequetes.js' type='text/javascript'></script>
-        
+
         <script src='Circuit/CircuitControleurVue.js' type='text/javascript'></script>
         <script src='Circuit/CircuitRequetes.js' type='text/javascript'></script>
-        
+
         <script src='Etape/EtapeControleurVue.js' type='text/javascript'></script>
         <script src='Etape/EtapeRequetes.js' type='text/javascript'></script>
-        
+
         <script src="Jour/JourControleurVue.js" type="text/javascript"></script>
         <script src="Jour/JourRequette.js" type="text/javascript"></script>
-        
+
         <link rel='stylesheet' href='Untitled_fichiers/ionicons.css'>
         <link rel='stylesheet' href='Untitled_fichiers/footer-servitech.css'>
         <link rel='stylesheet' href='Untitled_fichiers/aos.css'>
@@ -129,17 +129,18 @@ include_once 'includes/init.php';
                             <div id='get_cat'>
 
                                 <div class='nav nav-pills nav-stacked'>
-                                    <li class='active'><a href='#'><h4>Categories</h4></a></li>
+                                    <li class='active cat'><a href='#'><h4>Categories</h4></a></li>
                                     <li><a href='#' class='category' cid='ACTION' onclick='FormulaireR();listerParticipants();infoUser();'>Reservation </a></li>
                                     <li><a href='#' class='category' cid='DRAME' onclick='FormulaireT();'>Thematique</a></li>
                                     <li><a href='#' class='category' cid='COMEDIE'  id='circuitDepart'>Participant</a></li>
                                     <li><a href='#'class='category' cid='SCIENCE FICTION' onclick='lister();'>lister participant</a></li>
                                     <li><a href='#'class='category' cid='HORREUR' onclick='FormulaireCircuit();'>Créer un circuit</a></li>
-                                    <li><a href='#'class='category' cid='SUSPENSE'onclick='listerCircuit();' >lister les Circuits</a></li>
+                                    <li><a href='#'class='category' cid='HORREUR' onclick='obtenirFicheCircuit();'>Modifier un circuit</a></li>
+                                    <li><a href='#'class='category' cid='SUSPENSE'onclick='SupprimerCircuit();' >Supprimer Circuit</a></li>
                                     <li><a href='#'class='category' cid='SUSPENSE'>Suspense</a></li>
+                                    <li><a href='#'class='category' cid='alo'onclick='listerCircuit();' >lister les Circuits</a></li>
                                     <li><a href='#'class='category' cid='POUR LA FAMILLE'>Pour la famille</a></li>
                                     <li><a href='#'class='category' cid='POUR LA FAMILLE'>test</a></li>
-
 
                                 </div>
                             </div>
@@ -172,7 +173,7 @@ include_once 'includes/init.php';
 
                             </div>
                             <div class='panel panel-success'>
-                                <div class='panel-heading'>Tous les Themes</div>
+                                <div class='panel-heading'> <span style='font-weight: bold;font-size: 15px;' id='sommaire'>  </span></div>
                                 <div id='conteneur' class='panel-body'>
                                     <div id='get_result'>
 
@@ -186,7 +187,7 @@ include_once 'includes/init.php';
 
 
 
-                                    
+
 
                                 </div>
                                 <div class='panel-footer'>&copy; 2018</div>
@@ -257,4 +258,4 @@ include_once 'includes/init.php';
                     <script src='Untitled_fichiers/analytics.htm'></script>
 
                     </body>
-                    </html>
+

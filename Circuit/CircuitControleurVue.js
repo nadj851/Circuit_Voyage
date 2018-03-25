@@ -267,7 +267,112 @@ function lesCircuitListe(reponse) {
 
 }
 
+function afficherFicheCircuit(fiche) {
 
+
+    var input = "";
+    input += " <div class=\"container-fluid\" id=\"conteneurCircuit\" >";
+    input += "                                        <form id=\"contenuCircuit\"class=\"form-group row\" style=\"display: block\">";
+    input += "                                            <div class=\"form-group row\">";
+    input += "                                                <h2 for=\"nomCircuit\" class=\"col-sm-2 col-form-label\">Modification d'un circuit<\/h2>";
+    input += "                                            <\/div>";
+    input += "";
+    input += "                                            <div class=\"container\" style=\"width: 60% ; float: left; margin-left: 20px\" >";
+    input += "";
+    input += "                                                <div class=\"form-group row\">";
+    input += "                                                    <label for=\"nomCircuit\" class=\"col-sm-2 col-form-label\">Nom du circuit<\/label>";
+    input += "                                                    <div class=\"col-sm-10\">";
+
+    input += "                                                        <input type=\"text\" class=\"form-control\" id=\"nomCircuit\" name=\"nomCircuit\" placeholder=\"Entrer nom du participant\"  value = " + fiche.titre + " required>";
+
+    input += "                                                    <\/div>";
+    input += "                                                <\/div>";
+    input += "";
+    input += "                                                <div class=\"form-group row\">";
+    input += "                                                    <label for=\"themeCircuit\" class=\"col-sm-2 col-form-label\">Thématique<\/label>";
+    input += "                                                    <div class=\"col-sm-10\" >";
+    input += "                                                        <select class=\"form-control\" id=\"themeCircuit\" name=\"themeCircuit\" required>                                    ";
+
+    input += "                                                        <\/select>";
+    input += "                                                    <\/div>";
+    input += "                                                <\/div>";
+    input += "";
+    input += "                                                <div class=\"form-group row\">";
+    input += "                                                    <label for=\"dateDepartCircuit\" class=\"col-sm-2 col-form-label\">Date de départ<\/label>";
+    input += "                                                    <div class=\"col-sm-10\">";
+    input += "                                                        <input type=\"text\" class=\"form-control\" id=\"dateDepartCircuit\" name=\"dateDepartCircuit\" placeholder=\"Entrer départ date\" required>";
+    input += "                                                    <\/div>";
+    input += "                                                <\/div>";
+    input += "";
+    input += "";
+    input += "                                                <div class=\"form-group row\">";
+    input += "                                                    <label for=\"dateRetourCircuit\" class=\"col-sm-2 col-form-label\">Date de départ<\/label>";
+    input += "                                                    <div class=\"col-sm-10\">";
+    input += "                                                        <input type=\"text\" class=\"form-control\" id=\"dateRetourCircuit\" name=\"dateRetourCircuit\" placeholder=\"Entrer retour date\" required>";
+    input += "                                                    <\/div>";
+    input += "                                                <\/div>";
+    input += "";
+    input += "";
+    input += "                                                <div class=\"form-group row\">";
+    input += "                                                    <label for=\"nbPersonneMin\" class=\"col-sm-2 col-form-label\">Nombre personnes minimum<\/label>";
+    input += "                                                    <div class=\"col-sm-10\">";
+    input += "                                                        <input type=\"text\" class=\"form-control\" id=\"nbPersonneMin\" name=\"nbPersonneMin\" placeholder=\"Entrer courriel du participant\" required>";
+    input += "                                                    <\/div>";
+    input += "                                                <\/div>";
+    input += "";
+    input += "";
+    input += "                                                <div class=\"form-group row\">";
+    input += "                                                    <label for=\"nbPersonneMax\" class=\"col-sm-2 col-form-label\">Nombre personnes maximum<\/label>";
+    input += "                                                    <div class=\"col-sm-10\">";
+    input += "                                                        <input type=\"text\" class=\"form-control\" id=\"nbPersonneMax\" name=\"nbPersonneMax\" placeholder=\"Entrer courriel du participant\" required>";
+    input += "                                                    <\/div>";
+    input += "                                                <\/div>";
+    input += "";
+    input += "";
+    input += "                                                <div class=\"form-group row\">";
+    input += "                                                    <label for=\"prixCircuit\" class=\"col-sm-2 col-form-label\">Prix<\/label>";
+    input += "                                                    <div class=\"col-sm-10\">";
+    input += "                                                        <input type=\"text\" class=\"form-control\" id=\"prixCircuit\" name=\"prixCircuit\" placeholder=\"Entrer ville du participant\">";
+    input += "                                                    <\/div>";
+    input += "                                                <\/div>";
+    input += "";
+    input += "                                                <div class=\"form-group row\">";
+    input += "                                                    <label for=\"descripCircuit\" class=\"col-sm-2 col-form-label\">Déscription du circuit<\/label>";
+    input += "                                                    <div class=\"col-sm-10\">";
+    input += "                                                        <textarea class=\"form-control\" rows=\"5\" id=\"descripCircuit\" name=\"descripCircuit\"><\/textarea>";
+    input += "";
+    input += "";
+    input += "";
+    input += "                                                    <\/div>";
+    input += "                                                <\/div>";
+    input += "";
+    input += "                                                <div class=\"form-group row\">";
+    input += "                                                    <label for=\"nbEtapeCircuit\" class=\"col-sm-2 col-form-label\">Entrer nombre etape<\/label>";
+    input += "                                                    <div class=\"col-sm-10\" >";
+    input += "                                                        <select class=\"form-control\" id=\"nbEtapeCircuit\" name=\"nbEtapeCircuit\" required>";
+    input += "                                                            <option>1<\/option>";
+    input += "                                                            <option>2<\/option>";
+    input += "                                                            <option>3<\/option>";
+    input += "                                                            <option>4<\/option>";
+    input += "                                                            <option>5<\/option>";
+    input += "                                                            <option>6<\/option>";
+    input += "                                                        <\/select>";
+    input += "                                                    <\/div>";
+    input += "                                                <\/div>";
+    input += "                                              <div class=\"form-group\">";
+    input += "                                                      <label for=\"pochette\">Pochette:<\/label>";
+
+    input += "                                                      <input type=\"file\" class=\"form-control-file\" id=\"pochette\" name=\"pochette\" aria-describedby=\"fileHelp\">";
+
+    input += "                                          <\/div>";
+    input += "                                                <input type=\"button\" id=\"modifierCircuit\"class=\"btn\" onclick='$(\"#contenuCircuit\").hide(); $(\"#contenuEtape\").show(); modifierCircuit();' value=\"Modifier Circuit\" >";
+    input += "                                            <\/div>";
+    input += "";
+    input += "";
+    input += "                                        <\/form>";//fin formulaire circuit
+    
+    $('#get_result').html(input);
+}
 var CircuitVue = function (reponse) {
     var action = reponse.action;
     switch (action) {
@@ -282,9 +387,9 @@ var CircuitVue = function (reponse) {
             listerR(reponse.listetheme);
             break;
 
-//        case "listerParticipant" :
-//            listerP(reponse.listetheme);
-//            break;
+        case "afficherFiche" :
+            afficherFicheCircuit(reponse.ficheCircuit);
+            break;
         case "lister" :
             formulaireCircuit(reponse.listetheme);
             break;
