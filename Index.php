@@ -99,8 +99,14 @@ include_once 'includes/init.php';
 
 
 
+                                    
+                                   <?php if (!logged_in()) : ?>
+                            <li> <a href='#' onClick='formulairelogin();'><span class='glyphicon glyphicon-shopping-cart'></span>Panier<span class='badge'>0</span></a>  </li>			
+                            <?php elseif(get_name($_SESSION['email'])!="admin"&&logged_in())  : ?>							
+                            <li> <a href='#' onClick='listerPanier();'><span class="glyphicon glyphicon-shopping-cart"></span>Panier<span class="badge">0</span></a>                           
+                              <?php endif; ?>                                                                                                                                               
 
-                                <li> <a href='login.php'><span class='glyphicon glyphicon-shopping-cart'></span>Panier<span class='badge'>0</span></a>  </li>		
+                                	
 
 
 
