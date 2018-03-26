@@ -78,10 +78,11 @@ function AffichageDetailsCircuit(affichageCircuits) {
         result += "<div class='panel panel-success'>";
         result += "<div class='panel-heading'>" + "<span style='font-weight: bold;font-size: 15px;'>"+ affichageCircuits[i].titre + "</span></div>";
         result += "<div class='panel-body'>";
-        result += "<a>	<img src='pochettes/" + affichageCircuits[i].imageCircuit + "' style='width:600px; height:600px;'></a>";
+        result += "<a>	<img src='pochettes/" + affichageCircuits[i].imageCircuit + "' style='width:500px; height:500px;'></a>";
         result += "<div> Description: " + affichageCircuits[i].description + " <br></div>";
         result += "<div> Prix: " + affichageCircuits[i].prix + " <br></div>";
-        result += "<a href='#' class='category btn btn-danger btn-xs' cid='ACTION'  class='' style='float:right;' onclick='FormulaireR(); listerParticipants();infoUser();RamenerCircuit("+ affichageCircuits[i].idCircuit+ ");'>Reservation </a>";
+        result += "<a href='#' class='category btn btn-danger btn-xs' cid='ACTION'  class='' style='float:right;' onclick='FormulaireR(); listerParticipants();infoUser();RamenerCircuit("+ affichageCircuits[i].idCircuit+ ");'>Reservation </a> ";
+         result += "<a href='#' class='category btn btn-success btn-xs' cid='ACTION'  class='' style='float:right;' onclick='FormulaireR(); listerParticipants();infoUser();RamenerCircuit("+ affichageCircuits[i].idCircuit+ ");'> Ajouter au Panier </a>";
        result += "</div>";
         result += "</div>";
         result += "</div>";
