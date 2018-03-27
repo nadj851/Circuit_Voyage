@@ -147,7 +147,7 @@ function loginU(){
 		success : function (reponse){//alert(reponse);
                     
                     
-                    if (reponse.msg=="utilisateur authentifier avec success") {
+                if (reponse.msg=="utilisateur authentifier avec success") {
                 window.location.href = 'index.php';
             } else {
             }
