@@ -1,10 +1,10 @@
 //requ�tes thematique
-function enregistrerT(){
+/*function enregistrerT(){
 	var formthematique = new FormData(document.getElementById('formEnregthems'));
 	formthematique.append('action','enregistrer');
 	$.ajax({
 		type : 'POST',
-		url : 'Thematique/ThematiqueControleur.php',
+		url : 'Panier/PanierControleur.php',
 		data : formthematique,
 		dataType : 'json', //text pour le voir en format de string
 		//async : false,
@@ -19,15 +19,15 @@ function enregistrerT(){
 		}
 	});
 }
-
-function listerTT(){
-          $('#sommaire').html("Tous les Themes"); 
-	var formthematique = new FormData();
-	formthematique.append('action','lister');//alert(formFilm.get("action"));
+*/
+function listerPanier(){
+          $('#sommaire').html("le panier "); 
+	var formpanier= new FormData();
+	formpanier.append('action','listerP');//alert(formFilm.get("action"));
 	$.ajax({
 		type : 'POST',
-		url : 'Thematique/ThematiqueControleur.php',
-		data : formthematique,
+		url : 'Panier/PanierControleur.php',
+		data : formpanier,
 		contentType : false,
 		processData : false,
 		dataType : 'json', //text pour le voir en format de string
@@ -48,7 +48,7 @@ function listerTT(){
 	formthem.append('action','enlever');//alert(formFilm.get("action"));
 	$.ajax({
 		type : 'POST',
-		url : 'Thematique/ThematiqueControleur.php',
+		url : 'Panier/PanierControleur.php',
 		data : formthem,//leForm.serialize(),
 		contentType : false, //Enlever ces deux directives si vous utilisez serialize()
 		processData : false,
@@ -68,7 +68,7 @@ function obtenirFiche(){
 	formFilm.append('action','fiche');
 	$.ajax({
 		type : 'POST',
-		url : 'Thematique/ThematiqueControleur.php',
+		url : 'Panier/PanierControleur.php',
 		data : formFilm,
 		contentType : false, 
 		processData : false,
@@ -87,7 +87,7 @@ function modifier(){
 	formthem.append('action','modifier');
 	$.ajax({
 		type : 'POST',
-		url : 'Thematique/ThematiqueControleur.php',
+		url : 'Panier/PanierControleur.php',
 		data : formthem,
 		contentType : false, 
 		processData : false,
@@ -101,8 +101,8 @@ function modifier(){
 	});
 }*/
 /////////////////////////
-function FormulaireT(){
+/*function FormulaireT(){
         var reponse={"action":"formulaire"};
         	thematiqueVue(reponse);
 	
-}
+}*/

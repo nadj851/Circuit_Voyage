@@ -147,3 +147,28 @@ function infoUser(){
 		}
 	});
 }
+
+
+
+
+//ramener circuit par identifiant 
+function RamenerCircuit(rid) {
+    var formcirc = new FormData();
+    formcirc.append('action',"ramener");//alert(formFilm.get("action"));
+    formcirc.append('idc',rid);
+    $.ajax({
+        type: 'POST',
+        url: 'Reservation/ReservationControleur.php',
+        data: formcirc,
+        contentType: false,
+        processData: false,
+        dataType: 'json', //text pour le voir en format de string
+        success: function (reponse) { //alert(reponse);
+            
+         $( "#labtotal" ).html(reponse.circuitid[0].prix+" $");  
+          
+        },
+        fail: function (err) {
+        }
+    });
+}

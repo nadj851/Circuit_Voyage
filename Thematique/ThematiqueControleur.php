@@ -1,6 +1,8 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
-session_start();
 require_once("../includes/modele.inc.php");
 $tabRes = array();
 
@@ -42,6 +44,7 @@ function listerThematique() {
     }
 }
 function getListThematique(){
+    global $tabRes;
     listerThematique();
     return $tabRes['listetheme'];
 }

@@ -268,9 +268,10 @@ function lesCircuitListe(reponse) {
 }
 
 function afficherFicheCircuit(reponse) {
-    var fiche = reponse.fiche;
-    var theme =reponse.listetheme;
+    var fiche = reponse.ficheCircuit;
+    //var theme =reponse.listetheme;
     var taille = reponse.lenght;
+    alert("je mapprete a ecrire le html");
     var input = "";
     input += " <div class=\"container-fluid\" id=\"conteneurCircuit\" >";
     input += "                                        <form id=\"contenuCircuit\"class=\"form-group row\" style=\"display: block\">";
@@ -293,10 +294,10 @@ function afficherFicheCircuit(reponse) {
     input += "                                                    <label for=\"themeCircuit\" class=\"col-sm-2 col-form-label\">Thématique<\/label>";
     input += "                                                    <div class=\"col-sm-10\" >";
     input += "                                                        <select class=\"form-control\" id=\"themeCircuit\" name=\"themeCircuit\" required>                                    ";
-    for (var i = 0; i < taille; i++) {
-        input += "   <option value='" + theme[i].idThematique + "'>" + theme[i].nom + "<\/option>";
-
-    }
+//    for (var i = 0; i < taille; i++) {
+//        input += "   <option value='" + theme[i].idThematique + "'>" + theme[i].nom + "<\/option>";
+//
+//    }
     input += "                                                        <\/select>";
     input += "                                                    <\/div>";
     input += "                                                <\/div>";
@@ -374,12 +375,13 @@ function afficherFicheCircuit(reponse) {
     input += "";
     input += "";
     input += "                                        <\/form>";//fin formulaire circuit
-    
+    alert("jai fini");
     $('#get_result').html(input);
 }
 var CircuitVue = function (reponse) {
+    alert("Switch de la vue Circuit");
     var action = reponse.action;
-    alert(reponse);
+    alert(reponse.action);
     switch (action) {
         case "enregistrer" :
             //case "enlever" :
@@ -391,6 +393,7 @@ var CircuitVue = function (reponse) {
             break;
 
         case "afficherFiche" :
+            alert("Je suis la");
             afficherFicheCircuit(reponse);
             break;
         case "lister" :

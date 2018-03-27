@@ -1,6 +1,9 @@
 <?php
 
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 require_once("../includes/modele.inc.php");
 
 $tabRes = array();
@@ -42,9 +45,9 @@ function listerLesCircuit() {
     $tabRes['action'] = "listerLesCircuits";
     $requete = "SELECT * FROM circuit";
     try {
-        $unModele = new filmsModele($requete, array());
+        $unModele = new filmsModele($requete, []);
         $stmt = $unModele->executer();
-        $tabRes['listecircuit'] = array();
+        $tabRes['listecircuit'] = [];
         while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
             $tabRes['listecircuit'][] = $ligne;
         }
@@ -55,33 +58,9 @@ function listerLesCircuit() {
     }
 }
 
-///* function enlever(){
-//  global $tabRes;
-//  $idf=$_POST['numE'];
-//  try{
-//  $requete="SELECT * FROM films WHERE idf=?";
-//  $unModele=new filmsModele($requete,array($idf));
-//  $stmt=$unModele->executer();
-//  if($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
-//  $unModele->enleverFichier("pochettes",$ligne->pochette);
-//  $requete="DELETE FROM films WHERE idf=?";
-//  $unModele=new filmsModele($requete,array($idf));
-//  $stmt=$unModele->executer();
-//  $tabRes['action']="enlever";
-//  $tabRes['msg']="Film ".$idf." bien enleve";
-//  }
-//  else{
-//  $tabRes['action']="enlever";
-//  $tabRes['msg']="Film ".$idf." introuvable";
-//  }
-//  }catch(Exception $e){
-//  }finally{
-//  unset($unModele);
-//  }
-//  }
-//
 function ficheCircuit() {
-
+    include '../Thematique/ThematiqueControleur.php';    
+    listerThematique();
     global $tabRes;
     $id = 33;    
     $requete = "SELECT * FROM circuit WHERE idCircuit=?";
@@ -90,8 +69,10 @@ function ficheCircuit() {
         $stmt = $unModele->executer();
         $tabRes['ficheCircuit'] = array();
         if ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
-            $tabRes['ficheCircuit'] = $ligne;
+        $tabRes['ficheCircuit'][] = $ligne;
             $tabRes['OK'] = true;
+               $tabRes['action']= "afficherFiche";
+             
         } else {
             $tabRes['OK'] = false;
         }
@@ -100,66 +81,12 @@ function ficheCircuit() {
     } finally {
         unset($unModele);
     }
-     $tabResTemp['ficheCircuit'] =$tabRes['ficheCircuit'] ;
-    include '../Thematique/ThematiqueControleur.php';
-    listerThematique() ;
-    $tabRes['ficheCircuit']  = $tabResTemp['ficheCircuit'] ;
-    unset($tabRes['action']);
-    $tabRes['action']= "afficherFiche";
     
 }
 
-//
-//  function modifier(){
-//  global $tabRes;
-//  $titre=$_POST['titreF'];
-//  $duree=$_POST['dureeF'];
-//  $res=$_POST['resF'];
-//  $idf=$_POST['idf'];
-//  try{
-//  //Recuperer ancienne pochette
-//  $requette="SELECT pochette FROM films WHERE idf=?";
-//  $unModele=new filmsModele($requette,array($idf));
-//  $stmt=$unModele->executer();
-//  $ligne=$stmt->fetch(PDO::FETCH_OBJ);
-//  $anciennePochette=$ligne->pochette;
-//  $pochette=$unModele->verserFichier("pochettes", "pochette",$anciennePochette,$titre);
-//
-//  $requete="UPDATE films SET titre=?,duree=?, res=?, pochette=? WHERE idf=?";
-//  $unModele=new filmsModele($requete,array($titre,$duree,$res,$pochette,$idf));
-//  $stmt=$unModele->executer();
-//  $tabRes['action']="modifier";
-//  $tabRes['msg']="Film $idf bien modifie";
-//  }catch(Exception $e){
-//  }finally{
-//  unset($unModele);
-//  }
-//  } */
-//
-////lister les particpants
-//function listerParticipant() {
-//    global $tabRes;
-//    $tabRes['action'] = "listerParticpants";
-//    $requete = "SELECT * FROM participants";
-//    try {
-//        $unModele = new filmsModele($requete, array());
-//        $stmt = $unModele->executer();
-//        $tabRes['listeParticpants'] = array();
-//        while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
-//            $tabRes['listeParticpants'][] = $ligne;
-//        }
-//    } catch (Exception $e) {
-//        
-//    } finally {
-//        unset($unModele);
-//    }
-//}
-//******************************************************
-//Controleur
-
 if (isset($_POST['action'])) {
     $action = $_POST['action'];
-
+//$action = "ficheCircuit";
     switch ($action) {
         case "enregistrerCircuit" :
             enregistrerCircuit();

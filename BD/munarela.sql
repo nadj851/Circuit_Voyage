@@ -1,44 +1,44 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.4
--- http://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
--- Client :  127.0.0.1
--- Généré le :  Jeu 22 Mars 2018 à 19:42
--- Version du serveur :  5.6.15-log
--- Version de PHP :  5.5.8
+-- Hôte : 127.0.0.1
+-- Généré le :  lun. 26 mars 2018 à 21:39
+-- Version du serveur :  5.7.17
+-- Version de PHP :  7.1.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `munarela`
 --
+CREATE DATABASE IF NOT EXISTS `munarela` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `munarela`;
 
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `adresse`
 --
-CREATE DATABASE IF NOT EXISTS `munarela` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `munarela`;
 
-
-CREATE TABLE IF NOT EXISTS `adresse` (
-  `idAdresse` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `adresse` (
+  `idAdresse` int(11) NOT NULL,
   `ville` varchar(100) DEFAULT NULL,
   `codePostale` varchar(45) DEFAULT NULL,
-  `pays` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`idAdresse`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+  `pays` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `adresse`
+-- Déchargement des données de la table `adresse`
 --
 
 INSERT INTO `adresse` (`idAdresse`, `ville`, `codePostale`, `pays`) VALUES
@@ -70,15 +70,14 @@ INSERT INTO `adresse` (`idAdresse`, `ville`, `codePostale`, `pays`) VALUES
 -- Structure de la table `banner`
 --
 
-CREATE TABLE IF NOT EXISTS `banner` (
-  `banner_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `banner` (
+  `banner_id` int(11) NOT NULL,
   `banner_title` varchar(200) NOT NULL,
-  `banner_image` varchar(200) NOT NULL,
-  PRIMARY KEY (`banner_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+  `banner_image` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `banner`
+-- Déchargement des données de la table `banner`
 --
 
 INSERT INTO `banner` (`banner_id`, `banner_title`, `banner_image`) VALUES
@@ -94,8 +93,8 @@ INSERT INTO `banner` (`banner_id`, `banner_title`, `banner_image`) VALUES
 -- Structure de la table `circuit`
 --
 
-CREATE TABLE IF NOT EXISTS `circuit` (
-  `idCircuit` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `circuit` (
+  `idCircuit` int(11) NOT NULL,
   `titre` varchar(45) NOT NULL,
   `dateDeDepart` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
   `dateDeRetour` timestamp(6) NOT NULL DEFAULT '0000-00-00 00:00:00.000000',
@@ -106,14 +105,11 @@ CREATE TABLE IF NOT EXISTS `circuit` (
   `imageCircuit` varchar(256) NOT NULL,
   `guide` varchar(256) DEFAULT NULL,
   `idPromotion` int(11) DEFAULT NULL,
-  `idThematique` int(11) NOT NULL,
-  PRIMARY KEY (`idCircuit`,`idThematique`),
-  KEY `fk_Circuit_Promotion1_idx` (`idPromotion`),
-  KEY `fk_Circuit_Thematique1_idx` (`idThematique`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
+  `idThematique` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `circuit`
+-- Déchargement des données de la table `circuit`
 --
 
 INSERT INTO `circuit` (`idCircuit`, `titre`, `dateDeDepart`, `dateDeRetour`, `nbPersonnesMax`, `nbPersonnesMin`, `description`, `prix`, `imageCircuit`, `guide`, `idPromotion`, `idThematique`) VALUES
@@ -127,17 +123,15 @@ INSERT INTO `circuit` (`idCircuit`, `titre`, `dateDeDepart`, `dateDeRetour`, `nb
 -- Structure de la table `etape`
 --
 
-CREATE TABLE IF NOT EXISTS `etape` (
-  `idEtape` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `etape` (
+  `idEtape` int(11) NOT NULL,
   `nomEtape` varchar(256) NOT NULL,
   `descriptionEtape` varchar(256) NOT NULL,
-  `idCircuit` int(11) NOT NULL,
-  PRIMARY KEY (`idEtape`,`idCircuit`),
-  KEY `fk_Etape_Circuit1_idx` (`idCircuit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+  `idCircuit` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `etape`
+-- Déchargement des données de la table `etape`
 --
 
 INSERT INTO `etape` (`idEtape`, `nomEtape`, `descriptionEtape`, `idCircuit`) VALUES
@@ -151,8 +145,8 @@ INSERT INTO `etape` (`idEtape`, `nomEtape`, `descriptionEtape`, `idCircuit`) VAL
 -- Structure de la table `jour`
 --
 
-CREATE TABLE IF NOT EXISTS `jour` (
-  `idJour` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `jour` (
+  `idJour` int(11) NOT NULL,
   `nomhotel` varchar(256) DEFAULT NULL,
   `urlHotel` varchar(100) DEFAULT NULL,
   `nomRestaurant` varchar(100) DEFAULT NULL,
@@ -161,13 +155,11 @@ CREATE TABLE IF NOT EXISTS `jour` (
   `diner` tinyint(1) NOT NULL DEFAULT '0',
   `souper` tinyint(1) NOT NULL DEFAULT '0',
   `description` varchar(256) DEFAULT NULL,
-  `idEtape` int(11) NOT NULL,
-  PRIMARY KEY (`idJour`,`idEtape`,`dejeuner`,`diner`,`souper`),
-  KEY `fk_Jour_Etape1_idx` (`idEtape`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+  `idEtape` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `jour`
+-- Déchargement des données de la table `jour`
 --
 
 INSERT INTO `jour` (`idJour`, `nomhotel`, `urlHotel`, `nomRestaurant`, `urlRestaurant`, `dejeuner`, `diner`, `souper`, `description`, `idEtape`) VALUES
@@ -184,14 +176,12 @@ INSERT INTO `jour` (`idJour`, `nomhotel`, `urlHotel`, `nomRestaurant`, `urlResta
 -- Structure de la table `paiement`
 --
 
-CREATE TABLE IF NOT EXISTS `paiement` (
-  `idPaiement` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `paiement` (
+  `idPaiement` int(11) NOT NULL,
   `datePaiment` timestamp(6) NULL DEFAULT NULL,
   `montanttPaiment` float DEFAULT NULL,
-  `idReservation` int(11) NOT NULL,
-  PRIMARY KEY (`idPaiement`),
-  KEY `fk_Paiement_Reservation1_idx` (`idReservation`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `idReservation` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -199,13 +189,11 @@ CREATE TABLE IF NOT EXISTS `paiement` (
 -- Structure de la table `panier`
 --
 
-CREATE TABLE IF NOT EXISTS `panier` (
-  `idPanier` int(11) NOT NULL AUTO_INCREMENT,
-  `idUtilisateur` int(11) NOT NULL,
+CREATE TABLE `panier` (
+  `idPanier` int(11) NOT NULL,
   `idCircuit` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idPanier`),
-  KEY `fk_Panier_Utilisateur1_idx` (`idUtilisateur`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `email` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -213,22 +201,19 @@ CREATE TABLE IF NOT EXISTS `panier` (
 -- Structure de la table `participants`
 --
 
-CREATE TABLE IF NOT EXISTS `participants` (
-  `idparticipants` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `participants` (
+  `idparticipants` int(11) NOT NULL,
   `nom` varchar(100) DEFAULT NULL,
   `prenom` varchar(100) DEFAULT NULL,
   `courriel` varchar(256) DEFAULT NULL,
   `sexe` varchar(45) DEFAULT NULL,
   `tel` varchar(100) DEFAULT NULL,
   `idAdresse` int(11) NOT NULL,
-  `idPasspor` int(11) NOT NULL,
-  PRIMARY KEY (`idparticipants`),
-  KEY `fk_participants_Adresse1_idx` (`idAdresse`),
-  KEY `fk_participants_Passeport1_idx` (`idPasspor`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+  `idPasspor` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `participants`
+-- Déchargement des données de la table `participants`
 --
 
 INSERT INTO `participants` (`idparticipants`, `nom`, `prenom`, `courriel`, `sexe`, `tel`, `idAdresse`, `idPasspor`) VALUES
@@ -243,18 +228,17 @@ INSERT INTO `participants` (`idparticipants`, `nom`, `prenom`, `courriel`, `sexe
 -- Structure de la table `passeport`
 --
 
-CREATE TABLE IF NOT EXISTS `passeport` (
-  `idPasspor` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `passeport` (
+  `idPasspor` int(11) NOT NULL,
   `numeroPass` int(50) NOT NULL,
   `dateDelivPass` date NOT NULL,
   `dateExpiration` date NOT NULL,
   `nationalites` varchar(100) DEFAULT NULL,
-  `lieuDeliv` varchar(256) DEFAULT NULL,
-  PRIMARY KEY (`idPasspor`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+  `lieuDeliv` varchar(256) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `passeport`
+-- Déchargement des données de la table `passeport`
 --
 
 INSERT INTO `passeport` (`idPasspor`, `numeroPass`, `dateDelivPass`, `dateExpiration`, `nationalites`, `lieuDeliv`) VALUES
@@ -271,13 +255,12 @@ INSERT INTO `passeport` (`idPasspor`, `numeroPass`, `dateDelivPass`, `dateExpira
 -- Structure de la table `promotion`
 --
 
-CREATE TABLE IF NOT EXISTS `promotion` (
-  `idPromotion` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `promotion` (
+  `idPromotion` int(11) NOT NULL,
   `taux` float DEFAULT NULL,
   `datedebut` timestamp(6) NULL DEFAULT NULL,
-  `datefin` timestamp(6) NULL DEFAULT NULL,
-  PRIMARY KEY (`idPromotion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `datefin` timestamp(6) NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -285,8 +268,8 @@ CREATE TABLE IF NOT EXISTS `promotion` (
 -- Structure de la table `reservation`
 --
 
-CREATE TABLE IF NOT EXISTS `reservation` (
-  `idReservation` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `reservation` (
+  `idReservation` int(11) NOT NULL,
   `montanTotal` float DEFAULT NULL,
   `nbrPlaceDispo` int(11) DEFAULT NULL,
   `nbrAdult` int(11) DEFAULT NULL,
@@ -298,12 +281,8 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `idUtilisateur` int(11) NOT NULL,
   `idCircuit` int(11) NOT NULL,
   `idPanier` int(11) NOT NULL,
-  `solde` float DEFAULT NULL,
-  PRIMARY KEY (`idReservation`,`idUtilisateur`,`idCircuit`),
-  KEY `fk_Reservation_Utilisateur_idx` (`idUtilisateur`),
-  KEY `fk_Reservation_Circuit1_idx` (`idCircuit`),
-  KEY `fk_Reservation_Panier1_idx` (`idPanier`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `solde` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -311,11 +290,9 @@ CREATE TABLE IF NOT EXISTS `reservation` (
 -- Structure de la table `reservationparticipant`
 --
 
-CREATE TABLE IF NOT EXISTS `reservationparticipant` (
+CREATE TABLE `reservationparticipant` (
   `idParticipants` int(11) NOT NULL,
-  `idReservation` int(11) NOT NULL,
-  PRIMARY KEY (`idReservation`,`idParticipants`),
-  KEY `fk_ReservationParticipant_participants1_idx` (`idParticipants`)
+  `idReservation` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -324,16 +301,15 @@ CREATE TABLE IF NOT EXISTS `reservationparticipant` (
 -- Structure de la table `thematique`
 --
 
-CREATE TABLE IF NOT EXISTS `thematique` (
-  `idThematique` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `thematique` (
+  `idThematique` int(11) NOT NULL,
   `nom` varchar(45) DEFAULT NULL,
   `description` varchar(256) DEFAULT NULL,
-  `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`idThematique`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+  `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `thematique`
+-- Déchargement des données de la table `thematique`
 --
 
 INSERT INTO `thematique` (`idThematique`, `nom`, `description`, `image`) VALUES
@@ -350,19 +326,17 @@ INSERT INTO `thematique` (`idThematique`, `nom`, `description`, `image`) VALUES
 -- Structure de la table `utilisateur`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateur` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `utilisateur` (
+  `id` int(11) NOT NULL,
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
   `display_name` varchar(50) NOT NULL,
   `email` varchar(150) DEFAULT NULL,
-  `password` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `CourrielUtilisateur_UNIQUE` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+  `password` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `utilisateur`
+-- Déchargement des données de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`id`, `first_name`, `last_name`, `display_name`, `email`, `password`) VALUES
@@ -379,6 +353,176 @@ INSERT INTO `utilisateur` (`id`, `first_name`, `last_name`, `display_name`, `ema
 (11, 'ahcen', 'boutaghane', 'ere', 'nadjiblar@h1otmaill.fr', '698d51a19d8a121ce581499d7b701668'),
 (12, 'ahcen', 'boutaghane', 'haswen', 'nad111jiblar@hotmaill.fr', '698d51a19d8a121ce581499d7b701668'),
 (13, '1', '1', '1', '1', 'c4ca4238a0b923820dcc509a6f75849b');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `adresse`
+--
+ALTER TABLE `adresse`
+  ADD PRIMARY KEY (`idAdresse`);
+
+--
+-- Index pour la table `banner`
+--
+ALTER TABLE `banner`
+  ADD PRIMARY KEY (`banner_id`);
+
+--
+-- Index pour la table `circuit`
+--
+ALTER TABLE `circuit`
+  ADD PRIMARY KEY (`idCircuit`,`idThematique`),
+  ADD KEY `fk_Circuit_Promotion1_idx` (`idPromotion`),
+  ADD KEY `fk_Circuit_Thematique1_idx` (`idThematique`);
+
+--
+-- Index pour la table `etape`
+--
+ALTER TABLE `etape`
+  ADD PRIMARY KEY (`idEtape`,`idCircuit`),
+  ADD KEY `fk_Etape_Circuit1_idx` (`idCircuit`);
+
+--
+-- Index pour la table `jour`
+--
+ALTER TABLE `jour`
+  ADD PRIMARY KEY (`idJour`,`idEtape`,`dejeuner`,`diner`,`souper`),
+  ADD KEY `fk_Jour_Etape1_idx` (`idEtape`);
+
+--
+-- Index pour la table `paiement`
+--
+ALTER TABLE `paiement`
+  ADD PRIMARY KEY (`idPaiement`),
+  ADD KEY `fk_Paiement_Reservation1_idx` (`idReservation`);
+
+--
+-- Index pour la table `panier`
+--
+ALTER TABLE `panier`
+  ADD PRIMARY KEY (`idPanier`);
+
+--
+-- Index pour la table `participants`
+--
+ALTER TABLE `participants`
+  ADD PRIMARY KEY (`idparticipants`),
+  ADD KEY `fk_participants_Adresse1_idx` (`idAdresse`),
+  ADD KEY `fk_participants_Passeport1_idx` (`idPasspor`);
+
+--
+-- Index pour la table `passeport`
+--
+ALTER TABLE `passeport`
+  ADD PRIMARY KEY (`idPasspor`);
+
+--
+-- Index pour la table `promotion`
+--
+ALTER TABLE `promotion`
+  ADD PRIMARY KEY (`idPromotion`);
+
+--
+-- Index pour la table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD PRIMARY KEY (`idReservation`,`idUtilisateur`,`idCircuit`),
+  ADD KEY `fk_Reservation_Utilisateur_idx` (`idUtilisateur`),
+  ADD KEY `fk_Reservation_Circuit1_idx` (`idCircuit`),
+  ADD KEY `fk_Reservation_Panier1_idx` (`idPanier`);
+
+--
+-- Index pour la table `reservationparticipant`
+--
+ALTER TABLE `reservationparticipant`
+  ADD PRIMARY KEY (`idReservation`,`idParticipants`),
+  ADD KEY `fk_ReservationParticipant_participants1_idx` (`idParticipants`);
+
+--
+-- Index pour la table `thematique`
+--
+ALTER TABLE `thematique`
+  ADD PRIMARY KEY (`idThematique`);
+
+--
+-- Index pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `CourrielUtilisateur_UNIQUE` (`email`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `adresse`
+--
+ALTER TABLE `adresse`
+  MODIFY `idAdresse` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT pour la table `banner`
+--
+ALTER TABLE `banner`
+  MODIFY `banner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT pour la table `circuit`
+--
+ALTER TABLE `circuit`
+  MODIFY `idCircuit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+--
+-- AUTO_INCREMENT pour la table `etape`
+--
+ALTER TABLE `etape`
+  MODIFY `idEtape` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT pour la table `jour`
+--
+ALTER TABLE `jour`
+  MODIFY `idJour` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT pour la table `paiement`
+--
+ALTER TABLE `paiement`
+  MODIFY `idPaiement` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `panier`
+--
+ALTER TABLE `panier`
+  MODIFY `idPanier` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `participants`
+--
+ALTER TABLE `participants`
+  MODIFY `idparticipants` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT pour la table `passeport`
+--
+ALTER TABLE `passeport`
+  MODIFY `idPasspor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT pour la table `promotion`
+--
+ALTER TABLE `promotion`
+  MODIFY `idPromotion` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `reservation`
+--
+ALTER TABLE `reservation`
+  MODIFY `idReservation` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `thematique`
+--
+ALTER TABLE `thematique`
+  MODIFY `idThematique` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
