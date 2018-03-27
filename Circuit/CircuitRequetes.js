@@ -64,26 +64,22 @@ function obtenirFicheCircuit() {
     formCircuit.append('action', 'ficheCircuit');
 
     $.ajax({
-        type: 'GET',
+        type: 'POST',
         url: 'Circuit/CircuitControleur.php',
         data: formCircuit,
         contentType: false,
         processData: false,
         dataType: 'text',
-        success: function (reponse) {
-            alert("yo");
-          alert(reponse);
+        success: function (reponse) { alert(reponse);
+           
 
-            CircuitVue(reponse);
+           // CircuitVue(reponse);
         },
         fail: function (err) {
-            alert("yo");
+           
         }
 
-    }).done(function () {
-        alert("DONE!!");
     });
-    ;
 
 }
 
@@ -109,6 +105,7 @@ function modifierCircuit() {
 
 //Appel ajax pour chercher les differents thématique pour loader le drop down list
 function FormulaireCircuit() {
+    
     var formFilm = new FormData();
     formFilm.append('action', 'lister');//alert(formFilm.get("action"));
     $.ajax({

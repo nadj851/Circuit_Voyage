@@ -1,5 +1,19 @@
 ////requ�tes RESERVATION
+var nbEtape=0;
+   
 function AjouterEtape() {
+     nbEtape++;
+    var maxEtape=$('#nbEtapeCircuit').val();
+    
+    if (nbEtape>maxEtape) {
+        alert("je suis dans le if maxetape");
+        $('#messages').html("max Etape");
+        $('#contenuJour').show();
+        $('#contenuEtape').hide();
+       // nbEtape=0;
+        return;
+    }
+
     var formEtape = new FormData(document.getElementById('contenuEtape'));
     formEtape.append('action', 'enregistrerEtape');
     $.ajax({
@@ -12,7 +26,12 @@ function AjouterEtape() {
         contentType: false,
         processData: false,
         success: function (reponse) {//alert(reponse);
+           
             CircuitVue(reponse);
+//            $('#idCircuit').val(reponse.idCircuit);
+//            alert("avec jquery "+$('#idCircuit').val());
+//            alert("avec reponse "+reponse.idCircuit);
+            
         },
         fail: function (err) {
 

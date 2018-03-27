@@ -14,8 +14,8 @@ function enregistrerCircuit() {
     $nomCircuit = $_POST['nomCircuit'];
     $dateDepart = $_POST['dateDepartCircuit'];
     $dateRetour = $_POST['dateRetourCircuit'];
-    $nbPersonnesMax = $_POST['nbPersonnesMax'];
-    $nbPersonnesMin = $_POST['nbPersonnesMin'];
+    $nbPersonnesMax = $_POST['nbPersonneMax'];
+    $nbPersonnesMin = $_POST['nbPersonneMin'];
     $description = $_POST['descripCircuit'];
     $prix = $_POST['prixCircuit'];
     $idthematique = $_POST['themeCircuit'];
@@ -59,9 +59,10 @@ function listerLesCircuit() {
 }
 
 function ficheCircuit() {
-    include '../Thematique/ThematiqueControleur.php';    
-    listerThematique();
     global $tabRes;
+//    include '../Thematique/ThematiqueControleur.php';    
+//    listerThematique();
+    
     $id = 33;    
     $requete = "SELECT * FROM circuit WHERE idCircuit=?";
     try {
@@ -71,7 +72,7 @@ function ficheCircuit() {
         if ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
         $tabRes['ficheCircuit'][] = $ligne;
             $tabRes['OK'] = true;
-               $tabRes['action']= "afficherFiche";
+              $tabRes['action']= "afficherFiche";
              
         } else {
             $tabRes['OK'] = false;

@@ -10,16 +10,20 @@ function enregistrerEtape() {
    
     $nomEtape = $_POST['nomEtape'];
     $descriptionEtape = $_POST['descripEtape'];
-    $idCircuit=$_SESSION["idCircuit"];
-
+    
+  
+   
     try {
+          $idCircuit=$_SESSION["idCircuit"];
         $unModele = new filmsModele();
         //$pochete = $unModele->verserFichier("pochettes", "pochette", "avatar.jpg", $nomCircuit);
         $requete = "INSERT INTO etape VALUES(0,?,?,?)";
         $unModele = new filmsModele($requete, array($nomEtape,$descriptionEtape,$idCircuit));
         $stmt = $unModele->executer();
-       $_SESSION["idEtape"]=$unModele->lastID;
+        $_SESSION["idEtape"]=$unModele->lastID;
+       
         $tabRes['action'] = "enregistrer";
+       // $tabRes['idCircuit'] = $idCircuit;
         $tabRes['msg'] = "étape bien enregistrer";
     } catch (Exception $e) {
         echo $e;
