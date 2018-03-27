@@ -67,9 +67,9 @@ function obtenirFicheCircuit() {
         data: formCircuit,
         contentType: false,
         processData: false,
-        dataType: 'json',
+        dataType: 'text',
         success: function (reponse) {
-            //alert(reponse);
+            alert(reponse);
             CircuitVue(reponse);
         },
         fail: function (err) {
@@ -88,9 +88,8 @@ function modifierCircuit() {
         contentType: false,
         processData: false,
         dataType: 'json',
-        success: function (reponse) {//alert(reponse);
-            $('#divFormFiche').hide();
-            thematiqueVue(reponse);
+        success: function (reponse) {alert(reponse);            
+            CircuitVue(reponse);
         },
         fail: function (err) {
         }
@@ -105,7 +104,7 @@ function modifierCircuit() {
 //	
 //}
 
-//lister les participant
+//Appel ajax pour chercher les differents thématique pour loader le drop down list
 function FormulaireCircuit() {
     var formFilm = new FormData();
     formFilm.append('action', 'lister');//alert(formFilm.get("action"));

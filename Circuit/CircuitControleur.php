@@ -2,6 +2,7 @@
 
 session_start();
 require_once("../includes/modele.inc.php");
+
 $tabRes = array();
 
 function enregistrerCircuit() {
@@ -80,10 +81,9 @@ function listerLesCircuit() {
 //  }
 //
 function ficheCircuit() {
-   
+
     global $tabRes;
-    $id = 33;
-    $tabRes['action'] = "afficherFiche";
+    $id = 33;    
     $requete = "SELECT * FROM circuit WHERE idCircuit=?";
     try {
         $unModele = new filmsModele($requete, array($id));
@@ -97,11 +97,16 @@ function ficheCircuit() {
         }
     } catch (Exception $e) {
         echo $e;
-        
     } finally {
         unset($unModele);
-       
     }
+     $tabResTemp['ficheCircuit'] =$tabRes['ficheCircuit'] ;
+    include '../Thematique/ThematiqueControleur.php';
+    listerThematique() ;
+    $tabRes['ficheCircuit']  = $tabResTemp['ficheCircuit'] ;
+    unset($tabRes['action']);
+    $tabRes['action']= "afficherFiche";
+    
 }
 
 //
@@ -151,21 +156,23 @@ function ficheCircuit() {
 //}
 //******************************************************
 //Controleur
-$action = $_POST['action'];
 
-switch ($action) {
-    case "enregistrerCircuit" :
-        enregistrerCircuit();
-        break;
-    case "afficherFormCircuit" :
-        afficherFormCircuit();
-        break;
-case "listerCircuit" :
-        listerLesCircuit();
+if (isset($_POST['action'])) {
+    $action = $_POST['action'];
 
-    case "ficheCircuit" :
-        ficheCircuit();
-        break;
-   
+    switch ($action) {
+        case "enregistrerCircuit" :
+            enregistrerCircuit();
+            break;
+        case "afficherFormCircuit" :
+            afficherFormCircuit();
+            break;
+        case "listerCircuit" :
+            listerLesCircuit();
+
+        case "ficheCircuit" :
+            ficheCircuit();
+            break;
+    }
 }
 echo json_encode($tabRes);

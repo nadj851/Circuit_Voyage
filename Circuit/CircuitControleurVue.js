@@ -267,9 +267,10 @@ function lesCircuitListe(reponse) {
 
 }
 
-function afficherFicheCircuit(fiche) {
-
-
+function afficherFicheCircuit(reponse) {
+    var fiche = reponse.fiche;
+    var theme =reponse.listetheme;
+    var taille = reponse.lenght;
     var input = "";
     input += " <div class=\"container-fluid\" id=\"conteneurCircuit\" >";
     input += "                                        <form id=\"contenuCircuit\"class=\"form-group row\" style=\"display: block\">";
@@ -292,7 +293,10 @@ function afficherFicheCircuit(fiche) {
     input += "                                                    <label for=\"themeCircuit\" class=\"col-sm-2 col-form-label\">Thématique<\/label>";
     input += "                                                    <div class=\"col-sm-10\" >";
     input += "                                                        <select class=\"form-control\" id=\"themeCircuit\" name=\"themeCircuit\" required>                                    ";
+    for (var i = 0; i < taille; i++) {
+        input += "   <option value='" + theme[i].idThematique + "'>" + theme[i].nom + "<\/option>";
 
+    }
     input += "                                                        <\/select>";
     input += "                                                    <\/div>";
     input += "                                                <\/div>";
@@ -375,20 +379,19 @@ function afficherFicheCircuit(fiche) {
 }
 var CircuitVue = function (reponse) {
     var action = reponse.action;
+    alert(reponse);
     switch (action) {
         case "enregistrer" :
             //case "enlever" :
             //case "modifier" :
             message(reponse.msg);
-
             break;
-
         case "listerCircuit" :
             listerR(reponse.listetheme);
             break;
 
         case "afficherFiche" :
-            afficherFicheCircuit(reponse.ficheCircuit);
+            afficherFicheCircuit(reponse);
             break;
         case "lister" :
             formulaireCircuit(reponse.listetheme);
