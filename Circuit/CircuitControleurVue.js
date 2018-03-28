@@ -147,13 +147,15 @@ function formulaireCircuit(reponse) {
         input += "                                                <div class=\"form-group row\">";
         input += "                                                    <label for=\"nbJourEtape\" class=\"col-sm-2 col-form-label\">Entrer nombre jour<\/label>";
         input += "                                                    <div class=\"col-sm-10\" >";
+        
+        
         input += "                                                        <select class=\"form-control\" id=\"nbJourEtape\" name=\"nbJourEtape\" required>";
                                                                         for (var i = 1; i < 11; i++) {
                                                                             input += "   <option value='" + i + "'>" + i + "<\/option>";
 
                                                                         }
 
-        input += "                                                        <\/select>";
+        input += "                                                        </select>";
         input += "                                                    <\/div>";
         input += "                                                <\/div>";
 

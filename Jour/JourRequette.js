@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
- var nbJour=0;
+  var nbJour=0;
+  var maxjour;
+  var maxEtape;
 function ajouterJour() {
    
     $('#nbEtape').html(nbEtape+1);
@@ -11,11 +13,14 @@ function ajouterJour() {
      nbJour++;
       $('#nbJour').html(nbJour+1);
      
-    var maxjour=$('#nbJourEtape').val();
-    var maxEtape=$('#nbEtapeCircuit').val();
-    //alert(", maxjour = "+maxjour+ ", maxEtape = "+maxEtape+ ", nbJour = "+nbJour+ ", nbEtape = "+nbEtape);
+     //alert($('#nbJourEtape').val());
+     
     
-  
+     maxEtape=$('#nbEtapeCircuit').val();
+    alert(", maxjour = "+maxjour+ ", maxEtape = "+maxEtape+ ", nbJour = "+nbJour+ ", nbEtape = "+nbEtape);
+    
+
+    
     
     if(nbEtape>=maxEtape && nbJour>=maxjour){
         
@@ -24,20 +29,20 @@ function ajouterJour() {
        // listerTT();
         //alert("id circuit = "+$('#idCircuit').val());
         AfficherDetailsCircuit($('#idCircuit').val());
+        nbJour=0;
         nbEtape=0;
         
         return;
     }
     
-    if (nbJour>=maxjour) {
+      if (nbJour>=maxjour) {
         $('#messages').html("max Jour");
-        nbJour=0;
         $('#contenuJour').hide();
+        nbJour=0;
         $('#contenuEtape').show();
         
         return;
     }
-    
 register();
    
 }

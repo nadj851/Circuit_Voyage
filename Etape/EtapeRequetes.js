@@ -4,6 +4,8 @@ var nbEtape = 0;
 function AjouterEtape() {
     $('#sommaire').html("creation des jours");
     nbEtape++;
+    nbJour=0;
+   
 
     $('#nbEtape').html(nbEtape);
     $('#nbJour').html(nbJour + 1);
@@ -17,7 +19,7 @@ function AjouterEtape() {
         // nbEtape=0;
         return;
     }
-
+      maxjour=$('#nbJourEtape').val();
     var formEtape = new FormData(document.getElementById('contenuEtape'));
     $('#contenuEtape')[0].reset();
     formEtape.append('action', 'enregistrerEtape');
@@ -34,6 +36,7 @@ function AjouterEtape() {
 
             CircuitVue(reponse);
             $('#nbJour').html(nbJour + 1);
+            
 //            $('#idCircuit').val(reponse.idCircuit);
 //            alert("avec jquery "+$('#idCircuit').val());
 //            alert("avec reponse "+reponse.idCircuit);
