@@ -3,6 +3,9 @@ var nbEtape=0;
    
 function AjouterEtape() {
      nbEtape++;
+   
+      $('#nbEtape').html(nbEtape);
+       $('#nbJour').html(nbJour+1);
     var maxEtape=$('#nbEtapeCircuit').val();
     
     if (nbEtape>maxEtape) {
@@ -28,6 +31,7 @@ function AjouterEtape() {
         success: function (reponse) {//alert(reponse);
            
             CircuitVue(reponse);
+            $('#nbJour').html(nbJour+1);
 //            $('#idCircuit').val(reponse.idCircuit);
 //            alert("avec jquery "+$('#idCircuit').val());
 //            alert("avec reponse "+reponse.idCircuit);

@@ -13,11 +13,15 @@ function AjouterCircuit() {
         processData: false,
         success: function (reponse) {//alert(reponse);
             CircuitVue(reponse);
+            $('#nbEtape').html(nbEtape+1);
+            $('#nbJour').html(nbJour+1);
         },
         fail: function (err) {
 
         }
     });
+    
+       
 }
 
 function listerCircuit() {
