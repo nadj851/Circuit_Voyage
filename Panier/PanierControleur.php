@@ -136,7 +136,8 @@ session_start();
                         }
                                
                 
-                                                      
+                          }
+                                                           
                 
                 
                 
@@ -148,20 +149,7 @@ session_start();
                 
                 
                 
-		$requete="SELECT * FROM panier p,circuit c where p.";
-		try{
-			 $unModele=new filmsModele($requete,array());
-			 $stmt=$unModele->executer();
-			 $tabRes['listetheme']=array();
-			 while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
-			    $tabRes['listetheme'][]=$ligne;
-			}
-		}catch(Exception $e){
-                    echo $e;
-		}finally{
-			unset($unModele);
-		}
-	}
+		
 	
 	/*function enlever(){
 		global $tabRes;	

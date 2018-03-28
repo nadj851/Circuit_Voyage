@@ -72,6 +72,7 @@ strVar += "";
 strVar += "                                                    <\/div>";
 strVar += "                                            <\/div>";
 strVar += "                                            <input type=\"hidden\" name=\"product_id[]\" value=\"' . $film_id . '\"\/>";
+strVar += "                                            <input type=\"text\" name=\"\" value='nono'\/>";
 strVar += "                                            <input type=\"hidden\" name=\"\" value=" +listetheme[i].idPanier+ "\/>";
 strVar += "                                            <div class=\"col-md-2\"><img class=\"img-responsive\" src=\"pochettes\/' "+listetheme[i].imageCircuit+ " '\" style=\"width:50px; height:50px;\"><\/div>";
 strVar += "                                            <div class=\"col-md-2\">"  +listetheme[i].titre+ "<\/div>								";
@@ -81,7 +82,7 @@ strVar += "                                        <\/div>';";
 strVar += "										<\/form>';";
 
     }
-    $('#get_result').html(result);
+    $('#get_result').html(strVar);
     $("a[name=afficherCircuit]").click( function(){
     AfficherCircuits($(this).prop("id"));    
 });
