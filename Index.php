@@ -147,7 +147,7 @@ include_once 'includes/init.php';
                                     <li><a href='#'class='category' cid='SUSPENSE' onclick='SupprimerCircuit();' >Supprimer Circuit</a></li>
                                     <li><a href='#'class='category' cid='SUSPENSE' onclick='listerPanier();' >Panier</a></li>
                                     <li><a href='#'class='category' cid='alo'onclick='listerCircuit();' >lister les Circuits</a></li>
-                                    <li><a href='#'class='category' cid='POUR LA FAMILLE'>Pour la famille</a></li>
+                                    <li><a href='#'class='category' cid='POUR LA FAMILLE' onclick='showing();'>detail</a></li>
                                     <li><a href='#'class='category' cid='POUR LA FAMILLE'>test</a></li>
 
                                 </div>
