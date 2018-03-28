@@ -27,12 +27,25 @@ session_start();
                 ////////////////////////////
                 
                 if (isset($_SESSION["email"])) {
+                    try {
+                         $email = $_SESSION["email"];
+                            $requete = "SELECT a.idCircuit,a.imageCircuit,a.titre,a.prix,b.idPanier FROM circuit a,panier b WHERE a.idCircuit=b.idCircuit AND b.email='$email'";
+        $unModele = new filmsModele($requete, array());
+        $stmt = $unModele->executer();
+        $tabRes['listetheme']= array();
+        while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $tabRes['listetheme'][] = $ligne;
+        }
+    } catch (Exception $e) {
+        echo $e;
+    } finally {
+        unset($unModele);
+    }
 
-                            $email = $_SESSION["email"];
-                            $sql = "SELECT a.idf,a.pochette,a.titre,a.prix,b.id FROM circuit a,panier b WHERE a.idf=b.idf AND b.email='$email'";
+                           
 
 
-                            $query = mysqli_query($connexion, $sql);
+                          /*  $query = mysqli_query($connexion, $sql);
                             echo "<form method='post' action='login.php'>";
                             $n = 0;
                             while ($row = mysqli_fetch_array($query)) {
@@ -119,7 +132,7 @@ session_start();
 								</form>';
                             }
 
-                            mysqli_close($connexion);
+                            mysqli_close($connexion);*/
                         }
                                
                 
