@@ -2,6 +2,7 @@
 var nbEtape=0;
    
 function AjouterEtape() {
+   $('#sommaire').html("creation des jours");
      nbEtape++;
    
       $('#nbEtape').html(nbEtape);
