@@ -134,6 +134,10 @@ strVar += "                            <\/li>";
 strVar += "                            <li class=\"nav-item\">";
 strVar += "                                <a class=\"nav-link disabled\" href=\"#\" style=\"color: black\" onclick='FormulaireR(); listerParticipants();infoUser();RamenerCircuit("+ affichageCircuits[i].idCircuit+ ");'>Réservations<\/a>";
 strVar += "                            <\/li>";
+strVar += "                            <li class=\"nav-item\">";
+strVar += "                                <a class=\"nav-link disabled btn btn-danger\" href=\"#\" style=\"color: black\" onclick='FormulaireR(); listerParticipants();infoUser();RamenerCircuit("+ affichageCircuits[i].idCircuit+ ");'>Ajouter au Panier<\/a>";
+strVar += "                            <\/li>";
+
 strVar += "                        <\/ul>";
 strVar += "                    <\/div>";
 strVar += "                    <div class=\"card-body\" id=\"suite\" style=\"background-color: cornflowerblue; color: black; \">";
