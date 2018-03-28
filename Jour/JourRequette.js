@@ -5,14 +5,20 @@
  */
  var nbJour=0;
 function ajouterJour() {
-    nbJour++;
+   
+    $('#nbEtape').html(nbEtape+1);
+    
+     nbJour++;
+      $('#nbJour').html(nbJour+1);
+     
     var maxjour=$('#nbJourEtape').val();
     var maxEtape=$('#nbEtapeCircuit').val();
     //alert(", maxjour = "+maxjour+ ", maxEtape = "+maxEtape+ ", nbJour = "+nbJour+ ", nbEtape = "+nbEtape);
     
   
     
-    if(nbEtape>=maxEtape){
+    if(nbEtape>=maxEtape && nbJour>=maxjour){
+        
         register();
        // $('#messages').html("Circuit ajouté");
        // listerTT();
@@ -37,6 +43,7 @@ register();
 }
 
 function register(){
+   
           var formEtape = new FormData(document.getElementById('contenuJour'));
     $('#contenuJour')[0].reset();
     formEtape.append('action', 'enregistrerJour');
@@ -54,6 +61,7 @@ function register(){
             //JourVue(reponse);
             
                        $('#idCircuit').val(reponse.idCircuit);
+                        
                        
 //            alert("avec jquery "+$('#idCircuit').val());
 //           alert("avec reponse "+reponse.idCircuit);

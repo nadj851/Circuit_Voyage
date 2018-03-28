@@ -124,7 +124,7 @@ function formulaireCircuit(reponse) {
         input += "";                                                //formulaire étape
         input += "                                        <form id=\"contenuEtape\"class=\"form-group row\" style=\"display: none\">";
         input += "                                            <div class=\"form-group row\">";
-        input += "                                                <h2 for=\"nomEtape\" class=\"col-sm-2 col-form-label\">Création étape<\/h2>";
+        input += "                                                <h2 for=\"nomEtape\" class=\"col-sm-2 col-form-label\">Création étape <span id='nbEtape'></span> <\/h2>";
         input += "                                            <\/div>";
         input += "";
         input += "                                            <div class=\"container\" style=\"width: 60% ; float: left; margin-left: 20px\" >";
@@ -168,7 +168,7 @@ input += "                                                <input type=\"hidden\"
         input += "";                                                //formulaire Jour
         input += "                                        <form id=\"contenuJour\"class=\"form-group row\" style=\"display: none\">";
         input += "                                            <div class=\"form-group row\">";
-        input += "                                                <h2 id='labelJour' for=\"nomJour\" class=\"col-sm-2 col-form-label\">Création Jour<\/h2>";
+        input += "                                                <h2 id='labelJour' for=\"nomJour\" class=\"col-sm-2 col-form-label\">Création Jour <span id='nbJour'></span><\/h2>";
         input += "                                            <\/div>";
         input += "";
         input += "                                            <div class=\"container\" style=\"width: 60% ; float: left; margin-left: 20px\" >";

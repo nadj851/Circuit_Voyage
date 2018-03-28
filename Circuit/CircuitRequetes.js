@@ -1,5 +1,6 @@
 //Requetes Circuit
 function AjouterCircuit() {
+    $('#sommaire').html("creation des etapes");
     var formCircuit = new FormData(document.getElementById('contenuCircuit'));
     formCircuit.append('action', 'enregistrerCircuit');
     $.ajax({
@@ -13,11 +14,15 @@ function AjouterCircuit() {
         processData: false,
         success: function (reponse) {//alert(reponse);
             CircuitVue(reponse);
+            $('#nbEtape').html(nbEtape+1);
+            $('#nbJour').html(nbJour+1);
         },
         fail: function (err) {
 
         }
     });
+    
+       
 }
 
 function listerCircuit() {
@@ -105,7 +110,7 @@ function modifierCircuit() {
 
 //Appel ajax pour chercher les differents thématique pour loader le drop down list
 function FormulaireCircuit() {
-    
+    $('#sommaire').html("creation des circuits");
     var formFilm = new FormData();
     formFilm.append('action', 'lister');//alert(formFilm.get("action"));
     $.ajax({
