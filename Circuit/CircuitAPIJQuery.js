@@ -80,10 +80,10 @@ function AffichageDetailsCircuit(affichageCircuits) {
         strVar += "        <div>";
         strVar += "            <h2 align=\"center\">" + affichageCircuits[i].titre + "<\/h2>";
         strVar += "            <br \/>";
-        strVar += "<a>	<img src='pochettes/" + affichageCircuits[i].imageCircuit + "' style='width:460px; height:500px;'></a>";
+        strVar += "<a>	<img src='pochettes/" + affichageCircuits[i].imageCircuit + "' style='width:600px; height:600px;'></a>";
         strVar += "";
         strVar += "";
-        strVar += "            <table class=\"table table-condensed\" style=\"width: 480px; float:right; height: 400px; \">";
+        strVar += "            <table class=\"table table-condensed\" style=\"width: 700px; float:right; height: 400px; \">";
         strVar += "                <thead>";
         strVar += "                    <tr style=\" height: 30px\">";
         strVar += "                        <th style=\"background-color: #426CB4; color: white\">" + affichageCircuits[i].titre + "<\/th>";
@@ -130,7 +130,7 @@ function AffichageDetailsCircuit(affichageCircuits) {
         strVar += "                                <a class=\"nav-link disabled\" href=\"#\" style=\"color: black\" onclick='FormulaireR(); listerParticipants();infoUser();RamenerCircuit(" + affichageCircuits[i].idCircuit + ");'>Réservations<\/a>";
         strVar += "                            <\/li>";
         strVar += "                            <li class=\"nav-item\">";
-        strVar += "                                <a class=\"nav-link disabled btn btn-danger\" href=\"#\" style=\"color: black\" onclick='FormulaireR(); listerParticipants();infoUser();RamenerCircuit(" + affichageCircuits[i].idCircuit + ");'>Ajouter au Panier<\/a>";
+        strVar += "                                <a class=\"nav-link disabled btn btn-danger\" href=\"#\" style=\"color: black\" onclick='enregistrerPani();'>Ajouter au Panier<\/a>";
         strVar += "                            <\/li>";
 
         strVar += "                        <\/ul>";

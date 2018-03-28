@@ -1,7 +1,7 @@
 //requ�tes thematique
-function enregistrerP(){
+function enregistrerPani(){
 	var formtpanier= new FormData();
-	formtpanier.append('action','enregistrerP');
+	formtpanier.append('action','enregistrerPani');
         formtpanier.append('idCircuit',$('#idCircuit').val());
         
 	$.ajax({
@@ -14,7 +14,7 @@ function enregistrerP(){
 		contentType : false,
 		processData : false,
 		success : function (reponse){//alert(reponse);
-					thematiqueVue(reponse);
+					panierVue(reponse);
 		},
 		fail : function (err){
 		   
