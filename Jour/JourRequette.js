@@ -8,7 +8,7 @@ function ajouterJour() {
     nbJour++;
     var maxjour=$('#nbJourEtape').val();
     var maxEtape=$('#nbEtapeCircuit').val();
-    alert(", maxjour = "+maxjour+ ", maxEtape = "+maxEtape+ ", nbJour = "+nbJour+ ", nbEtape = "+nbEtape);
+    //alert(", maxjour = "+maxjour+ ", maxEtape = "+maxEtape+ ", nbJour = "+nbJour+ ", nbEtape = "+nbEtape);
     
   
     
@@ -16,7 +16,7 @@ function ajouterJour() {
         register();
        // $('#messages').html("Circuit ajouté");
        // listerTT();
-        alert("id circuit = "+$('#idCircuit').val());
+        //alert("id circuit = "+$('#idCircuit').val());
         AfficherDetailsCircuit($('#idCircuit').val());
         nbEtape=0;
         
@@ -55,8 +55,8 @@ function register(){
             
                        $('#idCircuit').val(reponse.idCircuit);
                        
-            alert("avec jquery "+$('#idCircuit').val());
-           alert("avec reponse "+reponse.idCircuit);
+//            alert("avec jquery "+$('#idCircuit').val());
+//           alert("avec reponse "+reponse.idCircuit);
         },
         fail: function (err) {
 

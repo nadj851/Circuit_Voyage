@@ -13,7 +13,7 @@ function AjouterEtape() {
        // nbEtape=0;
         return;
     }
-
+ $('#contenuJour')[0].reset();
     var formEtape = new FormData(document.getElementById('contenuEtape'));
     formEtape.append('action', 'enregistrerEtape');
     $.ajax({
