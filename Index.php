@@ -100,9 +100,9 @@ include_once 'includes/init.php';
 
                                     
                                    <?php if (!logged_in()) : ?>
-                            <li> <a href='#' onClick='formulairelogin();'><span class='glyphicon glyphicon-shopping-cart'></span>Panier<span class='badge'>0</span></a>  </li>			
+                            <li> <a href='#' onClick='formulairelogin();'><span class='glyphicon glyphicon-shopping-cart'></span>Panier<span id='badge'class='badge'>0</span></a>  </li>			
                             <?php elseif($_SESSION['email']!="admin@admin.com"&&logged_in())  : ?>							
-                            <li> <a href='#' onClick='listerPanier();'><span class="glyphicon glyphicon-shopping-cart"></span>Panier<span class="badge">0</span></a> </li>                          
+                            <li> <a href='#' onClick='listerPanier();'><span class="glyphicon glyphicon-shopping-cart"></span>Panier<span id='badge' class="badge">0</span></a> </li>                          
                               <?php endif; ?>                                                                                                                                               
 
                                 	
@@ -147,7 +147,7 @@ include_once 'includes/init.php';
                                     <li><a href='#'class='category' cid='SUSPENSE' onclick='SupprimerCircuit();' >Supprimer Circuit</a></li>
                                     <li><a href='#'class='category' cid='SUSPENSE' onclick='listerPanier();' >Panier</a></li>
                                     <li><a href='#'class='category' cid='alo'onclick='listerCircuit();' >lister les Circuits</a></li>
-                                    <li><a href='#'class='category' cid='POUR LA FAMILLE'>Pour la famille</a></li>
+                                    <li><a href='#'class='category' cid='POUR LA FAMILLE' onclick='showing();'>detail</a></li>
                                     <li><a href='#'class='category' cid='POUR LA FAMILLE'>test</a></li>
 
                                 </div>

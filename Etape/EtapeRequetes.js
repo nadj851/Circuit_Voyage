@@ -1,20 +1,27 @@
 ////requ�tes RESERVATION
-var nbEtape=0;
-   
+var nbEtape = 0;
+
 function AjouterEtape() {
-     nbEtape++;
-    var maxEtape=$('#nbEtapeCircuit').val();
-    
-    if (nbEtape>maxEtape) {
+    $('#sommaire').html("creation des jours");
+    nbEtape++;
+    nbJour=0;
+   
+
+    $('#nbEtape').html(nbEtape);
+    $('#nbJour').html(nbJour + 1);
+    var maxEtape = $('#nbEtapeCircuit').val();
+
+    if (nbEtape > maxEtape) {
         alert("je suis dans le if maxetape");
         $('#messages').html("max Etape");
         $('#contenuJour').show();
         $('#contenuEtape').hide();
-       // nbEtape=0;
+        // nbEtape=0;
         return;
     }
-
+      maxjour=$('#nbJourEtape').val();
     var formEtape = new FormData(document.getElementById('contenuEtape'));
+    $('#contenuEtape')[0].reset();
     formEtape.append('action', 'enregistrerEtape');
     $.ajax({
         type: 'POST',
@@ -26,12 +33,14 @@ function AjouterEtape() {
         contentType: false,
         processData: false,
         success: function (reponse) {//alert(reponse);
-           
+
             CircuitVue(reponse);
+            $('#nbJour').html(nbJour + 1);
+            
 //            $('#idCircuit').val(reponse.idCircuit);
 //            alert("avec jquery "+$('#idCircuit').val());
 //            alert("avec reponse "+reponse.idCircuit);
-            
+
         },
         fail: function (err) {
 

@@ -124,7 +124,7 @@ function formulaireCircuit(reponse) {
         input += "";                                                //formulaire étape
         input += "                                        <form id=\"contenuEtape\"class=\"form-group row\" style=\"display: none\">";
         input += "                                            <div class=\"form-group row\">";
-        input += "                                                <h2 for=\"nomEtape\" class=\"col-sm-2 col-form-label\">Création étape<\/h2>";
+        input += "                                                <h2 for=\"nomEtape\" class=\"col-sm-2 col-form-label\">Création étape <span id='nbEtape'></span> <\/h2>";
         input += "                                            <\/div>";
         input += "";
         input += "                                            <div class=\"container\" style=\"width: 60% ; float: left; margin-left: 20px\" >";
@@ -147,13 +147,15 @@ function formulaireCircuit(reponse) {
         input += "                                                <div class=\"form-group row\">";
         input += "                                                    <label for=\"nbJourEtape\" class=\"col-sm-2 col-form-label\">Entrer nombre jour<\/label>";
         input += "                                                    <div class=\"col-sm-10\" >";
+        
+        
         input += "                                                        <select class=\"form-control\" id=\"nbJourEtape\" name=\"nbJourEtape\" required>";
                                                                         for (var i = 1; i < 11; i++) {
                                                                             input += "   <option value='" + i + "'>" + i + "<\/option>";
 
                                                                         }
 
-        input += "                                                        <\/select>";
+        input += "                                                        </select>";
         input += "                                                    <\/div>";
         input += "                                                <\/div>";
 
@@ -168,7 +170,7 @@ input += "                                                <input type=\"hidden\"
         input += "";                                                //formulaire Jour
         input += "                                        <form id=\"contenuJour\"class=\"form-group row\" style=\"display: none\">";
         input += "                                            <div class=\"form-group row\">";
-        input += "                                                <h2 id='labelJour' for=\"nomJour\" class=\"col-sm-2 col-form-label\">Création Jour<\/h2>";
+        input += "                                                <h2 id='labelJour' for=\"nomJour\" class=\"col-sm-2 col-form-label\">Création Jour <span id='nbJour'></span><\/h2>";
         input += "                                            <\/div>";
         input += "";
         input += "                                            <div class=\"container\" style=\"width: 60% ; float: left; margin-left: 20px\" >";

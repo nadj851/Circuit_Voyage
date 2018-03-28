@@ -3,40 +3,52 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
- var nbJour=0;
+  var nbJour=0;
+  var maxjour;
+  var maxEtape;
 function ajouterJour() {
-    nbJour++;
-    var maxjour=$('#nbJourEtape').val();
-    var maxEtape=$('#nbEtapeCircuit').val();
+   
+    $('#nbEtape').html(nbEtape+1);
+    
+     nbJour++;
+      $('#nbJour').html(nbJour+1);
+     
+     //alert($('#nbJourEtape').val());
+     
+    
+     maxEtape=$('#nbEtapeCircuit').val();
     alert(", maxjour = "+maxjour+ ", maxEtape = "+maxEtape+ ", nbJour = "+nbJour+ ", nbEtape = "+nbEtape);
     
-  
+
     
-    if(nbEtape>=maxEtape){
+    
+    if(nbEtape>=maxEtape && nbJour>=maxjour){
+        
         register();
        // $('#messages').html("Circuit ajouté");
        // listerTT();
-        alert("id circuit = "+$('#idCircuit').val());
+        //alert("id circuit = "+$('#idCircuit').val());
         AfficherDetailsCircuit($('#idCircuit').val());
+        nbJour=0;
         nbEtape=0;
         
         return;
     }
     
-    if (nbJour>=maxjour) {
+      if (nbJour>=maxjour) {
         $('#messages').html("max Jour");
-        nbJour=0;
         $('#contenuJour').hide();
+        nbJour=0;
         $('#contenuEtape').show();
         
         return;
     }
-    
 register();
    
 }
 
 function register(){
+   
           var formEtape = new FormData(document.getElementById('contenuJour'));
     $('#contenuJour')[0].reset();
     formEtape.append('action', 'enregistrerJour');
@@ -54,9 +66,10 @@ function register(){
             //JourVue(reponse);
             
                        $('#idCircuit').val(reponse.idCircuit);
+                        
                        
-            alert("avec jquery "+$('#idCircuit').val());
-           alert("avec reponse "+reponse.idCircuit);
+//            alert("avec jquery "+$('#idCircuit').val());
+//           alert("avec reponse "+reponse.idCircuit);
         },
         fail: function (err) {
 

@@ -1,11 +1,13 @@
 //requ�tes thematique
-/*function enregistrerT(){
-	var formthematique = new FormData(document.getElementById('formEnregthems'));
-	formthematique.append('action','enregistrer');
+function enregistrerP(){
+	var formtpanier= new FormData();
+	formtpanier.append('action','enregistrerP');
+        formtpanier.append('idCircuit',$('#idCircuit').val());
+        
 	$.ajax({
 		type : 'POST',
 		url : 'Panier/PanierControleur.php',
-		data : formthematique,
+		data : formtpanier,
 		dataType : 'json', //text pour le voir en format de string
 		//async : false,
 		//cache : false,
@@ -19,7 +21,7 @@
 		}
 	});
 }
-*/
+
 function listerPanier(){
           $('#sommaire').html("le panier "); 
 	var formpanier= new FormData();
@@ -32,7 +34,7 @@ function listerPanier(){
 		processData : false,
 		dataType : 'json', //text pour le voir en format de string
 		success : function (reponse){//alert(reponse);
-					thematiqueVue(reponse);
+					panierVue(reponse);
                                        
 		},
 		fail : function (err){

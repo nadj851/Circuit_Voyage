@@ -1,5 +1,6 @@
 //requ�tes films
 function enregistrer(){
+    
 	var formFilm = new FormData(document.getElementById('formEnreg'));
 	formFilm.append('action','enregistrer');
 	$.ajax({
@@ -21,6 +22,7 @@ function enregistrer(){
 }
 
 function ajouterParticipant(){
+    $('#contenuParticpants')[0].reset();
 	var formParticpants = new FormData(document.getElementById('contenuParticpants'));
 	//var formParticpants = $("#ajouterParticipant").serialize();
         //formParticpants.push({"action":"enregistrer"}); 

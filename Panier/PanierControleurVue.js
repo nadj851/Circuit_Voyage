@@ -43,7 +43,8 @@ function formulaireT() {
 
 }
 
-function listerT(listetheme) {
+
+function listerPani(listetheme) {
     var taille;
     /*var rep="<div class='table-users' style='overflow: scroll; height: 500px;'>";
      rep+="<div class='header'>Liste des films<span style='float:right;padding-right:10px;cursor:pointer;' onClick=\"$('#contenu').hide();\">X</span></div>";
@@ -58,22 +59,34 @@ function listerT(listetheme) {
      $('#contenu').html(rep);*/
     //**********************
     taille = listetheme.length;
-    var result = "";
+    
+var strVar="";
 
     for (var i = 0; i < taille; i++) {
-        result += "<div class='col-md-4'>";
-        result += "<div class='panel panel-success'>";
-        result += "<div class='panel-heading'>" + "<span style='font-weight: bold;font-size: 15px;'>" + listetheme[i].nom + "</span></div>";
-        result += "<div class='panel-body'>";
-        result += "<a href='#' name='afficherCircuit'  id='" + listetheme[i].idThematique + "' class=\"thumbnail\">	<img src='pochettes/" + listetheme[i].image + "' style='width:400px; height:300px;'></a>";
-        result += "</div>";
-        result += "</div>";
-        result += "</div>";
+       
+strVar += "<form method='post' action='login.php'>\";";
+strVar += "                                <div class=\"row\">";
+strVar += "                                            <div class=\"col-md-2\">";
+strVar += "                                                    <div class=\"btn-group\">";
+strVar += "                                                            <a href=\"#\"  id=" +listetheme[i].idPanier+" class=\"btn btn-danger remove\"><span class=\"glyphicon glyphicon-trash\"><\/span><\/a>";
+strVar += "";
+strVar += "                                                    <\/div>";
+strVar += "                                            <\/div>";
+strVar += "                                            <input type=\"hidden\" name=\"product_id[]\" value=\"' . $film_id . '\"\/>";
+strVar += "                                            <input type=\"text\" name=\"\" value='nono'\/>";
+strVar += "                                            <input type=\"hidden\" name=\"\" value=" +listetheme[i].idPanier+ "\/>";
+strVar += "                                            <div class=\"col-md-2\"><img class=\"img-responsive\" src=\"pochettes\/' "+listetheme[i].imageCircuit+ " '\" style=\"width:50px; height:50px;\"><\/div>";
+strVar += "                                            <div class=\"col-md-2\">"  +listetheme[i].titre+ "<\/div>								";
+strVar += "                                            <div class=\"col-md-2\"><input type=\"text\" class=\"form-control price\" value="  +listetheme[i].prix+ " $\" readonly=\"readonly\"><\/div>";
+strVar += "";
+strVar += "                                        <\/div>';";
+strVar += "										<\/form>';";
+
     }
-    $('#get_result').html(result);
-    $("a[name=afficherCircuit]").click( function(){
-    AfficherCircuits($(this).prop("id"));    
-});
+    $('#get_result').html(strVar);
+   // $("a[name=afficherCircuit]").click( function(){
+   // AfficherCircuits($(this).prop("id"));    
+//});
 
 }
 
@@ -95,7 +108,18 @@ function listerT(listetheme) {
  
  }
  */
-var thematiqueVue = function (reponse) {
+
+
+
+
+
+
+
+
+
+
+
+var panierVue = function (reponse) {
     var action = reponse.action;
     switch (action) {
         case "enregistrer" :
@@ -104,8 +128,8 @@ var thematiqueVue = function (reponse) {
             message(reponse.msg);
             break;
             
-        case "lister" :
-            listerT(reponse.listetheme);
+        case "listerP" :
+            listerPani(reponse.listetheme);
             break;
             
         case "formulaire" :
