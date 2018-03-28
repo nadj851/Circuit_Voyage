@@ -63,9 +63,8 @@ function register(){
                        $('#idCircuit').val(reponse.idCircuit);
                         
                        
-                       
-           // alert("avec jquery "+$('#idCircuit').val());
-           //alert("avec reponse "+reponse.idCircuit);
+//            alert("avec jquery "+$('#idCircuit').val());
+//           alert("avec reponse "+reponse.idCircuit);
         },
         fail: function (err) {
 
