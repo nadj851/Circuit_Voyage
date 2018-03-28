@@ -75,7 +75,7 @@ function AffichageDetailsCircuit(affichageCircuits) {
     var strVar = "";
     for (var i = 0; i < taille; i++) {
 
-        var jour = showDays(affichageCircuits[i].dateDeRetour,affichageCircuits[i].dateDeDepart );
+       var jour = showDays(affichageCircuits[i].dateDeRetour,affichageCircuits[i].dateDeDepart );     
         strVar += "        <br \/>";
         strVar += "        <div>";
         strVar += "            <h2 align=\"center\">" + affichageCircuits[i].titre + "<\/h2>";

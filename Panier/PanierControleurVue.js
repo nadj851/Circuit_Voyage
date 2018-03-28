@@ -43,7 +43,8 @@ function formulaireT() {
 
 }
 
-function listerP(listetheme) {
+
+function listerPani(listetheme) {
     var taille;
     /*var rep="<div class='table-users' style='overflow: scroll; height: 500px;'>";
      rep+="<div class='header'>Liste des films<span style='float:right;padding-right:10px;cursor:pointer;' onClick=\"$('#contenu').hide();\">X</span></div>";
@@ -83,9 +84,9 @@ strVar += "										<\/form>';";
 
     }
     $('#get_result').html(strVar);
-    $("a[name=afficherCircuit]").click( function(){
-    AfficherCircuits($(this).prop("id"));    
-});
+   // $("a[name=afficherCircuit]").click( function(){
+   // AfficherCircuits($(this).prop("id"));    
+//});
 
 }
 
@@ -107,6 +108,17 @@ strVar += "										<\/form>';";
  
  }
  */
+
+
+
+
+
+
+
+
+
+
+
 var panierVue = function (reponse) {
     var action = reponse.action;
     switch (action) {
@@ -117,7 +129,7 @@ var panierVue = function (reponse) {
             break;
             
         case "listerP" :
-            listerP(reponse.listetheme);
+            listerPani(reponse.listetheme);
             break;
             
         case "formulaire" :
