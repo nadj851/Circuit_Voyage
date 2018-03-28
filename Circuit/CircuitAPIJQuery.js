@@ -27,11 +27,11 @@ function AffichageCircuit(affichageCircuits) {
     taille = affichageCircuits.length;
     var result = "";
     for (var i = 0; i < taille; i++) {
-        result += "<div class='col-md-4'>";
+        result += "<div class='col-md-6'>";
         result += "<div class='panel panel-success'>";
         result += "<div class='panel-heading'>" + "<span style='font-weight: bold;font-size: 15px;'>" + affichageCircuits[i].titre + "</span></div>";
         result += "<div class='panel-body'>";
-        result += "<a name='afficherDetailsCircuit'  id='" + affichageCircuits[i].idCircuit + "' >	<img src='pochettes/" + affichageCircuits[i].imageCircuit + "' style='width:350px; height:300px;'></a>";
+        result += "<a name='afficherDetailsCircuit'  id='" + affichageCircuits[i].idCircuit + "' >	<img src='pochettes/" + affichageCircuits[i].imageCircuit + "' style='width:400px; height:400px;'></a>";
         result += "<div> Description: " + affichageCircuits[i].description + " <br></div>";
         result += "<div> Prix: " + affichageCircuits[i].prix + " <br></div>";
         result += "</div>";
@@ -71,7 +71,7 @@ function AffichageDetailsCircuit(affichageCircuits) {
     $('#get_result').html("");
      $('#sommaire').html("details circuits");
         
-    taille = affichageCircuits.length;
+    var taille = affichageCircuits.length;
     var strVar="";
     for (var i = 0; i < taille; i++) {        
         
