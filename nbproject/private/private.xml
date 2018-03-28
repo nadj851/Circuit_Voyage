@@ -14,9 +14,19 @@
         <group>
             <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Circuit/CircuitRequetes.js</file>
             <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Thematique/ThematiqueControleur.php</file>
+            <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Etape/EtapeControleur.php</file>
+            <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Etape/EtapeRequetes.js</file>
+            <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Circuit/CircuitControleur.php</file>
+            <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Utilisateur/UtilisateurControleur.php</file>
+            <file>file:/U:/Session%205/WebIII/Circuit_Voyage/js/main.js</file>
+            <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Jour/JourRequette.js</file>
+            <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Jour/JourControleur.php</file>
+            <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Circuit/CircuitAPIJQuery.js</file>
             <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Index.php</file>
             <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Circuit/CircuitControleurVue.js</file>
-            <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Circuit/CircuitControleur.php</file>
+            <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Etape/EtapeControleurVue.js</file>
+            <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Jour/JourControleurVue.js</file>
+            <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Utilisateur/UtilistauerRequetes.js</file>
         </group>
     </open-files>
 </project-private>
