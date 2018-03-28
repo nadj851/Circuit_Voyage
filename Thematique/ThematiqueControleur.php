@@ -130,10 +130,12 @@ if (isset($_POST['action'])) {
     switch ($action) {
         case "enregistrer" :
             enregistrer();
+            echo json_encode($tabRes);
             break;
         case "lister" :
             listerThematique();
+            echo json_encode($tabRes);
             break;
     }
-    echo json_encode($tabRes);
+    
 }

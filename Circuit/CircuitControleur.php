@@ -60,20 +60,19 @@ function listerLesCircuit() {
 
 function ficheCircuit() {
     global $tabRes;
-//    include '../Thematique/ThematiqueControleur.php';    
-//    listerThematique();
-    
-    $id = 33;    
+    include '../Thematique/ThematiqueControleur.php';
+    listerThematique();
+
+    $id = 33;
     $requete = "SELECT * FROM circuit WHERE idCircuit=?";
     try {
         $unModele = new filmsModele($requete, array($id));
         $stmt = $unModele->executer();
         $tabRes['ficheCircuit'] = array();
         if ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
-        $tabRes['ficheCircuit'][] = $ligne;
+            $tabRes['ficheCircuit'][] = $ligne;
             $tabRes['OK'] = true;
-              $tabRes['action']= "afficherFiche";
-             
+            $tabRes['action'] = "afficherFiche";
         } else {
             $tabRes['OK'] = false;
         }
@@ -82,7 +81,45 @@ function ficheCircuit() {
     } finally {
         unset($unModele);
     }
+}
+
+function modifierCircuit() {
+    global $tabRes;
+    $idCircuit = $_POST['idCircuit'];
+    $nomCircuit = $_POST['nomCircuit'];
+    $dateDepart = $_POST['dateDepartCircuit'];
+    $dateRetour = $_POST['dateRetourCircuit'];
+    $nbPersonnesMax = $_POST['nbPersonneMax'];
+    $nbPersonnesMin = $_POST['nbPersonneMin'];
+    $description = $_POST['descripCircuit'];
+    $prix = $_POST['prixCircuit'];
+    $idthematique = $_POST['themeCircuit'];
     
+    $guide = $_POST['guide'];
+    $idPromo = $_POST['idPromo'];
+    
+    try {
+        //Recuperer ancienne pochette
+        $requette = "SELECT pochette FROM films WHERE idCircuit=?";
+        $unModele = new filmsModele($requette, array($idCircuit));
+        $stmt = $unModele->executer();
+        $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+        $anciennePochette = $ligne->pochette;
+        $imageCircuit = $unModele->verserFichier("pochettes", "pochette", $anciennePochette, $nomCircuit);
+
+        $requete = "UPDATE circuit SET nomCircuit=?,dateDepartCircuit=?, dateRetourCircuit=?, nbPersonneMax=?,"
+                . " nbPersonneMin=?, descripCircuit=?, prixCircuit=?, themeCircuit=?,"
+                . " imageCircuit=?, guide=?, idPromo=? WHERE idCircuit=?";
+        $unModele = new filmsModele($requete, array($nomCircuit, $dateDepart, $dateRetour, $nbPersonnesMax, $nbPersonnesMin,
+            $description, $prix, $idthematique, $imageCircuit,$guide,$idPromo, $idCircuit));
+        $stmt = $unModele->executer();
+        $tabRes['action'] = "modifier";
+        $tabRes['msg'] = "Film $idCircuit bien modifie";
+    } catch (Exception $e) {
+        print_r($e);
+    } finally {
+        unset($unModele);
+    }
 }
 
 if (isset($_POST['action'])) {
@@ -100,6 +137,9 @@ if (isset($_POST['action'])) {
 
         case "ficheCircuit" :
             ficheCircuit();
+            break;
+        case "modifier" :
+            modifierCircuit();
             break;
     }
 }

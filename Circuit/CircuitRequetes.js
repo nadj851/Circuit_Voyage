@@ -74,11 +74,10 @@ function obtenirFicheCircuit() {
         data: formCircuit,
         contentType: false,
         processData: false,
-        dataType: 'text',
-        success: function (reponse) { alert(reponse);
-           
-
-           // CircuitVue(reponse);
+        dataType: 'json',
+        success: function (reponse) { 
+            alert(JSON.stringify(reponse));
+            CircuitVue(reponse);
         },
         fail: function (err) {
            
@@ -90,17 +89,18 @@ function obtenirFicheCircuit() {
 
 function modifierCircuit() {
 
-    var form = new FormData();
-    form.append('action', 'modifier');
+    var leForm = document.getElementById('modifierCircuitForm');
+    var formthem = new FormData(leForm);
+    formthem.append('action', 'modifier');
     $.ajax({
         type: 'POST',
-        url: 'Thematique/ThematiqueControleur.php',
-        data: form,
+       url: 'Circuit/CircuitControleur.php',
+        data: formthem,
         contentType: false,
         processData: false,
         dataType: 'json',
         success: function (reponse) {
-            //alert(reponse);            
+            alert(JSON.stringify(reponse));            
             CircuitVue(reponse);
         },
         fail: function (err) {
