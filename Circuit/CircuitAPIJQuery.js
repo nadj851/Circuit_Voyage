@@ -122,6 +122,7 @@ strVar += "";
 strVar += "";
 strVar += "";
 strVar += "            <div >";
+strVar += "            <br \/>";
 strVar += "                <div class=\"card text-center\" style=\"background-color: white; color: white;\">";
 strVar += "                    <div class=\"card-header\" style=\"background-color: #426CB4;color: white\">";
 strVar += "                        <ul class=\"nav nav-tabs card-header-tabs\">";
