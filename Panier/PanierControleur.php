@@ -2,7 +2,52 @@
 session_start();
 	require_once("../includes/modele.inc.php");
 	$tabRes=array();
-	/*function enregistrer(){
+        
+	function enregistrerpanier(){
+            //formtpanier.append('action','enregistrerPani');
+            //formtpanier.append('idCircuit',$('#idCircuit').val());
+            /*                if (isset($_POST["addToCart"])) {
+
+
+
+    $p_id = $_POST["proId"];
+    if (isset($_SESSION["email"])) {
+
+        $user_id = $_SESSION["email"];
+
+        $sql = "SELECT * FROM panier WHERE idPanier = '$p_id' AND email = '$user_id'";
+         $unModele = new filmsModele($requete, array());
+        $stmt = $unModele->executer();
+        $count = $stmt->rowCount();
+        if ($count > 0) {
+            echo "
+				<div class='alert alert-warning'>
+						<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+						<b>film deja ajouter  Continue votre selection..!</b>
+				</div>
+			";
+        } else {
+            $sql = "INSERT INTO `panier`
+			(`idf`, `email`) 
+			VALUES ('$p_id','$user_id')";
+            if (mysqli_query($connexion, $sql)) {
+                echo "
+					<div class='alert alert-success'>
+						<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+						<b>film  Ajouter..!</b>
+					</div>
+				";
+            }
+        }
+    }
+    
+    
+}
+
+              */
+            
+            
+            
 		global $tabRes;	
 		$nom=$_POST['nom'];
 		$description=$_POST['description'];
@@ -19,7 +64,7 @@ session_start();
 		}finally{
 			unset($unModele);
 		}
-	}*/
+	}
 	
 	function listerPanier(){
 		global $tabRes;
@@ -227,8 +272,8 @@ session_start();
 	//Contr�leur
 	$action=$_POST['action'];
 	switch($action){
-		case "enregistrer" :
-			enregistrer();
+		case "enregistrerPani" :
+			enregistrerpanier();
 		break;
 		case "listerP" :
 			listerPanier();
