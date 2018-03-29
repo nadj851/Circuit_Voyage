@@ -9,10 +9,10 @@ function enregistrer() {
     $description = $_POST['description'];
 
     try {
-        $unModele = new filmsModele();
+        $unModele = new circuitModel();
         $pochete = $unModele->verserFichier("pochettes", "pochette", "avatar.jpg", $nom);
         $requete = "INSERT INTO thematique VALUES(0,?,?,?)";
-        $unModele = new filmsModele($requete, array($nom, $description, $pochete));
+        $unModele = new circuitModel($requete, array($nom, $description, $pochete));
         $stmt = $unModele->executer();
         $tabRes['action'] = "enregistrer";
         $tabRes['msg'] = "thamatique bien enregistrer";
@@ -28,7 +28,7 @@ function lister() {
     $tabRes['action'] = "lister";
     $requete = "SELECT * FROM thematique";
     try {
-        $unModele = new filmsModele($requete, array());
+        $unModele = new circuitModel($requete, array());
         $stmt = $unModele->executer();
         $tabRes['listetheme'] = array();
         while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
@@ -120,7 +120,7 @@ function listerParticipant() {
     $tabRes['action'] = "listerParticpants";
     $requete = "SELECT * FROM participants";
     try {
-        $unModele = new filmsModele($requete, array());
+        $unModele = new circuitModel($requete, array());
         $stmt = $unModele->executer();
         $tabRes['listeParticpants'] = array();
         while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
@@ -143,7 +143,7 @@ function  circuitparid() {
     $tabRes['action'] = "ramener";
     $requete = "SELECT * FROM circuit where idCircuit=?";
     try {
-        $unModele = new filmsModele($requete, array($id));
+        $unModele = new circuitModel($requete, array($id));
         $stmt = $unModele->executer();
         $tabRes['circuitid'] = array();
         while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {

@@ -12,10 +12,10 @@ function login() {
     $password = md5($_POST['password']);
 
     try {
-        $unModele = new filmsModele();
+        $unModele = new circuitModel();
         $requete = "SELECT email, password FROM utilisateur WHERE email =? AND password =? ";
 
-        $unModele = new filmsModele($requete, array($email, $password));
+        $unModele = new circuitModel($requete, array($email, $password));
         $stmt = $unModele->executer();
         $count = $stmt->rowCount();
         if ($count == 1) {
@@ -53,10 +53,10 @@ function register() {
 
 
     try {
-        $unModele = new filmsModele();
+        $unModele = new circuitModel();
 
         $requete = "INSERT INTO utilisateur VALUES(0,?,?,?,?,?)";
-        $unModele = new filmsModele($requete, array($first_name, $last_name, $display_name, $email, $password));
+        $unModele = new circuitModel($requete, array($first_name, $last_name, $display_name, $email, $password));
         $stmt = $unModele->executer();
         $tabRes['action'] = "register";
         $tabRes['msg'] = "utilisateur bien enregistrer";
@@ -138,7 +138,7 @@ function information() {
 
     $requete = "SELECT last_name,first_name,email FROM utilisateur where email=?";
     try {
-        $unModele = new filmsModele($requete, array($email));
+        $unModele = new circuitModel($requete, array($email));
         $stmt = $unModele->executer();
         $tabRes['information'] = array();
         while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {

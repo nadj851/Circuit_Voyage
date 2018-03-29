@@ -53,10 +53,10 @@ session_start();
 		$description=$_POST['description'];
 		
 		try{
-			$unModele=new filmsModele();
+			$unModele=new circuitModel();
 			$pochete=$unModele->verserFichier("pochettes", "pochette", "avatar.jpg",$nom);
 			$requete="INSERT INTO thematique VALUES(0,?,?,?)";
-			$unModele=new filmsModele($requete,array($nom,$description,$pochete));
+			$unModele=new circuitModel($requete,array($nom,$description,$pochete));
 			$stmt=$unModele->executer();
 			$tabRes['action']="enregistrer";
 			$tabRes['msg']="thamatique bien enregistrer";
@@ -75,7 +75,7 @@ session_start();
                     try {
                          $email = $_SESSION["email"];
                             $requete = "SELECT a.idCircuit,a.imageCircuit,a.titre,a.prix,b.idPanier FROM circuit a,panier b WHERE a.idCircuit=b.idCircuit AND b.email='$email'";
-        $unModele = new filmsModele($requete, array());
+        $unModele = new circuitModel($requete, array());
         $stmt = $unModele->executer();
         $tabRes['listetheme']= array();
         while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {

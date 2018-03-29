@@ -23,17 +23,17 @@ function enregistrer() {
     $telephone = $_POST['telPostalParticipant'];
     try {
         $requete = "INSERT INTO adresse VALUES(0,?,?,?)";
-        $unModele = new filmsModele($requete, array($villeParticipant, $codePostalParticipant, $paysParticipant));
+        $unModele = new circuitModel($requete, array($villeParticipant, $codePostalParticipant, $paysParticipant));
         $stmt = $unModele->executer();
         $idAdresse = $unModele->lastID;
 
         $requete = "INSERT INTO passeport VALUES(0,?,?,?,?,?)";
-        $unModele = new filmsModele($requete, array($numeroPasseport,$dateDelPasseport,$dateExpPasseport, $nationalite, $delivrerAExpPasseport));
+        $unModele = new circuitModel($requete, array($numeroPasseport,$dateDelPasseport,$dateExpPasseport, $nationalite, $delivrerAExpPasseport));
         $stmt = $unModele->executer();
         $idPasseport = $unModele->lastID;
         
         $requete = "INSERT INTO participants VALUES(0,?,?,?,?,?,?,?)";
-        $unModele = new filmsModele($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone, $idAdresse, $idPasseport));
+        $unModele = new circuitModel($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone, $idAdresse, $idPasseport));
         $stmt = $unModele->executer();
         
         $tabRes['action'] = "enregistrer";
@@ -53,7 +53,7 @@ function lister() {
     $tabRes['action'] = "lister";
     $requete = "SELECT * FROM participants";
     try {
-        $unModele = new filmsModele($requete, array());
+        $unModele = new circuitModel($requete, array());
         $stmt = $unModele->executer();
         $tabRes['listeFilms'] = array();
         while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
@@ -71,7 +71,7 @@ function listerParticipant() {
     $tabRes['action'] = "lister";
     $requete = "SELECT * FROM participants";
     try {
-        $unModele = new filmsModele($requete, array());
+        $unModele = new circuitModel($requete, array());
         $stmt = $unModele->executer();
         $tabRes['listeParticpants'] = array();
         while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
@@ -299,12 +299,12 @@ function enleverParticipant() {
     $idParticpant = $_POST['listParticipant'];
     try {
         $requete = "SELECT * FROM participants WHERE idparticipants=?";
-        $unModele = new filmsModele($requete, array($idParticpant));
+        $unModele = new circuitModel($requete, array($idParticpant));
         $stmt = $unModele->executer();
         if ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
 //            $unModele->enleverFichier("pochettes", $ligne->pochette);
             $requete = "DELETE FROM participants WHERE idparticipants=?";
-            $unModele = new filmsModele($requete, array($idParticpant));
+            $unModele = new circuitModel($requete, array($idParticpant));
             $stmt = $unModele->executer();
             $tabRes['action'] = "enleverParticpant";
             $tabRes['msg'] = "participant " . $idParticpant . " bien enleve";
@@ -327,7 +327,7 @@ function fiche() {
     $tabRes['action'] = "fiche";
     $requete = "SELECT * FROM participants WHERE idf=?";
     try {
-        $unModele = new filmsModele($requete, array($idf));
+        $unModele = new circuitModel($requete, array($idf));
         $stmt = $unModele->executer();
         $tabRes['fiche'] = array();
         if ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
@@ -352,14 +352,14 @@ function modifier() {
     try {
         //Recuperer ancienne pochette
         $requette = "SELECT pochette FROM participants WHERE idf=?";
-        $unModele = new filmsModele($requette, array($idf));
+        $unModele = new circuitModel($requette, array($idf));
         $stmt = $unModele->executer();
         $ligne = $stmt->fetch(PDO::FETCH_OBJ);
         $anciennePochette = $ligne->pochette;
         $pochette = $unModele->verserFichier("pochettes", "pochette", $anciennePochette, $titre);
 
         $requete = "UPDATE participants SET titre=?,duree=?, res=?, pochette=? WHERE idf=?";
-        $unModele = new filmsModele($requete, array($titre, $duree, $res, $pochette, $idf));
+        $unModele = new circuitModel($requete, array($titre, $duree, $res, $pochette, $idf));
         $stmt = $unModele->executer();
         $tabRes['action'] = "modifier";
         $tabRes['msg'] = "Film $idf bien modifie";
