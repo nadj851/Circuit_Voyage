@@ -51,12 +51,9 @@ var filmsVue = function (reponse) {
     var action = reponse.action;
     switch (action) {
         case "enregistrer" :
-        case "enlever" :
+        case "enleverParticpant" :
         case "modifier" :
-            $('#messages').html(reponse.msg);
-            setTimeout(function () {
-                $('#messages').html("");
-            }, 5000);
+            message(reponse.msg);
             break;
         case "lister" :
             listerP(reponse.listeParticpants);

@@ -7,8 +7,6 @@ function enregistrer() {
 
     global $tabRes;
 
-
-
     $nomParticipant = $_POST['nomParticipant'];
     $prenomParticipant = $_POST['prenomParticipant'];
     $sexeParticipant = $_POST['sexeParticipant'];
@@ -280,7 +278,7 @@ function afficher() {
         $rep .= "                      </div>";
         $rep .= "            </div>";
 
-        $rep .= "<input type=\"button\" class=\"btn\" value=\"Ajouter participants\" onClick=\" ajouterParticipant(); listerTT();\" style=\"float: right; \">";
+        $rep .= "<input type=\"button\" class=\"btn\" value=\"Ajouter participants\" onClick=\" ajouterParticipant(); formulaireR();listerParticipants();infoUser();\" style=\"float: right; \">";
         $rep .= "                <br>";
         $rep .= "                <br>";
         $rep .= "  </form>";
@@ -309,10 +307,10 @@ function enleverParticipant() {
             $unModele = new filmsModele($requete, array($idParticpant));
             $stmt = $unModele->executer();
             $tabRes['action'] = "enleverParticpant";
-            $tabRes['msg'] = "Film " . $idParticpant . " bien enleve";
+            $tabRes['msg'] = "participant " . $idParticpant . " bien enleve";
         } else {
             $tabRes['action'] = "enlever";
-            $tabRes['msg'] = "Film " . $idParticpant . " introuvable";
+            $tabRes['msg'] = "participant " . $idParticpant . " introuvable";
         }
     } catch (Exception $e) {
         echo $e;

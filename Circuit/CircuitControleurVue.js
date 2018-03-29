@@ -321,7 +321,7 @@ input += "                                                <input type=\"hidden\"
         input += "                                                <div class=\"form-group row\">";
         input += "                                                    <label for=\"dateDepartCircuit\" class=\"col-sm-2 col-form-label\">Date de départ<\/label>";
         input += "                                                    <div class=\"col-sm-10\">";
-        input += "                                                        <input type=\"text\" class=\"form-control\" id=\"dateDepartCircuit\" name=\"dateDepartCircuit\" placeholder=\"Entrer départ date\" required>";
+        input += "                                                        <input type=\"date\" class=\"form-control\" id=\"dateDepartCircuit\" name=\"dateDepartCircuit\" placeholder=\"Entrer départ date\" required>";
         input += "                                                    <\/div>";
         input += "                                                <\/div>";
         input += "";

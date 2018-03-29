@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+
 function rendreVisible(elem){
 	document.getElementById(elem).style.display='block';
 }
