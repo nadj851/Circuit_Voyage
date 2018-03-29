@@ -15,10 +15,10 @@ function enregistrerEtape() {
    
     try {
           $idCircuit=$_SESSION["idCircuit"];
-        $unModele = new filmsModele();
+        $unModele = new circuitModel();
         //$pochete = $unModele->verserFichier("pochettes", "pochette", "avatar.jpg", $nomCircuit);
         $requete = "INSERT INTO etape VALUES(0,?,?,?)";
-        $unModele = new filmsModele($requete, array($nomEtape,$descriptionEtape,$idCircuit));
+        $unModele = new circuitModel($requete, array($nomEtape,$descriptionEtape,$idCircuit));
         $stmt = $unModele->executer();
         $_SESSION["idEtape"]=$unModele->lastID;
        

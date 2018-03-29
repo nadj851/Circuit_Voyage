@@ -23,7 +23,7 @@ if ($param !== "") {
 }
 
 try {
-    $unModele = new filmsModele($requete, $params);
+    $unModele = new circuitModel($requete, $params);
     $stmt = $unModele->executer();
     $tabRes['affichageCircuits'] = array();
     while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {

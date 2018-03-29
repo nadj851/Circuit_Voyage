@@ -14,6 +14,11 @@ include_once 'includes/init.php';
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
         <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
         <link rel='stylesheet' href='./js/style.css'>
         <script src='js/main.js' type='text/javascript'></script>
         <script src='./js/global.js'></script>
@@ -39,14 +44,14 @@ include_once 'includes/init.php';
 
         <script src="Jour/JourControleurVue.js" type="text/javascript"></script>
         <script src="Jour/JourRequette.js" type="text/javascript"></script>
-        
+
         <script src="Panier/PanierControleurVue.js" type="text/javascript"></script>
         <script src="Panier/PanierRequetes.js" type="text/javascript"></script>
 
         <link rel='stylesheet' href='Untitled_fichiers/ionicons.css'>
         <link rel='stylesheet' href='Untitled_fichiers/footer-servitech.css'>
         <link rel='stylesheet' href='Untitled_fichiers/aos.css'>
-        
+
         <script src='Circuit/CircuitAPIJQuery.js' type='text/javascript'></script>
 
 
@@ -98,14 +103,14 @@ include_once 'includes/init.php';
                                 <?php endif; ?>
 
 
-                                    
-                                   <?php if (!logged_in()) : ?>
-                            <li> <a href='#' onClick='formulairelogin();'><span class='glyphicon glyphicon-shopping-cart'></span>Panier<span id='badge'class='badge'>0</span></a>  </li>			
-                            <?php elseif($_SESSION['email']!="admin@admin.com"&&logged_in())  : ?>							
-                            <li> <a href='#' onClick='listerPanier();'><span class="glyphicon glyphicon-shopping-cart"></span>Panier<span id='badge' class="badge">0</span></a> </li>                          
-                              <?php endif; ?>                                                                                                                                               
 
-                                	
+                                <?php if (!logged_in()) : ?>
+                                    <li> <a href='#' onClick='formulairelogin();'><span class='glyphicon glyphicon-shopping-cart'></span>Panier<span id='badge'class='badge'>0</span></a>  </li>			
+                                <?php elseif ($_SESSION['email'] != "admin@admin.com" && logged_in()) : ?>							
+                                    <li> <a href='#' onClick='listerPanier();'><span class="glyphicon glyphicon-shopping-cart"></span>Panier<span id='badge' class="badge">0</span></a> </li>                          
+                                <?php endif; ?>                                                                                                                                               
+
+
 
 
 
@@ -268,5 +273,4 @@ include_once 'includes/init.php';
                     </body>
 
 
-                    
-                    
+
