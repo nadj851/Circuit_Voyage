@@ -12,8 +12,8 @@ function ajouterJour() {
       $('#nbJour').html(nbJour+1);
      
     var maxjour=$('#nbJourEtape').val();
-    var maxEtape=$('#nbEtapeCircuit').val();
-    //alert(", maxjour = "+maxjour+ ", maxEtape = "+maxEtape+ ", nbJour = "+nbJour+ ", nbEtape = "+nbEtape);
+    //var maxEtape=$('#nbEtapeCircuit').val();
+    alert(" maxjour = "+maxjour+ ", maxEtape = "+maxEtape+ ", nbJour = "+nbJour+ ", nbEtape = "+nbEtape);
     
   
     
