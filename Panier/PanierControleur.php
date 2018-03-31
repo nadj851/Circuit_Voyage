@@ -2,16 +2,61 @@
 session_start();
 	require_once("../includes/modele.inc.php");
 	$tabRes=array();
-	/*function enregistrer(){
+        
+	function enregistrerpanier(){
+            //formtpanier.append('action','enregistrerPani');
+            //formtpanier.append('idCircuit',$('#idCircuit').val());
+            /*                if (isset($_POST["addToCart"])) {
+
+
+
+    $p_id = $_POST["proId"];
+    if (isset($_SESSION["email"])) {
+
+        $user_id = $_SESSION["email"];
+
+        $sql = "SELECT * FROM panier WHERE idPanier = '$p_id' AND email = '$user_id'";
+         $unModele = new filmsModele($requete, array());
+        $stmt = $unModele->executer();
+        $count = $stmt->rowCount();
+        if ($count > 0) {
+            echo "
+				<div class='alert alert-warning'>
+						<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+						<b>film deja ajouter  Continue votre selection..!</b>
+				</div>
+			";
+        } else {
+            $sql = "INSERT INTO `panier`
+			(`idf`, `email`) 
+			VALUES ('$p_id','$user_id')";
+            if (mysqli_query($connexion, $sql)) {
+                echo "
+					<div class='alert alert-success'>
+						<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+						<b>film  Ajouter..!</b>
+					</div>
+				";
+            }
+        }
+    }
+    
+    
+}
+
+              */
+            
+            
+            
 		global $tabRes;	
 		$nom=$_POST['nom'];
 		$description=$_POST['description'];
 		
 		try{
-			$unModele=new filmsModele();
+			$unModele=new circuitModel();
 			$pochete=$unModele->verserFichier("pochettes", "pochette", "avatar.jpg",$nom);
 			$requete="INSERT INTO thematique VALUES(0,?,?,?)";
-			$unModele=new filmsModele($requete,array($nom,$description,$pochete));
+			$unModele=new circuitModel($requete,array($nom,$description,$pochete));
 			$stmt=$unModele->executer();
 			$tabRes['action']="enregistrer";
 			$tabRes['msg']="thamatique bien enregistrer";
@@ -19,7 +64,7 @@ session_start();
 		}finally{
 			unset($unModele);
 		}
-	}*/
+	}
 	
 	function listerPanier(){
 		global $tabRes;
@@ -30,7 +75,7 @@ session_start();
                     try {
                          $email = $_SESSION["email"];
                             $requete = "SELECT a.idCircuit,a.imageCircuit,a.titre,a.prix,b.idPanier FROM circuit a,panier b WHERE a.idCircuit=b.idCircuit AND b.email='$email'";
-        $unModele = new filmsModele($requete, array());
+        $unModele = new circuitModel($requete, array());
         $stmt = $unModele->executer();
         $tabRes['listetheme']= array();
         while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
@@ -136,7 +181,8 @@ session_start();
                         }
                                
                 
-                                                      
+                          }
+                                                           
                 
                 
                 
@@ -148,20 +194,7 @@ session_start();
                 
                 
                 
-		$requete="SELECT * FROM panier p,circuit c where p.";
-		try{
-			 $unModele=new filmsModele($requete,array());
-			 $stmt=$unModele->executer();
-			 $tabRes['listetheme']=array();
-			 while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
-			    $tabRes['listetheme'][]=$ligne;
-			}
-		}catch(Exception $e){
-                    echo $e;
-		}finally{
-			unset($unModele);
-		}
-	}
+		
 	
 	/*function enlever(){
 		global $tabRes;	
@@ -239,8 +272,8 @@ session_start();
 	//Contr�leur
 	$action=$_POST['action'];
 	switch($action){
-		case "enregistrer" :
-			enregistrer();
+		case "enregistrerPani" :
+			enregistrerpanier();
 		break;
 		case "listerP" :
 			listerPanier();

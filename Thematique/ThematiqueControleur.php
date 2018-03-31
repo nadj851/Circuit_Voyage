@@ -12,10 +12,10 @@ function enregistrer() {
     $description = $_POST['description'];
 
     try {
-        $unModele = new filmsModele();
+        $unModele = new circuitModel();
         $pochete = $unModele->verserFichier("pochettes", "pochette", "avatar.jpg", $nom);
         $requete = "INSERT INTO thematique VALUES(0,?,?,?)";
-        $unModele = new filmsModele($requete, array($nom, $description, $pochete));
+        $unModele = new circuitModel($requete, array($nom, $description, $pochete));
         $stmt = $unModele->executer();
         $tabRes['action'] = "enregistrer";
         $tabRes['msg'] = "thamatique bien enregistrer";
@@ -31,7 +31,7 @@ function listerThematique() {
     $tabRes['action'] = "lister";
     $requete = "SELECT * FROM thematique";
     try {
-        $unModele = new filmsModele($requete, array());
+        $unModele = new circuitModel($requete, array());
         $stmt = $unModele->executer();
         $tabRes['listetheme']= array();
         while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
@@ -130,10 +130,12 @@ if (isset($_POST['action'])) {
     switch ($action) {
         case "enregistrer" :
             enregistrer();
+            echo json_encode($tabRes);
             break;
         case "lister" :
             listerThematique();
+            echo json_encode($tabRes);
             break;
     }
-    echo json_encode($tabRes);
+    
 }

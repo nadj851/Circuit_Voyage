@@ -43,7 +43,8 @@ function formulaireT() {
 
 }
 
-function listerP(listetheme) {
+
+function listerPani(listetheme) {
     var taille;
     /*var rep="<div class='table-users' style='overflow: scroll; height: 500px;'>";
      rep+="<div class='header'>Liste des films<span style='float:right;padding-right:10px;cursor:pointer;' onClick=\"$('#contenu').hide();\">X</span></div>";
@@ -61,30 +62,29 @@ function listerP(listetheme) {
     
 var strVar="";
 
+
     for (var i = 0; i < taille; i++) {
        
-strVar += "<form method='post' action='login.php'>\";";
+strVar += "<form>";
 strVar += "                                <div class=\"row\">";
 strVar += "                                            <div class=\"col-md-2\">";
 strVar += "                                                    <div class=\"btn-group\">";
-strVar += "                                                            <a href=\"#\"  id=" +listetheme[i].idPanier+" class=\"btn btn-danger remove\"><span class=\"glyphicon glyphicon-trash\"><\/span><\/a>";
-strVar += "";
+strVar += "                                                            <a href=\"#\"  id="+listetheme[i].idPanier+" class=\"btn btn-danger remove\"><span class=\"glyphicon glyphicon-trash\"><\/span><\/a>";
 strVar += "                                                    <\/div>";
 strVar += "                                            <\/div>";
-strVar += "                                            <input type=\"hidden\" name=\"product_id[]\" value=\"' . $film_id . '\"\/>";
-strVar += "                                            <input type=\"hidden\" name=\"\" value=" +listetheme[i].idPanier+ "\/>";
-strVar += "                                            <div class=\"col-md-2\"><img class=\"img-responsive\" src=\"pochettes\/' "+listetheme[i].imageCircuit+ " '\" style=\"width:50px; height:50px;\"><\/div>";
-strVar += "                                            <div class=\"col-md-2\">"  +listetheme[i].titre+ "<\/div>								";
-strVar += "                                            <div class=\"col-md-2\"><input type=\"text\" class=\"form-control price\" value="  +listetheme[i].prix+ " $\" readonly=\"readonly\"><\/div>";
-strVar += "";
-strVar += "                                        <\/div>';";
-strVar += "										<\/form>';";
+strVar += "                                            <input type=\"text\" name=\"\" value='nono'/>";
+strVar += "                                            <input type=\"hidden\" name=\"\" value=" +listetheme[i].idPanier+ "/>";
+strVar += "                                            <div class=\"col-md-2\"><img class=\"img-responsive\" src=\"pochettes\/' "+listetheme[i].imageCircuit+ "  style=\"width:50px; height:50px;\"><\/div>";
+strVar += "                                            <div class=\"col-md-2\">"  +listetheme[i].titre+ "<\/div>";
+strVar += "                                            <div class=\"col-md-2\"><input type=\"text\" class=\"form-control price\" value="+listetheme[i].prix+ " $\" readonly=\"readonly\"><\/div>";
+strVar += "                                        <\/div>";
+strVar += "										<\/form>";
 
     }
-    $('#get_result').html(result);
-    $("a[name=afficherCircuit]").click( function(){
-    AfficherCircuits($(this).prop("id"));    
-});
+    $('#get_result').html(strVar);
+   // $("a[name=afficherCircuit]").click( function(){
+   // AfficherCircuits($(this).prop("id"));    
+//});
 
 }
 
@@ -106,6 +106,17 @@ strVar += "										<\/form>';";
  
  }
  */
+
+
+
+
+
+
+
+
+
+
+
 var panierVue = function (reponse) {
     var action = reponse.action;
     switch (action) {
@@ -116,7 +127,7 @@ var panierVue = function (reponse) {
             break;
             
         case "listerP" :
-            listerP(reponse.listetheme);
+            listerPani(reponse.listetheme);
             break;
             
         case "formulaire" :

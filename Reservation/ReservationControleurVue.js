@@ -22,6 +22,205 @@ function formulaireR() {
     result += "<input type='hidden' name='business' value='Monarela@hotmail.com'>";
     result += "<input type='hidden' name='upload' value='1'>";
 
+    result += afficherDivParticipant(result);
+
+
+    //*******************************************************************
+    result += "<hr class='ligne_horizontal'>";
+    result += "<h4 class='titre'>Ajouter participants</h4>";
+
+    result += "     <div class=\"container\">";
+    result += "       <div class=\"container fluid\" style=\"width: 60% ; float: left; \" >";
+
+    result += ajoutCategorie("NombreAdulte", "Adulte [+ 12 ans]", result);
+    result += ajoutCategorie("NombreEnfant", "Enfant [2- 11 ans]", result);
+    result += ajoutCategorie("NombreBebe", "Bébé [0- 2 ans]", result);
+
+    result += "         <div class=\"form-group row\" >";
+    result += "             <div class=\"col-sm-10 contenupass\">";
+    result += "                 <a href='#'class='btn btn-primary' cid='ajouter' onclick='afficherFormulaire();'>Ajouter participants </a>";
+
+    result += "             </div>";
+    result += "         </div>";
+
+    result += "       </div>";
+
+
+    result += "                        <div class=\"container fluid\" style=\"width: 40% ; float: left; margin-left: 60px\" >";
+    result += "                            <div class=\"form-group \" >";
+    result += "                                <label for=\"texttotalCircuit\">Prix total du circuit:</label>";
+    result += "                                 <label for=\"totalCircuit\" style='color:red;font-size:25px;margin:5px' id='labtotal' >45000</label>";
+    result += "                            </div>";
+
+    result += "                        </div>";
+
+    result += "     </div>";
+
+    //*************************************************
+    result += "<hr class='ligne_horizontal'>";
+    result += "<h4>Informations sur les participants</h4>";
+    result += " <div class=\"container\">";
+
+
+    result += "  <div id='vuePart' class=\"container fluid\" style=\"width: 40% ; float: left; \" >";
+
+//    result += "                            <div class=\"form-group row\">";
+//    result += "                                <label for=\"Participants\" class=\"col-sm-2 col-form-label\">Participants </label>";
+//    result += "                                <div class=\"col-sm-10\" >";
+//    result += "                                    <select class=\"form-control\" id=\"Participants\" name=\"Participants\" required>";
+//    result += "                                        <option></option>";
+//    result += "                                    </select>    ";
+//    result += "                                </div>";
+//    result += "                            </div>";
+
+    result += "                <br>";
+    result += "                <br>";
+
+    result += "                                <a href='#'class='btn btn-primary' cid='previsualiser'>Previsualiser la Reservation </a>";
+    result += "                      </div>";
+
+
+
+    result += "                        <div class=\"container fluid\" style=\"width: 40% ; float: left; margin-left: 60px\" >";
+    result += "                            <div class=\"form-group \" >";
+    result += "                                <a href='#'class='category' cid='modifier' onClick=\" modifierParticipant();\" >Modifier   </a>";
+    result += "                                <a href='#'class='category' cid='supprimer' onClick=\" supprimerParticipant();FormulaireR();listerParticipants();infoUser();\">supprimer  </a>";
+    result += "                             <a href='#'class='category' cid='detail' onClick=\" detailParticipant();\">details   </a>";
+
+    result += "                                </div>";
+
+    result += "                                </div>";
+
+    result += "            </div>";
+
+    result += "<input type='hidden' name='return' value='http://localhost/project1/payment_success.php'/>";
+    result += "<input type='hidden' name='notify_url' value='http://localhost/project1/payment_success.php'>";
+    result += "<input type='hidden' name='cancel_return' value='http://localhost/project1/cancel.php'/>";
+    result += "<input type='hidden' name='currency_code' value='USD'/>";
+    result += "<input type='hidden' name='custom' value='Monarela@hotmail.fr'/>";
+    result += "<input style='float:right;margin-right:80px;' type='image' name='submit'";
+    result += "src='https://www.paypalobjects.com/webstatic/en_US/i/btn/png/blue-rect-paypalcheckout-60px.png' alt='PayPal '";
+    result += "alt='PayPal - The safer, easier way to pay online'>";
+
+    //******************************************************
+    result += "                <br>";
+    result += "                <br>";
+
+    result += "  </form>";
+    result += " </div>";
+
+
+    $('#get_result').html(result);
+
+}
+
+
+
+
+function listerR(listetheme) {
+    var taille;
+    /*var rep="<div class='table-users' style='overflow: scroll; height: 500px;'>";
+     rep+="<div class='header'>Liste des films<span style='float:right;padding-right:10px;cursor:pointer;' onClick=\"$('#contenu').hide();\">X</span></div>";
+     rep+="<table cellspacing='0'>";
+     rep+="<tr><th>NUMERO</th><th>TITRE</th><th>DUREE</th><th>REALISATEUR</th><th>POCHETTE</th></tr>";
+     taille=listetheme.length;
+     for(var i=0; i<taille; i++){
+     rep+="<tr><td>"+listetheme[i].idf+"</td><td>"+listetheme[i].titre+"</td><td>"+listetheme[i].duree+"</td><td>"+listetheme[i].res+"</td><td><img src='pochettes/"+listFilms[i].pochette+"' width=80 height=80></td></tr>";		 
+     }    
+     rep+="</table>";
+     rep+="</div>";
+     $('#contenu').html(rep);*/
+    //**********************
+    taille = listetheme.length;
+    var result = "";
+
+    for (var i = 0; i < taille; i++) {
+        result += "<div class='col-md-4'>";
+        result += "<div class='panel panel-success'>";
+        result += "<div class='panel-heading'>" + "<span style='font-weight: bold;font-size: 15px;'>" + listetheme[i].nom + "</span></div>";
+        result += "<div class='panel-body'>";
+        result += "<a  href=\"afficherDetail.php?name=" + listetheme[i].id + "\" class=\"thumbnail\">	<img src='pochettes/" + listetheme[i].image + "' style='width:400px; height:300px;'></a>";
+        result += "</div>";
+
+        result += "</div>";
+        result += "</div>";
+    }
+
+
+
+    $('#get_result').html(result);
+
+}
+
+//lister particpant
+function listerP(listeParticpants) {
+    var taille = listeParticpants.length;
+    ;
+    var rep = "<div class='form-group row'>";
+    rep += "                                <label for=\"listParticipant\" class=\"col-sm-2 col-form-label\">Liste Participants</label>";
+    rep += "                                <div class=\"col-sm-10\" >";
+    rep += "                                    <select class=\"form-control\" id=\"listParticipant\" name=\"listParticipant\" required>";
+
+    for (var i = 0; i < taille; i++) {
+        rep += "<option value='" + listeParticpants[i].idparticipants + "'>" + listeParticpants[i].nom + "</option>";
+    }
+
+    rep += "                                    </select>    ";
+    rep += "                                </div>";
+    rep += "                            </div>";
+
+
+    $('#vuePart').html(rep);
+}
+
+/*function afficherFiche(reponse){
+ var uneFiche;
+ if(reponse.OK){
+ uneFiche=reponse.fiche;
+ $('#formFicheF h3:first-child').html("Fiche du film numero "+uneFiche.idf);
+ $('#idf').val(uneFiche.idf);
+ $('#titreF').val(uneFiche.titre);
+ $('#dureeF').val(uneFiche.duree);
+ $('#resF').val(uneFiche.res);
+ $('#divFormFiche').show();
+ document.getElementById('divFormFiche').style.display='block';
+ }else{
+ $('#messages').html("Film "+$('#numF').val()+" introuvable");
+ setTimeout(function(){ $('#messages').html(""); }, 5000);
+ }
+ 
+ }
+ */
+var reservationVue = function (reponse) {
+    var action = reponse.action;
+    switch (action) {
+        case "enregistrer" :
+            //case "enlever" :
+            //case "modifier" :
+            message(reponse.msg);
+
+            break;
+
+        case "lister" :
+            listerR(reponse.listetheme);
+            break;
+
+        case "listerParticipant" :
+            listerP(reponse.listetheme);
+            break;
+        case "formulaire" :
+            formulaireR();
+            break;
+
+
+    }
+}
+
+
+
+
+function afficherDivParticipant(result) {
+    result = "";
     result += "                  <div class=\"container\" style=\"width: 40% ; float: left; margin-left: 20px\" >";
     result += "					<div class=\"form-group row\">";
     result += "                          <label for=\"nomParticipant\" class=\"col-sm-2 col-form-label\">Nom</label>";
@@ -195,245 +394,29 @@ function formulaireR() {
     result += "                      </div>";
 
     result += "                      </div>";
+    return result;
+}
 
-
-    //*******************************************************************
-    result += "<hr class='ligne_horizontal'></hr>";
-    result += "<h4 class='titre'>Ajouter participants</h4>";
-
-    result += " <div class=\"container\">";
-
-
-    result += "  <div class=\"container fluid\" style=\"width: 40% ; float: left; \" >";
-
+function ajoutCategorie(nom, label, result) {
+    result = "";
     result += "                            <div class=\"form-group row\">";
-    result += "                                <label for=\"NombreAdulte\" class=\"col-sm-2 col-form-label\">Nombre d'adulte</label>";
+    result += "                                <label for=" + nom + " class=\"col-sm-2 col-form-label\">" + label + "</label>";
     result += "                                <div class=\"col-sm-10\" >";
-    result += "                                    <select class=\"form-control\" id=\"NombreAdulte\" name=\"NombreAdulte\" required>";
+    result += "                                    <select class=\"form-control\" id=" + nom + " name=" + nom + " required>";
     result += "                                        <option></option>";
-    result += "                                        <option>0</option>";
-    result += "                                        <option>1</option>";
-    result += "                                        <option>2</option>";
-    result += "                                        <option>3</option>";
-    result += "                                        <option>4</option>";
-    result += "                                        <option>5</option>";
-    result += "                                        <option>6</option>";
+    for (var i = 0; i < 11; i++) {
+
+        result += "   <option value='" + i + "'>" + i + "<\/option>";
+
+    }
+
     result += "                                    </select>    ";
     result += "                                </div>";
     result += "                            </div>";
 
-    result += "                            <div class=\"form-group row\">";
-    result += "                                <label for=\"NombreEnfantBTO\" class=\"col-sm-2 col-form-label\">Nombre d'enfant de 3 à 11 ans </label>";
-    result += "                                <div class=\"col-sm-10\" >";
-    result += "                                    <select class=\"form-control\" id=\"NombreEnfantBTO\" name=\"NombreEnfantBTO\" required>";
-    result += "                                        <option></option>";
-    result += "                                        <option>0</option>";
-    result += "                                        <option>1</option>";
-    result += "                                        <option>2</option>";
-    result += "                                        <option>3</option>";
-    result += "                                        <option>4</option>";
-    result += "                                        <option>5</option>";
-    result += "                                        <option>6</option>";
-    result += "                                    </select>    ";
-    result += "                                </div>";
-    result += "                            </div>";
-
-    result += "                            <div class=\"form-group row\">";
-    result += "                                <label for=\"NombreEnfantMT\" class=\"col-sm-2 col-form-label\">Nombre d'enfant de moins de 3 ans </label>";
-    result += "                                <div class=\"col-sm-10\" >";
-    result += "                                    <select class=\"form-control\" id=\"NombreEnfantMT\" name=\"NombreEnfantMT\" required>";
-    result += "                                        <option></option>";
-    result += "                                        <option>0</option>";
-    result += "                                        <option>1</option>";
-    result += "                                        <option>2</option>";
-    result += "                                        <option>3</option>";
-    result += "                                        <option>4</option>";
-    result += "                                        <option>5</option>";
-    result += "                                        <option>6</option>";
-    result += "                                    </select>    ";
-    result += "                                </div>";
-    result += "                            </div>";
-
-
-    result += "                <div class=\"form-group row\" >";
-    result += "       <div class=\"col-sm-10 contenupass\">";
-    result += "                                <a href='#'class='btn btn-primary' cid='ajouter' onclick='afficherFormulaire();'>Ajouter participants </a>";
-
-    result += "                                </div>";
-    result += "                      </div>";
-
-    result += "                      </div>";
-
-
-    result += "                        <div class=\"container fluid\" style=\"width: 40% ; float: left; margin-left: 60px\" >";
-    result += "                            <div class=\"form-group \" >";
-    result += "                                <label for=\"texttotalCircuit\">Prix total du circuit:</label>";
-    result += " <label for=\"totalCircuit\" style='color:red;font-size:25px;margin:5px' id='labtotal' >45 000 $</label>";
-    result += "                                </div>";
-
-    result += "                                </div>";
-
-    result += "            </div>";
-
-    //*************************************************
-    result += "<hr class='ligne_horizontal'></hr>";
-    result += "<h4>Informations sur les participants</h4>";
-    result += " <div class=\"container\">";
-
-
-    result += "  <div id='vuePart' class=\"container fluid\" style=\"width: 40% ; float: left; \" >";
-
-//    result += "                            <div class=\"form-group row\">";
-//    result += "                                <label for=\"Participants\" class=\"col-sm-2 col-form-label\">Participants </label>";
-//    result += "                                <div class=\"col-sm-10\" >";
-//    result += "                                    <select class=\"form-control\" id=\"Participants\" name=\"Participants\" required>";
-//    result += "                                        <option></option>";
-//    result += "                                    </select>    ";
-//    result += "                                </div>";
-//    result += "                            </div>";
-
-    result += "                <br>";
-    result += "                <br>";
-
-    result += "                                <a href='#'class='btn btn-primary' cid='previsualiser'>Previsualiser la Reservation </a>";
-    result += "                      </div>";
-
-
-
-    result += "                        <div class=\"container fluid\" style=\"width: 40% ; float: left; margin-left: 60px\" >";
-    result += "                            <div class=\"form-group \" >";
-    result += "                                <a href='#'class='category' cid='modifier' onClick=\" modifierParticipant();\" >Modifier   </a>";
-    result += "                                <a href='#'class='category' cid='supprimer' onClick=\" supprimerParticipant();\">supprimer  </a>";
-    result += "                             <a href='#'class='category' cid='detail' onClick=\" detailParticipant();\">details   </a>";
-
-    result += "                                </div>";
-
-    result += "                                </div>";
-
-    result += "            </div>";
-
-    result += "<input type='hidden' name='return' value='http://localhost/project1/payment_success.php'/>";
-    result += "<input type='hidden' name='notify_url' value='http://localhost/project1/payment_success.php'>";
-    result += "<input type='hidden' name='cancel_return' value='http://localhost/project1/cancel.php'/>";
-    result += "<input type='hidden' name='currency_code' value='USD'/>";
-    result += "<input type='hidden' name='custom' value='Monarela@hotmail.fr'/>";
-    result += "<input style='float:right;margin-right:80px;' type='image' name='submit'";
-    result += "src='https://www.paypalobjects.com/webstatic/en_US/i/btn/png/blue-rect-paypalcheckout-60px.png' alt='PayPal '";
-    result += "alt='PayPal - The safer, easier way to pay online'>";
-
-    //******************************************************
-    result += "                <br>";
-    result += "                <br>";
-
-    result += "  </form>";
-    result += " </div>";
-
-
-    $('#get_result').html(result);
+    return result;
 
 }
-
-
-
-
-function listerR(listetheme) {
-    var taille;
-    /*var rep="<div class='table-users' style='overflow: scroll; height: 500px;'>";
-     rep+="<div class='header'>Liste des films<span style='float:right;padding-right:10px;cursor:pointer;' onClick=\"$('#contenu').hide();\">X</span></div>";
-     rep+="<table cellspacing='0'>";
-     rep+="<tr><th>NUMERO</th><th>TITRE</th><th>DUREE</th><th>REALISATEUR</th><th>POCHETTE</th></tr>";
-     taille=listetheme.length;
-     for(var i=0; i<taille; i++){
-     rep+="<tr><td>"+listetheme[i].idf+"</td><td>"+listetheme[i].titre+"</td><td>"+listetheme[i].duree+"</td><td>"+listetheme[i].res+"</td><td><img src='pochettes/"+listFilms[i].pochette+"' width=80 height=80></td></tr>";		 
-     }    
-     rep+="</table>";
-     rep+="</div>";
-     $('#contenu').html(rep);*/
-    //**********************
-    taille = listetheme.length;
-    var result = "";
-
-    for (var i = 0; i < taille; i++) {
-        result += "<div class='col-md-4'>";
-        result += "<div class='panel panel-success'>";
-        result += "<div class='panel-heading'>" + "<span style='font-weight: bold;font-size: 15px;'>" + listetheme[i].nom + "</span></div>";
-        result += "<div class='panel-body'>";
-        result += "<a  href=\"afficherDetail.php?name=" + listetheme[i].id + "\" class=\"thumbnail\">	<img src='pochettes/" + listetheme[i].image + "' style='width:400px; height:300px;'></a>";
-        result += "</div>";
-
-        result += "</div>";
-        result += "</div>";
-    }
-
-
-
-    $('#get_result').html(result);
-
-}
-
-//lister particpant
-function listerP(listeParticpants) {
-    var taille = listeParticpants.length;
-    ;
-    var rep = "<div class='form-group row'>";
-    rep += "                                <label for=\"listParticipant\" class=\"col-sm-2 col-form-label\">Liste Participants</label>";
-    rep += "                                <div class=\"col-sm-10\" >";
-    rep += "                                    <select class=\"form-control\" id=\"listParticipant\" name=\"listParticipant\" required>";
-
-    for (var i = 0; i < taille; i++) {
-        rep += "<option value='" + listeParticpants[i].idparticipants + "'>" + listeParticpants[i].nom + "</option>";
-    }
-
-    rep += "                                    </select>    ";
-    rep += "                                </div>";
-    rep += "                            </div>";
-
-
-    $('#vuePart').html(rep);
-}
-
-/*function afficherFiche(reponse){
- var uneFiche;
- if(reponse.OK){
- uneFiche=reponse.fiche;
- $('#formFicheF h3:first-child').html("Fiche du film numero "+uneFiche.idf);
- $('#idf').val(uneFiche.idf);
- $('#titreF').val(uneFiche.titre);
- $('#dureeF').val(uneFiche.duree);
- $('#resF').val(uneFiche.res);
- $('#divFormFiche').show();
- document.getElementById('divFormFiche').style.display='block';
- }else{
- $('#messages').html("Film "+$('#numF').val()+" introuvable");
- setTimeout(function(){ $('#messages').html(""); }, 5000);
- }
- 
- }
- */
-var reservationVue = function (reponse) {
-    var action = reponse.action;
-    switch (action) {
-        case "enregistrer" :
-            //case "enlever" :
-            //case "modifier" :
-            message(reponse.msg);
-
-            break;
-
-        case "lister" :
-            listerR(reponse.listetheme);
-            break;
-
-        case "listerParticipant" :
-            listerP(reponse.listetheme);
-            break;
-        case "formulaire" :
-            formulaireR();
-            break;
-            //case "fiche" :
-            //	afficherFiche(reponse);
-            //break;
-
-    }
-}
-
+// result += "   <div class='container' id='adulte' style='width:100%;display: none;float:left'> ";
+//    result += afficherDivParticipant(result);
+//    result += " </div>";

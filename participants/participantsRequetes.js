@@ -1,4 +1,17 @@
 //requ�tes films
+function message(reponse) {
+    var mes = "";
+
+    mes += "<div class='alert alert-success'>";
+    mes += "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
+    mes += "<b>" + reponse + "</b>";
+    mes += "</div>";
+    $('#messages').html(mes);
+    setTimeout(function () {
+        $('#messages').html("");
+    }, 5000);
+
+}
 function enregistrer(){
     
 	var formFilm = new FormData(document.getElementById('formEnreg'));
@@ -22,7 +35,7 @@ function enregistrer(){
 }
 
 function ajouterParticipant(){
-    $('#contenuParticpants')[0].reset();
+    
 	var formParticpants = new FormData(document.getElementById('contenuParticpants'));
 	//var formParticpants = $("#ajouterParticipant").serialize();
         //formParticpants.push({"action":"enregistrer"}); 
@@ -92,9 +105,10 @@ function supprimerParticipant(){
 		data : formFilm,//leForm.serialize(),
 		contentType : false, //Enlever ces deux directives si vous utilisez serialize()
 		processData : false,
-		dataType : 'text', //text pour le voir en format de string
-		success : function (reponse){alert(reponse);
-					//filmsVue(reponse);
+		dataType : 'json', //text pour le voir en format de string
+		success : function (reponse){//alert(reponse);
+					filmsVue(reponse);
+                                        
 		},
 		fail : function (err){
 		}
@@ -135,6 +149,27 @@ function modifier(){
 		success : function (reponse){//alert(reponse);
 					$('#divFormFiche').hide();
 					filmsVue(reponse);
+		},
+		fail : function (err){
+		}
+	});
+}
+
+function afficherFormulaireParticipant(){
+    alert("participant clic");
+	var leForm=document.getElementById('formreservation');
+	var formFilm = new FormData(leForm);
+	formFilm.append('action','afficherFormulaireTous');//alert(formFilm.get("action"));
+	$.ajax({
+		type : 'POST',
+		url : 'participants/participantsControleur.php',
+		data : formFilm,//leForm.serialize(),
+		contentType : false, //Enlever ces deux directives si vous utilisez serialize()
+		processData : false,
+		dataType : 'text', //text pour le voir en format de string
+		success : function (reponse){alert(reponse);
+					//filmsVue(reponse);
+                                        
 		},
 		fail : function (err){
 		}

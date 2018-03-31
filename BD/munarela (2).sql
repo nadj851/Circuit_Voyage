@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  lun. 26 mars 2018 à 21:39
+-- Généré le :  mer. 28 mars 2018 à 20:52
 -- Version du serveur :  5.7.17
--- Version de PHP :  7.1.3
+-- Version de PHP :  5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -62,7 +62,8 @@ INSERT INTO `adresse` (`idAdresse`, `ville`, `codePostale`, `pays`) VALUES
 (18, 'alo', 'a12a12', 'BY'),
 (19, 'alo', 'a12a12', 'BY'),
 (20, 'alo', 'asdasd', 'BS'),
-(21, 'alo', 'aaaaaa', 'AT');
+(21, 'alo', 'aaaaaa', 'AT'),
+(22, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -115,7 +116,23 @@ CREATE TABLE `circuit` (
 INSERT INTO `circuit` (`idCircuit`, `titre`, `dateDeDepart`, `dateDeRetour`, `nbPersonnesMax`, `nbPersonnesMin`, `description`, `prix`, `imageCircuit`, `guide`, `idPromotion`, `idThematique`) VALUES
 (31, 'mal', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', NULL, NULL, '', 0, 'f1d299bec6543f6807864b5a5740214b525b6a62', NULL, NULL, 11),
 (32, 'ssss', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', NULL, NULL, '', 0, '3d66d765c45e5e6f32813eefb317f2903ccf1f01', NULL, NULL, 11),
-(33, 'alo', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', NULL, NULL, '', 0, '523bcf58b642ab843073d90b8f7bc8b05377852d', NULL, NULL, 11);
+(33, 'alo', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', NULL, NULL, '', 0, '523bcf58b642ab843073d90b8f7bc8b05377852d', NULL, NULL, 11),
+(34, 'circuitnadjib', '2011-06-18 04:00:00.000000', '2011-06-18 04:00:00.000000', 10, 10, 'grhththtr', 1230, '51926b6fe7c71763bca16574b83a7d5373b94d96.jpg', NULL, NULL, 11),
+(35, 'raydercircuit', '2011-06-18 04:00:00.000000', '2011-06-18 04:00:00.000000', 10, 10, 'gegre', 1230, '7406b97ff9753b23f3047682e759e05fe536b679.jpg', NULL, NULL, 11),
+(36, 'lili', '2011-06-18 04:00:00.000000', '2011-06-18 04:00:00.000000', 10, 10, 'fefefw', 1230, 'd8299af0e7354f8b78285ddda79b971726e5458a.jpg', NULL, NULL, 11),
+(37, 'mostapha circuit', '2011-06-18 04:00:00.000000', '2011-06-18 04:00:00.000000', 10, 10, 'hhrtr', 1230, '91be745b3d80ddb87f4df366bd2437513f467894.jpg', NULL, NULL, 11),
+(38, 'mira', '2011-06-18 04:00:00.000000', '2011-06-18 04:00:00.000000', 10, 10, 'grehyer', 12369, '3923e5729ac3059372ba652b30f87d73aed9e719.jpg', NULL, NULL, 11),
+(39, 'umilala', '2011-06-18 04:00:00.000000', '2011-06-18 04:00:00.000000', 10, 10, 'gregreger', 1230, 'b3663c38c49848e59284fb546cfdec184d1a717e.jpg', NULL, NULL, 11),
+(40, 'new', '2011-06-18 04:00:00.000000', '2011-06-18 04:00:00.000000', 10, 10, 'ger', 1236, 'da92504ae4df1397be9b149c61eac48330e310c1.jpg', NULL, NULL, 11),
+(41, 'hihi', '2011-06-18 04:00:00.000000', '2011-06-18 04:00:00.000000', 10, 10, 'ege', 15151, 'f9d4afd5b7462b6c72f19558709f34378f554da5.jpg', NULL, NULL, 11),
+(42, 'nawa', '2011-06-18 04:00:00.000000', '2011-06-18 04:00:00.000000', 10, 10, 'fregreg', 12360, '09958a19c808373c98602b78394478a6d2f6fc30.jpg', NULL, NULL, 11),
+(43, 'kikli', '2011-06-18 04:00:00.000000', '2011-06-18 04:00:00.000000', 123, 123, 'uytu', 21255, 'a1d4e91cf4e37f8943b0c4f7bbdffb5c5dbc48b2.jpg', NULL, NULL, 11),
+(44, 'rthr', '2011-06-18 04:00:00.000000', '2011-06-18 04:00:00.000000', 1256, 126, 'jjr', 126, 'e1025f83ca4dbb0ab9e6faa679ece55b7e13df8b.jpg', NULL, NULL, 11),
+(45, 'cirque1', '2011-06-18 04:00:00.000000', '2011-06-18 04:00:00.000000', 10, 10, 'fwfwwe', 1000, '338c7e824c4e422149f2798bca0d9da53f5dc593.jpg', NULL, NULL, 11),
+(46, 'ciraua', '2011-06-18 04:00:00.000000', '2011-06-18 04:00:00.000000', 10, 10, 'ergre', 1230, 'e453fa520f91f7b72b014f63d5e524a5819a001f.jpg', NULL, NULL, 11),
+(47, 'trh', '2011-06-18 04:00:00.000000', '2011-06-18 04:00:00.000000', 10, 10, 'hrthtrh', 1265, 'c15b3a20870968c65c8eeaa211b40c4e8ae6199f.jpg', NULL, NULL, 11),
+(48, 'ewfew', '2011-06-18 04:00:00.000000', '2011-06-18 04:00:00.000000', 10, 10, 'L\'Ã®le de Phuket (en thaÃ¯ : à¹€à¸à¸²à¸°à¸ à¸¹à¹€à¸à¹‡à¸•), qui est aussi une province, est la plus grande Ã®le de ThaÃ¯lande, elle se trouve Ã  867 km au sud de Bangkok, la capitale', 5000, '02a3d6dea5860520bdc92fdfec46bf89b473dd1c.jpg', NULL, NULL, 11),
+(49, 'gfgf', '2018-01-10 05:00:00.000000', '2018-01-20 05:00:00.000000', 10, 10, 'hrh', 14526, '49e95476e50a1a36668268286081cee603f41e9d.jpg', NULL, NULL, 11);
 
 -- --------------------------------------------------------
 
@@ -137,7 +154,25 @@ CREATE TABLE `etape` (
 INSERT INTO `etape` (`idEtape`, `nomEtape`, `descriptionEtape`, `idCircuit`) VALUES
 (19, 'pal', '', 31),
 (20, 'sssss', '', 32),
-(21, 'aloetape', '', 33);
+(21, 'aloetape', '', 33),
+(22, 'etape1', 'gerg', 34),
+(23, 'etap1', 'ggergre', 35),
+(24, 'etap1', 'fw', 36),
+(25, 'etap1', 'hthrt', 37),
+(26, 'etap1', 'rgerg', 38),
+(27, 'etap1', 'ggre', 39),
+(28, 'etap1', '', 40),
+(29, 'etpa1', 're', 41),
+(30, 'etap1', 'gegre', 42),
+(31, 'etap1', 'gerg', 43),
+(32, 'y', 'y', 44),
+(33, 'etap1', 'reh', 45),
+(34, 'etap1', '', 46),
+(35, 'etap1', 'eergerge', 47),
+(36, 'etap2', '', 47),
+(37, 'jjjj', 'L\'Ã®le de Phuket (en thaÃ¯ : à¹€à¸à¸²à¸°à¸ à¸¹à¹€à¸à¹‡à¸•), qui est aussi une province, est la plus grande Ã®le de ThaÃ¯lande, elle se trouve Ã  867 km au sud de Bangkok, la capitale', 47),
+(38, 'etape2', '', 47),
+(39, '', '', 49);
 
 -- --------------------------------------------------------
 
@@ -168,7 +203,23 @@ INSERT INTO `jour` (`idJour`, `nomhotel`, `urlHotel`, `nomRestaurant`, `urlResta
 (5, 'sssss', '', '', NULL, 1, 1, 0, 'ss', 20),
 (6, 'aaa', '', '', '', 0, 0, 0, '', 21),
 (7, 'aaa', '', '', '', 0, 0, 0, 'aaaaaa', 21),
-(8, 'aaa', 'xxxUH', 'xR', 'xUR', 1, 0, 0, 'des', 21);
+(8, 'aaa', 'xxxUH', 'xR', 'xUR', 1, 0, 0, 'des', 21),
+(9, 'j1', 'trrt', 'rhrt', 'rhrt', 0, 0, 0, 'hrthrthtrhtr', 23),
+(10, 'j1', '', '', '', 0, 0, 0, '', 24),
+(11, 'j1', '', '', '', 0, 0, 0, '', 25),
+(12, 'j1', '', '', '', 0, 0, 0, '', 28),
+(13, 'j1', '', '', '', 0, 0, 0, '', 34),
+(14, 'j2', '', '', '', 0, 0, 0, '', 34),
+(15, 'j3', '', '', '', 0, 0, 0, '', 34),
+(16, 'j4', '', '', '', 0, 0, 0, '', 34),
+(17, 'j1', '', '', '', 0, 0, 0, '', 35),
+(18, 'j1', '', '', '', 0, 0, 0, '', 36),
+(19, 'j2', '', '', '', 0, 0, 0, '', 36),
+(20, 'j3', '', '', '', 0, 0, 0, '', 36),
+(21, '111', '', '', '', 0, 1, 0, '', 37),
+(22, '222', '', '', '', 0, 1, 0, '', 38),
+(23, '2222', '', '', '', 0, 0, 0, '', 38),
+(24, '', '', '', '', 0, 0, 0, '', 39);
 
 -- --------------------------------------------------------
 
@@ -219,7 +270,6 @@ CREATE TABLE `participants` (
 INSERT INTO `participants` (`idparticipants`, `nom`, `prenom`, `courriel`, `sexe`, `tel`, `idAdresse`, `idPasspor`) VALUES
 (1, 'alo', 'malo', 'a@g.com', 'Homme', NULL, 1, 1),
 (2, 'mal', 'al', 'a@gmail.com', 'Homme', '133456789', 17, 2),
-(3, 'mal', 'al', 'a@gmail.com', 'Homme', '133456789', 18, 3),
 (5, 'larkem', 'nadjib', 'a@gmail.com', 'Homme', '123456', 20, 5);
 
 -- --------------------------------------------------------
@@ -462,7 +512,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `adresse`
 --
 ALTER TABLE `adresse`
-  MODIFY `idAdresse` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idAdresse` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT pour la table `banner`
 --
@@ -472,17 +522,17 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT pour la table `circuit`
 --
 ALTER TABLE `circuit`
-  MODIFY `idCircuit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `idCircuit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT pour la table `etape`
 --
 ALTER TABLE `etape`
-  MODIFY `idEtape` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idEtape` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT pour la table `jour`
 --
 ALTER TABLE `jour`
-  MODIFY `idJour` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idJour` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT pour la table `paiement`
 --
