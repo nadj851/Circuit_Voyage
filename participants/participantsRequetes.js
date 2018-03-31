@@ -77,17 +77,36 @@ function lister(){
 }
 
 function afficherFormulaire(){
-	var formFilm = new FormData();
-	formFilm.append('action','afficherFormulaires');//alert(formFilm.get("action"));
+//	var formFilm = new FormData();
+//	formFilm.append('action','afficherFormulaires');//alert(formFilm.get("action"));
+//	$.ajax({
+//		type : 'POST',
+//		url : 'participants/participantsControleur.php',
+//		data : formFilm,
+//		contentType : false,
+//		processData : false,
+//		dataType : 'json', //text pour le voir en format de string
+//		success : function (reponse){//alert(reponse);
+//					filmsVue(reponse);
+//		},
+//		fail : function (err){
+//		}
+//	});
+        
+         // alert("participant clic");
+	var leForm=document.getElementById('formreservation');
+	var formFilm = new FormData(leForm);
+	formFilm.append('action','afficherFormulaireTous');//alert(formFilm.get("action"));
 	$.ajax({
 		type : 'POST',
 		url : 'participants/participantsControleur.php',
-		data : formFilm,
-		contentType : false,
+		data : formFilm,//leForm.serialize(),
+		contentType : false, //Enlever ces deux directives si vous utilisez serialize()
 		processData : false,
 		dataType : 'json', //text pour le voir en format de string
-		success : function (reponse){//alert(reponse);
+		success : function (reponse){alert(reponse);
 					filmsVue(reponse);
+                                        
 		},
 		fail : function (err){
 		}

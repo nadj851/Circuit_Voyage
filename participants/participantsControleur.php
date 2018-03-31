@@ -378,7 +378,7 @@ function afficherFormulaireTous() {
     $enfant = $_POST["NombreEnfant"];
     $bebe = $_POST["NombreBebe"];
 
-    $tabRes['action'] = "afficherParticipantTous";
+    $tabRes['action'] = "afficherParticipant";
     $tabRes['adulte'] = $adulte;
     $tabRes['enfant'] = $enfant;
     $tabRes['bebe'] = $bebe;
@@ -408,7 +408,7 @@ switch ($action) {
     case "modifier" :
         modifier();
         break;
-    case "modifier" :
+    case "afficherFormulaireTous" :
         afficherFormulaireTous();
         break;
 }
