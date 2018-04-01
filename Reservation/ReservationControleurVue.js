@@ -92,12 +92,15 @@ function formulaireR() {
     result += "                                </div>";
 
     result += "            </div>";
-  result+= "<input type='hidden' name='amount_5 value='400'>";
+     result +="<input type='hidden' name='item_name_1' value='dqd'>";
+    result +="<input type='hidden' name='item_number_1' value='1'>";
+    result +="<input type='hidden' name='amount_1' id='amount' value='50'>";
+    result +="<input type='hidden' name='quantity_1' value='1'>";
     result += "<input type='hidden' name='return' value='http://localhost/project1/payment_success.php'/>";
     result += "<input type='hidden' name='notify_url' value='http://localhost/project1/payment_success.php'>";
     result += "<input type='hidden' name='cancel_return' value='http://localhost/project1/cancel.php'/>";
     result += "<input type='hidden' name='currency_code' value='USD'/>";
-    result += "<input type='hidden' name='custom' value='Monarela@hotmail.fr'/>";
+    result += "<input type='hidden' name='custom' value='Monarela'/>";
     result += "<input style='float:right;margin-right:80px;' type='image' name='submit'";
     result += "src='https://www.paypalobjects.com/webstatic/en_US/i/btn/png/blue-rect-paypalcheckout-60px.png' alt='PayPal '";
     result += "alt='PayPal - The safer, easier way to pay online'>";

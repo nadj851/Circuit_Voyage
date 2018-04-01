@@ -110,8 +110,11 @@ function FormulaireR() {
         if (selectVal !== 0) {
             total += selectVal * textLab;
             $("#labtotal").text(total);
+             $("#amount").val(total);
+            
         } else {
             $("#labtotal").text(textLab);
+             $("#amount").val(textLab);
         }
 
     });
@@ -123,8 +126,11 @@ function FormulaireR() {
         {
             total += selectVal * textLab * 0.75;
             $("#labtotal").text(total);
+             $("#amount").val(total);
+            
         } else {
             $("#labtotal").text(textLab);
+             $("#amount").val(textLab);
         }
 
 
@@ -137,8 +143,11 @@ function FormulaireR() {
         {
             total += selectVal * textLab * 0.5;
             $("#labtotal").text(total);
+             $("#amount").val(total);
         } else {
             $("#labtotal").text(textLab);
+               $("#amount").val(textLab);
+            
         }
 
 
@@ -208,6 +217,7 @@ function RamenerCircuit(rid) {
         success: function (reponse) { //alert(reponse);
 
             $("#labtotal").html(reponse.circuitid[0].prix + " $");
+             $("#amount").val(reponse.circuitid[0].prix);
 
         },
         fail: function (err) {
@@ -223,10 +233,13 @@ function prix(idSelect, textLab, taux) {
         var selectVal = parseInt($(idSelect + " option:selected").val());
         if (selectVal !== 0)
             total = selectVal * textLab * taux;
+        
 
         else {
             total = textLab;
             $("#labtotal").text(textLab);
+                 $("#amount").val(textLab);
+           
         }
 
 
