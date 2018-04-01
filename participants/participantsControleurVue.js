@@ -54,7 +54,7 @@ function afficherFormParticipant(reponse) {
     var NbEnfant = reponse.enfant;
     var NbBebe = reponse.bebe;
 
-alert(NbAdulte+" , "+NbEnfant+" , "+NbBebe);
+
     var rep = "";
     
     for (var i = 1; i <= NbAdulte; i++) {
@@ -78,9 +78,7 @@ alert(NbAdulte+" , "+NbEnfant+" , "+NbBebe);
         rep+="<br><br><br>";
         
     }
-   // rep=formParticipant(rep);
-
-    $('#get_result').html("");
+  $('#sommaire').text("Ajout participants");
     $('#get_result').html(rep);
 }
 
@@ -151,12 +149,12 @@ function formParticipant(rep) {
     rep += "                                <label for=\"memeAdresse\" class=\"col-sm-2 col-form-label\">Même adresse</label>";
     rep += "                                <div class=\"col-sm-10\">";
     rep += "                                <div class=\"form-check\">";
-    rep += "                                    <input class=\"form-check-input\" type=\"radio\" name=\"memeAdresse\" id=\"oui\" value=\"option1\" checked>";
+    rep += "                                    <input class=\"form-check-input\" type=\"radio\" name=\"memeAdresse\" id=\"oui\" value=\"option1\" >";
     rep += "                                    <label class=\"form-check-label\" for=\"exampleRadios1\">Oui</label>";
     rep += "                                   </div>";
 
     rep += "                                   <div class=\"form-check\">";
-    rep += "                                    <input class=\"form-check-input\" type=\"radio\" name=\"memeAdresse\" id=\"non\" value=\"option2\" >";
+    rep += "                                    <input class=\"form-check-input\" type=\"radio\" name=\"memeAdresse\" id=\"non\" value=\"option2\" checked>";
     rep += "                                    <label class=\"form-check-label\" for=\"exampleRadios1\">Non</label>";
     rep += "                                </div>";
     rep += "                                </div>";
