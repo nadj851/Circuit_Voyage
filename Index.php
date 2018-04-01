@@ -73,14 +73,14 @@ include_once 'includes/init.php';
                         <div class='container-fluid' >
                             <ul class='nav navbar-nav ' >
                                 <li class='active' ><a href='#'><span class='glyphicon glyphicon-home' style='font-size: 25px; color: white'></span></a></li>
-                                <li class='dropdown'><a class='dropdown-toggle' data-toggle='dropdown' href='#'>Circuits <span class='caret'></span></a>
+                                <li class='dropdown'><a class='dropdown-toggle' data-toggle='dropdown' href='#' style='color: white'>Circuits <span class='caret'></span></a>
                                     <ul class='dropdown-menu'>
                                         <li><a href='#'>Circuit-1</a></li>
                                         <li><a href='#'>Circuit-2</a></li>
                                         <li><a href='#'>Circuit-3</a></li>
                                     </ul>
                                 </li>
-                                <li class='dropdown'><a class='dropdown-toggle' data-toggle='dropdown' href='#'>Thémes <span class='caret'></span></a>
+                                <li class='dropdown'><a class='dropdown-toggle' data-toggle='dropdown' href='#' style='color: white'>Thémes <span class='caret'></span></a>
                                     <ul class='dropdown-menu'>
                                         <li><a href='#'>Théme-1</a></li>
                                         <li><a href='#'>Théme-2</a></li>
@@ -88,16 +88,16 @@ include_once 'includes/init.php';
 
                                     </ul>
                                 </li>
-                                <li><a href='#'>Nous contacter</a></li>
+                                <li><a href='#' style='color: white'>Nous contacter</a></li>
                             </ul>
 
                             <ul id='devenirMembre' class='nav navbar-nav navbar-right' >
-                                <li><a href='#' onClick='formulaireregister();'><span class='glyphicon glyphicon-user'></span> Devenir membre</a></li>
+                                <li><a href='#' style='color: white' onClick='formulaireregister();'><span class='glyphicon glyphicon-user'></span> Devenir membre</a></li>
 
                                 <?php if (!logged_in()) : ?>
-                                    <li><a href='#' onClick='formulairelogin();'><span class='glyphicon glyphicon-log-in'></span> Se connecter</a></li>
+                                    <li><a href='#' style='color: white' onClick='formulairelogin();'><span class='glyphicon glyphicon-log-in'></span> Se connecter</a></li>
                                 <?php else : ?>
-                                    <li><a href='#' onClick='logoutU();'>Deconnecter</a></li>
+                                    <li><a href='#' style='color: white' onClick='logoutU();'>Deconnecter</a></li>
                                     <li><a href=''><?php echo 'Bonjour ' . $_SESSION['email']; ?></a></li>
 
                                 <?php endif; ?>
@@ -105,9 +105,9 @@ include_once 'includes/init.php';
 
 
                                 <?php if (!logged_in()) : ?>
-                                    <li> <a href='#' onClick='formulairelogin();'><span class='glyphicon glyphicon-shopping-cart'></span>Panier<span class='badge'>0</span></a>  </li>			
+                                    <li> <a href='#' style='color: white'onClick='formulairelogin();'><span class='glyphicon glyphicon-shopping-cart'></span>Panier<span class='badge'>0</span></a>  </li>			
                                 <?php elseif ($_SESSION['email'] != "admin@admin.com" && logged_in()) : ?>							
-                                    <li> <a href='#' onClick='listerPanier();'><span class="glyphicon glyphicon-shopping-cart"></span>Panier<span  class="badge">0</span></a> </li>                          
+                                    <li> <a href='#' style='color: white'onClick='listerPanier();'><span class="glyphicon glyphicon-shopping-cart"></span>Panier<span  class="badge">0</span></a> </li>                          
                                 <?php endif; ?>                                                                                                                                               
 
 
