@@ -72,7 +72,7 @@ include_once 'includes/init.php';
                     <div class='navbar-header'>
                         <div class='container-fluid' >
                             <ul class='nav navbar-nav ' >
-                                <li class='active' ><a href='#'><span class='glyphicon glyphicon-home' style='font-size: 25px; color: white'></span></a></li>
+                                <li class='active' ><a href='index.php'  ><span class='glyphicon glyphicon-home' style='font-size: 25px; color: white'></span></a></li>
                                 <li class='dropdown'><a class='dropdown-toggle' data-toggle='dropdown' href='#' style='color: white'>Circuits <span class='caret'></span></a>
                                     <ul class='dropdown-menu'>
                                         <li><a href='#'>Circuit-1</a></li>
