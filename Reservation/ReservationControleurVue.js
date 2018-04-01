@@ -136,7 +136,7 @@ function formulaireR() {
     result += "                                </div>";
 
     result += "            </div>";
-
+  result+= "<input type='hidden' name='amount_5 value='400'>";
     result += "<input type='hidden' name='return' value='http://localhost/project1/payment_success.php'/>";
     result += "<input type='hidden' name='notify_url' value='http://localhost/project1/payment_success.php'>";
     result += "<input type='hidden' name='cancel_return' value='http://localhost/project1/cancel.php'/>";

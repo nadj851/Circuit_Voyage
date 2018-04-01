@@ -142,9 +142,9 @@ function infoUser() {
         success: function (reponse) {//alert(reponse);
             //reponse = JSON.parse(reponse);			//filmsVue(reponse);
 
-            $("input[type=text][id=nomParticipant]").val(/*reponse.information[0].last_name*/);
-            $("input[type=text][id=prenomParticipant]").val(/*reponse.information[0].first_name*/);
-            $("input[type=text][id=courielParticipant]").val(/*reponse.information[0].email*/);
+            $("input[type=text][id=nomParticipant]").val(reponse.information[0].last_name);
+            $("input[type=text][id=prenomParticipant]").val(reponse.information[0].first_name);
+            $("input[type=text][id=courielParticipant]").val(reponse.information[0].email);
         },
         fail: function (err) {
         }

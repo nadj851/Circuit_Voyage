@@ -46,38 +46,42 @@ function formulaireT() {
 
 function listerPani(listetheme) {
     var taille;
-    /*var rep="<div class='table-users' style='overflow: scroll; height: 500px;'>";
-     rep+="<div class='header'>Liste des films<span style='float:right;padding-right:10px;cursor:pointer;' onClick=\"$('#contenu').hide();\">X</span></div>";
-     rep+="<table cellspacing='0'>";
-     rep+="<tr><th>NUMERO</th><th>TITRE</th><th>DUREE</th><th>REALISATEUR</th><th>POCHETTE</th></tr>";
-     taille=listetheme.length;
-     for(var i=0; i<taille; i++){
-     rep+="<tr><td>"+listetheme[i].idf+"</td><td>"+listetheme[i].titre+"</td><td>"+listetheme[i].duree+"</td><td>"+listetheme[i].res+"</td><td><img src='pochettes/"+listFilms[i].pochette+"' width=80 height=80></td></tr>";		 
-     }
-     rep+="</table>";
-     rep+="</div>";
-     $('#contenu').html(rep);*/
-    //**********************
+    
     taille = listetheme.length;
     
 var strVar="";
+strVar += "<div class=\"row\">";
+strVar += "                        <div class=\"col-md-4 col-xs-4\"><b>Action<\/b><\/div>";
+strVar += "                        <div class=\"col-md-2 col-xs-2\"><b>image circuit<\/b><\/div>";
+strVar += "                        <div class=\"col-md-2 col-xs-2\"><b>titre circuit<\/b><\/div>							";
+strVar += "                        <div class=\"col-md-2 col-xs-2\"><b>prix circuit <\/b><\/div>";
+
+strVar += "                    <\/div>";
 
 
     for (var i = 0; i < taille; i++) {
        
 strVar += "<form>";
+
+
+
 strVar += "                                <div class=\"row\">";
-strVar += "                                            <div class=\"col-md-2\">";
+
+
+strVar += "                                            <div class=\"col-md-4\">";
 strVar += "                                                    <div class=\"btn-group\">";
-strVar += "                                                            <a href=\"#\"  id="+listetheme[i].idPanier+" class=\"btn btn-danger remove\"><span class=\"glyphicon glyphicon-trash\"><\/span><\/a>";
+strVar += "                                                            <a href=\"#\"  id="+listetheme[i].idPanier+" class=\"btn btn-danger remove\" onclick='removePanier(" + listetheme[i].idPanier + ");'><span class=\"glyphicon glyphicon-trash\"><\/span><\/a>";
+
+strVar += "                                                             <a href='#'  class='btn btn-primary' onclick='FormulaireR(); listerParticipants();infoUser();RamenerCircuit(" + listetheme[i].idCircuit + ");'><span class='glyphicon glyphicon-ok-sign'>Reservation</span></a>";
 strVar += "                                                    <\/div>";
 strVar += "                                            <\/div>";
-strVar += "                                            <input type=\"text\" name=\"\" value='nono'/>";
+
+
 strVar += "                                            <input type=\"hidden\" name=\"\" value=" +listetheme[i].idPanier+ "/>";
-strVar += "                                            <div class=\"col-md-2\"><img class=\"img-responsive\" src=\"pochettes\/' "+listetheme[i].imageCircuit+ "  style=\"width:50px; height:50px;\"><\/div>";
+strVar += "                                            <div class=\"col-md-2\"><img class=\"img-responsive\" src='pochettes/" +listetheme[i].imageCircuit+ "'  style=\"width:50px; height:50px;\"><\/div>";
 strVar += "                                            <div class=\"col-md-2\">"  +listetheme[i].titre+ "<\/div>";
-strVar += "                                            <div class=\"col-md-2\"><input type=\"text\" class=\"form-control price\" value="+listetheme[i].prix+ " $\" readonly=\"readonly\"><\/div>";
-strVar += "                                        <\/div>";
+strVar += "                                            <div class='col-md-2'><input type='text' class='form-control price' value="+listetheme[i].prix+"$ readonly='readonly'><\/div>";
+strVar += "                                            <\/div>";
 strVar += "										<\/form>";
 
     }
@@ -120,8 +124,8 @@ strVar += "										<\/form>";
 var panierVue = function (reponse) {
     var action = reponse.action;
     switch (action) {
-        case "enregistrer" :
-            //case "enlever" :
+        case "enregistrerPani" :
+          case "removeP" :
             //case "modifier" :
             message(reponse.msg);
             break;
