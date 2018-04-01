@@ -28,14 +28,14 @@ function enregistrer() {
         $idAdresse = $unModele->lastID;
 
         $requete = "INSERT INTO passeport VALUES(0,?,?,?,?,?)";
-        $unModele = new circuitModel($requete, array($numeroPasseport,$dateDelPasseport,$dateExpPasseport, $nationalite, $delivrerAExpPasseport));
+        $unModele = new circuitModel($requete, array($numeroPasseport, $dateDelPasseport, $dateExpPasseport, $nationalite, $delivrerAExpPasseport));
         $stmt = $unModele->executer();
         $idPasseport = $unModele->lastID;
-        
+
         $requete = "INSERT INTO participants VALUES(0,?,?,?,?,?,?,?)";
         $unModele = new circuitModel($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone, $idAdresse, $idPasseport));
         $stmt = $unModele->executer();
-        
+
         $tabRes['action'] = "enregistrer";
         $tabRes['msg'] = "Participant bien enregistré";
     } catch (Exception $e) {
@@ -86,7 +86,9 @@ function listerParticipant() {
 
 function afficher() {
     global $tabRes;
-
+//    $adulte = $_POST["NombreAdulte"];
+//    $enfant = $_POST["NombreEnfant"];
+//    $bebe = $_POST["NombreBebe"];
     try {
 
         $tabRes['action'] = "afficherFormulaire";
@@ -95,7 +97,7 @@ function afficher() {
 
         $rep .= "                <div class=\"container-fluid\" >";
         $rep .= "                    <form id=\"contenuParticpants\"class=\"form-group row\" >";
-        
+
         $rep .= "                          <div class=\"container\" style=\"width: 40% ; float: left; margin-left: 20px\" >";
         $rep .= "				<div class=\"form-group row\">";
         $rep .= "                                  <label for=\"nomParticipant\" class=\"col-sm-2 col-form-label\">Nom</label>";
@@ -103,7 +105,7 @@ function afficher() {
         $rep .= "                                    <input type=\"text\" class=\"form-control\" id=\"nomParticipant\" name=\"nomParticipant\" placeholder=\"Entrer nom du participant\" required>";
         $rep .= "                                </div>";
         $rep .= "                            </div>";
-        
+
         $rep .= "                            <div class=\"form-group row\">";
         $rep .= "                                <label for=\"prenomParticipant\" class=\"col-sm-2 col-form-label\">Prénom</label>";
         $rep .= "                                    <div class=\"col-sm-10\">";
@@ -122,7 +124,7 @@ function afficher() {
         $rep .= "                                    </select>    ";
         $rep .= "                                </div>";
         $rep .= "                            </div>";
-        
+
         $rep .= "                            <div class=\"form-group row\">";
         $rep .= "                                <label for=\"courielParticipant\" class=\"col-sm-2 col-form-label\">Couriel</label>";
         $rep .= "                                <div class=\"col-sm-10\">";
@@ -137,14 +139,14 @@ function afficher() {
         $rep .= "                                    <input class=\"form-check-input\" type=\"radio\" name=\"memeAdresse\" id=\"oui\" value=\"option1\" checked>";
         $rep .= "                                    <label class=\"form-check-label\" for=\"exampleRadios1\">Oui</label>";
         $rep .= "                                   </div>";
-        
+
         $rep .= "                                   <div class=\"form-check\">";
         $rep .= "                                    <input class=\"form-check-input\" type=\"radio\" name=\"memeAdresse\" id=\"non\" value=\"option2\" >";
         $rep .= "                                    <label class=\"form-check-label\" for=\"exampleRadios1\">Non</label>";
         $rep .= "                                </div>";
         $rep .= "                                </div>";
         $rep .= "                            </div>";
-        
+
         $rep .= "                            <div class=\"form-group row\">";
         $rep .= "                                <label for=\"paysParticipant\" class=\"col-sm-2 col-form-label\">Pays</label>";
         $rep .= "                                <div class=\"col-sm-10\">";
@@ -232,17 +234,17 @@ function afficher() {
         $rep .= "<input type=\"text\" class=\"form-control\" id=\"codePostalParticipant\" name=\"codePostalParticipant\" placeholder=\"Entrer code postal du participant\">";
         $rep .= "                                </div>";
         $rep .= "                      </div>";
-        
+
         $rep .= "           <div class=\"form-group row\">";
         $rep .= "               <label for=\"telPostalParticipant\" class=\"col-sm-2 col-form-label\">Téléphone</label>";
         $rep .= "               <div class=\"col-sm-10\">";
         $rep .= "                   <input type=\"text\" class=\"form-control\" id=\"telPostalParticipant\" name=\"telPostalParticipant\" placeholder=\"Entrer téléphone du participant\">";
         $rep .= "               </div>";
         $rep .= "           </div>";
-       
+
         $rep .= "            </div>   ";
-        
-        
+
+
         $rep .= "                        <div class=\"container\" style=\"width: 40% ; float: left; margin-left: 60px\" >";
         $rep .= "                      <label for=\"nomParticipant\" class=\"col-sm-2 col-form-label\" style=\" width: 100%; float: left\">Informations sur le passeport</label>";
         $rep .= "                <br><br>";
@@ -295,7 +297,7 @@ function afficher() {
 
 function enleverParticipant() {
     global $tabRes;
-    
+
     $idParticpant = $_POST['listParticipant'];
     try {
         $requete = "SELECT * FROM participants WHERE idparticipants=?";
@@ -316,7 +318,6 @@ function enleverParticipant() {
         echo $e;
     } finally {
         unset($unModele);
-        
     }
 }
 
@@ -370,6 +371,20 @@ function modifier() {
     }
 }
 
+function afficherFormulaireTous() {
+    global $tabRes;
+    
+    $adulte = $_POST["NombreAdulte"];
+    $enfant = $_POST["NombreEnfant"];
+    $bebe = $_POST["NombreBebe"];
+
+    $tabRes['action'] = "afficherParticipant";
+    $tabRes['adulte'] = $adulte;
+    $tabRes['enfant'] = $enfant;
+    $tabRes['bebe'] = $bebe;
+    
+}
+
 //******************************************************
 //Contr�leur
 $action = $_POST['action'];
@@ -392,6 +407,9 @@ switch ($action) {
         break;
     case "modifier" :
         modifier();
+        break;
+    case "afficherFormulaireTous" :
+        afficherFormulaireTous();
         break;
 }
 echo json_encode($tabRes);

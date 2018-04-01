@@ -102,10 +102,49 @@ function listerRR() {
 function FormulaireR() {
     var reponse = {"action": "formulaire"};
     reservationVue(reponse);
-    $('select').change(function () {
 
-        $('#adulte').show();
+    var textLab = parseInt($("#labtotal").text());
+    var total = 0;
+    $('#NombreAdulte').on('change', function () {
+        var selectVal = parseInt($("#NombreAdulte option:selected").val());
+        if (selectVal !== 0) {
+            total += selectVal * textLab;
+            $("#labtotal").text(total);
+        } else {
+            $("#labtotal").text(textLab);
+        }
+
     });
+
+    $('#NombreEnfant').on('change', function () {
+        var selectVal = parseInt($("#NombreEnfant option:selected").val());
+
+        if (selectVal !== 0)
+        {
+            total += selectVal * textLab * 0.75;
+            $("#labtotal").text(total);
+        } else {
+            $("#labtotal").text(textLab);
+        }
+
+
+    });
+
+    $('#NombreBebe').on('change', function () {
+        var selectVal = parseInt($("#NombreBebe option:selected").val());
+
+        if (selectVal !== 0)
+        {
+            total += selectVal * textLab * 0.5;
+            $("#labtotal").text(total);
+        } else {
+            $("#labtotal").text(textLab);
+        }
+
+
+
+    });
+
 }
 
 //lister les participant
@@ -174,4 +213,26 @@ function RamenerCircuit(rid) {
         fail: function (err) {
         }
     });
+}
+
+function prix(idSelect, textLab, taux) {
+
+    var total = 0;
+    $(idSelect).on('change', function () {
+
+        var selectVal = parseInt($(idSelect + " option:selected").val());
+        if (selectVal !== 0)
+            total = selectVal * textLab * taux;
+
+        else {
+            total = textLab;
+            $("#labtotal").text(textLab);
+        }
+
+
+        // $("#labtotal").text(total);
+
+
+    });
+    return total;
 }

@@ -26,82 +26,38 @@ function formulaireR() {
 
 
     //*******************************************************************
-    result += "<hr class='ligne_horizontal'></hr>";
+    result += "<hr class='ligne_horizontal'>";
     result += "<h4 class='titre'>Ajouter participants</h4>";
 
-    result += " <div class=\"container\">";
+    result += "     <div class=\"container\">";
+    result += "       <div class=\"container fluid\" style=\"width: 60% ; float: left; \" >";
 
+    result += ajoutCategorie("NombreAdulte", "Adulte [+ 12 ans]", result);
+    result += ajoutCategorie("NombreEnfant", "Enfant [2- 11 ans]", result);
+    result += ajoutCategorie("NombreBebe", "Bébé [0- 2 ans]", result);
 
-    result += "  <div class=\"container fluid\" style=\"width: 40% ; float: left; \" >";
+    result += "         <div class=\"form-group row\" >";
+    result += "             <div class=\"col-sm-10 contenupass\">";
+    result += "                 <a href='#'class='btn btn-primary' cid='ajouter' onclick='afficherFormulaire();'>Ajouter participants </a>";
 
-    result += "                            <div class=\"form-group row\">";
-    result += "                                <label for=\"NombreAdulte\" class=\"col-sm-2 col-form-label\">Nombre d'adulte</label>";
-    result += "                                <div class=\"col-sm-10\" >";
-    result += "                                    <select class=\"form-control\" id=\"NombreAdulte\" name=\"NombreAdulte\" required>";
-    result += "                                        <option></option>";
-    for (var i = 0; i < 11; i++) {
+    result += "             </div>";
+    result += "         </div>";
 
-        result += "   <option value='" + i + "'>" + i + "<\/option>";
-
-    }
-
-    result += "                                    </select>    ";
-    result += "                                </div>";
-    result += "                            </div>";
-    result += "   <div class='container' id='adulte' style='width:100%;display: none;float:left'> ";
-    result += afficherDivParticipant(result);
-    result += " </div>";
-    result += "                            <div class=\"form-group row\">";
-    result += "                                <label for=\"NombreEnfantBTO\" class=\"col-sm-2 col-form-label\">Nombre d'enfant de 3 à 11 ans </label>";
-    result += "                                <div class=\"col-sm-10\" >";
-    result += "                                    <select class=\"form-control\" id=\"NombreEnfantBTO\" name=\"NombreEnfantBTO\" required>";
-    result += "                                        <option></option>";
-    for (var i = 0; i < 11; i++) {
-
-        result += "   <option value='" + i + "'>" + i + "<\/option>";
-
-    }
-    result += "                                    </select>    ";
-    result += "                                </div>";
-    result += "                            </div>";
-
-    result += "                            <div class=\"form-group row\">";
-    result += "                                <label for=\"NombreEnfantMT\" class=\"col-sm-2 col-form-label\">Nombre d'enfant de moins de 3 ans </label>";
-    result += "                                <div class=\"col-sm-10\" >";
-    result += "                                    <select class=\"form-control\" id=\"NombreEnfantMT\" name=\"NombreEnfantMT\" required>";
-    result += "                                        <option></option>";
-    for (var i = 0; i < 11; i++) {
-
-        result += "   <option value='" + i + "'>" + i + "<\/option>";
-
-    }
-    result += "                                    </select>    ";
-    result += "                                </div>";
-    result += "                            </div>";
-
-
-    result += "                <div class=\"form-group row\" >";
-    result += "       <div class=\"col-sm-10 contenupass\">";
-    result += "                                <a href='#'class='btn btn-primary' cid='ajouter' onclick='afficherFormulaire();'>Ajouter participants </a>";
-
-    result += "                                </div>";
-    result += "                      </div>";
-
-    result += "                      </div>";
+    result += "       </div>";
 
 
     result += "                        <div class=\"container fluid\" style=\"width: 40% ; float: left; margin-left: 60px\" >";
     result += "                            <div class=\"form-group \" >";
     result += "                                <label for=\"texttotalCircuit\">Prix total du circuit:</label>";
-    result += " <label for=\"totalCircuit\" style='color:red;font-size:25px;margin:5px' id='labtotal' >45 000 $</label>";
-    result += "                                </div>";
+    result += "                                 <label for=\"totalCircuit\" style='color:red;font-size:25px;margin:5px' id='labtotal' >45000</label>";
+    result += "                            </div>";
 
-    result += "                                </div>";
+    result += "                        </div>";
 
-    result += "            </div>";
+    result += "     </div>";
 
     //*************************************************
-    result += "<hr class='ligne_horizontal'></hr>";
+    result += "<hr class='ligne_horizontal'>";
     result += "<h4>Informations sur les participants</h4>";
     result += " <div class=\"container\">";
 
@@ -255,7 +211,7 @@ var reservationVue = function (reponse) {
         case "formulaire" :
             formulaireR();
             break;
-           
+
 
     }
 }
@@ -440,3 +396,27 @@ function afficherDivParticipant(result) {
     result += "                      </div>";
     return result;
 }
+
+function ajoutCategorie(nom, label, result) {
+    result = "";
+    result += "                            <div class=\"form-group row\">";
+    result += "                                <label for=" + nom + " class=\"col-sm-2 col-form-label\">" + label + "</label>";
+    result += "                                <div class=\"col-sm-10\" >";
+    result += "                                    <select class=\"form-control\" id=" + nom + " name=" + nom + " required>";
+    result += "                                        <option></option>";
+    for (var i = 0; i < 11; i++) {
+
+        result += "   <option value='" + i + "'>" + i + "<\/option>";
+
+    }
+
+    result += "                                    </select>    ";
+    result += "                                </div>";
+    result += "                            </div>";
+
+    return result;
+
+}
+// result += "   <div class='container' id='adulte' style='width:100%;display: none;float:left'> ";
+//    result += afficherDivParticipant(result);
+//    result += " </div>";
