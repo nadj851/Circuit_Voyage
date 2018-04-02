@@ -13,35 +13,7 @@ function message(reponse) {
 
 }
 
-function formulaireT() {
 
-    var result = "";
-
-    result += "<div class='col-md-4 col-md-push-4'>";
-
-    result += "<form id='formEnregthems'>";
-    result += "<h3>Ajouter une thematique</h3>";
-    result += "<div class='form-group'>";
-    result += "<label for='nom'>nom:</label>";
-    result += "<input type='text' class='form-control' id='nom' name='nom'>";
-    result += "</div>";
-
-    result += "<div class='form-group'>";
-    result += "<label for='description'>description:</label>";
-    result += " <input type='text' class='form-control' id='description' name='description'>";
-    result += " </div>";
-
-    result += "<div class='form-group'>";
-    result += "<label for='pochette'>image:</label>";
-    result += "<input type='file' class='form-control-file' id='pochette' name='pochette' aria-describedby='fileHelp'";
-    result += "</div><br><br>";
-    result += "<input type='button' class='btn btn-primary' value='Ajouter' onClick='enregistrerT();'><br><br>";
-    result += "</form>";
-    result += "</div>";
-
-    $('#get_result').html(result);
-
-}
 
 
 function listerPani(listetheme) {
