@@ -138,7 +138,7 @@ include_once 'includes/init.php';
                             <div id='get_cat'>
 
                                 <div class='nav nav-pills nav-stacked'>
-                                    <li class='active cat'><a href='#' ><span class='glyphicon glyphicon-cog'></span> Dashboard</a></li>
+                                    <li class='active cat'><a href='#' ><span class='glyphicon glyphicon-cog'></span>Dashboard</a></li>
                                     <li><a href='#' class='category' cid='ACTION' onclick='FormulaireR();listerParticipants();infoUser();'>Reservation </a></li>
                                     <li><a href='#' class='category' cid='DRAME' onclick='FormulaireT();'>Thematique</a></li>
                                     <li><a href='#' class='category' cid='COMEDIE'  onclick='afficherFormulaire();'>Participant</a></li>

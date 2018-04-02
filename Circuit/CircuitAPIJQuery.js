@@ -80,10 +80,18 @@ function AffichageDetailsCircuit(affichageCircuits) {
         strVar += "        <div>";
         strVar += "            <h2 align=\"center\">" + affichageCircuits[i].titre + "<\/h2>";
         strVar += "            <br \/>";
-        strVar += "<a>	<img src='pochettes/" + affichageCircuits[i].imageCircuit + "' style='width:400px; height:600px;'></a>";
+         strVar += "<div class='container'>";
+         strVar += "<div class='row'>";
+         
+          strVar += "<div class='col-md-6'>";
+        strVar += "<a>	<img src='pochettes/" + affichageCircuits[i].imageCircuit + "' style='width:450px; height:500px;'></a>";
+        
         strVar += "";
         strVar += "";
-        strVar += "            <table class=\"table table-condensed\" style=\"width: 400px; float:right; height: 400px; \">";
+        strVar += "                    <\/div>";
+        
+        strVar += "<div class='col-md-4'>";
+        strVar += "            <table class=\"table table-condensed\" style=\"width: 450px; float:right; height: 500px; \">";
         strVar += "                <thead>";
         strVar += "                    <tr style=\" height: 30px\">";
         strVar += "                        <th style=\"background-color: #426CB4; color: white\">" + affichageCircuits[i].titre + "<\/th>";
@@ -115,8 +123,14 @@ function AffichageDetailsCircuit(affichageCircuits) {
         strVar += "";
         strVar += "";
         strVar += "";
-        strVar += "            <div >";
+        strVar += "                    <\/div>";
+        strVar += "                    <\/div>";
+         strVar += "                    <\/div>";
+     
         strVar += "            <br \/>";
+         strVar += "<div class='container'>";
+         strVar += "<div class='row'>";
+         strVar += "<div class='col-md-10'>";                                         
         strVar += "                <div class=\"card text-center\" style=\"background-color: white; color: white;\">";
         strVar += "                    <div class=\"card-header\" style=\"background-color: #426CB4;color: white\">";
         strVar += "                        <ul class=\"nav nav-tabs card-header-tabs\">";
@@ -161,6 +175,9 @@ function AffichageDetailsCircuit(affichageCircuits) {
         strVar += "";
         strVar += "                <\/div>";
         strVar += "            <\/div>";
+        strVar += "                    <\/div>";
+        strVar += "                    <\/div>";
+        strVar += "                    <\/div>";
         strVar += " ";
         strVar += "";
 
