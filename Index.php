@@ -125,24 +125,20 @@ include_once 'includes/init.php';
                 <br>    <br>
                 <?php include './caroussel/code.php' ?>
                 <br>    
-                <?php if (logged_in() && $_SESSION['email'] == 'admin@admin.com') : ?>
-
-                    <div style='margin-left:30px;margin-top: 5px;background-color: yellow;font-size: 15px;float:left'><span class='glyphicon glyphicon-cog'></span><a href='lister.php' >Dashboard</a>    </div>							                         
-
-
-                <?php endif; ?>
-
-                <br>    <br>
+                
+                   <br>
 
 
                 <div class='container-fluid'>
                     <div class='row'>
+                        
+                        <?php if (logged_in() && $_SESSION['email'] == 'admin@admin.com') : ?>
 
-                        <div class='col-md-2 col-md-12'>
+                    <div class='col-md-2 col-md-12'>
                             <div id='get_cat'>
 
                                 <div class='nav nav-pills nav-stacked'>
-                                    <li class='active cat'><a href='#'><h4>Categories</h4></a></li>
+                                    <li class='active cat'><a href='#' ><span class='glyphicon glyphicon-cog'></span> Dashboard</a></li>
                                     <li><a href='#' class='category' cid='ACTION' onclick='FormulaireR();listerParticipants();infoUser();'>Reservation </a></li>
                                     <li><a href='#' class='category' cid='DRAME' onclick='FormulaireT();'>Thematique</a></li>
                                     <li><a href='#' class='category' cid='COMEDIE'  onclick='afficherFormulaire();'>Participant</a></li>
@@ -157,26 +153,24 @@ include_once 'includes/init.php';
 
                                 </div>
                             </div>
-                            <div id='get_cat1'>         
-                                <div class='nav nav-pills nav-stacked'>
-                                    <li class='active'><a href='#'><h4>Categories</h4></a></li>
-                                    <li><a href='#' class='category' cid='ACTION'>Action</a></li>
-                                    <li><a href='#'class='category' cid='DRAME'>Drame at répertoire</a></li>
-                                    <li><a href='#'class='category' cid='COMEDIE'>Comédie</a></li>
-                                    <li><a href='#'class='category' cid='SCIENCE FICTION'>Science-?ction</a></li>
-                                    <li><a href='#'class='category' cid='HORREUR'>Horreur</a></li>
-                                    <li><a href='#'class='category' cid='SUSPENSE'>Suspense</a></li>
-                                    <li><a href='#'class='category' cid='POUR LA FAMILLE'>Pour la famille</a></li>
-                                    <li><a href='#'class='category' cid='POUR LA FAMILLE'>test</a></li>
+                            
+
+                        </div>							                         
 
 
-                                </div>
-                            </div>
+                <?php endif; ?>
 
-                        </div>
+                       
 
-
+             <?php if (logged_in() && $_SESSION['email'] == 'admin@admin.com') : ?>
                         <div class='col-md-10 col-md-12'>
+                            
+                            
+                         <?php else : ?>    
+                             <div class='col-md-12 col-md-12'>
+                             <?php endif; ?>
+                            
+                            
                             <div class='row'>
 
 
