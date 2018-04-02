@@ -138,13 +138,13 @@ function AffichageDetailsCircuit(affichageCircuits) {
         strVar += "                    <div class=\"card-header\" style=\"background-color: #426CB4;color: white\">";
         strVar += "                        <ul class=\"nav nav-tabs card-header-tabs\">";
         strVar += "                            <li class=\"nav-item\" >";
-        strVar += "                                <a class=\"nav-link active\" href=\"#\" style=\"color: black\" onclick=\"$('#suite').show();$('#hotel').hide();\">Itinéraire<\/a>";
+        strVar += "                                <a class=\"nav-link active\" href=\"#\" style=\"color: white\" onclick=\"$('#suite').show();$('#hotel').hide();\">Itinéraire<\/a>";
         strVar += "                            <\/li>";
         strVar += "                            <li class=\"nav-item\">";
-        strVar += "                                <a class=\"nav-link\" href=\"#\" style=\"color: black\" onclick=\"$('#suite').hide();$('#hotel').show();\">Hotels<\/a>";
+        strVar += "                                <a class=\"nav-link\" href=\"#\" style=\"color: white\" onclick=\"$('#suite').hide();$('#hotel').show();\">Hotels<\/a>";
         strVar += "                            <\/li>";
         strVar += "                            <li class=\"nav-item\">";
-        strVar += "                                <a class=\"nav-link disabled\" href=\"#\" style=\"color: black\" onclick='FormulaireR(); listerParticipants();infoUser();RamenerCircuit(" + affichageCircuits[i].idCircuit + ");'>Réservations<\/a>";
+        strVar += "                                <a class=\"nav-link disabled\" href=\"#\" style=\"color: white\" onclick='FormulaireR(); listerParticipants();infoUser();RamenerCircuit(" + affichageCircuits[i].idCircuit + ");'>Réservations<\/a>";
         strVar += "                            <\/li>";
         strVar += "                            <li class=\"nav-item\">";
         strVar += "                                <a class=\"nav-link btn btn-danger\" href=\"#\"  onclick='enregistrerPani();'>Ajouter au Panier<\/a>";
@@ -152,17 +152,17 @@ function AffichageDetailsCircuit(affichageCircuits) {
 
         strVar += "                        <\/ul>";
         strVar += "                    <\/div>";
-        strVar += "                    <div class=\"card-body\" id=\"suite\" style=\"background-color: cornflowerblue; color: black; \">";
+        strVar += "                    <div class=\"card-body\" id=\"suite\" style=\"background-color: cornflowerblue; color: white; \">";
         strVar += "                        <div class=\"card-header\">";
         strVar += "                            <ul class=\"nav nav-tabs card-header-tabs\">";
         strVar += "                                <li class=\"nav-item\" >";
-        strVar += "                                    <a class=\"nav-link active\" href=\"#\" style=\"color: black\" >étape 1<\/a>";
+        strVar += "                                    <a class=\"nav-link active\" href=\"#\" style=\"color: white\" >étape 1<\/a>";
         strVar += "                                <\/li>";
         strVar += "                                <li class=\"nav-item\">";
-        strVar += "                                    <a class=\"nav-link\" href=\"#\" style=\"color: black\">étape 2<\/a>";
+        strVar += "                                    <a class=\"nav-link\" href=\"#\" style=\"color: white\">étape 2<\/a>";
         strVar += "                                <\/li>";
         strVar += "                                <li class=\"nav-item\">";
-        strVar += "                                    <a class=\"nav-link disabled\" href=\"#\" style=\"color: black\">étape 3<\/a>";
+        strVar += "                                    <a class=\"nav-link disabled\" href=\"#\" style=\"color: white\">étape 3<\/a>";
         strVar += "                                <\/li>";
         strVar += "                            <\/ul>";
         strVar += "                        <\/div>";
