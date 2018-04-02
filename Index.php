@@ -139,17 +139,15 @@ include_once 'includes/init.php';
 
                                 <div class='nav nav-pills nav-stacked'>
                                     <li class='active cat'><a href='#' ><span class='glyphicon glyphicon-cog'></span>Dashboard</a></li>
-                                    <li><a href='#' class='category' cid='ACTION' onclick='FormulaireR();listerParticipants();infoUser();'>Reservation </a></li>
                                     <li><a href='#' class='category' cid='DRAME' onclick='FormulaireT();'>Thematique</a></li>
                                     <li><a href='#' class='category' cid='COMEDIE'  onclick='afficherFormulaire();'>Participant</a></li>
                                     <li><a href='#'class='category' cid='SCIENCE FICTION' onclick='lister();'>lister participant</a></li>
                                     <li><a href='#'class='category' cid='HORREUR' onclick='FormulaireCircuit();'>Créer un circuit</a></li>
                                     <li><a href='#'class='category' cid='HORREUR' onclick='obtenirFicheCircuit();'>Modifier un circuit</a></li>
-                                    <li><a href='#'class='category' cid='SUSPENSE' onclick='SupprimerCircuit();' >Supprimer Circuit</a></li>
-                                    <li><a href='#'class='category' cid='SUSPENSE' onclick='listerPanier();' >Panier</a></li>
+                                    <li><a href='#'class='category' cid='SUSPENSE' onclick='SupprimerCircuit();' >Supprimer Circuit</a></li>                                
                                     <li><a href='#'class='category' cid='alo'onclick='listerCircuit();' >lister les Circuits</a></li>
-                                    <li><a href='#'class='category' cid='POUR LA FAMILLE' onclick='showing();'>detail</a></li>
-                                    <li><a href='#'class='category' cid='POUR LA FAMILLE'>test</a></li>
+                                    
+                                  
 
                                 </div>
                             </div>
