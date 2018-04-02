@@ -54,7 +54,7 @@ include_once 'includes/init.php';
 
         <script src='Circuit/CircuitAPIJQuery.js' type='text/javascript'></script>
 
-
+<script src="https://cdn.ckeditor.com/4.9.1/standard/ckeditor.js"></script>
     </head>
 
     <body>
@@ -184,7 +184,7 @@ include_once 'includes/init.php';
 
 
                                         <!--  ici les amis tous  nos resultats  -->        
-
+                   
 
                                     </div>
 
@@ -258,11 +258,14 @@ include_once 'includes/init.php';
     <script src='Untitled_fichiers/bs-animation.js'></script>
     <script src='Untitled_fichiers/aos.js'></script>
     <script id='bs-live-reload' data-sseport='3478' data-lastchange='1521367081176' src='Untitled_fichiers/livereload.js'></script>-->
-
+                     <script>CKEDITOR.replace( 'editor1' );</script>
 
                     <script src='Untitled_fichiers/analytics.htm'></script>
+                  
+                    
 
                     </body>
 
 
+                    </html>
 

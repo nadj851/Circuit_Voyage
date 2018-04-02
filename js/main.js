@@ -1,5 +1,6 @@
 $(document).ready(function() {
   listerTT();
+    
 
   $("body").on("click", "[id^=date]", function() {
     $(this).datepicker({ dateFormat: "mm-dd-yy" });

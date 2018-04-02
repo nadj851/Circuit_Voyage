@@ -17,7 +17,7 @@ function formulaireT() {
 
     var result = "";
 
-    result += "<div class='col-md-4 col-md-push-4'>";
+    result += "<div class='col-md-6 col-md-push-2'>";
 
     result += "<form id='formEnregthems'>";
     result += "<h3>Ajouter une thematique</h3>";
@@ -28,7 +28,9 @@ function formulaireT() {
 
     result += "<div class='form-group'>";
     result += "<label for='description'>description:</label>";
-    result += " <input type='text' class='form-control' id='description' name='description'>";
+    result += "<textarea class='form-control' name='description'></textarea>";
+     result += "<script>CKEDITOR.replace( 'description' );</script>";
+    
     result += " </div>";
 
     result += "<div class='form-group'>";
