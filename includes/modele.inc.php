@@ -1,41 +1,41 @@
 <?php
+
 require_once "connexion.inc.php";
-class circuitModel
-{
+
+class circuitModel {
+
     private $requete;
     private $params;
     private $connexion;
     public $lastID;
 
-    public function __construct($requete = null, $params = null)
-    {
+    public function __construct($requete = null, $params = null) {
         $this->requete = $requete;
         $this->params = $params;
     }
 
-    public function obtenirConnexion()
-    {
+    public function obtenirConnexion() {
         $maConnexion = new Connexion("localhost", "root", "", "munarela");
         $maConnexion->connecter();
         return $maConnexion->getConnexion();
     }
 
-    public function executer()
-    {
+    public function executer() {
         $this->connexion = $this->obtenirConnexion();
         $stmt = $this->connexion->prepare($this->requete);
         $stmt->execute($this->params);
-        $this->lastID=$this->connexion->lastInsertId();
+        $this->lastID = $this->connexion->lastInsertId();
         $this->deconnecter();
         return $stmt;
     }
-    public function deconnecter()
-    {
+
+    public function deconnecter() {
         unset($this->connexion);
     }
 
-    public function verserFichier($dossier, $inputNom, $fichierDefaut, $chaine)
-    {
+    
+
+    public function verserFichier($dossier, $inputNom, $fichierDefaut, $chaine) {
         $dossier = "../$dossier/";
         $nomPochette = sha1($chaine . time());
         $pochette = $fichierDefaut;
@@ -51,8 +51,8 @@ class circuitModel
         }
         return $pochette;
     }
-    public function enleverFichier($dossier, $pochette)
-    {
+
+    public function enleverFichier($dossier, $pochette) {
         if ($pochette != "avatar.jpg") {
             $rmPoc = "../$dossier/" . $pochette;
             $tabFichiers = glob("../$dossier/*");
@@ -67,4 +67,7 @@ class circuitModel
             }
         }
     }
-} //fin de la classe
+
+}
+
+//fin de la classe

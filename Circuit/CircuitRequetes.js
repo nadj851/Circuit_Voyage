@@ -22,19 +22,20 @@ function AjouterCircuit() {
   });
 }
 
-function listerCircuit() {
+function listerCircuits() {
+    alert("je suis a la fonction lister circuit circuit requete");
   var formListerCircuit = new FormData();
-  formListerCircuit.append("action", "listerCircuit"); //alert(formFilm.get("action"));
+  formListerCircuit.append("action", "listerCircuits"); //alert(formFilm.get("action"));
   $.ajax({
     type: "POST",
     url: "Circuit/CircuitControleur.php",
     data: formListerCircuit,
     contentType: false,
     processData: false,
-    dataType: "json", //text pour le voir en format de string
+    dataType: "text", //text pour le voir en format de string
     success: function(reponse) {
-      //alert(reponse);
-      CircuitVue(reponse);
+      alert(reponse);
+      //CircuitVue(reponse);
     },
     fail: function(err) {}
   });

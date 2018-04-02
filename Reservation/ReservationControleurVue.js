@@ -165,7 +165,7 @@ function listerP(listeParticpants) {
     rep += "                                    <select class=\"form-control\" id=\"listParticipant\" name=\"listParticipant\" required>";
 
     for (var i = 0; i < taille; i++) {
-        rep += "<option value='" + listeParticpants[i].idparticipants + "'>" + listeParticpants[i].nom + "</option>";
+        rep += "<option value='" + listeParticpants[i].idparticipants+":" +listeParticpants[i].nom+ "'>" + listeParticpants[i].nom + "</option>";
     }
 
     rep += "                                    </select>    ";

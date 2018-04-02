@@ -13,8 +13,8 @@ function message(reponse) {
 
 }
 function enregistrer() {
-
-    var formFilm = new FormData(document.getElementById('formEnreg'));
+alert('j ai appuyer sur ajouter participant');
+    var formFilm = new FormData(document.getElementById('contenuParticpants'));
     formFilm.append('action', 'enregistrer');
     $.ajax({
         type: 'POST',
@@ -25,8 +25,8 @@ function enregistrer() {
         //cache : false,
         contentType: false,
         processData: false,
-        success: function (reponse) {//alert(reponse);
-            filmsVue(reponse);
+        success: function (reponse) {alert(reponse);
+            //filmsVue(reponse);
         },
         fail: function (err) {
 
@@ -39,18 +39,19 @@ function ajouterParticipant() {
     var formParticpants = new FormData(document.getElementById('contenuParticpants'));
     //var formParticpants = $("#ajouterParticipant").serialize();
     //formParticpants.push({"action":"enregistrer"}); 
+    
     formParticpants.append('action', 'enregistrer');
     $.ajax({
         type: 'POST',
         url: 'participants/participantsControleur.php',
         data: formParticpants,
-        dataType: 'json', //text pour le voir en format de string
+        dataType: 'text', //text pour le voir en format de string
         //async : false,
         //cache : false,
         contentType: false,
         processData: false,
-        success: function (reponse) {//alert(reponse);
-            filmsVue(reponse);
+        success: function (reponse) {alert(reponse);
+            //filmsVue(reponse);
         },
         fail: function (err) {
 

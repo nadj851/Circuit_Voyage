@@ -40,27 +40,27 @@ function enregistrerCircuit()
     }
 }
 
-function listerLesCircuit()
-{
+function listerLesCircuit(){
+    echo 'je suis au php';
     global $tabRes;
-    $tabRes['action'] = "listerLesCircuits";
+    $tabRes['action'] = "lesCircuits";
     $requete = "SELECT * FROM circuit";
     try {
-        $unModele = new circuitModel($requete, []);
+        $unModele = new circuitModel($requete, array());
         $stmt = $unModele->executer();
-        $tabRes['listecircuit'] = [];
+        $tabRes['lesCircuit'] = array();
         while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
-            $tabRes['listecircuit'][] = $ligne;
+                 
+            $tabRes['lesCircuits'][] = $ligne;
         }
     } catch (Exception $e) {
         echo $e;
     } finally {
-        unset($unModele);
+            unset($unModele);
     }
 }
 
-function ficheCircuit()
-{
+function ficheCircuits(){
     global $tabRes;
     include '../Thematique/ThematiqueControleur.php';
     listerThematique();
@@ -135,11 +135,11 @@ if (isset($_POST['action'])) {
         case "afficherFormCircuit":
             afficherFormCircuit();
             break;
-        case "listerCircuit":
+        case "listerCircuits":
             listerLesCircuit();
 
         case "ficheCircuit":
-            ficheCircuit();
+            ficheCircuits();
             break;
         case "modifier":
             modifierCircuit();
