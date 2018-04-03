@@ -131,6 +131,7 @@ function formulaireCircuit(reponse) {
             '                                                    <div class="col-sm-10">';
     input +=
             '                                                        <textarea class="form-control" rows="5" id="descripCircuit" name="descripCircuit"></textarea>';
+     input +=                                                        "<script>CKEDITOR.replace( 'descripCircuit' );</script>";
     input += "                                                    </div>";
     input += "                                                </div>";
     input += "";
@@ -197,6 +198,7 @@ function formulaireCircuit(reponse) {
             '                                                        <div class="col-sm-10">';
     input +=
             "                                                            <textarea class='form-control' rows='5' id='descripEtape' name='descripEtape'></textarea>";
+    input +=                                                              "<script>CKEDITOR.replace( 'descripEtape' );</script>";
     input += "";
     input += "                                                        </div>";
     input += "                                                    </div>";
@@ -308,6 +310,8 @@ function formulaireCircuit(reponse) {
             '                                                        <div class="col-sm-10">';
     input +=
             '                                                            <textarea class="form-control" rows="5" id="descripJour" name="descripJour"></textarea>';
+    input +=                                                              "<script>CKEDITOR.replace( 'descripJour' );</script>";
+    
     input += "";
     input += "                                                        </div>";
     input += "                                                    </div>";
