@@ -136,11 +136,12 @@ function supprimerParticipant() {
     });
 }
 
-function obtenirFiche() {
+function detailParticipant() {
+    
     $('#divFiche').hide();
-    var leForm = document.getElementById('formFiche');
+    var leForm = document.getElementById('formreservation');
     var formFilm = new FormData(leForm);
-    formFilm.append('action', 'fiche');
+    formFilm.append('action', 'detail');
     $.ajax({
         type: 'POST',
         url: 'participants/participantsControleur.php',
@@ -150,6 +151,19 @@ function obtenirFiche() {
         dataType: 'json',
         success: function (reponse) {//alert(reponse);
             filmsVue(reponse);
+            $('select').hide();
+            $("input[type=text][id=nomParticipant]").val(reponse.detailParticipant.nom);
+            $("input[type=text][id=prenomParticipant]").val(reponse.detailParticipant.prenom);
+            $("input[type=text][id=courielParticipant]").val(reponse.detailParticipant.courriel);
+            $("input[type=text][id=telPostalParticipant]").val(reponse.detailParticipant.tel);
+            $("input[type=text][id=villeParticipant]").val(reponse.detailadresse.ville);
+            $("input[type=text][id=codePostalParticipant]").val(reponse.detailadresse.codePostale);
+            //$("input[type=text][id=paysParticipant]").val(reponse.detailadresse.pays);
+            $("input[type=text][id=numeroPasseport]").val(reponse.detailPasseport.numeroPass);
+            $("input[type=text][id=dateDelPasseport]").val(reponse.detailPasseport.dateDelivPass);
+            $("input[type=text][id=dateExpPasseport]").val(reponse.detailPasseport.dateExpiration);
+            $("input[type=text][id=nationalite]").val(reponse.detailPasseport.nationalites);
+            $("input[type=text][id=delivrerAExpPasseport]").val(reponse.detailPasseport.lieuDeliv);
         },
         fail: function (err) {
         }
@@ -175,6 +189,8 @@ function modifier() {
         }
     });
 }
+
+
 
 //function afficherFormulaireParticipant() {
 //   

@@ -399,9 +399,9 @@ function enleverParticipant() {
 
 //    $idParticpant = split(':', $listParticipan)[0];
 //    $text = split(':', $listParticipan)[1];
-    
-    
-    
+
+
+
     try {
         $requete = "SELECT * FROM participants WHERE idparticipants=?";
         $unModele = new circuitModel($requete, array($idParticpant));
@@ -424,7 +424,6 @@ function enleverParticipant() {
     }
 }
 
-//methode fiche
 function fiche() {
     global $tabRes;
     $idf = $_POST['numF'];
@@ -443,6 +442,67 @@ function fiche() {
     } catch (Exception $e) {
         
     } finally {
+        unset($unModele);
+    }
+}
+
+//methode fiche
+function detail() {
+    global $tabRes;
+    $idParticipant = $_POST['listParticipant'];
+    $tabRes['action'] = "detail";
+    $requete = "SELECT * FROM participants WHERE idparticipants=?";
+    try {
+        $unModele = new circuitModel($requete, array($idParticipant));
+        $stmt = $unModele->executer();
+        $tabRes['detailParticipant'] = array();
+        if ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $tabRes['detailParticipant'] = $ligne;
+            $idAdresse = $ligne->idAdresse;
+            $idPasseport = $ligne->idPasspor;
+            $tabRes['OK'] = true;
+        } else {
+            $tabRes['OK'] = false;
+        }
+    } catch (Exception $e) {
+        echo $e;
+    } finally {
+
+        unset($unModele);
+    }
+    $requete = "SELECT * FROM passeport WHERE idPasspor=?";
+    try {
+        $unModele = new circuitModel($requete, array($idPasseport));
+        $stmt = $unModele->executer();
+        $tabRes['detailPasseport'] = array();
+        if ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $tabRes['detailPasseport'] = $ligne;
+            $tabRes['OK'] = true;
+        } else {
+            $tabRes['OK'] = false;
+        }
+    } catch (Exception $e) {
+        echo $e;
+    } finally {
+
+        unset($unModele);
+    }
+    
+    $requete = "SELECT * FROM adresse WHERE idAdresse=?";
+    try {
+        $unModele = new circuitModel($requete, array($idAdresse));
+        $stmt = $unModele->executer();
+        $tabRes['detailadresse'] = array();
+        if ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $tabRes['detailadresse'] = $ligne;
+            $tabRes['OK'] = true;
+        } else {
+            $tabRes['OK'] = false;
+        }
+    } catch (Exception $e) {
+        echo $e;
+    } finally {
+
         unset($unModele);
     }
 }
@@ -528,6 +588,9 @@ switch ($action) {
         break;
     case "fiche" :
         fiche();
+        break;
+    case "detail" :
+        detail();
         break;
     case "afficherFormulaires" :
         afficher();

@@ -30,7 +30,7 @@ function formulaireCircuit(reponse) {
     input += "                                            </div>";
     input += "";
     input +=
-            '                                            <div class="container" style="width: 60% ; float: left; margin-left: 20px" >';
+            '                                            <div class="container" style="width: 100% ;  margin-left: 20px" >';
     input += "";
     input +=
             '                                                <div class="form-group row">';
@@ -39,7 +39,7 @@ function formulaireCircuit(reponse) {
     input +=
             '                                                    <div class="col-sm-10">';
     input +=
-            '                                                        <input type="text" class="form-control" id="nomCircuit" name="nomCircuit" placeholder="Entrer nom du participant" required>';
+            '                                                        <input type="text" class="form-control" id="nomCircuit" name="nomCircuit" placeholder="Entrer nom du circuit" required>';
     input += "                                                    </div>";
     input += "                                                </div>";
     input += "";
@@ -95,7 +95,7 @@ function formulaireCircuit(reponse) {
     input +=
             '                                                    <div class="col-sm-10">';
     input +=
-            '                                                        <input type="text" class="form-control" id="nbPersonneMin" name="nbPersonneMin" placeholder="Entrer courriel du participant" required>';
+            '                                                        <input type="text" class="form-control" id="nbPersonneMin" name="nbPersonneMin" placeholder="Entrer nombre personnes minimum" required>';
     input += "                                                    </div>";
     input += "                                                </div>";
     input += "";
@@ -107,7 +107,7 @@ function formulaireCircuit(reponse) {
     input +=
             '                                                    <div class="col-sm-10">';
     input +=
-            '                                                        <input type="text" class="form-control" id="nbPersonneMax" name="nbPersonneMax" placeholder="Entrer courriel du participant" required>';
+            '                                                        <input type="text" class="form-control" id="nbPersonneMax" name="nbPersonneMax" placeholder="Entrer nombre personnes minimum" required>';
     input += "                                                    </div>";
     input += "                                                </div>";
     input += "";
@@ -119,7 +119,7 @@ function formulaireCircuit(reponse) {
     input +=
             '                                                    <div class="col-sm-10">';
     input +=
-            '                                                        <input type="text" class="form-control" id="prixCircuit" name="prixCircuit" placeholder="Entrer ville du participant">';
+            '                                                        <input type="text" class="form-control" id="prixCircuit" name="prixCircuit" placeholder="Entrer le prix du circuit">';
     input += "                                                    </div>";
     input += "                                                </div>";
     input += "";
