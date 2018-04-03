@@ -1,10 +1,15 @@
 <?php
+require_once "../includes/modele.inc.php";
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-
-require_once "../includes/modele.inc.php";
+if (isset($_GET['idCircuit'])) {
+    $_SESSION["idCircuit"]=$_GET['idCircuit'];
+    ficheCircuit();
+} else if (isset($_GET['idThem'])) {
+    listerCircuitParThematique();
+}
 
 $tabRes = array();
 
@@ -27,8 +32,8 @@ function enregistrerCircuit()
     try {
         $unModele = new circuitModel();
         $pochete = $unModele->verserFichier("pochettes", "pochette", "avatar.jpg", $nomCircuit);
-        $requete = "INSERT INTO circuit VALUES(0,?,?,?,?,?,?,?,?,?,?,?)";
-        $unModele = new circuitModel($requete, array($nomCircuit, $dateDepart, $dateRetour, $nbPersonnesMax, $nbPersonnesMin, $description, $prix, $pochete, null, null, $idthematique));
+        $requete = "INSERT INTO circuit VALUES(0,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $unModele = new circuitModel($requete, array($nomCircuit, $dateDepart, $dateRetour, $nbPersonnesMax, $nbPersonnesMin, $description, $prix, $pochete, null, null, $idthematique, null));
         $stmt = $unModele->executer();
         $_SESSION["idCircuit"] = $unModele->lastID;
         $tabRes['action'] = "enregistrer";
@@ -40,35 +45,62 @@ function enregistrerCircuit()
     }
 }
 
-function listerLesCircuit(){
-    echo 'je suis au php';
+function listerLesCircuit()
+{
     global $tabRes;
-    $tabRes['action'] = "lesCircuits";
+    $tabRes['action'] = "listerLesCircuits";
     $requete = "SELECT * FROM circuit";
     try {
-        $unModele = new circuitModel($requete, array());
+        $unModele = new circuitModel($requete, []);
         $stmt = $unModele->executer();
-        $tabRes['lesCircuit'] = array();
+        $tabRes['listecircuit'] = [];
         while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
-                 
-            $tabRes['lesCircuits'][] = $ligne;
+            $tabRes['listecircuit'][] = $ligne;
         }
     } catch (Exception $e) {
         echo $e;
     } finally {
-            unset($unModele);
+        unset($unModele);
     }
 }
 
-function ficheCircuits(){
+function listerCircuitParThematique()
+{
+    global $tabRes;
+    $tabRes['action'] = "lister";
+    $requete = "SELECT * FROM circuit WHERE idThematique=?";
+    try {
+        $unModele = new circuitModel($requete, array($_GET['idThem']));
+        $stmt = $unModele->executer();
+        $tabRes['listeCircuits'] = array();
+        while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $tabRes['listeCircuits'][] = $ligne;
+        }
+    } catch (Exception $e) {
+        echo $e;
+    } finally {
+        unset($unModele);
+    }
+    echo json_encode($tabRes);
+}
+
+function ficheCircuit()
+{
     global $tabRes;
     include '../Thematique/ThematiqueControleur.php';
-    listerThematique();
 
-    $id = 33;
+    $idCircuit;
+    if (isset($_POST['idCircuit'])) {
+        $idCircuit = $_POST['idCircuit'];
+        listerThematique();
+    }
+    if (isset($_GET['idCircuit'])) {
+        $idCircuit = $_GET['idCircuit'];
+    }
+
     $requete = "SELECT * FROM circuit WHERE idCircuit=?";
     try {
-        $unModele = new circuitModel($requete, array($id));
+        $unModele = new circuitModel($requete, array($idCircuit));
         $stmt = $unModele->executer();
         $tabRes['ficheCircuit'] = array();
         if ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
@@ -83,6 +115,9 @@ function ficheCircuits(){
     } finally {
         unset($unModele);
     }
+    echo json_encode($tabRes);
+    
+
 }
 
 function modifierCircuit()
@@ -117,7 +152,7 @@ function modifierCircuit()
             $description, $prix, $imageCircuit, $guide, $idPromo, $idthematique, $idCircuit));
         $stmt = $unModele->executer();
         $tabRes['action'] = "modifier";
-        $tabRes['msg'] = "Film $idCircuit bien modifie";
+        $tabRes['msg'] = "Circuit $idCircuit bien modifie";
     } catch (Exception $e) {
         print_r($e);
     } finally {
@@ -131,19 +166,23 @@ if (isset($_POST['action'])) {
     switch ($action) {
         case "enregistrerCircuit":
             enregistrerCircuit();
+            echo json_encode($tabRes);
             break;
         case "afficherFormCircuit":
             afficherFormCircuit();
+            echo json_encode($tabRes);
             break;
-        case "listerCircuits":
+        case "listerCircuit":
             listerLesCircuit();
-
+            echo json_encode($tabRes);
+            break;
         case "ficheCircuit":
-            ficheCircuits();
+            ficheCircuit();
+
             break;
         case "modifier":
             modifierCircuit();
+            echo json_encode($tabRes);
             break;
     }
 }
-echo json_encode($tabRes);
