@@ -31,7 +31,7 @@ function enregistrerJour() {
           $idCircuit=$_SESSION["idCircuit"];
         $unModele = new circuitModel();
         //$pochete = $unModele->verserFichier("pochettes", "pochette", "avatar.jpg", $nomCircuit);
-        $requete = "INSERT INTO jour VALUES(0,?,?,?,?,?,?,?,?,?)";
+        $requete = "INSERT INTO jour VALUES(?,?,?,?,?,?,?,?,?)";
         $unModele = new circuitModel($requete, array($nomHotel,$urlHotel,$nomRestaurant,$urlRestaurant,$dejeuner,
             $diner,$souper,$descripJour,$idEtape));
         $stmt = $unModele->executer();
