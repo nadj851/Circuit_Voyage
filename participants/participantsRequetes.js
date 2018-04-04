@@ -158,6 +158,9 @@ function detailParticipant() {
             $("input[type=text][id=telPostalParticipant]").val(reponse.detailParticipant.tel);
             $("input[type=text][id=villeParticipant]").val(reponse.detailadresse.ville);
             $("input[type=text][id=codePostalParticipant]").val(reponse.detailadresse.codePostale);
+            
+            $('#labelSexe').text("Sexe : "+reponse.detailParticipant.sexe);
+            $('#labelPays').text("Pays : "+reponse.detailadresse.pays);
             //$("input[type=text][id=paysParticipant]").val(reponse.detailadresse.pays);
             $("input[type=text][id=numeroPasseport]").val(reponse.detailPasseport.numeroPass);
             $("input[type=text][id=dateDelPasseport]").val(reponse.detailPasseport.dateDelivPass);
@@ -170,7 +173,7 @@ function detailParticipant() {
     });
 }
 
-function modifier() {
+function modifierParticipant() {
     var leForm = document.getElementById('formFicheF');
     var formFilm = new FormData(leForm);
     formFilm.append('action', 'modifier');
@@ -190,7 +193,10 @@ function modifier() {
     });
 }
 
-
+function obtenirFicheParticipant(){
+    
+    
+}
 
 //function afficherFormulaireParticipant() {
 //   

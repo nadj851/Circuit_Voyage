@@ -83,7 +83,7 @@ function formulaireR() {
 
     result += "                        <div class=\"container fluid\" style=\"width: 40% ; float: left; margin-left: 60px\" >";
     result += "                            <div class=\"form-group \" >";
-    result += "                                <a href='#'class='category' cid='modifier' onClick=\" modifierParticipant();\" >Modifier   </a>";
+    result += "                                <a href='#'class='category' cid='modifier' onClick=\" obtenirFicheParticipant();\" >Modifier   </a>";
     result += "                                <a href='#'class='category' cid='supprimer' onClick=\" supprimerParticipant();FormulaireR();listerParticipants();infoUser();\">supprimer  </a>";
     result += "                             <a href='#'class='category' cid='detail' onClick=\" detailParticipant();\">details   </a>";
 

@@ -3,7 +3,7 @@ $(document).ready(function() {
     
 
   $("body").on("click", "[id^=date]", function() {
-    $(this).datepicker({ dateFormat: "mm-dd-yy" });
+    $(this).datepicker({ dateFormat: "yy-mm-dd" });
   });
 
   //afficher les circuits

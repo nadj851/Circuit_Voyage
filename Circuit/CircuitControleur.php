@@ -27,8 +27,8 @@ function enregistrerCircuit()
     try {
         $unModele = new circuitModel();
         $pochete = $unModele->verserFichier("pochettes", "pochette", "avatar.jpg", $nomCircuit);
-        $requete = "INSERT INTO circuit VALUES(0,?,?,?,?,?,?,?,?,?,?,?)";
-        $unModele = new circuitModel($requete, array($nomCircuit, $dateDepart, $dateRetour, $nbPersonnesMax, $nbPersonnesMin, $description, $prix, $pochete, null, null, $idthematique));
+        $requete = "INSERT INTO circuit VALUES(0,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $unModele = new circuitModel($requete, array($nomCircuit, $dateDepart, $dateRetour, $nbPersonnesMax, $nbPersonnesMin, $description, $prix, $pochete, null, null, $idthematique,0));
         $stmt = $unModele->executer();
         $_SESSION["idCircuit"] = $unModele->lastID;
         $tabRes['action'] = "enregistrer";
