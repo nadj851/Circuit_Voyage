@@ -2,6 +2,8 @@
 function enregistrerT() {
     var formthematique = new FormData(document.getElementById('formEnregthems'));
     formthematique.append('action', 'enregistrer');
+        
+    
     $.ajax({
         type: 'POST',
         url: 'Thematique/ThematiqueControleur.php',
