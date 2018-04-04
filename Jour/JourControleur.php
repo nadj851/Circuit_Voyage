@@ -14,7 +14,7 @@ function enregistrerJour() {
     $dejeuner = 0;
     $diner = 0;
     $souper = 0;
-    $descripJour = $_POST['descripJour'];
+    $descripJour = $_POST['descJ'];
     $idEtape=$_SESSION["idEtape"];
 
     if (isset($_POST['dejeuner'])) {

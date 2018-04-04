@@ -3,6 +3,9 @@ function AjouterCircuit() {
   $("#sommaire").html("creation des etapes");
   var formCircuit = new FormData(document.getElementById("contenuCircuit"));
   formCircuit.append("action", "enregistrerCircuit");
+  
+  var data = CKEDITOR.instances.descripCircuit.getData();
+        formCircuit.append("desc",data); 
   $.ajax({
     type: "POST",
     url: "Circuit/CircuitControleur.php",

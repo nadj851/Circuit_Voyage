@@ -2,7 +2,8 @@
 function enregistrerT() {
     var formthematique = new FormData(document.getElementById('formEnregthems'));
     formthematique.append('action', 'enregistrer');
-        
+     var data = CKEDITOR.instances.description.getData();
+        formthematique.append("desc",data); 
     
     $.ajax({
         type: 'POST',

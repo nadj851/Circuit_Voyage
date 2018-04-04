@@ -22,7 +22,7 @@ function enregistrerCircuit()
     $dateRetour = $_POST['dateRetourCircuit'];
     $nbPersonnesMax = $_POST['nbPersonneMax'];
     $nbPersonnesMin = $_POST['nbPersonneMin'];
-    $description = $_POST['descripCircuit'];
+    $description = $_POST['desc'];
     $prix = $_POST['prixCircuit'];
     $idthematique = $_POST['themeCircuit'];
     $imageCircuit = $_POST['imageCircuit'];
