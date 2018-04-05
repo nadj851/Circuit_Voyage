@@ -3,6 +3,9 @@ function AjouterCircuit() {
   $("#sommaire").html("creation des etapes");
   var formCircuit = new FormData(document.getElementById("contenuCircuit"));
   formCircuit.append("action", "enregistrerCircuit");
+  
+  var data = CKEDITOR.instances.descripCircuit.getData();
+        formCircuit.append("desc",data); 
   $.ajax({
     type: "POST",
     url: "Circuit/CircuitControleur.php",
@@ -21,7 +24,48 @@ function AjouterCircuit() {
     fail: function(err) {}
   });
 }
+function AfficherCircuits(idThem) {
+    var formCircuit = new FormData(document.getElementById('contenuCircuit'));
+    formCircuit.append('action', 'enregistrerCircuit');
+    $.ajax({
+        type: 'GET',
+        url: 'Circuit/CircuitControleur.php?idThem=' + idThem,
+        dataType: 'json', //text pour le voir en format de string
+        //async : false,
+        //cache : false,
+        contentType: false,
+        processData: false,
+        success: function (reponse) {//alert(reponse.affichageCircuits[0].idCircuit);
+            //Affichage
+            AffichageCircuit(reponse.listeCircuits);
+        },
+        fail: function (err) {
 
+        }
+    });
+}
+
+function AfficherDetailsCircuit(idCircuit) {
+
+    var formCircuit = new FormData(document.getElementById('contenuCircuit'));
+    formCircuit.append('action', 'enregistrerCircuit');
+    $.ajax({
+        type: 'GET',
+        url: 'Circuit/CircuitControleur.php?idCircuit=' + idCircuit,
+        dataType: 'json', //text pour le voir en format de string
+        //async : false,
+        //cache : false,
+        contentType: false,
+        processData: false,
+        success: function (reponse) {//alert(reponse.affichageCircuits[0].idCircuit);
+            //Affichage
+            AffichageDetailsCircuit(reponse.ficheCircuit);
+        },
+        fail: function (err) {
+
+        }
+    });
+}
 function listerCircuit() {
   var formListerCircuit = new FormData();
   formListerCircuit.append("action", "listerCircuit"); //alert(formFilm.get("action"));
@@ -33,7 +77,7 @@ function listerCircuit() {
     processData: false,
     dataType: "json", //text pour le voir en format de string
     success: function(reponse) {
-      //alert(reponse);
+     alert(JSON.stringify(reponse));
       CircuitVue(reponse);
     },
     fail: function(err) {}
@@ -59,10 +103,10 @@ function SupprimerCircuit() {
   });
 }
 
-function obtenirFicheCircuit() {
+function obtenirFicheCircuit(idCircuit) {
   var formCircuit = new FormData();
   formCircuit.append("action", "ficheCircuit");
-
+  formCircuit.append("idCircuit",idCircuit);
   $.ajax({
     type: "POST",
     url: "Circuit/CircuitControleur.php",

@@ -23,6 +23,8 @@ function AjouterEtape() {
     var formEtape = new FormData(document.getElementById('contenuEtape'));
     $('#contenuEtape')[0].reset();
     formEtape.append('action', 'enregistrerEtape');
+    var data = CKEDITOR.instances.descripEtape.getData();
+        formEtape.append("descE",data); 
     $.ajax({
         type: 'POST',
         url: 'Etape/EtapeControleur.php',

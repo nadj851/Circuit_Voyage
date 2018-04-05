@@ -9,7 +9,7 @@ function enregistrerEtape() {
     global $tabRes;
    
     $nomEtape = $_POST['nomEtape'];
-    $descriptionEtape = $_POST['descripEtape'];
+    $descriptionEtape = $_POST['descE'];
     
   
    

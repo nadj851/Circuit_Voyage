@@ -9,7 +9,7 @@ $tabRes = array();
 function enregistrer() {
     global $tabRes;
     $nom = $_POST['nom'];
-    $description = $_POST['description'];
+    $description = $_POST['desc'];
 
     try {
         $unModele = new circuitModel();

@@ -1,26 +1,58 @@
 //requ�tes thematique
 function enregistrerPani(){
-	var formtpanier= new FormData();
-	formtpanier.append('action','enregistrerPani');
-        formtpanier.append('idCircuit',$('#idCircuit').val());
+	var formpanier= new FormData();
+	formpanier.append('action','enregistrerPani');
+        
+        //var idc=$('#idCircuit').val();
+       // alert(idc);
+        //formpanier.append('idCircuit',idc);
         
 	$.ajax({
 		type : 'POST',
 		url : 'Panier/PanierControleur.php',
-		data : formtpanier,
+		data : formpanier,
 		dataType : 'json', //text pour le voir en format de string
 		//async : false,
 		//cache : false,
 		contentType : false,
 		processData : false,
 		success : function (reponse){//alert(reponse);
-					panierVue(reponse);
+                    count_item();
+                    
+		  panierVue(reponse);
 		},
 		fail : function (err){
 		   
 		}
 	});
 }
+
+count_item();
+   
+ function count_item() {
+     
+     var formp= new FormData();
+	formp.append('action','compterP');
+        //formp.append('count_item',1);
+        
+        $.ajax({
+           type : 'POST',
+		url : 'Panier/PanierControleur.php',
+		data : formp,
+		dataType : 'json', //text pour le voir en format de string
+		//async : false,
+		//cache : false,
+		contentType : false,
+		processData : false,
+		success : function (reponse){//alert(reponse);                  
+                    
+		$(".badge").html(reponse.compt);
+		},
+		fail : function (err){
+		   
+		}
+        })
+    }
 
 function listerPanier(){
           $('#sommaire').html("le panier "); 
@@ -42,6 +74,30 @@ function listerPanier(){
 	});
         
         
+}
+
+
+//remove panier 
+function removePanier(rid) {
+    var formpa = new FormData();
+    formpa.append('action', "removeP");//alert(formFilm.get("action"));
+    formpa.append('idp', rid);
+    $.ajax({
+        type: 'POST',
+        url: 'Panier/PanierControleur.php',
+        data: formpa,
+        contentType: false,
+        processData: false,
+        dataType: 'json', //text pour le voir en format de string
+        success: function (reponse) { //alert(reponse);
+            listerPanier();
+            count_item();        
+            panierVue(reponse);
+
+        },
+        fail: function (err) {
+        }
+    });
 }
 
 /*function enlever(){

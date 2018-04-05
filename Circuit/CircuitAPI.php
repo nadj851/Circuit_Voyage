@@ -9,6 +9,7 @@ $tabRes['action'] = "afficherCircuits";
 $param = "";
 
 if (isset($_GET['idCircuit'])) {
+    $_SESSION["idCircuit"]=$_GET['idCircuit'];
     $param = $_GET['idCircuit'];
     $requete=$requete." WHERE idCircuit=?";
 }

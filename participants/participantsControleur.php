@@ -7,41 +7,137 @@ function enregistrer() {
 
     global $tabRes;
 
-    $nomParticipant = $_POST['nomParticipant'];
-    $prenomParticipant = $_POST['prenomParticipant'];
-    $sexeParticipant = $_POST['sexeParticipant'];
-    $courielParticipant = $_POST['courielParticipant'];
-    $memeAdresse = $_POST['memeAdresse'];
-    $paysParticipant = $_POST['paysParticipant'];
-    $villeParticipant = $_POST['villeParticipant'];
-    $codePostalParticipant = $_POST['codePostalParticipant'];
-    $numeroPasseport = $_POST['numeroPasseport'];
-    $dateDelPasseport = $_POST['dateDelPasseport'];
-    $delivrerAExpPasseport = $_POST['delivrerAExpPasseport'];
-    $dateExpPasseport = $_POST['dateExpPasseport'];
-    $nationalite = $_POST['nationalite'];
-    $telephone = $_POST['telPostalParticipant'];
-    try {
-        $requete = "INSERT INTO adresse VALUES(0,?,?,?)";
-        $unModele = new circuitModel($requete, array($villeParticipant, $codePostalParticipant, $paysParticipant));
-        $stmt = $unModele->executer();
-        $idAdresse = $unModele->lastID;
+    $NbAdulte = $_POST['NbAdulte'];
+    $NbEnfant = $_POST['NbEnfant'];
+    $NbBebe = $_POST['NbBebe'];
 
-        $requete = "INSERT INTO passeport VALUES(0,?,?,?,?,?)";
-        $unModele = new circuitModel($requete, array($numeroPasseport,$dateDelPasseport,$dateExpPasseport, $nationalite, $delivrerAExpPasseport));
-        $stmt = $unModele->executer();
-        $idPasseport = $unModele->lastID;
-        
-        $requete = "INSERT INTO participants VALUES(0,?,?,?,?,?,?,?)";
-        $unModele = new circuitModel($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone, $idAdresse, $idPasseport));
-        $stmt = $unModele->executer();
-        
-        $tabRes['action'] = "enregistrer";
-        $tabRes['msg'] = "Participant bien enregistré";
-    } catch (Exception $e) {
-        $tabRes['msg'] = $e;
-    } finally {
-        unset($unModele);
+    if ($NbAdulte > 0) {
+        for ($index = 1; $index <= $NbAdulte; $index++) {
+
+            $nomParticipant = $_POST['nomParticipantAdulte' . $index];
+            $prenomParticipant = $_POST['prenomParticipantAdulte' . $index];
+            $sexeParticipant = $_POST['sexeParticipantAdulte' . $index];
+            $courielParticipant = $_POST['courielParticipantAdulte' . $index];
+            $memeAdresse = $_POST['memeAdresseAdulte' . $index];
+            $paysParticipant = $_POST['paysParticipantAdulte' . $index];
+            $villeParticipant = $_POST['villeParticipantAdulte' . $index];
+            $codePostalParticipant = $_POST['codePostalParticipantAdulte' . $index];
+            $numeroPasseport = $_POST['numeroPasseportAdulte' . $index];
+            $dateDelPasseport = $_POST['dateDelPasseportAdulte' . $index];
+            $delivrerAExpPasseport = $_POST['delivrerAExpPasseportAdulte' . $index];
+            $dateExpPasseport = $_POST['dateExpPasseportAdulte' . $index];
+            $nationalite = $_POST['nationaliteAdulte' . $index];
+            $telephone = $_POST['telPostalParticipantAdulte' . $index];
+
+            try {
+                $requete = "INSERT INTO adresse VALUES(0,?,?,?)";
+                $unModele = new circuitModel($requete, array($villeParticipant, $codePostalParticipant, $paysParticipant));
+                $stmt = $unModele->executer();
+                $idAdresse = $unModele->lastID;
+
+                $requete = "INSERT INTO passeport VALUES(0,?,?,?,?,?)";
+                $unModele = new circuitModel($requete, array($numeroPasseport, $dateDelPasseport, $dateExpPasseport, $nationalite, $delivrerAExpPasseport));
+                $stmt = $unModele->executer();
+                $idPasseport = $unModele->lastID;
+
+                $requete = "INSERT INTO participants VALUES(0,?,?,?,?,?,?,?)";
+                $unModele = new circuitModel($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone, $idAdresse, $idPasseport));
+                $stmt = $unModele->executer();
+
+                $tabRes['action'] = "enregistrer";
+                $tabRes['msg'] = "Participant bien enregistré";
+            } catch (Exception $e) {
+                echo $e;
+            } finally {
+                unset($unModele);
+            }
+        }
+    }
+
+    if ($NbEnfant > 0) {
+        for ($index = 1; $index <= $NbEnfant; $index++) {
+
+            $nomParticipant = $_POST['nomParticipantEnfant' . $index];
+            $prenomParticipant = $_POST['prenomParticipantEnfant' . $index];
+            $sexeParticipant = $_POST['sexeParticipantEnfant' . $index];
+            $courielParticipant = $_POST['courielParticipantEnfant' . $index];
+            $memeAdresse = $_POST['memeAdresseEnfant' . $index];
+            $paysParticipant = $_POST['paysParticipantEnfant' . $index];
+            $villeParticipant = $_POST['villeParticipantEnfant' . $index];
+            $codePostalParticipant = $_POST['codePostalParticipantEnfant' . $index];
+            $numeroPasseport = $_POST['numeroPasseportEnfant' . $index];
+            $dateDelPasseport = $_POST['dateDelPasseportEnfant' . $index];
+            $delivrerAExpPasseport = $_POST['delivrerAExpPasseportEnfant' . $index];
+            $dateExpPasseport = $_POST['dateExpPasseportEnfant' . $index];
+            $nationalite = $_POST['nationaliteEnfant' . $index];
+            $telephone = $_POST['telPostalParticipantEnfant' . $index];
+
+            try {
+                $requete = "INSERT INTO adresse VALUES(0,?,?,?)";
+                $unModele = new circuitModel($requete, array($villeParticipant, $codePostalParticipant, $paysParticipant));
+                $stmt = $unModele->executer();
+                $idAdresse = $unModele->lastID;
+
+                $requete = "INSERT INTO passeport VALUES(0,?,?,?,?,?)";
+                $unModele = new circuitModel($requete, array($numeroPasseport, $dateDelPasseport, $dateExpPasseport, $nationalite, $delivrerAExpPasseport));
+                $stmt = $unModele->executer();
+                $idPasseport = $unModele->lastID;
+
+                $requete = "INSERT INTO participants VALUES(0,?,?,?,?,?,?,?)";
+                $unModele = new circuitModel($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone, $idAdresse, $idPasseport));
+                $stmt = $unModele->executer();
+
+                $tabRes['action'] = "enregistrer";
+                $tabRes['msg'] = "Participant bien enregistré";
+            } catch (Exception $e) {
+                echo $e;
+            } finally {
+                unset($unModele);
+            }
+        }
+    }
+
+    if ($NbBebe > 0) {
+        for ($index = 1; $index <= $NbBebe; $index++) {
+
+            $nomParticipant = $_POST['nomParticipantBebe' . $index];
+            $prenomParticipant = $_POST['prenomParticipantBebe' . $index];
+            $sexeParticipant = $_POST['sexeParticipantBebe' . $index];
+            $courielParticipant = $_POST['courielParticipantBebe' . $index];
+            $memeAdresse = $_POST['memeAdresseBebe' . $index];
+            $paysParticipant = $_POST['paysParticipantBebe' . $index];
+            $villeParticipant = $_POST['villeParticipantBebe' . $index];
+            $codePostalParticipant = $_POST['codePostalParticipantBebe' . $index];
+            $numeroPasseport = $_POST['numeroPasseportBebe' . $index];
+            $dateDelPasseport = $_POST['dateDelPasseportBebe' . $index];
+            $delivrerAExpPasseport = $_POST['delivrerAExpPasseportBebe' . $index];
+            $dateExpPasseport = $_POST['dateExpPasseportBebe' . $index];
+            $nationalite = $_POST['nationaliteBebe' . $index];
+            $telephone = $_POST['telPostalParticipantBebe' . $index];
+
+            try {
+                $requete = "INSERT INTO adresse VALUES(0,?,?,?)";
+                $unModele = new circuitModel($requete, array($villeParticipant, $codePostalParticipant, $paysParticipant));
+                $stmt = $unModele->executer();
+                $idAdresse = $unModele->lastID;
+
+                $requete = "INSERT INTO passeport VALUES(0,?,?,?,?,?)";
+                $unModele = new circuitModel($requete, array($numeroPasseport, $dateDelPasseport, $dateExpPasseport, $nationalite, $delivrerAExpPasseport));
+                $stmt = $unModele->executer();
+                $idPasseport = $unModele->lastID;
+
+                $requete = "INSERT INTO participants VALUES(0,?,?,?,?,?,?,?)";
+                $unModele = new circuitModel($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone, $idAdresse, $idPasseport));
+                $stmt = $unModele->executer();
+
+                $tabRes['action'] = "enregistrer";
+                $tabRes['msg'] = "Participant bien enregistré";
+            } catch (Exception $e) {
+                echo $e;
+            } finally {
+                unset($unModele);
+            }
+        }
     }
 }
 
@@ -86,7 +182,9 @@ function listerParticipant() {
 
 function afficher() {
     global $tabRes;
-
+//    $adulte = $_POST["NombreAdulte"];
+//    $enfant = $_POST["NombreEnfant"];
+//    $bebe = $_POST["NombreBebe"];
     try {
 
         $tabRes['action'] = "afficherFormulaire";
@@ -95,7 +193,7 @@ function afficher() {
 
         $rep .= "                <div class=\"container-fluid\" >";
         $rep .= "                    <form id=\"contenuParticpants\"class=\"form-group row\" >";
-        
+
         $rep .= "                          <div class=\"container\" style=\"width: 40% ; float: left; margin-left: 20px\" >";
         $rep .= "				<div class=\"form-group row\">";
         $rep .= "                                  <label for=\"nomParticipant\" class=\"col-sm-2 col-form-label\">Nom</label>";
@@ -103,7 +201,7 @@ function afficher() {
         $rep .= "                                    <input type=\"text\" class=\"form-control\" id=\"nomParticipant\" name=\"nomParticipant\" placeholder=\"Entrer nom du participant\" required>";
         $rep .= "                                </div>";
         $rep .= "                            </div>";
-        
+
         $rep .= "                            <div class=\"form-group row\">";
         $rep .= "                                <label for=\"prenomParticipant\" class=\"col-sm-2 col-form-label\">Prénom</label>";
         $rep .= "                                    <div class=\"col-sm-10\">";
@@ -122,7 +220,7 @@ function afficher() {
         $rep .= "                                    </select>    ";
         $rep .= "                                </div>";
         $rep .= "                            </div>";
-        
+
         $rep .= "                            <div class=\"form-group row\">";
         $rep .= "                                <label for=\"courielParticipant\" class=\"col-sm-2 col-form-label\">Couriel</label>";
         $rep .= "                                <div class=\"col-sm-10\">";
@@ -137,14 +235,14 @@ function afficher() {
         $rep .= "                                    <input class=\"form-check-input\" type=\"radio\" name=\"memeAdresse\" id=\"oui\" value=\"option1\" checked>";
         $rep .= "                                    <label class=\"form-check-label\" for=\"exampleRadios1\">Oui</label>";
         $rep .= "                                   </div>";
-        
+
         $rep .= "                                   <div class=\"form-check\">";
         $rep .= "                                    <input class=\"form-check-input\" type=\"radio\" name=\"memeAdresse\" id=\"non\" value=\"option2\" >";
         $rep .= "                                    <label class=\"form-check-label\" for=\"exampleRadios1\">Non</label>";
         $rep .= "                                </div>";
         $rep .= "                                </div>";
         $rep .= "                            </div>";
-        
+
         $rep .= "                            <div class=\"form-group row\">";
         $rep .= "                                <label for=\"paysParticipant\" class=\"col-sm-2 col-form-label\">Pays</label>";
         $rep .= "                                <div class=\"col-sm-10\">";
@@ -232,17 +330,17 @@ function afficher() {
         $rep .= "<input type=\"text\" class=\"form-control\" id=\"codePostalParticipant\" name=\"codePostalParticipant\" placeholder=\"Entrer code postal du participant\">";
         $rep .= "                                </div>";
         $rep .= "                      </div>";
-        
+
         $rep .= "           <div class=\"form-group row\">";
         $rep .= "               <label for=\"telPostalParticipant\" class=\"col-sm-2 col-form-label\">Téléphone</label>";
         $rep .= "               <div class=\"col-sm-10\">";
         $rep .= "                   <input type=\"text\" class=\"form-control\" id=\"telPostalParticipant\" name=\"telPostalParticipant\" placeholder=\"Entrer téléphone du participant\">";
         $rep .= "               </div>";
         $rep .= "           </div>";
-       
+
         $rep .= "            </div>   ";
-        
-        
+
+
         $rep .= "                        <div class=\"container\" style=\"width: 40% ; float: left; margin-left: 60px\" >";
         $rep .= "                      <label for=\"nomParticipant\" class=\"col-sm-2 col-form-label\" style=\" width: 100%; float: left\">Informations sur le passeport</label>";
         $rep .= "                <br><br>";
@@ -295,8 +393,15 @@ function afficher() {
 
 function enleverParticipant() {
     global $tabRes;
-    
+
+
     $idParticpant = $_POST['listParticipant'];
+
+//    $idParticpant = split(':', $listParticipan)[0];
+//    $text = split(':', $listParticipan)[1];
+
+
+
     try {
         $requete = "SELECT * FROM participants WHERE idparticipants=?";
         $unModele = new circuitModel($requete, array($idParticpant));
@@ -316,11 +421,9 @@ function enleverParticipant() {
         echo $e;
     } finally {
         unset($unModele);
-        
     }
 }
 
-//methode fiche
 function fiche() {
     global $tabRes;
     $idf = $_POST['numF'];
@@ -343,28 +446,141 @@ function fiche() {
     }
 }
 
-function modifier() {
+//methode fiche
+function detail() {
     global $tabRes;
-    $titre = $_POST['titreF'];
-    $duree = $_POST['dureeF'];
-    $res = $_POST['resF'];
-    $idf = $_POST['idf'];
+    $idParticipant = $_POST['listParticipant'];
+    $tabRes['action'] = "detail";
+    $requete = "SELECT * FROM participants WHERE idparticipants=?";
     try {
-        //Recuperer ancienne pochette
-        $requette = "SELECT pochette FROM participants WHERE idf=?";
-        $unModele = new circuitModel($requette, array($idf));
+        $unModele = new circuitModel($requete, array($idParticipant));
         $stmt = $unModele->executer();
-        $ligne = $stmt->fetch(PDO::FETCH_OBJ);
-        $anciennePochette = $ligne->pochette;
-        $pochette = $unModele->verserFichier("pochettes", "pochette", $anciennePochette, $titre);
-
-        $requete = "UPDATE participants SET titre=?,duree=?, res=?, pochette=? WHERE idf=?";
-        $unModele = new circuitModel($requete, array($titre, $duree, $res, $pochette, $idf));
-        $stmt = $unModele->executer();
-        $tabRes['action'] = "modifier";
-        $tabRes['msg'] = "Film $idf bien modifie";
+        $tabRes['detailParticipant'] = array();
+        if ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $tabRes['detailParticipant'] = $ligne;
+            $idAdresse = $ligne->idAdresse;
+            $idPasseport = $ligne->idPasspor;
+            $tabRes['OK'] = true;
+        } else {
+            $tabRes['OK'] = false;
+        }
     } catch (Exception $e) {
-        
+        echo $e;
+    } finally {
+
+        unset($unModele);
+    }
+    $requete = "SELECT * FROM passeport WHERE idPasspor=?";
+    try {
+        $unModele = new circuitModel($requete, array($idPasseport));
+        $stmt = $unModele->executer();
+        $tabRes['detailPasseport'] = array();
+        if ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $tabRes['detailPasseport'] = $ligne;
+            $tabRes['OK'] = true;
+        } else {
+            $tabRes['OK'] = false;
+        }
+    } catch (Exception $e) {
+        echo $e;
+    } finally {
+
+        unset($unModele);
+    }
+
+    $requete = "SELECT * FROM adresse WHERE idAdresse=?";
+    try {
+        $unModele = new circuitModel($requete, array($idAdresse));
+        $stmt = $unModele->executer();
+        $tabRes['detailadresse'] = array();
+        if ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $tabRes['detailadresse'] = $ligne;
+            $tabRes['OK'] = true;
+        } else {
+            $tabRes['OK'] = false;
+        }
+    } catch (Exception $e) {
+        echo $e;
+    } finally {
+
+        unset($unModele);
+    }
+}
+
+function modifierParticipant() {
+    global $tabRes;
+    $nomParticipant = $_POST['nomParticipant'];
+    $prenomParticipant = $_POST['prenomParticipant'];
+    $sexeParticipant = $_POST['sexeParticipant'];
+    $courielParticipant = $_POST['courielParticipant'];
+    $memeAdresse = $_POST['memeAdresse' ];
+    $paysParticipant = $_POST['paysParticipant' ];
+    $villeParticipant = $_POST['villeParticipant' ];
+    $codePostalParticipant = $_POST['codePostalParticipant' ];
+    $numeroPasseport = $_POST['numeroPasseport' ];
+    $dateDelPasseport = $_POST['dateDelPasseport' ];
+    $delivrerAExpPasseport = $_POST['delivrerAExpPasseport' ];
+    $dateExpPasseport = $_POST['dateExpPasseport' ];
+    $nationalite = $_POST['nationalite' ];
+    $telephone = $_POST['telPostalParticipant'];
+
+    try {
+        $requete = "INSERT INTO adresse VALUES(0,?,?,?)";
+        $unModele = new circuitModel($requete, array($villeParticipant, $codePostalParticipant, $paysParticipant));
+        $stmt = $unModele->executer();
+        $idAdresse = $unModele->lastID;
+
+        $requete = "INSERT INTO passeport VALUES(0,?,?,?,?,?)";
+        $unModele = new circuitModel($requete, array($numeroPasseport, $dateDelPasseport, $dateExpPasseport, $nationalite, $delivrerAExpPasseport));
+        $stmt = $unModele->executer();
+        $idPasseport = $unModele->lastID;
+
+        $requete = "INSERT INTO participants VALUES(0,?,?,?,?,?,?,?)";
+        $unModele = new circuitModel($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone, $idAdresse, $idPasseport));
+        $stmt = $unModele->executer();
+
+        $tabRes['action'] = "enregistrer";
+        $tabRes['msg'] = "Participant bien enregistré";
+    } catch (Exception $e) {
+        echo $e;
+    } finally {
+        unset($unModele);
+    }
+}
+
+function afficherFormulaireTous() {
+    global $tabRes;
+
+    $adulte = $_POST["NombreAdulte"];
+    $enfant = $_POST["NombreEnfant"];
+    $bebe = $_POST["NombreBebe"];
+
+    $tabRes['action'] = "afficherParticipant";
+    $tabRes['adulte'] = $adulte;
+    $tabRes['enfant'] = $enfant;
+    $tabRes['bebe'] = $bebe;
+}
+
+function ajoutPart() {
+    try {
+        $requete = "INSERT INTO adresse VALUES(0,?,?,?)";
+        $unModele = new circuitModel($requete, array($villeParticipant, $codePostalParticipant, $paysParticipant));
+        $stmt = $unModele->executer();
+        $idAdresse = $unModele->lastID;
+
+        $requete = "INSERT INTO passeport VALUES(0,?,?,?,?,?)";
+        $unModele = new circuitModel($requete, array($numeroPasseport, $dateDelPasseport, $dateExpPasseport, $nationalite, $delivrerAExpPasseport));
+        $stmt = $unModele->executer();
+        $idPasseport = $unModele->lastID;
+
+        $requete = "INSERT INTO participants VALUES(0,?,?,?,?,?,?,?)";
+        $unModele = new circuitModel($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone, $idAdresse, $idPasseport));
+        $stmt = $unModele->executer();
+
+        $tabRes['action'] = "enregistrer";
+        $tabRes['msg'] = "Participant bien enregistré";
+    } catch (Exception $e) {
+        echo $e;
     } finally {
         unset($unModele);
     }
@@ -375,7 +591,6 @@ function modifier() {
 $action = $_POST['action'];
 switch ($action) {
     case "enregistrer" :
-
         enregistrer();
         break;
     case "lister" :
@@ -387,11 +602,17 @@ switch ($action) {
     case "fiche" :
         fiche();
         break;
+    case "detail" :
+        detail();
+        break;
     case "afficherFormulaires" :
         afficher();
         break;
-    case "modifier" :
-        modifier();
+    case "modifierParticipant" :
+        modifierParticipant();
+        break;
+    case "afficherFormulaireTous" :
+        afficherFormulaireTous();
         break;
 }
 echo json_encode($tabRes);

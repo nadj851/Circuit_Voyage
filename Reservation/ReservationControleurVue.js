@@ -26,84 +26,45 @@ function formulaireR() {
 
 
     //*******************************************************************
-  
+
 
     result += " <div class=\"container\" style=\" float: left; \">";
     result += "<hr class='ligne_horizontal'></hr>";
     result += "<h4 class='titre'>Ajouter participants</h4>";
 
-    result += "  <div class=\"container fluid\" style=\"width: 40% ; float: left; \" >";
+    result += "     <div class=\"container\">";
+    result += "       <div class=\"container fluid\" style=\"width: 60% ; float: left; \" >";
 
-    result += "                            <div class=\"form-group row\">";
-    result += "                                <label for=\"NombreAdulte\" class=\"col-sm-2 col-form-label\">Nombre d'adulte</label>";
-    result += "                                <div class=\"col-sm-10\" >";
-    result += "                                    <select class=\"form-control\" id=\"NombreAdulte\" name=\"NombreAdulte\" required>";
-    result += "                                        <option></option>";
-    for (var i = 0; i < 11; i++) {
+    result += ajoutCategorie("NombreAdulte", "Adulte [+ 12 ans]", result);
+    result += ajoutCategorie("NombreEnfant", "Enfant [2- 11 ans]", result);
+    result += ajoutCategorie("NombreBebe", "Bébé [0- 2 ans]", result);
 
-        result += "   <option value='" + i + "'>" + i + "<\/option>";
+    result += "         <div class=\"form-group row\" >";
+    result += "             <div class=\"col-sm-10 contenupass\">";
+    result += "                 <a href='#'class='btn btn-primary' cid='ajouter' onclick='afficherFormulaire();'>Ajouter participants </a>";
 
-    }
+    result += "             </div>";
+    result += "         </div>";
 
-    result += "                                    </select>    ";
-    result += "                                </div>";
-    result += "                            </div>";
-    result += "   <div class='container' id='adulte' style='width:100%;display: none;float:left'> ";
-    result += afficherDivParticipant(result);
-    result += " </div>";
-    result += "                            <div class=\"form-group row\">";
-    result += "                                <label for=\"NombreEnfantBTO\" class=\"col-sm-2 col-form-label\">Nombre d'enfant de 3 à 11 ans </label>";
-    result += "                                <div class=\"col-sm-10\" >";
-    result += "                                    <select class=\"form-control\" id=\"NombreEnfantBTO\" name=\"NombreEnfantBTO\" required>";
-    result += "                                        <option></option>";
-    for (var i = 0; i < 11; i++) {
-
-        result += "   <option value='" + i + "'>" + i + "<\/option>";
-
-    }
-    result += "                                    </select>    ";
-    result += "                                </div>";
-    result += "                            </div>";
-
-    result += "                            <div class=\"form-group row\">";
-    result += "                                <label for=\"NombreEnfantMT\" class=\"col-sm-2 col-form-label\">Nombre d'enfant de moins de 3 ans </label>";
-    result += "                                <div class=\"col-sm-10\" >";
-    result += "                                    <select class=\"form-control\" id=\"NombreEnfantMT\" name=\"NombreEnfantMT\" required>";
-    result += "                                        <option></option>";
-    for (var i = 0; i < 11; i++) {
-
-        result += "   <option value='" + i + "'>" + i + "<\/option>";
-
-    }
-    result += "                                    </select>    ";
-    result += "                                </div>";
-    result += "                            </div>";
-
-
-    result += "                <div class=\"form-group row\" >";
-    result += "       <div class=\"col-sm-10 contenupass\">";
-    result += "                                <a href='#'class='btn btn-primary' cid='ajouter' onclick='afficherFormulaire();'>Ajouter participants </a>";
-
-    result += "                                </div>";
-    result += "                      </div>";
-
-    result += "                      </div>";
+    result += "       </div>";
 
 
     result += "                        <div class=\"container fluid\" style=\"width: 40% ; float: left; margin-left: 60px\" >";
     result += "                            <div class=\"form-group \" >";
     result += "                                <label for=\"texttotalCircuit\">Prix total du circuit:</label>";
-    result += " <label for=\"totalCircuit\" style='color:red;font-size:25px;margin:5px' id='labtotal' >45 000 $</label>";
-    result += "                                </div>";
+    result += "                                 <label for=\"totalCircuit\" style='color:red;font-size:25px;margin:5px' id='labtotal' >45000</label>";
+    result += "                            </div>";
 
-    result += "                                </div>";
+    result += "                        </div>";
 
-    result += "            </div>";
+    result += "     </div>";
 
     //*************************************************
-    
+
+
     result += " <div class=\"container\" style=\" float: left; \">";
-result += "<hr class='ligne_horizontal'></hr>";
+    result += "<hr class='ligne_horizontal'></hr>";
+
     result += "<h4>Informations sur les participants</h4>";
 
     result += "  <div id='vuePart' class=\"container fluid\" style=\"width: 40% ; float: left; \" >";
@@ -127,7 +88,7 @@ result += "<hr class='ligne_horizontal'></hr>";
 
     result += "                        <div class=\"container fluid\" style=\"width: 40% ; float: left; margin-left: 60px\" >";
     result += "                            <div class=\"form-group \" >";
-    result += "                                <a href='#'class='category' cid='modifier' onClick=\" modifierParticipant();\" >Modifier   </a>";
+    result += "                                <a href='#'class='category' cid='modifier' onClick=\" obtenirFicheParticipant();\" >Modifier   </a>";
     result += "                                <a href='#'class='category' cid='supprimer' onClick=\" supprimerParticipant();FormulaireR();listerParticipants();infoUser();\">supprimer  </a>";
     result += "                             <a href='#'class='category' cid='detail' onClick=\" detailParticipant();\">details   </a>";
 
@@ -136,12 +97,15 @@ result += "<hr class='ligne_horizontal'></hr>";
     result += "                                </div>";
 
     result += "            </div>";
-
+    result += "<input type='hidden' name='item_name_1' value='dqd'>";
+    result += "<input type='hidden' name='item_number_1' value='1'>";
+    result += "<input type='hidden' name='amount_1' id='amount' value='50'>";
+    result += "<input type='hidden' name='quantity_1' value='1'>";
     result += "<input type='hidden' name='return' value='http://localhost/project1/payment_success.php'/>";
     result += "<input type='hidden' name='notify_url' value='http://localhost/project1/payment_success.php'>";
     result += "<input type='hidden' name='cancel_return' value='http://localhost/project1/cancel.php'/>";
     result += "<input type='hidden' name='currency_code' value='USD'/>";
-    result += "<input type='hidden' name='custom' value='Monarela@hotmail.fr'/>";
+    result += "<input type='hidden' name='custom' value='Monarela'/>";
     result += "<input style='float:right;margin-right:80px;' type='image' name='submit'";
     result += "src='https://www.paypalobjects.com/webstatic/en_US/i/btn/png/blue-rect-paypalcheckout-60px.png' alt='PayPal '";
     result += "alt='PayPal - The safer, easier way to pay online'>";
@@ -206,7 +170,7 @@ function listerP(listeParticpants) {
     rep += "                                    <select class=\"form-control\" id=\"listParticipant\" name=\"listParticipant\" required>";
 
     for (var i = 0; i < taille; i++) {
-        rep += "<option value='" + listeParticpants[i].idparticipants + "'>" + listeParticpants[i].nom + "</option>";
+        rep += "<option value='" + listeParticpants[i].idparticipants + ":" + listeParticpants[i].nom + "'>" + listeParticpants[i].nom + "</option>";
     }
 
     rep += "                                    </select>    ";
@@ -255,7 +219,7 @@ var reservationVue = function (reponse) {
         case "formulaire" :
             formulaireR();
             break;
-           
+
 
     }
 }
@@ -440,3 +404,27 @@ function afficherDivParticipant(result) {
     result += "                      </div>";
     return result;
 }
+
+function ajoutCategorie(nom, label, result) {
+    result = "";
+    result += "                            <div class=\"form-group row\">";
+    result += "                                <label for=" + nom + " class=\"col-sm-2 col-form-label\">" + label + "</label>";
+    result += "                                <div class=\"col-sm-10\" >";
+    result += "                                    <select class=\"form-control\" id=" + nom + " name=" + nom + " required>";
+    result += "                                        <option></option>";
+    for (var i = 0; i < 11; i++) {
+
+        result += "   <option value='" + i + "'>" + i + "<\/option>";
+
+    }
+
+    result += "                                    </select>    ";
+    result += "                                </div>";
+    result += "                            </div>";
+
+    return result;
+
+}
+// result += "   <div class='container' id='adulte' style='width:100%;display: none;float:left'> ";
+//    result += afficherDivParticipant(result);
+//    result += " </div>";

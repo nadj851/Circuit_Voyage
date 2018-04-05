@@ -24,7 +24,7 @@ function AffichageCircuit(affichageCircuits) {
     $('#sommaire').html("Tous les circuits");
 
 
-    taille = affichageCircuits.length;
+    taille = affichageCircuits.length; 
     var result = "";
     for (var i = 0; i < taille; i++) {
         result += "<div class='col-md-6'>";
@@ -32,8 +32,11 @@ function AffichageCircuit(affichageCircuits) {
         result += "<div class='panel-heading'>" + "<span style='font-weight: bold;font-size: 15px;'>" + affichageCircuits[i].titre + "</span></div>";
         result += "<div class='panel-body'>";
         result += "<a name='afficherDetailsCircuit'  id='" + affichageCircuits[i].idCircuit + "' >	<img src='pochettes/" + affichageCircuits[i].imageCircuit + "' style='width:400px; height:400px;'></a>";
-        result += "<div> Description: " + affichageCircuits[i].description + " <br></div>";
-        result += "<div> Prix: " + affichageCircuits[i].prix + " <br></div>";
+          result += "</div>";
+        result += "<div class='panel-heading'>" + "<span style='font-weight: bold;font-size: 15px;'> Description:</span>" +"<span style='font-size: 15px;'>"+ affichageCircuits[i].description+ "</span>";
+                result += "<div class='panel-heading'>" + "<span style='font-weight: bold;font-size: 15px;'> Prix: </span>" +"<span style='font-size: 15px;'>" + affichageCircuits[i].prix+ " $</span>";
+                 result += "</div>";
+       
         result += "</div>";
         result += "</div>";
         result += "</div>";
@@ -80,10 +83,18 @@ function AffichageDetailsCircuit(affichageCircuits) {
         strVar += "        <div>";
         strVar += "            <h2 align=\"center\">" + affichageCircuits[i].titre + "<\/h2>";
         strVar += "            <br \/>";
-        strVar += "<a>	<img src='pochettes/" + affichageCircuits[i].imageCircuit + "' style='width:600px; height:600px;'></a>";
+         strVar += "<div class='container'>";
+         strVar += "<div class='row'>";
+         
+          strVar += "<div class='col-md-6'>";
+        strVar += "<a>	<img src='pochettes/" + affichageCircuits[i].imageCircuit + "' style='width:450px; height:500px;'></a>";
+        
         strVar += "";
         strVar += "";
-        strVar += "            <table class=\"table table-condensed\" style=\"width: 700px; float:right; height: 400px; \">";
+        strVar += "                    <\/div>";
+        
+        strVar += "<div class='col-md-4'>";
+        strVar += "            <table class=\"table table-condensed\" style=\"width: 450px; float:right; height: 500px; \">";
         strVar += "                <thead>";
         strVar += "                    <tr style=\" height: 30px\">";
         strVar += "                        <th style=\"background-color: #426CB4; color: white\">" + affichageCircuits[i].titre + "<\/th>";
@@ -115,37 +126,43 @@ function AffichageDetailsCircuit(affichageCircuits) {
         strVar += "";
         strVar += "";
         strVar += "";
-        strVar += "            <div >";
+        strVar += "                    <\/div>";
+        strVar += "                    <\/div>";
+         strVar += "                    <\/div>";
+     
         strVar += "            <br \/>";
+         strVar += "<div class='container'>";
+         strVar += "<div class='row'>";
+         strVar += "<div class='col-md-10'>";                                         
         strVar += "                <div class=\"card text-center\" style=\"background-color: white; color: white;\">";
         strVar += "                    <div class=\"card-header\" style=\"background-color: #426CB4;color: white\">";
         strVar += "                        <ul class=\"nav nav-tabs card-header-tabs\">";
         strVar += "                            <li class=\"nav-item\" >";
-        strVar += "                                <a class=\"nav-link active\" href=\"#\" style=\"color: black\" onclick=\"$('#suite').show();$('#hotel').hide();\">Itinéraire<\/a>";
+        strVar += "                                <a class=\"nav-link active\" href=\"#\" style=\"color: white\" onclick=\"$('#suite').show();$('#hotel').hide();\">Itinéraire<\/a>";
         strVar += "                            <\/li>";
         strVar += "                            <li class=\"nav-item\">";
-        strVar += "                                <a class=\"nav-link\" href=\"#\" style=\"color: black\" onclick=\"$('#suite').hide();$('#hotel').show();\">Hotels<\/a>";
+        strVar += "                                <a class=\"nav-link\" href=\"#\" style=\"color: white\" onclick=\"$('#suite').hide();$('#hotel').show();\">Hotels<\/a>";
         strVar += "                            <\/li>";
         strVar += "                            <li class=\"nav-item\">";
-        strVar += "                                <a class=\"nav-link disabled\" href=\"#\" style=\"color: black\" onclick='FormulaireR(); listerParticipants();infoUser();RamenerCircuit(" + affichageCircuits[i].idCircuit + ");'>Réservations<\/a>";
+        strVar += "                                <a class=\"nav-link disabled\" href=\"#\" style=\"color: white\" onclick='FormulaireR(); listerParticipants();infoUser();RamenerCircuit(" + affichageCircuits[i].idCircuit + ");'>Réservations<\/a>";
         strVar += "                            <\/li>";
         strVar += "                            <li class=\"nav-item\">";
-        strVar += "                                <a class=\"nav-link disabled btn btn-danger\" href=\"#\" style=\"color: black\" onclick='enregistrerPani();'>Ajouter au Panier<\/a>";
+        strVar += "                                <a class=\"nav-link btn btn-danger\" href=\"#\"  onclick='enregistrerPani();'>Ajouter au Panier<\/a>";
         strVar += "                            <\/li>";
 
         strVar += "                        <\/ul>";
         strVar += "                    <\/div>";
-        strVar += "                    <div class=\"card-body\" id=\"suite\" style=\"background-color: cornflowerblue; color: black; \">";
+        strVar += "                    <div class=\"card-body\" id=\"suite\" style=\"background-color: cornflowerblue; color: white; \">";
         strVar += "                        <div class=\"card-header\">";
         strVar += "                            <ul class=\"nav nav-tabs card-header-tabs\">";
         strVar += "                                <li class=\"nav-item\" >";
-        strVar += "                                    <a class=\"nav-link active\" href=\"#\" style=\"color: black\" >étape 1<\/a>";
+        strVar += "                                    <a class=\"nav-link active\" href=\"#\" style=\"color: white\" >étape 1<\/a>";
         strVar += "                                <\/li>";
         strVar += "                                <li class=\"nav-item\">";
-        strVar += "                                    <a class=\"nav-link\" href=\"#\" style=\"color: black\">étape 2<\/a>";
+        strVar += "                                    <a class=\"nav-link\" href=\"#\" style=\"color: white\">étape 2<\/a>";
         strVar += "                                <\/li>";
         strVar += "                                <li class=\"nav-item\">";
-        strVar += "                                    <a class=\"nav-link disabled\" href=\"#\" style=\"color: black\">étape 3<\/a>";
+        strVar += "                                    <a class=\"nav-link disabled\" href=\"#\" style=\"color: white\">étape 3<\/a>";
         strVar += "                                <\/li>";
         strVar += "                            <\/ul>";
         strVar += "                        <\/div>";
@@ -161,6 +178,9 @@ function AffichageDetailsCircuit(affichageCircuits) {
         strVar += "";
         strVar += "                <\/div>";
         strVar += "            <\/div>";
+        strVar += "                    <\/div>";
+        strVar += "                    <\/div>";
+        strVar += "                    <\/div>";
         strVar += " ";
         strVar += "";
 
