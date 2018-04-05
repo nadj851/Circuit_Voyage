@@ -93,8 +93,11 @@ function afficherFormParticipant(reponse) {
 function afficherDetailPart(reponse) {
     var rep = "";
     rep += "                <div class=\"container-fluid\" >";
+     rep += "                    <form id=\"contenuParticipant\"class=\"form-group row\" >";
     rep = formParticipant(rep, "");
-    rep += "                    </div>";
+    rep += "<input id='modifierPart' type=\"button\" class=\"btn\" value=\"Modifier participants\" onClick=\" modifierParticipant(); formulaireR();listerParticipants();infoUser();\" style=\"float: right; display:none;\">";
+    rep += "                    </div>";//fin div form
+    rep += "                    </div>";//fin div container
     $('#sommaire').text("detail participant "+reponse.detailParticipant.nom);
     
     $('#get_result').html(rep);

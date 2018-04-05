@@ -10,7 +10,7 @@ function enregistrer() {
     $NbAdulte = $_POST['NbAdulte'];
     $NbEnfant = $_POST['NbEnfant'];
     $NbBebe = $_POST['NbBebe'];
-    
+
     if ($NbAdulte > 0) {
         for ($index = 1; $index <= $NbAdulte; $index++) {
 
@@ -35,7 +35,7 @@ function enregistrer() {
                 $stmt = $unModele->executer();
                 $idAdresse = $unModele->lastID;
 
-                $requete = "INSERT INTO passeport VALUES(0,?,?,?,?,?,?)";
+                $requete = "INSERT INTO passeport VALUES(0,?,?,?,?,?)";
                 $unModele = new circuitModel($requete, array($numeroPasseport, $dateDelPasseport, $dateExpPasseport, $nationalite, $delivrerAExpPasseport));
                 $stmt = $unModele->executer();
                 $idPasseport = $unModele->lastID;
@@ -487,7 +487,7 @@ function detail() {
 
         unset($unModele);
     }
-    
+
     $requete = "SELECT * FROM adresse WHERE idAdresse=?";
     try {
         $unModele = new circuitModel($requete, array($idAdresse));
@@ -507,28 +507,42 @@ function detail() {
     }
 }
 
-function modifier() {
+function modifierParticipant() {
     global $tabRes;
-    $titre = $_POST['titreF'];
-    $duree = $_POST['dureeF'];
-    $res = $_POST['resF'];
-    $idf = $_POST['idf'];
-    try {
-        //Recuperer ancienne pochette
-        $requette = "SELECT pochette FROM participants WHERE idf=?";
-        $unModele = new circuitModel($requette, array($idf));
-        $stmt = $unModele->executer();
-        $ligne = $stmt->fetch(PDO::FETCH_OBJ);
-        $anciennePochette = $ligne->pochette;
-        $pochette = $unModele->verserFichier("pochettes", "pochette", $anciennePochette, $titre);
+    $nomParticipant = $_POST['nomParticipant'];
+    $prenomParticipant = $_POST['prenomParticipant'];
+    $sexeParticipant = $_POST['sexeParticipant'];
+    $courielParticipant = $_POST['courielParticipant'];
+    $memeAdresse = $_POST['memeAdresse' ];
+    $paysParticipant = $_POST['paysParticipant' ];
+    $villeParticipant = $_POST['villeParticipant' ];
+    $codePostalParticipant = $_POST['codePostalParticipant' ];
+    $numeroPasseport = $_POST['numeroPasseport' ];
+    $dateDelPasseport = $_POST['dateDelPasseport' ];
+    $delivrerAExpPasseport = $_POST['delivrerAExpPasseport' ];
+    $dateExpPasseport = $_POST['dateExpPasseport' ];
+    $nationalite = $_POST['nationalite' ];
+    $telephone = $_POST['telPostalParticipant'];
 
-        $requete = "UPDATE participants SET titre=?,duree=?, res=?, pochette=? WHERE idf=?";
-        $unModele = new circuitModel($requete, array($titre, $duree, $res, $pochette, $idf));
+    try {
+        $requete = "INSERT INTO adresse VALUES(0,?,?,?)";
+        $unModele = new circuitModel($requete, array($villeParticipant, $codePostalParticipant, $paysParticipant));
         $stmt = $unModele->executer();
-        $tabRes['action'] = "modifier";
-        $tabRes['msg'] = "Film $idf bien modifie";
+        $idAdresse = $unModele->lastID;
+
+        $requete = "INSERT INTO passeport VALUES(0,?,?,?,?,?)";
+        $unModele = new circuitModel($requete, array($numeroPasseport, $dateDelPasseport, $dateExpPasseport, $nationalite, $delivrerAExpPasseport));
+        $stmt = $unModele->executer();
+        $idPasseport = $unModele->lastID;
+
+        $requete = "INSERT INTO participants VALUES(0,?,?,?,?,?,?,?)";
+        $unModele = new circuitModel($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone, $idAdresse, $idPasseport));
+        $stmt = $unModele->executer();
+
+        $tabRes['action'] = "enregistrer";
+        $tabRes['msg'] = "Participant bien enregistré";
     } catch (Exception $e) {
-        
+        echo $e;
     } finally {
         unset($unModele);
     }
@@ -577,7 +591,6 @@ function ajoutPart() {
 $action = $_POST['action'];
 switch ($action) {
     case "enregistrer" :
-
         enregistrer();
         break;
     case "lister" :
@@ -595,8 +608,8 @@ switch ($action) {
     case "afficherFormulaires" :
         afficher();
         break;
-    case "modifier" :
-        modifier();
+    case "modifierParticipant" :
+        modifierParticipant();
         break;
     case "afficherFormulaireTous" :
         afficherFormulaireTous();

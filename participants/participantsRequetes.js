@@ -26,7 +26,7 @@ function enregistrer() {
         contentType: false,
         processData: false,
         success: function (reponse) {//alert(reponse);
-            filmsVue(reponse);
+          filmsVue(reponse);
         },
         fail: function (err) {
 
@@ -174,9 +174,31 @@ function detailParticipant() {
 }
 
 function modifierParticipant() {
-    var leForm = document.getElementById('formFicheF');
+    alert('modierParticipant');
+    var formParticpants = new FormData(document.getElementById('contenuParticipant'));
+    var formFilm = new FormData(formParticpants);
+    formFilm.append('action', 'modifierParticipant');
+    $.ajax({
+        type: 'POST',
+        url: 'participants/participantsControleur.php',
+        data: formFilm,
+        contentType: false,
+        processData: false,
+        dataType: 'text',
+        success: function (reponse) {alert(reponse);
+            
+            //filmsVue(reponse);
+        },
+        fail: function (err) {
+        }
+    });
+}
+
+function obtenirFicheParticipant(){
+    $('#divFiche').hide();
+    var leForm = document.getElementById('formreservation');
     var formFilm = new FormData(leForm);
-    formFilm.append('action', 'modifier');
+    formFilm.append('action', 'detail');
     $.ajax({
         type: 'POST',
         url: 'participants/participantsControleur.php',
@@ -185,37 +207,31 @@ function modifierParticipant() {
         processData: false,
         dataType: 'json',
         success: function (reponse) {//alert(reponse);
-            $('#divFormFiche').hide();
+            
             filmsVue(reponse);
+            $('#modifierPart').show();
+            //$('select').hide();
+            $("input[type=text][id=nomParticipant]").val(reponse.detailParticipant.nom);
+            $("input[type=text][id=prenomParticipant]").val(reponse.detailParticipant.prenom);
+            $("input[type=text][id=courielParticipant]").val(reponse.detailParticipant.courriel);
+            $("input[type=text][id=telPostalParticipant]").val(reponse.detailParticipant.tel);
+            $("input[type=text][id=villeParticipant]").val(reponse.detailadresse.ville);
+            $("input[type=text][id=codePostalParticipant]").val(reponse.detailadresse.codePostale);
+            
+//            $('#labelSexe').text("Sexe : "+reponse.detailParticipant.sexe);
+//            $('#labelPays').text("Pays : "+reponse.detailadresse.pays);
+            //$("input[type=text][id=paysParticipant]").val(reponse.detailadresse.pays);
+            $("input[type=text][id=numeroPasseport]").val(reponse.detailPasseport.numeroPass);
+            $("input[type=text][id=dateDelPasseport]").val(reponse.detailPasseport.dateDelivPass);
+            $("input[type=text][id=dateExpPasseport]").val(reponse.detailPasseport.dateExpiration);
+            $("input[type=text][id=nationalite]").val(reponse.detailPasseport.nationalites);
+            $("input[type=text][id=delivrerAExpPasseport]").val(reponse.detailPasseport.lieuDeliv);
         },
         fail: function (err) {
         }
     });
+    
+        
 }
 
-function obtenirFicheParticipant(){
-    
-    
-}
 
-//function afficherFormulaireParticipant() {
-//   
-//    var leForm = document.getElementById('formreservation');
-//    var formFilm = new FormData(leForm);
-//    formFilm.append('action', 'afficherFormulaireTous');//alert(formFilm.get("action"));
-//    $.ajax({
-//        type: 'POST',
-//        url: 'participants/participantsControleur.php',
-//        data: formFilm, //leForm.serialize(),
-//        contentType: false, //Enlever ces deux directives si vous utilisez serialize()
-//        processData: false,
-//        dataType: 'json', //text pour le voir en format de string
-//        success: function (reponse) {
-//            //alert(reponse);
-//            filmsVue(reponse);
-//
-//        },
-//        fail: function (err) {
-//        }
-//    });
-//}
