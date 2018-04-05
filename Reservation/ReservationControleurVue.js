@@ -26,11 +26,11 @@ function formulaireR() {
 
 
     //*******************************************************************
+  
+
+    result += " <div class=\"container\" style=\" float: left; \">";
     result += "<hr class='ligne_horizontal'></hr>";
     result += "<h4 class='titre'>Ajouter participants</h4>";
-
-    result += " <div class=\"container\">";
-
 
     result += "  <div class=\"container fluid\" style=\"width: 40% ; float: left; \" >";
 
@@ -101,10 +101,10 @@ function formulaireR() {
     result += "            </div>";
 
     //*************************************************
-    result += "<hr class='ligne_horizontal'></hr>";
+    
+    result += " <div class=\"container\" style=\" float: left; \">";
+result += "<hr class='ligne_horizontal'></hr>";
     result += "<h4>Informations sur les participants</h4>";
-    result += " <div class=\"container\">";
-
 
     result += "  <div id='vuePart' class=\"container fluid\" style=\"width: 40% ; float: left; \" >";
 
