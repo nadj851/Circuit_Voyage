@@ -148,7 +148,7 @@ function formParticipant(rep, plus) {
     rep += "                            </div>";
 
     rep += "                            <div class=\"form-group row\">";
-    rep += "                                <label for=\"sexeParticipant\" class=\"col-sm-2 col-form-label\">Sexe</label>";
+    rep += "                                <label for=\"sexeParticipant\" id='labelSexe' class=\"col-sm-2 col-form-label\">Sexe</label>";
     rep += "                                <div class=\"col-sm-10\" >";
     rep += "                                    <select class=\"form-control\" id=\"sexeParticipant" + plus + "\" name=\"sexeParticipant" + plus + "\" required>";
     rep += "                                        <option></option>";
@@ -182,7 +182,7 @@ function formParticipant(rep, plus) {
     rep += "                            </div>";
 
     rep += "                            <div class=\"form-group row\">";
-    rep += "                                <label for=\"paysParticipant" + plus + "\" class=\"col-sm-2 col-form-label\">Pays</label>";
+    rep += "                                <label for=\"paysParticipant" + plus + "\" id='labelPays' class=\"col-sm-2 col-form-label\">Pays</label>";
     rep += "                                <div class=\"col-sm-10\">";
     rep += "                                    <select class=\"form-control\"  id=\"paysParticipant" + plus + "\" name=\"paysParticipant" + plus + "\" required>";
     rep += "                                        <option value=\"\">Pays...</option>";

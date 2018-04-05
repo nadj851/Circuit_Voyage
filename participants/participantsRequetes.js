@@ -13,7 +13,7 @@ function message(reponse) {
 
 }
 function enregistrer() {
-alert('j ai appuyer sur ajouter participant');
+
     var formFilm = new FormData(document.getElementById('contenuParticpants'));
     formFilm.append('action', 'enregistrer');
     $.ajax({
@@ -25,8 +25,8 @@ alert('j ai appuyer sur ajouter participant');
         //cache : false,
         contentType: false,
         processData: false,
-        success: function (reponse) {alert(reponse);
-            //filmsVue(reponse);
+        success: function (reponse) {//alert(reponse);
+            filmsVue(reponse);
         },
         fail: function (err) {
 
@@ -45,13 +45,13 @@ function ajouterParticipant() {
         type: 'POST',
         url: 'participants/participantsControleur.php',
         data: formParticpants,
-        dataType: 'text', //text pour le voir en format de string
+        dataType: 'json', //text pour le voir en format de string
         //async : false,
         //cache : false,
         contentType: false,
         processData: false,
-        success: function (reponse) {alert(reponse);
-            //filmsVue(reponse);
+        success: function (reponse) {//alert(reponse);
+            filmsVue(reponse);
         },
         fail: function (err) {
 
@@ -158,6 +158,9 @@ function detailParticipant() {
             $("input[type=text][id=telPostalParticipant]").val(reponse.detailParticipant.tel);
             $("input[type=text][id=villeParticipant]").val(reponse.detailadresse.ville);
             $("input[type=text][id=codePostalParticipant]").val(reponse.detailadresse.codePostale);
+            
+            $('#labelSexe').text("Sexe : "+reponse.detailParticipant.sexe);
+            $('#labelPays').text("Pays : "+reponse.detailadresse.pays);
             //$("input[type=text][id=paysParticipant]").val(reponse.detailadresse.pays);
             $("input[type=text][id=numeroPasseport]").val(reponse.detailPasseport.numeroPass);
             $("input[type=text][id=dateDelPasseport]").val(reponse.detailPasseport.dateDelivPass);
@@ -170,7 +173,7 @@ function detailParticipant() {
     });
 }
 
-function modifier() {
+function modifierParticipant() {
     var leForm = document.getElementById('formFicheF');
     var formFilm = new FormData(leForm);
     formFilm.append('action', 'modifier');
@@ -190,7 +193,10 @@ function modifier() {
     });
 }
 
-
+function obtenirFicheParticipant(){
+    
+    
+}
 
 //function afficherFormulaireParticipant() {
 //   

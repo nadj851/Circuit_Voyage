@@ -10,7 +10,7 @@ function enregistrer() {
     $NbAdulte = $_POST['NbAdulte'];
     $NbEnfant = $_POST['NbEnfant'];
     $NbBebe = $_POST['NbBebe'];
-    echo 'nb Adulte = ' . $NbAdulte;
+    
     if ($NbAdulte > 0) {
         for ($index = 1; $index <= $NbAdulte; $index++) {
 
@@ -35,7 +35,7 @@ function enregistrer() {
                 $stmt = $unModele->executer();
                 $idAdresse = $unModele->lastID;
 
-                $requete = "INSERT INTO passeport VALUES(0,?,?,?,?,?)";
+                $requete = "INSERT INTO passeport VALUES(0,?,?,?,?,?,?)";
                 $unModele = new circuitModel($requete, array($numeroPasseport, $dateDelPasseport, $dateExpPasseport, $nationalite, $delivrerAExpPasseport));
                 $stmt = $unModele->executer();
                 $idPasseport = $unModele->lastID;
