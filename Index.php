@@ -53,6 +53,8 @@ include_once 'includes/init.php';
         <link rel='stylesheet' href='Untitled_fichiers/aos.css'>
 
         <script src='Circuit/CircuitAPIJQuery.js' type='text/javascript'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js'></script>
+        
 
 <script src="https://cdn.ckeditor.com/4.9.1/standard/ckeditor.js"></script>
     </head>

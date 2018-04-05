@@ -52,6 +52,8 @@ function register(){
           var formEtape = new FormData(document.getElementById('contenuJour'));
     $('#contenuJour')[0].reset();
     formEtape.append('action', 'enregistrerJour');
+    var data = CKEDITOR.instances.descripJour.getData();
+        formEtape.append("descJ",data); 
     $.ajax({
         type: 'POST',
         url: 'Jour/JourControleur.php',
