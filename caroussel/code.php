@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 //index.php
 $connect = mysqli_connect("localhost", "root", "", "munarela");
 function make_query($connect)

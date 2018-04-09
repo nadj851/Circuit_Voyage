@@ -511,6 +511,7 @@ function detail() {
 
 function modifierParticipant() {
     global $tabRes;
+    
     $idParticipant = $_POST['idParticipant'];
     $idAdresse = $_POST['idAdresse'];
     $idPasseport = $_POST['idPasseport'];
@@ -539,7 +540,7 @@ function modifierParticipant() {
 //                $imageCircuit = $unModele->verserFichier("pochettes", "imageCircuit", $anciennePochette, $nomCircuit);
 
         $requete = "UPDATE participants SET nom=?,prenom=?, courriel=?, sexe=?,"
-                . " tel=?, sexe=? WHERE idparticipants=?";
+                . " tel=? WHERE idparticipants=?";
         $unModele = new circuitModel($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone,
             $idParticipant));
         $stmt = $unModele->executer();

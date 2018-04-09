@@ -23,12 +23,12 @@ function ajouterJour() {
     
     
     if(nbEtape>=maxEtape && nbJour>=maxjour){
-        
+       
         register();
        // $('#messages').html("Circuit ajouté");
        // listerTT();
         //alert("id circuit = "+$('#idCircuit').val());
-        AfficherDetailsCircuit($('#idCircuit').val());
+         AfficherDetailsCircuit($('#idCircuit').val());
         nbJour=0;
         nbEtape=0;
         
@@ -43,6 +43,7 @@ function ajouterJour() {
         
         return;
     }
+    
 register();
    
 }

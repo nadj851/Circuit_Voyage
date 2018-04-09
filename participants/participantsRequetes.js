@@ -175,20 +175,20 @@ function detailParticipant() {
 
 function modifierParticipant() {
   
-    var formParticpants = new FormData(document.getElementById('contenuModifierParticipant'));
-    var formFilm = new FormData(formParticpants);
-    formFilm.append('action', 'modifierParticipant');
+    var formParticpant = new FormData(document.getElementById('contenuModifierParticipant'));
+    
+    formParticpant.append('action', 'modifierParticipant');
     
     $.ajax({
         type: 'POST',
         url: 'participants/participantsControleur.php',
-        data: formFilm,
+        data: formParticpant,
         contentType: false,
         processData: false,
-        dataType: 'text',
-        success: function (reponse) {alert(reponse);
+        dataType: 'json',
+        success: function (reponse) {//alert(reponse);
             
-            //filmsVue(reponse);
+            filmsVue(reponse);
         },
         fail: function (err) {
         }

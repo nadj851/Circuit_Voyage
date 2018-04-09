@@ -142,29 +142,29 @@ var filmsVue = function (reponse) {
     }
 }
 
-function formParticipant(rep, plus) {
+function formParticipant(rep, numeroParticipant) {
 
 
 
     rep += "                          <div class=\"container\" style=\"width: 40% ; float: left; margin-left: 20px\" >";
     rep += "				<div class=\"form-group row\">";
-    rep += "                                  <label for=\"nomParticipant" + plus + "\" class=\"col-sm-2 col-form-label\">Nom </label>";
+    rep += "                                  <label for=\"nomParticipant" + numeroParticipant + "\" class=\"col-sm-2 col-form-label\">Nom </label>";
     rep += "                                    <div class=\"col-sm-10\">";
-    rep += "                                    <input type=\"text\" class=\"form-control\" id=\"nomParticipant" + plus + "\" name=\"nomParticipant" + plus + "\" placeholder=\"Entrer nom du participant\" required>";
+    rep += "                                    <input type=\"text\" class=\"form-control\" id=\"nomParticipant" + numeroParticipant + "\" name=\"nomParticipant" + numeroParticipant + "\" placeholder=\"Entrer nom du participant\" required>";
     rep += "                                </div>";
     rep += "                            </div>";
 
     rep += "                            <div class=\"form-group row\">";
-    rep += "                                <label for=\"prenomParticipant" + plus + "\" class=\"col-sm-2 col-form-label\">Prénom</label>";
+    rep += "                                <label for=\"prenomParticipant" + numeroParticipant + "\" class=\"col-sm-2 col-form-label\">Prénom</label>";
     rep += "                                    <div class=\"col-sm-10\">";
-    rep += "                                    <input type=\"text\" class=\"form-control\" id=\"prenomParticipant" + plus + "\" name=\"prenomParticipant" + plus + "\" placeholder=\"Entrer prénom    du participant\" required>";
+    rep += "                                    <input type=\"text\" class=\"form-control\" id=\"prenomParticipant" + numeroParticipant + "\" name=\"prenomParticipant" + numeroParticipant + "\" placeholder=\"Entrer prénom    du participant\" required>";
     rep += "                                    </div>";
     rep += "                            </div>";
 
     rep += "                            <div class=\"form-group row\">";
     rep += "                                <label for=\"sexeParticipant\" id='labelSexe' class=\"col-sm-2 col-form-label\">Sexe</label>";
     rep += "                                <div class=\"col-sm-10\" >";
-    rep += "                                    <select class=\"form-control\" id=\"sexeParticipant" + plus + "\" name=\"sexeParticipant" + plus + "\" required>";
+    rep += "                                    <select class=\"form-control\" id=\"sexeParticipant" + numeroParticipant + "\" name=\"sexeParticipant" + numeroParticipant + "\" required>";
     rep += "                                        <option></option>";
     rep += "                                        <option>Femme</option>";
     rep += "                                        <option>Homme</option>";
@@ -174,31 +174,31 @@ function formParticipant(rep, plus) {
     rep += "                            </div>";
 
     rep += "                            <div class=\"form-group row\">";
-    rep += "                                <label for=\"courielParticipant" + plus + "\" class=\"col-sm-2 col-form-label\">Couriel</label>";
+    rep += "                                <label for=\"courielParticipant" + numeroParticipant + "\" class=\"col-sm-2 col-form-label\">Couriel</label>";
     rep += "                                <div class=\"col-sm-10\">";
-    rep += "                                    <input type=\"text\" class=\"form-control\" id=\"courielParticipant" + plus + "\" name=\"courielParticipant" + plus + "\" placeholder=\"Entrer courriel du participant\" required>";
+    rep += "                                    <input type=\"text\" class=\"form-control\" id=\"courielParticipant" + numeroParticipant + "\" name=\"courielParticipant" + numeroParticipant + "\" placeholder=\"Entrer courriel du participant\" required>";
     rep += "                                </div>";
     rep += "                            </div>";
 
     rep += "                            <div class=\"form-group row\">";
-    rep += "                                <label for=\"memeAdresse" + plus + "\" class=\"col-sm-2 col-form-label\">Même adresse</label>";
+    rep += "                                <label for=\"memeAdresse" + numeroParticipant + "\" class=\"col-sm-2 col-form-label\">Même adresse</label>";
     rep += "                                <div class=\"col-sm-10\">";
     rep += "                                <div class=\"form-check\">";
-    rep += "                                    <input class=\"form-check-input\" type=\"radio\" name=\"memeAdresse" + plus + "\" id=\"oui\" value=\"option1\" >";
+    rep += "                                    <input class=\"form-check-input\" type=\"radio\" name=\"memeAdresse" + numeroParticipant + "\" id=\"oui\" value=\"option1\" >";
     rep += "                                    <label class=\"form-check-label\" for=\"exampleRadios1\">Oui</label>";
     rep += "                                   </div>";
 
     rep += "                                   <div class=\"form-check\">";
-    rep += "                                    <input class=\"form-check-input\" type=\"radio\" name=\"memeAdresse" + plus + "\" id=\"non\" value=\"option2\" checked>";
+    rep += "                                    <input class=\"form-check-input\" type=\"radio\" name=\"memeAdresse" + numeroParticipant + "\" id=\"non\" value=\"option2\" checked>";
     rep += "                                    <label class=\"form-check-label\" for=\"exampleRadios1\">Non</label>";
     rep += "                                </div>";
     rep += "                                </div>";
     rep += "                            </div>";
 
     rep += "                            <div class=\"form-group row\">";
-    rep += "                                <label for=\"paysParticipant" + plus + "\" id='labelPays' class=\"col-sm-2 col-form-label\">Pays</label>";
+    rep += "                                <label for=\"paysParticipant" + numeroParticipant + "\" id='labelPays' class=\"col-sm-2 col-form-label\">Pays</label>";
     rep += "                                <div class=\"col-sm-10\">";
-    rep += "                                    <select class=\"form-control\"  id=\"paysParticipant" + plus + "\" name=\"paysParticipant" + plus + "\" required>";
+    rep += "                                    <select class=\"form-control\"  id=\"paysParticipant" + numeroParticipant + "\" name=\"paysParticipant" + numeroParticipant + "\" required>";
     rep += "                                        <option value=\"\">Pays...</option>";
     rep += "                                        <option value=\"AF\">Afghanistan</option>";
     rep += "                                  <option value=\"AL\">Albania</option>";
@@ -271,22 +271,22 @@ function formParticipant(rep, plus) {
     rep += "                          </div>";
     rep += "                </div>";
     rep += "          <div class=\"form-group row\">";
-    rep += "        <label for=\"villeParticipant" + plus + "\" class=\"col-sm-2 col-form-label\">Ville</label>";
+    rep += "        <label for=\"villeParticipant" + numeroParticipant + "\" class=\"col-sm-2 col-form-label\">Ville</label>";
     rep += "  <div class=\"col-sm-10\">";
-    rep += "                                    <input type=\"text\" class=\"form-control\" id=\"villeParticipant" + plus + "\" name=\"villeParticipant" + plus + "\" placeholder=\"Entrer ville du participant\">";
+    rep += "                                    <input type=\"text\" class=\"form-control\" id=\"villeParticipant" + numeroParticipant + "\" name=\"villeParticipant" + numeroParticipant + "\" placeholder=\"Entrer ville du participant\">";
     rep += "                          </div>";
     rep += "                </div>";
     rep += "          <div class=\"form-group row\">";
-    rep += "        <label for=\"codePostalParticipant" + plus + "\" class=\"col-sm-2 col-form-label\">Code Postal</label>";
+    rep += "        <label for=\"codePostalParticipant" + numeroParticipant + "\" class=\"col-sm-2 col-form-label\">Code Postal</label>";
     rep += "  <div class=\"col-sm-10\">";
-    rep += "<input type=\"text\" class=\"form-control\" id=\"codePostalParticipant" + plus + "\" name=\"codePostalParticipant" + plus + "\" placeholder=\"Entrer code postal du participant\">";
+    rep += "<input type=\"text\" class=\"form-control\" id=\"codePostalParticipant" + numeroParticipant + "\" name=\"codePostalParticipant" + numeroParticipant + "\" placeholder=\"Entrer code postal du participant\">";
     rep += "                                </div>";
     rep += "                      </div>";
 
     rep += "           <div class=\"form-group row\">";
-    rep += "               <label for=\"telPostalParticipant" + plus + "\" class=\"col-sm-2 col-form-label\">Téléphone</label>";
+    rep += "               <label for=\"telPostalParticipant" + numeroParticipant + "\" class=\"col-sm-2 col-form-label\">Téléphone</label>";
     rep += "               <div class=\"col-sm-10\">";
-    rep += "                   <input type=\"text\" class=\"form-control\" id=\"telPostalParticipant" + plus + "\" name=\"telPostalParticipant" + plus + "\" placeholder=\"Entrer téléphone du participant\">";
+    rep += "                   <input type=\"text\" class=\"form-control\" id=\"telPostalParticipant" + numeroParticipant + "\" name=\"telPostalParticipant" + numeroParticipant + "\" placeholder=\"Entrer téléphone du participant\">";
     rep += "               </div>";
     rep += "           </div>";
 
@@ -294,36 +294,36 @@ function formParticipant(rep, plus) {
 
 
     rep += "                        <div class=\"container\" style=\"width: 40% ; float: left; margin-left: 60px\" >";
-    rep += "                      <label for=\"nomParticipant" + plus + "\" class=\"col-sm-2 col-form-label\" style=\" width: 100%; float: left\">Informations sur le passeport</label>";
+    rep += "                      <label for=\"nomParticipant" + numeroParticipant + "\" class=\"col-sm-2 col-form-label\" style=\" width: 100%; float: left\">Informations sur le passeport</label>";
     rep += "                <br><br>";
     rep += "          <div class=\"form-group row\" >";
-    rep += "        <label for=\"numeroPasseport" + plus + "\" class=\"col-sm-2 col-form-label titrepass\" >Numéro</label>";
+    rep += "        <label for=\"numeroPasseport" + numeroParticipant + "\" class=\"col-sm-2 col-form-label titrepass\" >Numéro</label>";
     rep += "  <div class=\"col-sm-10 contenupass\" >";
-    rep += "<input type=\"text\" class=\"form-control \" id=\"numeroPasseport" + plus + "\" name=\"numeroPasseport" + plus + "\" placeholder=\"Entrer Numéro du passeport\" required>";
+    rep += "<input type=\"text\" class=\"form-control \" id=\"numeroPasseport" + numeroParticipant + "\" name=\"numeroPasseport" + numeroParticipant + "\" placeholder=\"Entrer Numéro du passeport\" required>";
     rep += "                                </div>";
     rep += "                      </div>";
     rep += "                <div class=\"form-group row\" >";
-    rep += "              <label for=\"dateDelPasseport" + plus + "\" class=\"col-sm-2 col-form-label titrepass\" >Date délivrance</label>";
+    rep += "              <label for=\"dateDelPasseport" + numeroParticipant + "\" class=\"col-sm-2 col-form-label titrepass\" >Date délivrance</label>";
     rep += "        <div class=\"col-sm-10 contenupass\" >";
-    rep += "      <input type=\"text\" class=\"form-control\" id=\"dateDelPasseport" + plus + "\" name=\"dateDelPasseport" + plus + "\" placeholder=\"Entrer Date de délivrance du passeport\" required>";
+    rep += "      <input type=\"text\" class=\"form-control\" id=\"dateDelPasseport" + numeroParticipant + "\" name=\"dateDelPasseport" + numeroParticipant + "\" placeholder=\"Entrer Date de délivrance du passeport\" required>";
     rep += "                                </div>";
     rep += "                      </div>";
     rep += "                <div class=\"form-group row\" >";
-    rep += "              <label for=\"dateExpPasseport" + plus + "\" class=\"col-sm-2 col-form-label titrepass\">Date expiration</label>";
+    rep += "              <label for=\"dateExpPasseport" + numeroParticipant + "\" class=\"col-sm-2 col-form-label titrepass\">Date expiration</label>";
     rep += "        <div class=\"col-sm-10 contenupass\">";
-    rep += "      <input type=\"text\" class=\"form-control\" id=\"dateExpPasseport" + plus + "\" name=\"dateExpPasseport" + plus + "\" placeholder=\"Entrer date dèxpération du passeport\" required>";
+    rep += "      <input type=\"text\" class=\"form-control\" id=\"dateExpPasseport" + numeroParticipant + "\" name=\"dateExpPasseport" + numeroParticipant + "\" placeholder=\"Entrer date dèxpération du passeport\" required>";
     rep += "                                </div>";
     rep += "                      </div>";
     rep += "                <div class=\"form-group row\" >";
-    rep += "              <label for=\"delivrerAExpPasseport" + plus + "\" class=\"col-sm-2 col-form-label titrepass\">Délivré à</label>";
+    rep += "              <label for=\"delivrerAExpPasseport" + numeroParticipant + "\" class=\"col-sm-2 col-form-label titrepass\">Délivré à</label>";
     rep += "        <div class=\"col-sm-10 contenupass\">";
-    rep += "      <input type=\"text\" class=\"form-control\" id=\"delivrerAExpPasseport" + plus + "\" name=\"delivrerAExpPasseport" + plus + "\" placeholder=\"Entrer Numéro du passeport\" required>";
+    rep += "      <input type=\"text\" class=\"form-control\" id=\"delivrerAExpPasseport" + numeroParticipant + "\" name=\"delivrerAExpPasseport" + numeroParticipant + "\" placeholder=\"Entrer Numéro du passeport\" required>";
     rep += "                                </div>";
     rep += "                      </div>";
     rep += "                <div class=\"form-group row\" >";
-    rep += "             <label for=\"nationalite" + plus + "\" class=\"col-sm-2 col-form-label titrepass\">Nationalité</label>";
+    rep += "             <label for=\"nationalite" + numeroParticipant + "\" class=\"col-sm-2 col-form-label titrepass\">Nationalité</label>";
     rep += "       <div class=\"col-sm-10 contenupass\">";
-    rep += "     <input type=\"text\" class=\"form-control\" id=\"nationalite" + plus + "\" name=\"nationalite" + plus + "\" placeholder=\"Entrer la nationalité\" required>";
+    rep += "     <input type=\"text\" class=\"form-control\" id=\"nationalite" + numeroParticipant + "\" name=\"nationalite" + numeroParticipant + "\" placeholder=\"Entrer la nationalité\" required>";
     rep += "                                </div>";
     rep += "                      </div>";
     rep += "            </div>";
