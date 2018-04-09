@@ -103,7 +103,8 @@ function FormulaireR() {
     var reponse = {"action": "formulaire"};
     reservationVue(reponse);
 
-    var textLab = parseInt($("#labtotal").text());
+    var textLab = parseInt(prixReservation);
+    
     var total = 0;
     $('#NombreAdulte').on('change', function () {
         var selectVal = parseInt($("#NombreAdulte option:selected").val());
@@ -111,10 +112,12 @@ function FormulaireR() {
             total += selectVal * textLab;
             $("#labtotal").text(total);
              $("#amount").val(total);
+             prixReservation+=total;
             
         } else {
             $("#labtotal").text(textLab);
              $("#amount").val(textLab);
+             prixReservation+=total;
         }
 
     });
@@ -149,8 +152,6 @@ function FormulaireR() {
                $("#amount").val(textLab);
             
         }
-
-
 
     });
 
