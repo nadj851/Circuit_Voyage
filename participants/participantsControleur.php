@@ -29,6 +29,8 @@ function enregistrer() {
             $nationalite = $_POST['nationaliteAdulte' . $index];
             $telephone = $_POST['telPostalParticipantAdulte' . $index];
 
+
+
             try {
                 $requete = "INSERT INTO adresse VALUES(0,?,?,?)";
                 $unModele = new circuitModel($requete, array($villeParticipant, $codePostalParticipant, $paysParticipant));
@@ -509,40 +511,53 @@ function detail() {
 
 function modifierParticipant() {
     global $tabRes;
+    $idParticipant = $_POST['idParticipant'];
+    $idAdresse = $_POST['idAdresse'];
+    $idPasseport = $_POST['idPasseport'];
     $nomParticipant = $_POST['nomParticipant'];
     $prenomParticipant = $_POST['prenomParticipant'];
     $sexeParticipant = $_POST['sexeParticipant'];
     $courielParticipant = $_POST['courielParticipant'];
-    $memeAdresse = $_POST['memeAdresse' ];
-    $paysParticipant = $_POST['paysParticipant' ];
-    $villeParticipant = $_POST['villeParticipant' ];
-    $codePostalParticipant = $_POST['codePostalParticipant' ];
-    $numeroPasseport = $_POST['numeroPasseport' ];
-    $dateDelPasseport = $_POST['dateDelPasseport' ];
-    $delivrerAExpPasseport = $_POST['delivrerAExpPasseport' ];
-    $dateExpPasseport = $_POST['dateExpPasseport' ];
-    $nationalite = $_POST['nationalite' ];
+    $memeAdresse = $_POST['memeAdresse'];
+    $paysParticipant = $_POST['paysParticipant'];
+    $villeParticipant = $_POST['villeParticipant'];
+    $codePostalParticipant = $_POST['codePostalParticipant'];
+    $numeroPasseport = $_POST['numeroPasseport'];
+    $dateDelPasseport = $_POST['dateDelPasseport'];
+    $delivrerAExpPasseport = $_POST['delivrerAExpPasseport'];
+    $dateExpPasseport = $_POST['dateExpPasseport'];
+    $nationalite = $_POST['nationalite'];
     $telephone = $_POST['telPostalParticipant'];
 
     try {
-        $requete = "INSERT INTO adresse VALUES(0,?,?,?)";
-        $unModele = new circuitModel($requete, array($villeParticipant, $codePostalParticipant, $paysParticipant));
-        $stmt = $unModele->executer();
-        $idAdresse = $unModele->lastID;
+        //Recuperer ancienne pochette
+//                $requette = "SELECT imageCircuit FROM circuit WHERE idCircuit=?";
+//                $unModele = new circuitModel($requette, array($idCircuit));
+//                $stmt = $unModele->executer();
+//                $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+//                $anciennePochette = $ligne->imageCircuit;
+//                $imageCircuit = $unModele->verserFichier("pochettes", "imageCircuit", $anciennePochette, $nomCircuit);
 
-        $requete = "INSERT INTO passeport VALUES(0,?,?,?,?,?)";
-        $unModele = new circuitModel($requete, array($numeroPasseport, $dateDelPasseport, $dateExpPasseport, $nationalite, $delivrerAExpPasseport));
-        $stmt = $unModele->executer();
-        $idPasseport = $unModele->lastID;
-
-        $requete = "INSERT INTO participants VALUES(0,?,?,?,?,?,?,?)";
-        $unModele = new circuitModel($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone, $idAdresse, $idPasseport));
+        $requete = "UPDATE participants SET nom=?,prenom=?, courriel=?, sexe=?,"
+                . " tel=?, sexe=? WHERE idparticipants=?";
+        $unModele = new circuitModel($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone,
+            $idParticipant));
         $stmt = $unModele->executer();
 
-        $tabRes['action'] = "enregistrer";
-        $tabRes['msg'] = "Participant bien enregistré";
+        $requete = "UPDATE adresse SET ville=?,codePostale=?, pays=? WHERE idAdresse=?";
+        $unModele = new circuitModel($requete, array($villeParticipant, $codePostalParticipant, $paysParticipant, $idAdresse));
+        $stmt = $unModele->executer();
+
+        $requete = "UPDATE passeport SET numeroPass=?,dateDelivPass=?, dateExpiration=?, nationalites=?,"
+                . " lieuDeliv=? WHERE idPasspor=?";
+        $unModele = new circuitModel($requete, array($numeroPasseport, $dateDelPasseport, $dateExpPasseport, $nationalite, $delivrerAExpPasseport,
+            $idPasseport));
+        $stmt = $unModele->executer();
+
+        $tabRes['action'] = "modifier";
+        $tabRes['msg'] = "participant $nomParticipant bien modifie";
     } catch (Exception $e) {
-        echo $e;
+        print_r($e);
     } finally {
         unset($unModele);
     }
@@ -609,6 +624,7 @@ switch ($action) {
         afficher();
         break;
     case "modifierParticipant" :
+
         modifierParticipant();
         break;
     case "afficherFormulaireTous" :

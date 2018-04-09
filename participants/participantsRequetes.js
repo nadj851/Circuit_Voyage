@@ -150,7 +150,7 @@ function detailParticipant() {
         processData: false,
         dataType: 'json',
         success: function (reponse) {//alert(reponse);
-            filmsVue(reponse);
+          filmsVue(reponse);
             $('select').hide();
             $("input[type=text][id=nomParticipant]").val(reponse.detailParticipant.nom);
             $("input[type=text][id=prenomParticipant]").val(reponse.detailParticipant.prenom);
@@ -174,10 +174,11 @@ function detailParticipant() {
 }
 
 function modifierParticipant() {
-    alert('modierParticipant');
-    var formParticpants = new FormData(document.getElementById('contenuParticipant'));
+  
+    var formParticpants = new FormData(document.getElementById('contenuModifierParticipant'));
     var formFilm = new FormData(formParticpants);
     formFilm.append('action', 'modifierParticipant');
+    
     $.ajax({
         type: 'POST',
         url: 'participants/participantsControleur.php',

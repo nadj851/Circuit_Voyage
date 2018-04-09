@@ -98,11 +98,15 @@ function afficherFormParticipant(reponse) {
 }
 
 function afficherDetailPart(reponse) {
+    
     var rep = "";
     rep += "                <div class=\"container-fluid\" >";
-    rep += "                    <form id=\"contenuParticipant\"class=\"form-group row\" >";
+    rep += "                    <form id=\"contenuModifierParticipant\"class=\"form-group row\" >";
+     rep += "                    <input type=\"hidden\" name=\"idAdresse\" value=\"" + reponse.detailParticipant.idAdresse + "\" \/>";
+     rep += "                    <input type=\"hidden\" name=\"idPasseport\" value=\"" + reponse.detailParticipant.idPasspor + "\" \/>";
+     rep += "                    <input type=\"hidden\" name=\"idParticipant\" value=\"" + reponse.detailParticipant.idparticipants + "\" \/>";
     rep = formParticipant(rep, "");
-    rep += "<input id='modifierPart' type=\"button\" class=\"btn\" value=\"Modifier participants\" onClick=\" modifierParticipant(); formulaireR();listerParticipants();infoUser();\" style=\"float: right; display:none;\">";
+    rep += "<input id='modifierPart' type=\"button\" class=\"btn\" value=\"Modifier participants\" onClick=\" modifierParticipant(); \" style=\"float: right; display:none;\">";//formulaireR();listerParticipants();infoUser();
     rep += "                    </div>";//fin div form
     rep += "                    </div>";//fin div container
     $('#sommaire').text("detail participant " + reponse.detailParticipant.nom);
