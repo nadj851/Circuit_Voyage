@@ -10,6 +10,23 @@ function enregistrer() {
     $NbAdulte = $_POST['NbAdulte'];
     $NbEnfant = $_POST['NbEnfant'];
     $NbBebe = $_POST['NbBebe'];
+//    $uid=$_SESSION["uid"];
+//    $idc=$_SESSION["idCircuit"];
+    try {
+        $requete = "INSERT INTO reservation VALUES(0,?,?,?,?,?,?,?,?,?,?,?)";
+    $unModele = new circuitModel($requete, array(2000, 2, $NbAdulte, $NbEnfant, $NbBebe, 'true', 'oui','2018-01-01',1,4,1000));
+    $stmt = $unModele->executer();
+    $idReservation = $unModele->lastID;
+    } catch (Exception $exc) {
+        echo $exc;
+        
+         print_r($exc->getTraceAsString());
+    }
+
+    
+
+    
+
 
     if ($NbAdulte > 0) {
         for ($index = 1; $index <= $NbAdulte; $index++) {
@@ -45,6 +62,13 @@ function enregistrer() {
                 $requete = "INSERT INTO participants VALUES(0,?,?,?,?,?,?,?)";
                 $unModele = new circuitModel($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone, $idAdresse, $idPasseport));
                 $stmt = $unModele->executer();
+                $idParticipant = $unModele->lastID;
+
+                $requete = "INSERT INTO reservationparticipant VALUES(?,?)";
+                $unModele = new circuitModel($requete, array($idParticipant, $idReservation));
+                $stmt = $unModele->executer();
+
+
 
                 $tabRes['action'] = "enregistrer";
                 $tabRes['msg'] = "Participant bien enregistré";
@@ -89,6 +113,10 @@ function enregistrer() {
                 $unModele = new circuitModel($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone, $idAdresse, $idPasseport));
                 $stmt = $unModele->executer();
 
+                $requete = "INSERT INTO reservationparticipant VALUES(?,?)";
+                $unModele = new circuitModel($requete, array($idParticipant, $idReservation));
+                $stmt = $unModele->executer();
+                
                 $tabRes['action'] = "enregistrer";
                 $tabRes['msg'] = "Participant bien enregistré";
             } catch (Exception $e) {
@@ -130,6 +158,10 @@ function enregistrer() {
 
                 $requete = "INSERT INTO participants VALUES(0,?,?,?,?,?,?,?)";
                 $unModele = new circuitModel($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone, $idAdresse, $idPasseport));
+                $stmt = $unModele->executer();
+                
+                $requete = "INSERT INTO reservationparticipant VALUES(?,?)";
+                $unModele = new circuitModel($requete, array($idParticipant, $idReservation));
                 $stmt = $unModele->executer();
 
                 $tabRes['action'] = "enregistrer";
@@ -511,7 +543,7 @@ function detail() {
 
 function modifierParticipant() {
     global $tabRes;
-    
+
     $idParticipant = $_POST['idParticipant'];
     $idAdresse = $_POST['idAdresse'];
     $idPasseport = $_POST['idPasseport'];
