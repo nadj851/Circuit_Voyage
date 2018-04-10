@@ -126,6 +126,11 @@ function logoutU(){
         
 }
 
+
+
+
+
+
 function formulaireregister(){
         var reponse={"action":"fregister"};
         	utilisateurVue(reponse);

@@ -24,7 +24,7 @@ function formulaireR() {
 
     result += afficherDivParticipant(result);
 
-
+    
     //*******************************************************************
 
 
@@ -41,7 +41,7 @@ function formulaireR() {
 
     result += "         <div class=\"form-group row\" >";
     result += "             <div class=\"col-sm-10 contenupass\">";
-    result += "                 <a href='#'class='btn btn-primary' cid='ajouter' onclick='afficherFormulaire();'>Ajouter participants </a>";
+    result += "                 <a href='#'class='btn btn-primary' cid='ajouter' onclick='afficherFormulaire(); '>Enregistrer - passer aux participant(s)</a>";
 
     result += "             </div>";
     result += "         </div>";
@@ -265,7 +265,7 @@ function afficherDivParticipant(result) {
     result += "                            <div class=\"form-group row\">";
     result += "                                <label for=\"paysParticipant\" class=\"col-sm-2 col-form-label\">Pays</label>";
     result += "                                <div class=\"col-sm-10\">";
-    result += "                                    <select name=\"country\" class=\"form-control\"  id=\"paysParticipant\" name=\"paysParticipant\" required>";
+    result += "                                    <select class=\"form-control\"  id=\"paysParticipant\" name=\"paysParticipant\" required>";
     result += "                                        <option value=\"\">Pays...</option>";
     result += "                                        <option value=\"AF\">Afghanistan</option>";
     result += "                                  <option value=\"AL\">Albania</option>";

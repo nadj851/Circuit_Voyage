@@ -48,7 +48,20 @@ function afficherFormParticipant(reponse) {
     var NbAdulte = reponse.adulte;
     var NbEnfant = reponse.enfant;
     var NbBebe = reponse.bebe;
-
+    var nomParticipant = reponse.nomParticipant;
+    var prenomParticipant = reponse.prenomParticipant;
+    var sexeParticipant = reponse.sexeParticipant;
+    var courielParticipant = reponse.courielParticipant;
+    //var memeAdresse = reponse.memeAdresse;
+    var paysParticipant = reponse.paysParticipant;
+    var villeParticipant = reponse.villeParticipant;
+    var codePostalParticipant = reponse.codePostalParticipant;
+    var numeroPasseport = reponse.numeroPasseport;
+    var dateDelPasseport = reponse.dateDelPasseport;
+    var delivrerAExpPasseport = reponse.delivrerAExpPasseport;
+    var dateExpPasseport = reponse.dateExpPasseport;
+    var nationalite = reponse.nationalite;
+    var telPostalParticipant = reponse.telPostalParticipant;
 
     var rep = "";
     rep += "                <div class=\"container-fluid\" >";
@@ -56,6 +69,20 @@ function afficherFormParticipant(reponse) {
     rep += "                    <input type=\"hidden\" name=\"NbAdulte\" value=\"" + NbAdulte + "\" \/>";
     rep += "                    <input type=\"hidden\" name=\"NbEnfant\" value=\"" + NbEnfant + "\" \/>";
     rep += "                    <input type=\"hidden\" name=\"NbBebe\" value=\"" + NbBebe + "\" \/>";
+    rep += "                    <input type=\"hidden\" name=\"nomParticipant\" value=\"" + nomParticipant + "\" \/>";
+    rep += "                    <input type=\"hidden\" name=\"prenomParticipant\" value=\"" + prenomParticipant + "\" \/>";
+    rep += "                    <input type=\"hidden\" name=\"sexeParticipant\" value=\"" + sexeParticipant + "\" \/>";
+    rep += "                    <input type=\"hidden\" name=\"courielParticipant\" value=\"" + courielParticipant + "\" \/>";
+    rep += "                    <input type=\"hidden\" name=\"paysParticipant\" value=\"" + paysParticipant + "\" \/>";
+    //rep += "                    <input type=\"hidden\" name=\"memeAdresse\" value=\"" + memeAdresse + "\" \/>";
+    rep += "                    <input type=\"hidden\" name=\"villeParticipant\" value=\"" + villeParticipant + "\" \/>";
+    rep += "                    <input type=\"hidden\" name=\"codePostalParticipant\" value=\"" + codePostalParticipant + "\" \/>";
+    rep += "                    <input type=\"hidden\" name=\"numeroPasseport\" value=\"" + numeroPasseport + "\" \/>";
+    rep += "                    <input type=\"hidden\" name=\"dateDelPasseport\" value=\"" + dateDelPasseport + "\" \/>";
+    rep += "                    <input type=\"hidden\" name=\"delivrerAExpPasseport\" value=\"" + delivrerAExpPasseport + "\" \/>";
+    rep += "                    <input type=\"hidden\" name=\"dateExpPasseport\" value=\"" + dateExpPasseport + "\" \/>";
+    rep += "                    <input type=\"hidden\" name=\"nationalite\" value=\"" + nationalite + "\" \/>";
+    rep += "                    <input type=\"hidden\" name=\"telPostalParticipant\" value=\"" + telPostalParticipant + "\" \/>";
     for (var i = 1; i <= NbAdulte; i++) {
         rep += "                <div class=\"container-fluid\" style=\'float: left;'>";
         rep += " <h3>Adulte Numéro " + i + "</h3>";
@@ -98,13 +125,13 @@ function afficherFormParticipant(reponse) {
 }
 
 function afficherDetailPart(reponse) {
-    
+
     var rep = "";
     rep += "                <div class=\"container-fluid\" >";
     rep += "                    <form id=\"contenuModifierParticipant\"class=\"form-group row\" >";
-     rep += "                    <input type=\"hidden\" name=\"idAdresse\" value=\"" + reponse.detailParticipant.idAdresse + "\" \/>";
-     rep += "                    <input type=\"hidden\" name=\"idPasseport\" value=\"" + reponse.detailParticipant.idPasspor + "\" \/>";
-     rep += "                    <input type=\"hidden\" name=\"idParticipant\" value=\"" + reponse.detailParticipant.idparticipants + "\" \/>";
+    rep += "                    <input type=\"hidden\" name=\"idAdresse\" value=\"" + reponse.detailParticipant.idAdresse + "\" \/>";
+    rep += "                    <input type=\"hidden\" name=\"idPasseport\" value=\"" + reponse.detailParticipant.idPasspor + "\" \/>";
+    rep += "                    <input type=\"hidden\" name=\"idParticipant\" value=\"" + reponse.detailParticipant.idparticipants + "\" \/>";
     rep = formParticipant(rep, "");
     rep += "<input id='modifierPart' type=\"button\" class=\"btn\" value=\"Modifier participants\" onClick=\" modifierParticipant(); formulaireR();listerParticipants();infoUser();\" style=\"float: right; display:none;\">";
     rep += "                    </div>";//fin div form

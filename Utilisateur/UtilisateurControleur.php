@@ -24,7 +24,7 @@ function login() {
             }
 
             $_SESSION['email'] = $email;
-
+           
             //redirect("index.php");
             $tabRes['msg'] = "utilisateur authentifier avec success";
         } else {
