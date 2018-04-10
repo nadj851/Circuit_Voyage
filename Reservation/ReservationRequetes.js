@@ -104,54 +104,70 @@ function FormulaireR() {
     reservationVue(reponse);
 
     var textLab = parseInt(prixReservation);
-    
+
     var total = 0;
     $('#NombreAdulte').on('change', function () {
-        var selectVal = parseInt($("#NombreAdulte option:selected").val());
-        if (selectVal !== 0) {
-            total += selectVal * textLab;
-            $("#labtotal").text(total);
-             $("#amount").val(total);
-             prixReservation+=total;
-            
-        } else {
-            $("#labtotal").text(textLab);
-             $("#amount").val(textLab);
-             prixReservation+=total;
-        }
+        total = textLab + (parseInt($("#NombreAdulte option:selected").val()) +
+                parseInt($("#NombreEnfant option:selected").val()) +
+                parseInt($("#NombreBebe option:selected").val())) * textLab;
+        $("#labtotal").text(total+" $");
+//        var selectVal = parseInt($("#NombreAdulte option:selected").val());
+//        if (selectVal !== 0) {
+//            total = prixReservation+( selectVal * textLab);
+//            $("#labtotal").text(total);
+//             $("#amount").val(total);
+//             prixReservation+=total;
+//            
+//        } else {
+//            $("#labtotal").text(textLab);
+//             $("#amount").val(textLab);
+//             prixReservation+=total;
+//        }
 
     });
 
     $('#NombreEnfant').on('change', function () {
-        var selectVal = parseInt($("#NombreEnfant option:selected").val());
 
-        if (selectVal !== 0)
-        {
-            total += selectVal * textLab * 0.75;
-            $("#labtotal").text(total);
-             $("#amount").val(total);
-            
-        } else {
-            $("#labtotal").text(textLab);
-             $("#amount").val(textLab);
-        }
+        total = textLab + (parseInt($("#NombreAdulte option:selected").val()) +
+                parseInt($("#NombreEnfant option:selected").val()) +
+                parseInt($("#NombreBebe option:selected").val())) * textLab;
+
+       $("#labtotal").text(total+" $");
+        //$("#amount").val(total);
+//        var selectVal = parseInt($("#NombreEnfant option:selected").val());
+//
+//        if (selectVal !== 0)
+//        {
+//            total += selectVal * textLab * 0.75;
+//            $("#labtotal").text(total);
+//             $("#amount").val(total);
+//            
+//        } else {
+//            $("#labtotal").text(textLab);
+//             $("#amount").val(textLab);
+//        }
 
 
     });
 
     $('#NombreBebe').on('change', function () {
-        var selectVal = parseInt($("#NombreBebe option:selected").val());
-
-        if (selectVal !== 0)
-        {
-            total += selectVal * textLab * 0.5;
-            $("#labtotal").text(total);
-             $("#amount").val(total);
-        } else {
-            $("#labtotal").text(textLab);
-               $("#amount").val(textLab);
-            
-        }
+        total = textLab + (parseInt($("#NombreAdulte option:selected").val()) +
+                parseInt($("#NombreEnfant option:selected").val()) +
+                parseInt($("#NombreBebe option:selected").val())) * textLab;
+        
+       $("#labtotal").text(total+" $");
+//        var selectVal = parseInt($("#NombreBebe option:selected").val());
+//
+//        if (selectVal !== 0)
+//        {
+//            total += selectVal * textLab * 0.5;
+//            $("#labtotal").text(total);
+//             $("#amount").val(total);
+//        } else {
+//            $("#labtotal").text(textLab);
+//               $("#amount").val(textLab);
+//            
+//        }
 
     });
 
@@ -218,7 +234,7 @@ function RamenerCircuit(rid) {
         success: function (reponse) { //alert(reponse);
 
             $("#labtotal").html(reponse.circuitid[0].prix + " $");
-             $("#amount").val(reponse.circuitid[0].prix);
+            $("#amount").val(reponse.circuitid[0].prix);
 
         },
         fail: function (err) {
@@ -234,13 +250,13 @@ function prix(idSelect, textLab, taux) {
         var selectVal = parseInt($(idSelect + " option:selected").val());
         if (selectVal !== 0)
             total = selectVal * textLab * taux;
-        
+
 
         else {
             total = textLab;
             $("#labtotal").text(textLab);
-                 $("#amount").val(textLab);
-           
+            $("#amount").val(textLab);
+
         }
 
 

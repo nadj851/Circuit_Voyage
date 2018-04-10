@@ -411,7 +411,7 @@ function ajoutCategorie(nom, label, result) {
     result += "                                <label for=" + nom + " class=\"col-sm-2 col-form-label\">" + label + "</label>";
     result += "                                <div class=\"col-sm-10\" >";
     result += "                                    <select class=\"form-control\" id=" + nom + " name=" + nom + " required>";
-    result += "                                        <option></option>";
+    //result += "                                        <option></option>";
     for (var i = 0; i < 11; i++) {
 
         result += "   <option value='" + i + "'>" + i + "<\/option>";
