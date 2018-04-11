@@ -13,11 +13,16 @@ function login() {
 
     try {
         $unModele = new circuitModel();
-        $requete = "SELECT email, password FROM utilisateur WHERE email =? AND password =? ";
+        $requete = "SELECT email, idUtilisateur, password FROM utilisateur WHERE email =? AND password =? ";
 
         $unModele = new circuitModel($requete, array($email, $password));
         $stmt = $unModele->executer();
         $count = $stmt->rowCount();
+        
+        while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $_SESSION['idUtilisateur'] = $ligne->idUtilisateur;
+        }
+        
         if ($count == 1) {
             if (isset($_POST['remember'])) {
                 setcookie('email', $email, time() + 86400);

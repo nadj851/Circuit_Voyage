@@ -14,18 +14,24 @@
         <group>
             <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Etape/EtapeRequetes.js</file>
             <file>file:/U:/Session%205/WebIII/Circuit_Voyage/participants/participantsRequetes.js</file>
+            <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Utilisateur/UtilisateurControleur.php</file>
             <file>file:/U:/Session%205/WebIII/Circuit_Voyage/participants/participantsControleur.php</file>
+            <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Utilisateur/UtilisateurControleurVue.js</file>
             <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Jour/JourRequette.js</file>
             <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Jour/JourControleur.php</file>
             <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Reservation/ReservationControleur.php</file>
             <file>file:/U:/Session%205/WebIII/Circuit_Voyage/participants/participantsControleurVue.js</file>
+            <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Panier/PanierControleur.php</file>
             <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Circuit/CircuitAPIJQuery.js</file>
             <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Thematique/ThematiqueControleurVue.js</file>
             <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Index.php</file>
+            <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Circuit/CircuitAPI.php</file>
             <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Circuit/CircuitControleurVue.js</file>
             <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Etape/EtapeControleurVue.js</file>
             <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Jour/JourControleurVue.js</file>
+            <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Utilisateur/UtilistauerRequetes.js</file>
             <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Reservation/ReservationRequetes.js</file>
+            <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Panier/PanierControleurVue.js</file>
             <file>file:/U:/Session%205/WebIII/Circuit_Voyage/Reservation/ReservationControleurVue.js</file>
         </group>
     </open-files>

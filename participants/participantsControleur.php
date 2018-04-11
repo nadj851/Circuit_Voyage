@@ -27,7 +27,7 @@ function enregistrer() {
     $telephone = $_POST['telPostalParticipantAdulte'];
 
    
-    $idUtilisateur ="";
+    $idUtilisateur =$_SESSION['idUtilisateur'];
     
   
 
@@ -35,17 +35,9 @@ function enregistrer() {
 //    $uid=$_SESSION["uid"];
 //    $idc=$_SESSION["idCircuit"];
     try {
-        $requete = "SELECT * FROM utilisateur where email=?";
-        $unModele = new circuitModel($requete, array($_SESSION["email"]));
-        $stmt = $unModele->executer();
-        while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
-            $idUtilisateur = $ligne->idUtilisateur;
-            $_SESSION["idUtilisateur"]=$idUtilisateur;
-            
-        }
-        
+              
         $requete = "INSERT INTO reservation VALUES(0,?,?,?,?,?,?,?,?,?,?,?)";
-        $unModele = new circuitModel($requete, array(2000, 2, $NbAdulte, $NbEnfant, $NbBebe, 'true', 'oui', '2018-01-01', $_SESSION["idUtilisateur"], 4, 1000));
+        $unModele = new circuitModel($requete, array(2000, 2, $NbAdulte, $NbEnfant, $NbBebe, 'true', 'oui', '2018-01-01', $idUtilisateur, 4, 1000));
         $stmt = $unModele->executer();
         $idReservation = $unModele->lastID;
     } catch (Exception $exc) {
@@ -195,6 +187,7 @@ function enregistrer() {
 
                 $tabRes['action'] = "enregistrer";
                 $tabRes['msg'] = "Participant bien enregistré";
+                $tabRes['idUt'] = $idUtilisateur;
             } catch (Exception $e) {
                 echo $e;
             } finally {

@@ -29,7 +29,9 @@ function enregistrer() {
 function listerThematique() {
     global $tabRes;
     $tabRes['action'] = "lister";
+    
     $requete = "SELECT * FROM thematique";
+    
     try {
         $unModele = new circuitModel($requete, array());
         $stmt = $unModele->executer();
