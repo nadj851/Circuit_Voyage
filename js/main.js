@@ -1,3 +1,4 @@
+var prixTotal;
 $(document).ready(function() {
   listerTT();
     

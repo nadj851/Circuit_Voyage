@@ -25,8 +25,9 @@ function enregistrer() {
         //cache : false,
         contentType: false,
         processData: false,
-        success: function (reponse) {alert(reponse);
-            
+        success: function (reponse) {
+            alert(reponse);
+
             filmsVue(reponse);
         },
         fail: function (err) {
@@ -40,7 +41,8 @@ function ajouterParticipant() {
     var formParticpants = new FormData(document.getElementById('contenuParticpants'));
     //var formParticpants = $("#ajouterParticipant").serialize();
     //formParticpants.push({"action":"enregistrer"}); 
-
+    $('input[type=hidden][id=prixhidden]').val(prixTotal);
+    
     formParticpants.append('action', 'enregistrer');
     $.ajax({
         type: 'POST',
@@ -53,7 +55,7 @@ function ajouterParticipant() {
         processData: false,
         success: function (reponse) {
             //alert(reponse);
-             filmsVue(reponse);
+            filmsVue(reponse);
         },
         fail: function (err) {
 
@@ -79,10 +81,15 @@ function lister() {
     });
 }
 
+
 function afficherFormulaire() {
- 
+
     var formFilm = new FormData(document.getElementById('formreservation'));
     formFilm.append('action', 'afficherFormulaireTous');//alert(formFilm.get("action"));
+    //$('input[type=hidden][id=prixhidden]').val($("label[id=labtotal]").val());
+    prixTotal = $("label[id=labtotal]").text().replace('$','');
+   
+   
     $.ajax({
         type: 'POST',
         url: 'participants/participantsControleur.php',
@@ -98,23 +105,7 @@ function afficherFormulaire() {
         fail: function (err) {
         }
     });
-    //	var formFilm = new FormData();
-//	formFilm.append('action','afficherFormulaires');//alert(formFilm.get("action"));
-//	$.ajax({
-//		type : 'POST',
-//		url : 'participants/participantsControleur.php',
-//		data : formFilm,
-//		contentType : false,
-//		processData : false,
-//		dataType : 'json', //text pour le voir en format de string
-//		success : function (reponse){//alert(reponse);
-//					filmsVue(reponse);
-//		},
-//		fail : function (err){
-//		}
-//	});
 
-    // alert("participant clic");
 }
 
 function supprimerParticipant() {
@@ -169,7 +160,7 @@ function detailParticipant() {
             $("input[type=text][id=dateExpPasseport]").val(reponse.detailPasseport.dateExpiration);
             $("input[type=text][id=nationalite]").val(reponse.detailPasseport.nationalites);
             $("input[type=text][id=delivrerAExpPasseport]").val(reponse.detailPasseport.lieuDeliv);
-            
+
         },
         fail: function (err) {
         }

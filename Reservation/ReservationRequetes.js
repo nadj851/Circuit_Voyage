@@ -108,66 +108,35 @@ function FormulaireR() {
     var total = 0;
     $('#NombreAdulte').on('change', function () {
         total = textLab + (parseInt($("#NombreAdulte option:selected").val()) +
-                parseInt($("#NombreEnfant option:selected").val()) +
-                parseInt($("#NombreBebe option:selected").val())) * textLab;
+                (parseInt($("#NombreEnfant option:selected").val())* 0.75) +
+                (parseInt($("#NombreBebe option:selected").val()))*0.5) * textLab;
         $("#labtotal").text(total+" $");
-//        var selectVal = parseInt($("#NombreAdulte option:selected").val());
-//        if (selectVal !== 0) {
-//            total = prixReservation+( selectVal * textLab);
-//            $("#labtotal").text(total);
-//             $("#amount").val(total);
-//             prixReservation+=total;
-//            
-//        } else {
-//            $("#labtotal").text(textLab);
-//             $("#amount").val(textLab);
-//             prixReservation+=total;
-//        }
+        $("#amount").val(total);
+
 
     });
 
     $('#NombreEnfant').on('change', function () {
 
         total = textLab + (parseInt($("#NombreAdulte option:selected").val()) +
-                parseInt($("#NombreEnfant option:selected").val()) +
-                parseInt($("#NombreBebe option:selected").val())) * textLab;
+                (parseInt($("#NombreEnfant option:selected").val())* 0.75) +
+                (parseInt($("#NombreBebe option:selected").val()))*0.5) * textLab;
 
        $("#labtotal").text(total+" $");
-        //$("#amount").val(total);
-//        var selectVal = parseInt($("#NombreEnfant option:selected").val());
-//
-//        if (selectVal !== 0)
-//        {
-//            total += selectVal * textLab * 0.75;
-//            $("#labtotal").text(total);
-//             $("#amount").val(total);
-//            
-//        } else {
-//            $("#labtotal").text(textLab);
-//             $("#amount").val(textLab);
-//        }
+       $("#amount").val(total);
+
 
 
     });
 
     $('#NombreBebe').on('change', function () {
         total = textLab + (parseInt($("#NombreAdulte option:selected").val()) +
-                parseInt($("#NombreEnfant option:selected").val()) +
-                parseInt($("#NombreBebe option:selected").val())) * textLab;
+                (parseInt($("#NombreEnfant option:selected").val())* 0.75) +
+                (parseInt($("#NombreBebe option:selected").val()))*0.5) * textLab;
         
        $("#labtotal").text(total+" $");
-//        var selectVal = parseInt($("#NombreBebe option:selected").val());
-//
-//        if (selectVal !== 0)
-//        {
-//            total += selectVal * textLab * 0.5;
-//            $("#labtotal").text(total);
-//             $("#amount").val(total);
-//        } else {
-//            $("#labtotal").text(textLab);
-//               $("#amount").val(textLab);
-//            
-//        }
+       $("#amount").val(total);
+
 
     });
 
@@ -212,7 +181,7 @@ function infoUser() {
             $("input[type=text][id=courielParticipant]").val(reponse.information[0].email);
             
             $("input[type=hidden][id=idUtilisateur]").val(reponse.information[0].idUtilisateur);
-            alert(reponse.information[0].idUtilisateur);
+            
         },
         fail: function (err) {
         }

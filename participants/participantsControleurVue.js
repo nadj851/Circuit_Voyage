@@ -63,10 +63,12 @@ function afficherFormParticipant(reponse) {
     var dateExpPasseport = reponse.dateExpPasseport;
     var nationalite = reponse.nationalite;
     var telPostalParticipant = reponse.telPostalParticipant;
+    var prix = reponse.prix;
 
     var rep = "";
     rep += "                <div class=\"container-fluid\" >";
     rep += "                    <form id=\"contenuParticpants\"class=\"form-group row\" >";
+    rep += "                    <input type=\"hidden\" name=\"prixhidden\" id=\"prixhidden\" value=\"" + prixTotal + "\"/>";
     rep += "                    <input type=\"hidden\" name=\"NbAdulte\" value=\"" + NbAdulte + "\" \/>";
     rep += "                    <input type=\"hidden\" name=\"NbEnfant\" value=\"" + NbEnfant + "\" \/>";
     rep += "                    <input type=\"hidden\" name=\"NbBebe\" value=\"" + NbBebe + "\" \/>";

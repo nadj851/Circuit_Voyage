@@ -11,7 +11,7 @@ function enregistrer() {
     $NbEnfant = $_POST['NbEnfant'];
     $NbBebe = $_POST['NbBebe'];
     $idUtilisateur = $_POST['idUtilisateur'];
-
+    $prix = $_POST['prixhidden'];
 
     //information sur le participant principal
     $nomParticipant = $_POST['nomParticipant'];
@@ -27,12 +27,13 @@ function enregistrer() {
     $dateExpPasseport = $_POST['dateExpPasseport'];
     $nationalite = $_POST['nationalite'];
     $telephone = $_POST['telPostalParticipant'];
+    $totalParticipant=$NbAdulte+$NbEnfant+$NbBebe+1;
 
     //requete réservation
     try {
 
         $requete = "INSERT INTO reservation VALUES(0,?,?,?,?,?,?,?,?,?,?,?)";
-        $unModele = new circuitModel($requete, array(2000, 2, $NbAdulte, $NbEnfant, $NbBebe, 'true', 'oui', '2018-01-01', $idUtilisateur, 4, 1000));
+        $unModele = new circuitModel($requete, array($prix, $totalParticipant , $NbAdulte, $NbEnfant, $NbBebe, 'true', 'oui', date('Y-m-j H:i:s'), $idUtilisateur, 4, $prix));
         $stmt = $unModele->executer();
         $idReservation = $unModele->lastID;
     } catch (Exception $exc) {
@@ -644,6 +645,7 @@ function afficherFormulaireTous() {
     $adulte = $_POST["NombreAdulte"];
     $enfant = $_POST["NombreEnfant"];
     $bebe = $_POST["NombreBebe"];
+    //$prix = $_POST["labtotal"];
     //information sur le participant principal
     $nomParticipant = $_POST['nomParticipant'];
     $prenomParticipant = $_POST['prenomParticipant'];
@@ -665,6 +667,7 @@ function afficherFormulaireTous() {
     $tabRes['adulte'] = $adulte;
     $tabRes['enfant'] = $enfant;
     $tabRes['bebe'] = $bebe;
+    //$tabRes['prix'] = $prix;
     $tabRes['nomParticipant'] = $nomParticipant;
     $tabRes['prenomParticipant'] = $prenomParticipant;
     $tabRes['sexeParticipant'] = $sexeParticipant;
