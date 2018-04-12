@@ -45,6 +45,7 @@ function AffichageCircuit(affichageCircuits) {
 
     $("a[name=afficherDetailsCircuit]").click(function () {
         AfficherDetailsCircuit($(this).prop("id"));
+        idCircuit=$(this).prop("id");
     });
 }
 

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once("../includes/modele.inc.php");
 $tabRes = array();
 
@@ -12,6 +12,7 @@ function enregistrer() {
     $NbBebe = $_POST['NbBebe'];
     $idUtilisateur = $_POST['idUtilisateur'];
     $prix = $_POST['prixhidden'];
+    $idCircuit = $_POST['idCircuitHidden'];
 
     //information sur le participant principal
     $nomParticipant = $_POST['nomParticipant'];
@@ -32,8 +33,8 @@ function enregistrer() {
     //requete réservation
     try {
 
-        $requete = "INSERT INTO reservation VALUES(0,?,?,?,?,?,?,?,?,?,?,?)";
-        $unModele = new circuitModel($requete, array($prix, $totalParticipant , $NbAdulte, $NbEnfant, $NbBebe, 'true', 'oui', date('Y-m-j H:i:s'), $idUtilisateur, 4, $prix));
+        $requete = "INSERT INTO reservation VALUES(0,?,?,?,?,?,?,?,?,?)";
+        $unModele = new circuitModel($requete, array($prix, $totalParticipant , $NbAdulte, $NbEnfant, $NbBebe, date('Y-m-j H:i:s'), $idUtilisateur, $idCircuit, $prix));
         $stmt = $unModele->executer();
         $idReservation = $unModele->lastID;
     } catch (Exception $exc) {

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 09 Avril 2018 à 06:13
+-- Généré le :  Ven 13 Avril 2018 à 01:34
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.5.8
 
@@ -34,19 +34,15 @@ CREATE TABLE IF NOT EXISTS `adresse` (
   `codePostale` varchar(45) NOT NULL,
   `pays` varchar(100) NOT NULL,
   PRIMARY KEY (`idAdresse`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=46 ;
 
 --
 -- Contenu de la table `adresse`
 --
 
 INSERT INTO `adresse` (`idAdresse`, `ville`, `codePostale`, `pays`) VALUES
-(1, 'MONTRÃ‰AL-NORD', 'H1H 3R7', 'CA'),
-(2, 'mamamamam', '', ''),
-(3, '', '', ''),
-(4, 'aaaaa', '', ''),
-(5, 'aaa', '', ''),
-(6, 'aaaassss', '', '');
+(44, '', '', ''),
+(45, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -97,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `circuit` (
   PRIMARY KEY (`idCircuit`),
   KEY `idPromotion` (`idPromotion`),
   KEY `idThematique` (`idThematique`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Contenu de la table `circuit`
@@ -106,7 +102,8 @@ CREATE TABLE IF NOT EXISTS `circuit` (
 INSERT INTO `circuit` (`idCircuit`, `titre`, `dateDeDepart`, `dateDeRetour`, `nbPersonnesMax`, `nbPersonnesMin`, `description`, `prix`, `imageCircuit`, `guide`, `idPromotion`, `idThematique`, `published`) VALUES
 (4, 'Circuit A', '2018-03-01 05:00:00.000000', '2018-03-02 05:00:00.000000', 2, 4, 'un premier circuit', 3111, 'pic', NULL, NULL, 1, 0),
 (5, 'Circuit Australien', '2018-03-03 05:00:00.000000', '2018-03-15 04:00:00.000000', 1, 2, 'kangorouuu', 3999, 'aucune', NULL, NULL, 1, 0),
-(6, 'un circuit', '2018-04-15 04:00:00.000000', '2018-04-22 04:00:00.000000', 20, 10, '<p>resume du circuit</p>\r\n', 2000, 'ad90a19282ed43d0732163ccfdb441a544018560.jpg', NULL, NULL, 1, 0);
+(6, 'un circuit', '2018-04-15 04:00:00.000000', '2018-04-22 04:00:00.000000', 20, 10, '<p>resume du circuit</p>\r\n', 2000, 'ad90a19282ed43d0732163ccfdb441a544018560.jpg', NULL, NULL, 1, 0),
+(7, 'circuit 1', '2018-04-18 04:00:00.000000', '2018-04-30 04:00:00.000000', 20, 10, '<p>Kicheche Bush Camp se trouve dans la &ldquo;Olare Motorogi Conservancy&rdquo;, qui jouxte la r&eacute;serve du Masai Mara. C&rsquo;est un camp de toile de petite taille, intime et luxueux, situ&eacute; au beau milieu d&rsquo;une savane d&rsquo;acacias &agrave; &eacute;pines, sans aucune cl&ocirc;ture. La faune y est pr&eacute;sente partout...<br />\r\nLe camp se compose de six tentes pourvues de moustiquaires, avec eau courante froide au lavabo, toilettes avec chasse d&rsquo;eau et douche &ldquo;safari&rdquo;. Son impact sur l&rsquo;environnement est volontairement limit&eacute;. L&rsquo;&eacute;lectricit&eacute; est solaire et la lumi&egrave;re est disponible dans la tente &agrave; toute heure du jour et de la nuit.<br />\r\nBien que Kicheche soit un camp de toile, le confort n&rsquo;est pas compromis. La nourriture et le service sont de premi&egrave;re classe, les guides et le personnel en charge sont chaleureux et exp&eacute;riment&eacute;s, et constamment d&eacute;sireux de nous faire plaisir. Ce safari sera inoubliable...<br />\r\nLe nombre de camps et de lits &agrave; l&rsquo;int&eacute;rieur de la Conservancy est strictement limit&eacute;, ce qui nous procure une exp&eacute;rience incomparable en terme d&rsquo;observation, sans la foule habituellement pr&eacute;sente dans le reste de la r&eacute;serve.</p>\r\n', 2500, '84e69e6b254baca29b3407b2a8814ec2bb7b6d4f.jpg', NULL, NULL, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -121,14 +118,15 @@ CREATE TABLE IF NOT EXISTS `etape` (
   `idCircuit` int(11) NOT NULL,
   PRIMARY KEY (`idEtape`),
   KEY `idCircuit` (`idCircuit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `etape`
 --
 
 INSERT INTO `etape` (`idEtape`, `nomEtape`, `descriptionEtape`, `idCircuit`) VALUES
-(1, 'premiere etapeun ', '<p>petit descriptif</p>\r\n', 6);
+(1, 'premiere etapeun ', '<p>petit descriptif</p>\r\n', 6),
+(2, 'Kicheche...', '<p>Bien que Kicheche soit un camp de toile, le confort n&rsquo;est pas compromis. La nourriture et le service sont de premi&egrave;re classe, les guides et le personnel en charge sont chaleureux et exp&eacute;riment&eacute;s, et constamment d&eacute;sireux de nous faire plaisir. Ce safari sera inoubliable...<br />\r\nLe nombre de camps et de lits &agrave; l&rsquo;int&eacute;rieur de la Conservancy est strictement limit&eacute;, ce qui nous procure une exp&eacute;rience incomparable en terme d&rsquo;observation, sans la foule habituellement pr&eacute;sente dans le reste de la r&eacute;serve.</p>\r\n', 7);
 
 -- --------------------------------------------------------
 
@@ -154,7 +152,8 @@ CREATE TABLE IF NOT EXISTS `jour` (
 --
 
 INSERT INTO `jour` (`nomhotel`, `urlHotel`, `nomRestaurant`, `urlRestaurant`, `dejeuner`, `diner`, `souper`, `description`, `idEtape`) VALUES
-('alo', 'balo', 'malo', 'talo', 0, 1, 0, '<p>un descriptif</p>\r\n', 1);
+('alo', 'balo', 'malo', 'talo', 0, 1, 0, '<p>un descriptif</p>\r\n', 1),
+('aaa', 'aaa', 'cc', 'ccc', 0, 1, 1, '<p>Vol de Paris &agrave; Nairobi (direct ou via Amsterdam). R&eacute;cup&eacute;ration des bagages. Etablissement des visas. Nous sommes accueillis par Peter et Kevin, les guides de Kicheche, qui nous conduisent dans un h&ocirc;tel 4 &eacute;toiles avec leurs camionnettes.</p>\r\n', 2);
 
 -- --------------------------------------------------------
 
@@ -183,14 +182,15 @@ CREATE TABLE IF NOT EXISTS `panier` (
   `email` varchar(60) NOT NULL,
   PRIMARY KEY (`idPanier`),
   KEY `idCircuit` (`idCircuit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `panier`
 --
 
 INSERT INTO `panier` (`idPanier`, `idCircuit`, `email`) VALUES
-(1, 5, 'asdf@gmail.com');
+(1, 5, 'asdf@gmail.com'),
+(2, 7, 'jas@hotmail.com');
 
 -- --------------------------------------------------------
 
@@ -210,15 +210,15 @@ CREATE TABLE IF NOT EXISTS `participants` (
   PRIMARY KEY (`idparticipants`),
   KEY `idAdresse` (`idAdresse`),
   KEY `idPasspor` (`idPasspor`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
 
 --
 -- Contenu de la table `participants`
 --
 
 INSERT INTO `participants` (`idparticipants`, `nom`, `prenom`, `courriel`, `sexe`, `tel`, `idAdresse`, `idPasspor`) VALUES
-(1, 'aaaaa', '', '', '', '', 5, 1),
-(2, 'aaassss', '', '', '', '', 6, 2);
+(39, 'lala', 'nana', 'jas@hotmail.com', '', '', 44, 40),
+(40, '1111', '', '', '', '', 45, 41);
 
 -- --------------------------------------------------------
 
@@ -234,15 +234,15 @@ CREATE TABLE IF NOT EXISTS `passeport` (
   `nationalites` varchar(100) NOT NULL,
   `lieuDeliv` varchar(256) NOT NULL,
   PRIMARY KEY (`idPasspor`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=42 ;
 
 --
 -- Contenu de la table `passeport`
 --
 
 INSERT INTO `passeport` (`idPasspor`, `numeroPass`, `dateDelivPass`, `dateExpiration`, `nationalites`, `lieuDeliv`) VALUES
-(1, 0, '0000-00-00', '0000-00-00', '', ''),
-(2, 0, '2018-04-17', '2018-04-24', '', '');
+(40, 0, '0000-00-00', '0000-00-00', '', ''),
+(41, 0, '0000-00-00', '0000-00-00', '', '');
 
 -- --------------------------------------------------------
 
@@ -272,8 +272,6 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `nbrAdult` int(11) NOT NULL,
   `nbrEnfMTrois` int(11) NOT NULL,
   `NbrEnfBTroisONZ` int(11) NOT NULL,
-  `Etat` varchar(45) NOT NULL,
-  `nPaiment` varchar(45) NOT NULL,
   `datePaiment` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
   `idUtilisateur` int(11) NOT NULL,
   `idCircuit` int(11) NOT NULL,
@@ -282,7 +280,14 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   UNIQUE KEY `idReservation` (`idReservation`,`montanTotal`,`idUtilisateur`,`idCircuit`),
   KEY `idCircuit` (`idCircuit`),
   KEY `idUtilisateur` (`idUtilisateur`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+
+--
+-- Contenu de la table `reservation`
+--
+
+INSERT INTO `reservation` (`idReservation`, `montanTotal`, `nbrPlaceDispo`, `nbrAdult`, `nbrEnfMTrois`, `NbrEnfBTroisONZ`, `datePaiment`, `idUtilisateur`, `idCircuit`, `solde`) VALUES
+(15, 6222, 2, 1, 0, 0, '2018-04-13 05:34:11.000000', 5, 4, 6222);
 
 -- --------------------------------------------------------
 
@@ -296,6 +301,14 @@ CREATE TABLE IF NOT EXISTS `reservationparticipant` (
   PRIMARY KEY (`idParticipants`,`idReservation`),
   KEY `idReservation` (`idReservation`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `reservationparticipant`
+--
+
+INSERT INTO `reservationparticipant` (`idParticipants`, `idReservation`) VALUES
+(39, 15),
+(40, 15);
 
 -- --------------------------------------------------------
 
@@ -398,8 +411,8 @@ ALTER TABLE `panier`
 -- Contraintes pour la table `participants`
 --
 ALTER TABLE `participants`
-  ADD CONSTRAINT `participants_ibfk_1` FOREIGN KEY (`idAdresse`) REFERENCES `adresse` (`idAdresse`),
-  ADD CONSTRAINT `participants_ibfk_2` FOREIGN KEY (`idPasspor`) REFERENCES `passeport` (`idPasspor`);
+  ADD CONSTRAINT `participants_ibfk_1` FOREIGN KEY (`idAdresse`) REFERENCES `adresse` (`idAdresse`) ON DELETE CASCADE,
+  ADD CONSTRAINT `participants_ibfk_2` FOREIGN KEY (`idPasspor`) REFERENCES `passeport` (`idPasspor`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `reservation`

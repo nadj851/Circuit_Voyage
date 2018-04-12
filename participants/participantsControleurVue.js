@@ -69,6 +69,7 @@ function afficherFormParticipant(reponse) {
     rep += "                <div class=\"container-fluid\" >";
     rep += "                    <form id=\"contenuParticpants\"class=\"form-group row\" >";
     rep += "                    <input type=\"hidden\" name=\"prixhidden\" id=\"prixhidden\" value=\"" + prixTotal + "\"/>";
+    rep += "                    <input type=\"hidden\" name=\"idCircuitHidden\" id=\"idCircuitHidden\" value=\"" + idCircuit + "\"/>";
     rep += "                    <input type=\"hidden\" name=\"NbAdulte\" value=\"" + NbAdulte + "\" \/>";
     rep += "                    <input type=\"hidden\" name=\"NbEnfant\" value=\"" + NbEnfant + "\" \/>";
     rep += "                    <input type=\"hidden\" name=\"NbBebe\" value=\"" + NbBebe + "\" \/>";
