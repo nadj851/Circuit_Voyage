@@ -49,6 +49,7 @@ function afficherFormParticipant(reponse) {
     var NbEnfant = reponse.enfant;
     var NbBebe = reponse.bebe;
     var nomParticipant = reponse.nomParticipant;
+    var idUtilisateur = reponse.idUtilisateur;
     var prenomParticipant = reponse.prenomParticipant;
     var sexeParticipant = reponse.sexeParticipant;
     var courielParticipant = reponse.courielParticipant;
@@ -70,6 +71,7 @@ function afficherFormParticipant(reponse) {
     rep += "                    <input type=\"hidden\" name=\"NbEnfant\" value=\"" + NbEnfant + "\" \/>";
     rep += "                    <input type=\"hidden\" name=\"NbBebe\" value=\"" + NbBebe + "\" \/>";
     rep += "                    <input type=\"hidden\" name=\"nomParticipant\" value=\"" + nomParticipant + "\" \/>";
+    rep += "                    <input type=\"hidden\" name=\"idUtilisateur\" value=\"" + idUtilisateur + "\" \/>";
     rep += "                    <input type=\"hidden\" name=\"prenomParticipant\" value=\"" + prenomParticipant + "\" \/>";
     rep += "                    <input type=\"hidden\" name=\"sexeParticipant\" value=\"" + sexeParticipant + "\" \/>";
     rep += "                    <input type=\"hidden\" name=\"courielParticipant\" value=\"" + courielParticipant + "\" \/>";

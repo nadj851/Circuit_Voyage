@@ -141,13 +141,14 @@ function information() {
         $email = "";
     }
 
-    $requete = "SELECT last_name,first_name,email FROM utilisateur where email=?";
+    $requete = "SELECT idUtilisateur,last_name,first_name,email FROM utilisateur where email=?";
     try {
         $unModele = new circuitModel($requete, array($email));
         $stmt = $unModele->executer();
         $tabRes['information'] = array();
         while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
             $tabRes['information'][] = $ligne;
+            $_SESSION['idUtilisateur']=$ligne->idUtilisateur;
         }
     } catch (Exception $e) {
         

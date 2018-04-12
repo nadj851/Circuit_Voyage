@@ -10,32 +10,27 @@ function enregistrer() {
     $NbAdulte = $_POST['NbAdulte'];
     $NbEnfant = $_POST['NbEnfant'];
     $NbBebe = $_POST['NbBebe'];
+    $idUtilisateur = $_POST['idUtilisateur'];
+
+
     //information sur le participant principal
-    $nomParticipant = $_POST['nomParticipantAdulte'];
-    $prenomParticipant = $_POST['prenomParticipantAdulte'];
-    $sexeParticipant = $_POST['sexeParticipantAdulte'];
-    $courielParticipant = $_POST['courielParticipantAdulte'];
-    // $memeAdresse = $_POST['memeAdresseAdulte'];
-    $paysParticipant = $_POST['paysParticipantAdulte'];
-    $villeParticipant = $_POST['villeParticipantAdulte'];
-    $codePostalParticipant = $_POST['codePostalParticipantAdulte'];
-    $numeroPasseport = $_POST['numeroPasseportAdulte'];
-    $dateDelPasseport = $_POST['dateDelPasseportAdulte'];
-    $delivrerAExpPasseport = $_POST['delivrerAExpPasseportAdulte'];
-    $dateExpPasseport = $_POST['dateExpPasseportAdulte'];
-    $nationalite = $_POST['nationaliteAdulte'];
-    $telephone = $_POST['telPostalParticipantAdulte'];
+    $nomParticipant = $_POST['nomParticipant'];
+    $prenomParticipant = $_POST['prenomParticipant'];
+    $sexeParticipant = $_POST['sexeParticipant'];
+    $courielParticipant = $_POST['courielParticipant'];
+    $paysParticipant = $_POST['paysParticipant'];
+    $villeParticipant = $_POST['villeParticipant'];
+    $codePostalParticipant = $_POST['codePostalParticipant'];
+    $numeroPasseport = $_POST['numeroPasseport'];
+    $dateDelPasseport = $_POST['dateDelPasseport'];
+    $delivrerAExpPasseport = $_POST['delivrerAExpPasseport'];
+    $dateExpPasseport = $_POST['dateExpPasseport'];
+    $nationalite = $_POST['nationalite'];
+    $telephone = $_POST['telPostalParticipant'];
 
-   
-    $idUtilisateur =$_SESSION['idUtilisateur'];
-    
-  
-
-
-//    $uid=$_SESSION["uid"];
-//    $idc=$_SESSION["idCircuit"];
+    //requete réservation
     try {
-              
+
         $requete = "INSERT INTO reservation VALUES(0,?,?,?,?,?,?,?,?,?,?,?)";
         $unModele = new circuitModel($requete, array(2000, 2, $NbAdulte, $NbEnfant, $NbBebe, 'true', 'oui', '2018-01-01', $idUtilisateur, 4, 1000));
         $stmt = $unModele->executer();
@@ -43,6 +38,38 @@ function enregistrer() {
     } catch (Exception $exc) {
         echo $exc;
     }
+
+    //insertion du premier participant
+
+    try {
+        $requete = "INSERT INTO adresse VALUES(0,?,?,?)";
+        $unModele = new circuitModel($requete, array($villeParticipant, $codePostalParticipant, $paysParticipant));
+        $stmt = $unModele->executer();
+        $idAdresse = $unModele->lastID;
+
+        $requete = "INSERT INTO passeport VALUES(0,?,?,?,?,?)";
+        $unModele = new circuitModel($requete, array($numeroPasseport, $dateDelPasseport, $dateExpPasseport, $nationalite, $delivrerAExpPasseport));
+        $stmt = $unModele->executer();
+        $idPasseport = $unModele->lastID;
+
+        $requete = "INSERT INTO participants VALUES(0,?,?,?,?,?,?,?)";
+        $unModele = new circuitModel($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone, $idAdresse, $idPasseport));
+        $stmt = $unModele->executer();
+        $idParticipant = $unModele->lastID;
+
+        $requete = "INSERT INTO reservationparticipant VALUES(?,?)";
+        $unModele = new circuitModel($requete, array($idParticipant, $idReservation));
+        $stmt = $unModele->executer();
+    } catch (Exception $e) {
+        echo $e;
+    } finally {
+        unset($unModele);
+    }
+
+
+
+
+
 
 
 
@@ -88,11 +115,6 @@ function enregistrer() {
                 $requete = "INSERT INTO reservationparticipant VALUES(?,?)";
                 $unModele = new circuitModel($requete, array($idParticipant, $idReservation));
                 $stmt = $unModele->executer();
-
-
-
-                $tabRes['action'] = "enregistrer";
-                $tabRes['msg'] = "Participant bien enregistré";
             } catch (Exception $e) {
                 echo $e;
             } finally {
@@ -133,13 +155,11 @@ function enregistrer() {
                 $requete = "INSERT INTO participants VALUES(0,?,?,?,?,?,?,?)";
                 $unModele = new circuitModel($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone, $idAdresse, $idPasseport));
                 $stmt = $unModele->executer();
+                $idParticipant = $unModele->lastID;
 
                 $requete = "INSERT INTO reservationparticipant VALUES(?,?)";
                 $unModele = new circuitModel($requete, array($idParticipant, $idReservation));
                 $stmt = $unModele->executer();
-
-                $tabRes['action'] = "enregistrer";
-                $tabRes['msg'] = "Participant bien enregistré";
             } catch (Exception $e) {
                 echo $e;
             } finally {
@@ -180,14 +200,11 @@ function enregistrer() {
                 $requete = "INSERT INTO participants VALUES(0,?,?,?,?,?,?,?)";
                 $unModele = new circuitModel($requete, array($nomParticipant, $prenomParticipant, $courielParticipant, $sexeParticipant, $telephone, $idAdresse, $idPasseport));
                 $stmt = $unModele->executer();
+                $idParticipant = $unModele->lastID;
 
                 $requete = "INSERT INTO reservationparticipant VALUES(?,?)";
                 $unModele = new circuitModel($requete, array($idParticipant, $idReservation));
                 $stmt = $unModele->executer();
-
-                $tabRes['action'] = "enregistrer";
-                $tabRes['msg'] = "Participant bien enregistré";
-                $tabRes['idUt'] = $idUtilisateur;
             } catch (Exception $e) {
                 echo $e;
             } finally {
@@ -195,6 +212,8 @@ function enregistrer() {
             }
         }
     }
+    $tabRes['action'] = "enregistrer";
+    $tabRes['msg'] = "Participant bien enregistré";
 }
 
 //create dynamic  form with jquery php mysql
@@ -567,6 +586,7 @@ function modifierParticipant() {
     global $tabRes;
 
     $idParticipant = $_POST['idParticipant'];
+
     $idAdresse = $_POST['idAdresse'];
     $idPasseport = $_POST['idPasseport'];
     $nomParticipant = $_POST['nomParticipant'];
@@ -639,6 +659,7 @@ function afficherFormulaireTous() {
     $dateExpPasseport = $_POST['dateExpPasseport'];
     $nationalite = $_POST['nationalite'];
     $telephone = $_POST['tel'];
+    $idUtilisateur = $_POST['idUtilisateur'];
 
     $tabRes['action'] = "afficherParticipant";
     $tabRes['adulte'] = $adulte;
@@ -658,6 +679,7 @@ function afficherFormulaireTous() {
     $tabRes['dateExpPasseport'] = $dateExpPasseport;
     $tabRes['nationalite'] = $nationalite;
     $tabRes['telPostalParticipant'] = $telephone;
+    $tabRes['idUtilisateur'] = $idUtilisateur;
 }
 
 function ajoutPart() {

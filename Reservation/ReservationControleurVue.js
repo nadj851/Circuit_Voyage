@@ -21,6 +21,7 @@ function formulaireR() {
     result += "<input type='hidden' name='cmd' value='_cart'>";
     result += "<input type='hidden' name='business' value='Monarela@hotmail.com'>";
     result += "<input type='hidden' name='upload' value='1'>";
+    result += "<input type='hidden' name='idUtilisateur' id='idUtilisateur' value=''>";
 
     result += afficherDivParticipant(result);
 

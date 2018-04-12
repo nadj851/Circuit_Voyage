@@ -20,13 +20,13 @@ function enregistrer() {
         type: 'POST',
         url: 'participants/participantsControleur.php',
         data: formFilm,
-        dataType: 'text', //text pour le voir en format de string
+        dataType: 'json', //text pour le voir en format de string
         //async : false,
         //cache : false,
         contentType: false,
         processData: false,
-        success: function (reponse) {//alert(reponse);
-            alert('mon numero est '+reponse.idUt);
+        success: function (reponse) {alert(reponse);
+            
             filmsVue(reponse);
         },
         fail: function (err) {
@@ -52,7 +52,7 @@ function ajouterParticipant() {
         contentType: false,
         processData: false,
         success: function (reponse) {
-            alert(reponse);
+            //alert(reponse);
              filmsVue(reponse);
         },
         fail: function (err) {
@@ -80,9 +80,8 @@ function lister() {
 }
 
 function afficherFormulaire() {
-   
-    var leForm = document.getElementById('formreservation');
-    var formFilm = new FormData(leForm);
+ 
+    var formFilm = new FormData(document.getElementById('formreservation'));
     formFilm.append('action', 'afficherFormulaireTous');//alert(formFilm.get("action"));
     $.ajax({
         type: 'POST',
@@ -170,6 +169,7 @@ function detailParticipant() {
             $("input[type=text][id=dateExpPasseport]").val(reponse.detailPasseport.dateExpiration);
             $("input[type=text][id=nationalite]").val(reponse.detailPasseport.nationalites);
             $("input[type=text][id=delivrerAExpPasseport]").val(reponse.detailPasseport.lieuDeliv);
+            
         },
         fail: function (err) {
         }

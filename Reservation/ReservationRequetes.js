@@ -210,6 +210,9 @@ function infoUser() {
             $("input[type=text][id=nomParticipant]").val(reponse.information[0].last_name);
             $("input[type=text][id=prenomParticipant]").val(reponse.information[0].first_name);
             $("input[type=text][id=courielParticipant]").val(reponse.information[0].email);
+            
+            $("input[type=hidden][id=idUtilisateur]").val(reponse.information[0].idUtilisateur);
+            alert(reponse.information[0].idUtilisateur);
         },
         fail: function (err) {
         }
