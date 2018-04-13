@@ -224,6 +224,15 @@ function enregistrer() {
 function lister() {
     global $tabRes;
     $tabRes['action'] = "lister";
+    /*
+select P.nom FROM participants P, reservation R, reservationparticipant V WHERE
+P.idparticipants = V.idParticipants and
+R.idReservation = V.idReservation and
+R.idCircuit = 6 and
+R.idUtilisateur = 1;
+     */
+    
+    
     $requete = "SELECT * FROM participants";
     try {
         $unModele = new circuitModel($requete, array());
