@@ -231,10 +231,6 @@ function prix(idSelect, textLab, taux) {
 
         }
 
-
-        // $("#labtotal").text(total);
-
-
     });
     return total;
 }

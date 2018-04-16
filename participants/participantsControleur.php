@@ -225,7 +225,8 @@ function lister() {
     global $tabRes;
     $tabRes['action'] = "lister";
     /*
-select P.nom FROM participants P, reservation R, reservationparticipant V WHERE
+     $requete = "SELECT * FROM participants";
+select * FROM participants P, reservation R, reservationparticipant V WHERE
 P.idparticipants = V.idParticipants and
 R.idReservation = V.idReservation and
 R.idCircuit = 6 and
@@ -251,9 +252,19 @@ R.idUtilisateur = 1;
 function listerParticipant() {
     global $tabRes;
     $tabRes['action'] = "lister";
-    $requete = "SELECT * FROM participants";
+    $idUtilisateur = $_SESSION['idUtilisateur'];
+    $idCircuit = $_SESSION['idCircuit'];
+    $requete = "SELECT * FROM participants P, reservation R, reservationparticipant V WHERE
+                P.idparticipants = V.idParticipants and
+                R.idReservation = V.idReservation and
+                R.idCircuit = ? and
+                R.idUtilisateur = ? ";
+
+
+
+    // $requete = "SELECT * FROM participants";
     try {
-        $unModele = new circuitModel($requete, array());
+        $unModele = new circuitModel($requete, array($idCircuit, $idUtilisateur));
         $stmt = $unModele->executer();
         $tabRes['listeParticpants'] = array();
         while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
