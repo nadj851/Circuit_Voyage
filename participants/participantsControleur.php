@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require_once("../includes/modele.inc.php");
 $tabRes = array();
@@ -14,6 +15,7 @@ function enregistrer() {
     $prix = $_POST['prixhidden'];
     $idCircuit = $_POST['idCircuitHidden'];
 
+    
     //information sur le participant principal
     $nomParticipant = $_POST['nomParticipant'];
     $prenomParticipant = $_POST['prenomParticipant'];
@@ -28,13 +30,30 @@ function enregistrer() {
     $dateExpPasseport = $_POST['dateExpPasseport'];
     $nationalite = $_POST['nationalite'];
     $telephone = $_POST['telPostalParticipant'];
-    $totalParticipant=$NbAdulte+$NbEnfant+$NbBebe+1;
-
+    $totalParticipant = $NbAdulte + $NbEnfant + $NbBebe + 1;
+    $tabRes['existe'] = false;
+    
     //requete réservation
     try {
 
+        $requete = "SELECT count(*) as 'doublons' FROM reservation WHERE  idCircuit=? and idUtilisateur=?";
+        $unModele = new circuitModel($requete, array($idCircuit, $idUtilisateur));
+        $stmt = $unModele->executer();
+        while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $doublon = $ligne->doublons;
+        }
+        if ($doublon >= 1) {
+            $tabRes['existe'] = true;
+            return;
+        }
+    } catch (Exception $exc) {
+        echo $exc;
+    }
+
+    try {
+
         $requete = "INSERT INTO reservation VALUES(0,?,?,?,?,?,?,?,?,?)";
-        $unModele = new circuitModel($requete, array($prix, $totalParticipant , $NbAdulte, $NbEnfant, $NbBebe, date('Y-m-j H:i:s'), $idUtilisateur, $idCircuit, $prix));
+        $unModele = new circuitModel($requete, array($prix, $totalParticipant, $NbAdulte, $NbEnfant, $NbBebe, date('Y-m-j H:i:s'), $idUtilisateur, $idCircuit, $prix));
         $stmt = $unModele->executer();
         $idReservation = $unModele->lastID;
     } catch (Exception $exc) {
@@ -225,15 +244,23 @@ function lister() {
     global $tabRes;
     $tabRes['action'] = "lister";
     /*
-     $requete = "SELECT * FROM participants";
-select * FROM participants P, reservation R, reservationparticipant V WHERE
-P.idparticipants = V.idParticipants and
-R.idReservation = V.idReservation and
-R.idCircuit = 6 and
-R.idUtilisateur = 1;
+      $requete = "SELECT * FROM participants";
+      select * FROM participants P, reservation R, reservationparticipant V WHERE
+      P.idparticipants = V.idParticipants and
+      R.idReservation = V.idReservation and
+      R.idCircuit = 6 and
+      R.idUtilisateur = 1;
+     * 
+     * select * FROM participants P, reservation R, reservationparticipant V, adresse A, passeport S WHERE
+      P.idparticipants = V.idParticipants and
+      R.idReservation = V.idReservation and
+      P.idAdresse=A.idAdresse and
+      P.idPasspor=S.idPasspor and
+      R.idCircuit = 4 and
+      R.idUtilisateur = 5;
      */
-    
-    
+
+
     $requete = "SELECT * FROM participants";
     try {
         $unModele = new circuitModel($requete, array());
@@ -254,11 +281,13 @@ function listerParticipant() {
     $tabRes['action'] = "lister";
     $idUtilisateur = $_SESSION['idUtilisateur'];
     $idCircuit = $_SESSION['idCircuit'];
-    $requete = "SELECT * FROM participants P, reservation R, reservationparticipant V WHERE
-                P.idparticipants = V.idParticipants and
-                R.idReservation = V.idReservation and
-                R.idCircuit = ? and
-                R.idUtilisateur = ? ";
+    $requete = "select * FROM participants P, reservation R, reservationparticipant V, adresse A, passeport S WHERE
+                        P.idparticipants = V.idParticipants and
+                        R.idReservation = V.idReservation and
+                        P.idAdresse=A.idAdresse and
+                        P.idPasspor=S.idPasspor and
+                        R.idCircuit = ? and
+                        R.idUtilisateur = ? ";
 
 
 
@@ -734,6 +763,7 @@ function ajoutPart() {
 //******************************************************
 //Contr�leur
 $action = $_POST['action'];
+//$action = 'previewForm';
 switch ($action) {
     case "enregistrer" :
         enregistrer();
@@ -759,6 +789,10 @@ switch ($action) {
         break;
     case "afficherFormulaireTous" :
         afficherFormulaireTous();
+        break;
+
+    case "previewForm" :
+        listerParticipant();
         break;
 }
 echo json_encode($tabRes);

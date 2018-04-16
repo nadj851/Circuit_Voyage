@@ -47,13 +47,14 @@ function FormulaireR() {
 
     var textLab = parseInt(prixReservation);
 
-    var total = 0;
+
     $('#NombreAdulte').on('change', function () {
         total = textLab + (parseInt($("#NombreAdulte option:selected").val()) +
-                (parseInt($("#NombreEnfant option:selected").val())* 0.75) +
-                (parseInt($("#NombreBebe option:selected").val()))*0.5) * textLab;
-        $("#labtotal").text(total+" $");
+                (parseInt($("#NombreEnfant option:selected").val()) * 0.75) +
+                (parseInt($("#NombreBebe option:selected").val())) * 0.5) * textLab;
+        $("#labtotal").text(total + " $");
         $("#amount").val(total);
+        $("#amount_1").val(total * .5);
 
 
     });
@@ -61,24 +62,24 @@ function FormulaireR() {
     $('#NombreEnfant').on('change', function () {
 
         total = textLab + (parseInt($("#NombreAdulte option:selected").val()) +
-                (parseInt($("#NombreEnfant option:selected").val())* 0.75) +
-                (parseInt($("#NombreBebe option:selected").val()))*0.5) * textLab;
+                (parseInt($("#NombreEnfant option:selected").val()) * 0.75) +
+                (parseInt($("#NombreBebe option:selected").val())) * 0.5) * textLab;
 
-       $("#labtotal").text(total+" $");
-       $("#amount").val(total);
-
+        $("#labtotal").text(total + " $");
+        $("#amount").val(total);
+        $("#amount_1").val(total * .5);
 
 
     });
 
     $('#NombreBebe').on('change', function () {
         total = textLab + (parseInt($("#NombreAdulte option:selected").val()) +
-                (parseInt($("#NombreEnfant option:selected").val())* 0.75) +
-                (parseInt($("#NombreBebe option:selected").val()))*0.5) * textLab;
-        
-       $("#labtotal").text(total+" $");
-       $("#amount").val(total);
+                (parseInt($("#NombreEnfant option:selected").val()) * 0.75) +
+                (parseInt($("#NombreBebe option:selected").val())) * 0.5) * textLab;
 
+        $("#labtotal").text(total + " $");
+        $("#amount").val(total);
+        $("#amount_1").val(total * .5);
 
     });
 
@@ -122,9 +123,9 @@ function infoUser() {
             $("input[type=text][id=nomParticipant]").val(reponse.information[0].last_name);
             $("input[type=text][id=prenomParticipant]").val(reponse.information[0].first_name);
             $("input[type=text][id=courielParticipant]").val(reponse.information[0].email);
-            
+
             $("input[type=hidden][id=idUtilisateur]").val(reponse.information[0].idUtilisateur);
-            
+
         },
         fail: function (err) {
         }
@@ -159,7 +160,7 @@ function RamenerCircuit(rid) {
 
 function prix(idSelect, textLab, taux) {
 
-    var total = 0;
+    //var total = 0;
     $(idSelect).on('change', function () {
 
         var selectVal = parseInt($(idSelect + " option:selected").val());
@@ -172,8 +173,33 @@ function prix(idSelect, textLab, taux) {
             $("#labtotal").text(textLab);
             $("#amount").val(textLab);
 
+
         }
 
     });
     return total;
+}
+
+function preview() {
+    var formReservartion = new FormData();
+    formReservartion.append('action', "previewForm");//alert(formFilm.get("action"));
+
+    $.ajax({
+        type: 'POST',
+        url: 'participants/participantsControleur.php',
+        data: formReservartion,
+        contentType: false,
+        processData: false,
+        dataType: 'json', //text pour le voir en format de string
+        success: function (reponse) {
+            alert(reponse);
+            filmsVue(reponse);
+
+
+        },
+        fail: function (err) {
+        }
+    });
+
+
 }

@@ -232,7 +232,7 @@ include_once 'includes/init.php';
                                 <div class='container'>
                                     <div class='row'>
                                         <div class='col-sm-4 col-md-3 item' style='font-family:Lato, sans-serif;'>
-                                            <h3>Munarella </h3>
+                                            <h3>Munarela </h3>
                                             <h3><img src='Untitled_fichiers/separa_34.png' id='imagen-separa'> </h3>
                                             <ul>
                                                 <li><a href='#'>Nous sommes une entreprise qui &nbsp;offre des circuits de voyage de luxe partout au monde</a></li>

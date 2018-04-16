@@ -21,26 +21,26 @@ function listerP(listeParticpants) {
 
 }
 
-function listerP(listeParticpants) {
-    var taille = listeParticpants.length;
-    ;
-    var rep = "<div class='form-group row'>";
-    rep += "                                <label for=\"listParticipant\" class=\"col-sm-2 col-form-label\">Liste Participants</label>";
-    rep += "                                <div class=\"col-sm-10\" >";
-    rep += "                                    <select class=\"form-control\" id=\"listParticipant\" name=\"listParticipant\" required>";
-    rep += "                                        <option></option>";
-    for (var i = 0; i < taille; i++) {
-        rep += "<option value=" + listeParticpants[i].nom + ">" + listeParticpants[i].nom + "</option>";
-    }
-
-    rep += "                                    </select>    ";
-    rep += "                                </div>";
-    rep += "                            </div>";
-    rep += "<input type=\"button\" class=\"btn\" value=\"Modifier\" onClick=\" modifier();\" style=\"float: right; \"><br><br>";
-    rep += "<input type=\"button\" class=\"btn\" value=\"Supprimer\" onClick=\" supprimer();\" style=\"float: right; \">";
-
-    $('#get_result').html(rep);
-}
+//function listerP(listeParticpants) {
+//    var taille = listeParticpants.length;
+//    ;
+//    var rep = "<div class='form-group row'>";
+//    rep += "                                <label for=\"listParticipant\" class=\"col-sm-2 col-form-label\">Liste Participants</label>";
+//    rep += "                                <div class=\"col-sm-10\" >";
+//    rep += "                                    <select class=\"form-control\" id=\"listParticipant\" name=\"listParticipant\" required>";
+//    rep += "                                        <option></option>";
+//    for (var i = 0; i < taille; i++) {
+//        rep += "<option value=" + listeParticpants[i].nom + ">" + listeParticpants[i].nom + "</option>";
+//    }
+//
+//    rep += "                                    </select>    ";
+//    rep += "                                </div>";
+//    rep += "                            </div>";
+//    rep += "<input type=\"button\" class=\"btn\" value=\"Modifier\" onClick=\" modifier();\" style=\"float: right; \"><br><br>";
+//    rep += "<input type=\"button\" class=\"btn\" value=\"Supprimer\" onClick=\" supprimer();\" style=\"float: right; \">";
+//
+//    $('#get_result').html(rep);
+//}
 
 
 
@@ -138,6 +138,8 @@ function afficherDetailPart(reponse) {
     rep += "                    <input type=\"hidden\" name=\"idPasseport\" value=\"" + reponse.detailParticipant.idPasspor + "\" \/>";
     rep += "                    <input type=\"hidden\" name=\"idParticipant\" value=\"" + reponse.detailParticipant.idparticipants + "\" \/>";
     rep = formParticipant(rep, "");
+    rep += "<input id='retourRes' type=\"button\" class=\"btn\" value=\"Retour réservation\" onClick=\"formulaireR();listerParticipants();infoUser();\" style=\"float: right;\">";
+    rep += "                    </div>";//fin div form
     rep += "<input id='modifierPart' type=\"button\" class=\"btn\" value=\"Modifier participants\" onClick=\" modifierParticipant(); formulaireR();listerParticipants();infoUser();\" style=\"float: right; display:none;\">";
     rep += "                    </div>";//fin div form
     rep += "                    </div>";//fin div container
@@ -146,6 +148,10 @@ function afficherDetailPart(reponse) {
     $('#get_result').html(rep);
 
 }
+
+/****************************************************************************************************************/
+                                                    /*debut switch
+/****************************************************************************************************************/
 
 var filmsVue = function (reponse) {
     var action = reponse.action;
@@ -173,6 +179,9 @@ var filmsVue = function (reponse) {
 
     }
 }
+/****************************************************************************************************************/
+                                                    /*fin switch
+/****************************************************************************************************************/
 
 function formParticipant(rep, numeroParticipant) {
 

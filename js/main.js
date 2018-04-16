@@ -1,5 +1,6 @@
 var prixTotal;
 var idCircuit;
+var total = 0;
 $(document).ready(function() {
   listerTT();
     
