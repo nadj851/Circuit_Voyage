@@ -100,6 +100,38 @@ function modifier(){
 function formulairelogin(){
         var reponse={"action":"flogin"};
         	utilisateurVue(reponse);
+                
+                
+                            $('#loginform').validate({// initialize the plugin
+        rules: {
+          
+                email: {
+                 email:true,
+                minlength: 4
+            }
+         ,
+            password: {
+               
+                minlength: 2
+            }
+         
+        
+           
+         
+        },
+
+        errorPlacement: function (label, element) {
+            label.addClass("valid");
+            label.insertAfter(element);
+        }, wrapper: 'span'
+
+
+
+
+
+    });
+	
+                
 	
 }
 
@@ -134,12 +166,59 @@ function logoutU(){
 function formulaireregister(){
         var reponse={"action":"fregister"};
         	utilisateurVue(reponse);
+                
+                $('#registration_form').validate({// initialize the plugin
+        rules: {
+           first_name: {
+                  minlength: 4
+            }
+            ,
+            last_name: {
+               
+                minlength: 4
+            },
+             display_name: {
+         
+                minlength: 4
+            }
+            
+            ,
+                email: {
+                email:true,
+                minlength: 4
+            }
+         ,
+            password: {
+               
+                minlength: 4
+            },
+              confirm_password: {
+               
+                minlength:2
+            }
+         
+        
+           
+         
+        },
+
+        errorPlacement: function (label, element) {
+            label.addClass("valid");
+            label.insertAfter(element);
+        }, wrapper: 'span'
+
+
+
+
+
+    });
 	
 }
 
 function loginU(){
        var formuser = new FormData(document.getElementById('loginform'));
 	formuser.append('action','login');
+         if (!$('#loginform').valid()) return;
 	$.ajax({
 		type : 'POST',
 		url : 'Utilisateur/UtilisateurControleur.php',
@@ -170,6 +249,8 @@ function loginU(){
 function registerU(){
         var formuser = new FormData(document.getElementById('registration_form'));
 	formuser.append('action','register');
+       if (!$('#registration_form').valid()) return;
+        
 	$.ajax({
 		type : 'POST',
 		url : 'Utilisateur/UtilisateurControleur.php',
