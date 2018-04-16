@@ -1,5 +1,4 @@
 <?php
-
 include_once 'includes/init.php';
 ?>
 
@@ -55,9 +54,19 @@ include_once 'includes/init.php';
 
         <script src='Circuit/CircuitAPIJQuery.js' type='text/javascript'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js'></script>
-        
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<script src="https://cdn.ckeditor.com/4.9.1/standard/ckeditor.js"></script>
+        <style>            
+            .goog-te-banner-frame.skiptranslate {
+                display: none !important;
+            } 
+            body {
+                top: 0px !important; 
+            }
+        </style>   
+
+
+        <script src="https://cdn.ckeditor.com/4.9.1/standard/ckeditor.js"></script>
     </head>
 
     <body>
@@ -112,12 +121,22 @@ include_once 'includes/init.php';
                                 <?php elseif ($_SESSION['email'] != "admin@admin.com" && logged_in()) : ?>							
                                     <li> <a href='#' style='color: white'onClick='listerPanier();'><span class="glyphicon glyphicon-shopping-cart"></span>Panier<span  class="badge">0</span></a> </li>                          
                                 <?php endif; ?>                                                                                                                                               
+                                <li>
+                                    <div style="padding-top: 1em" id="google_translate_element"></div>
+                                    <script type="text/javascript">
+                                        function googleTranslateElementInit() {
+                                            new google.translate.TranslateElement({pageLanguage: 'fr',includedLanguages: 'fr,ar,en,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                                            $("#google_translate_element img").eq(0).remove();
+                                        }
 
+                                    </script>
+                                </li>
 
 
 
 
                             </ul>
+
 
 
                         </div>
@@ -126,135 +145,132 @@ include_once 'includes/init.php';
             </nav>
             <div>
                 <br>    <br>
-                <?php include './caroussel/code.php' ?>
+<?php include './caroussel/code.php' ?>
                 <br>    
-                
-                   <br>
-                 
+
+                <br>
+
 
 
                 <div class='container-fluid'>
                     <div class='row'>
-                        
-                        <?php if (logged_in() && $_SESSION['email'] == 'admin@admin.com') : ?>
 
-                    <div class='col-md-2 col-md-12'>
-                            <div id='get_cat'>
+<?php if (logged_in() && $_SESSION['email'] == 'admin@admin.com') : ?>
 
-                                <div class='nav nav-pills nav-stacked'>
-                                    <li class='active cat'><a href='#' ><span class='glyphicon glyphicon-cog'></span>Dashboard</a></li>
-                                    <li><a href='#' class='category' cid='DRAME' onclick='FormulaireT();'>Thematique</a></li>
-                                    <li><a href='#' class='category' cid='COMEDIE'  onclick='FormulaireR(); listerParticipants();infoUser();'>Réservation</a></li>
-                                    <li><a href='#'class='category' cid='SCIENCE FICTION' onclick='lister();'>lister participant</a></li>
-                                    <li><a href='#'class='category' cid='HORREUR' onclick='FormulaireCircuit();'>Créer un circuit</a></li>
-                                    <li><a href='#'class='category' cid='HORREUR' onclick='obtenirFicheCircuit();'>Modifier un circuit</a></li>
-                                    <li><a href='#'class='category' cid='SUSPENSE' onclick='SupprimerCircuit();' >Supprimer Circuit</a></li>                                
-                                    <li><a href='#'class='category' cid='alo'onclick='listerCircuits();' >lister les Circuits</a></li>
-                                    
-                                  
+                            <div class='col-md-2 col-md-12'>
+                                <div id='get_cat'>
 
-                                </div>
-                            </div>
-                            
-
-                        </div>							                         
+                                    <div class='nav nav-pills nav-stacked'>
+                                        <li class='active cat'><a href='#' ><span class='glyphicon glyphicon-cog'></span>Dashboard</a></li>
+                                        <li><a href='#' class='category' cid='DRAME' onclick='FormulaireT();'>Thematique</a></li>
+                                        <li><a href='#' class='category' cid='COMEDIE'  onclick='FormulaireR();
+                                                listerParticipants();
+                                                infoUser();'>Réservation</a></li>
+                                        <li><a href='#'class='category' cid='SCIENCE FICTION' onclick='lister();'>lister participant</a></li>
+                                        <li><a href='#'class='category' cid='HORREUR' onclick='FormulaireCircuit();'>Créer un circuit</a></li>
+                                        <li><a href='#'class='category' cid='HORREUR' onclick='obtenirFicheCircuit();'>Modifier un circuit</a></li>
+                                        <li><a href='#'class='category' cid='SUSPENSE' onclick='SupprimerCircuit();' >Supprimer Circuit</a></li>                                
+                                        <li><a href='#'class='category' cid='alo'onclick='listerCircuits();' >lister les Circuits</a></li>
 
 
-                <?php endif; ?>
-
-                       
-
-             <?php if (logged_in() && $_SESSION['email'] == 'admin@admin.com') : ?>
-                        <div class='col-md-10 col-md-12'>
-                            
-                            
-                         <?php else : ?>    
-                             <div class='col-md-12 col-md-12'>
-                             <?php endif; ?>
-                            
-                            
-                            <div class='row'>
-
-
-                                <div class='col-md-12 col-md-12' id='messages'>
-                                </div>
-
-
-                            </div>
-                            <div class='panel panel-success'>
-                                <div class='panel-heading'> <span style='font-weight: bold;font-size: 15px;' id='sommaire' >  </span></div>
-                                <div id='conteneur' class='panel-body'>
-                                    <div id='get_result'>
-
-
-                                        <!--  ici les amis tous  nos resultats  -->        
-                   
 
                                     </div>
-
-
-
-
-
-
-
                                 </div>
-                                <div class='panel-footer'>&copy; 2018</div>
-                            </div>
-                            <div class='col-md-1'></div>
-                        </div>
-                    </div>
 
-                    <div data-aos='zoom-in' class='footer-dark degra-azul aos-init aos-animate'>
-                        <footer>
-                            <div class='container'>
+
+                            </div>							                         
+
+
+<?php endif; ?>
+
+
+
+<?php if (logged_in() && $_SESSION['email'] == 'admin@admin.com') : ?>
+                            <div class='col-md-10 col-md-12'>
+
+
+                                <?php else : ?>    
+                                <div class='col-md-12 col-md-12'>
+<?php endif; ?>
+
+
                                 <div class='row'>
-                                    <div class='col-sm-4 col-md-3 item' style='font-family:Lato, sans-serif;'>
-                                        <h3>Servitech </h3>
-                                        <h3><img src='Untitled_fichiers/separa_34.png' id='imagen-separa'> </h3>
-                                        <ul>
-                                            <li><a href='#'>Somos una empresa que&nbsp;brinda soluciones integralesen el área de tecnología.&nbsp; </a></li>
-                                            <li><a href='#'>Reparación, mantenimiento&nbsp;de computadores, celularestablets, impresoras , soporte&nbsp;técnico, cableado estructurado. </a></li>
-                                        </ul>
-                                    </div>
-                                    <div class='col-sm-4 col-md-3 item' style='font-family:Lato, sans-serif;'>
-                                        <h3>Donde estamos</h3>
-                                        <h3><img src='Untitled_fichiers/separa_34.png' id='imagen-separa'> </h3>
-                                        <ul>
-                                            <li><i class='fa fa-map-marker espacio-ico-01'></i><a href='#'>Dirección Carrera&nbsp;48 # 16 Sur 43 Int 102,, Cerca al ropmpoi la Aguacatala, Medellin -Poblado.</a></li>
-                                            <li><i class='fa fa-phone espacio-ico-01'></i><a href='#'>Teléfono: 3224993Movil: 310-3736281 </a></li>
-                                        </ul>
-                                    </div>
-                                    <div class='col-sm-4 col-md-3 item' style='font-family:Lato, sans-serif;'>
-                                        <h3>Servitech </h3>
-                                        <h3><img src='Untitled_fichiers/separa_34.png' id='imagen-separa'> </h3>
-                                        <ul>
-                                            <li><a href='#'>Mantenimiento <i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
-                                            <li><a href='#'>ReparaciónPC - portatiles <i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
-                                            <li><a href='#'>Reparación Impresoras <i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
-                                            <li><a href='#'>Redes <i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
-                                            <li><a href='#'>Reparación Celulares <i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
-                                            <li><a href='#'>MantenimInsta. Cámaras Seguridad <i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class='col-sm-4 col-md-3 item' style='font-family:Lato, sans-serif;'>
-                                        <h3>Boletines </h3>
-                                        <h3><img src='Untitled_fichiers/separa_34.png' id='imagen-separa'> </h3>
-                                        <ul>
-                                            <li><a href='#'>Mantenimiento <i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
-                                        </ul>
-                                        <form class='form-inline' method='post' style='margin-top:19px;'>
-                                            <div class='form-group'><input class='form-control' name='email' placeholder='Your Email' type='email'></div>
-                                            <div class='form-group'><button class='btn btn-primary' type='submit'>Subscribe </button></div>
-                                        </form>
-                                    </div>
-                                    <div class='col-sm-4 col-md-12 item social' style='padding-top:30px;'><a href='#'><i class='icon ion-social-facebook'></i></a><a href='#'><i class='icon ion-social-twitter'></i></a><a href='#'><i class='icon ion-social-snapchat'></i></a><a href='#'><i class='icon ion-social-instagram'></i></a></div>
-                                </div>
-                                <p class='copyright'>By Monarela© 2018</p>
-                            </div>
-                        </footer>
 
-                    </div>
+
+                                    <div class='col-md-12 col-md-12' id='messages'>
+                                    </div>
+
+
+                                </div>
+                                <div class='panel panel-success'>
+                                    <div class='panel-heading'> <span style='font-weight: bold;font-size: 15px;' id='sommaire' >  </span></div>
+                                    <div id='conteneur' class='panel-body'>
+                                        <div id='get_result'>
+
+
+                                            <!--  ici les amis tous  nos resultats  -->        
+
+
+                                        </div>
+
+
+
+
+
+
+
+                                    </div>
+                                    <div class='panel-footer'>&copy; 2018</div>
+                                </div>
+                                <div class='col-md-1'></div>
+                            </div>
+                        </div>
+
+                        <div data-aos='zoom-in' class='footer-dark degra-azul aos-init aos-animate'>
+                            <footer>
+                                <div class='container'>
+                                    <div class='row'>
+                                        <div class='col-sm-4 col-md-3 item' style='font-family:Lato, sans-serif;'>
+                                            <h3>Munarella </h3>
+                                            <h3><img src='Untitled_fichiers/separa_34.png' id='imagen-separa'> </h3>
+                                            <ul>
+                                                <li><a href='#'>Nous sommes une entreprise qui &nbsp;offre des circuits de voyage de luxe partout au monde</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-sm-4 col-md-3 item' style='font-family:Lato, sans-serif;'>
+                                            <h3>Où on se trouve?</h3>
+                                            <h3><img src='Untitled_fichiers/separa_34.png' id='imagen-separa'> </h3>
+                                            <ul>
+                                                <li><i class='fa fa-map-marker espacio-ico-01'></i><a href='#'>2030 Boul Pie-IX Montreal, QC H1V 2C8</a></li>
+                                                <li><i class='fa fa-phone espacio-ico-01'></i><a href='#'>Téléphone: 3224993 &nbsp; Mobile: 310-3736281 </a></li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-sm-4 col-md-3 item' style='font-family:Lato, sans-serif;'>
+                                            <h3>Services </h3>
+                                            <h3><img src='Untitled_fichiers/separa_34.png' id='imagen-separa'> </h3>
+                                            <ul>
+                                                <li><a href='#'>Vente de Circuits de Vogage<i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
+                                                <li><a href='#'> Guides Specialisés<i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-sm-4 col-md-3 item' style='font-family:Lato, sans-serif;'>
+                                            <h3>Bulletins </h3>
+                                            <h3><img src='Untitled_fichiers/separa_34.png' id='imagen-separa'> </h3>
+                                            <ul>
+                                                <li><a href='#'>Nouveautés dans nos Circuits<i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
+                                            </ul>
+                                            <form class='form-inline' method='post' style='margin-top:19px;'>
+                                                <div class='form-group'><input class='form-control' name='email' placeholder='Your Email' type='email'></div>
+                                                <div class='form-group'><button class='btn btn-primary' type='submit'>Subscribe </button></div>
+                                            </form>
+                                        </div>
+                                        <!--<div class='col-sm-4 col-md-12 item social' style='padding-top:30px;'><a href='#'><i class='icon ion-social-facebook'></i></a><a href='#'><i class='icon ion-social-twitter'></i></a><a href='#'><i class='icon ion-social-snapchat'></i></a><a href='#'><i class='icon ion-social-instagram'></i></a></div>-->
+                                    </div>
+                                    <p class='copyright'>By Munarela© 2018</p>
+                                </div>
+                            </footer>
+
+                        </div>
 
 
 <!--    <script src='Untitled_fichiers/jquery-3.js'></script>
@@ -262,14 +278,14 @@ include_once 'includes/init.php';
     <script src='Untitled_fichiers/bs-animation.js'></script>
     <script src='Untitled_fichiers/aos.js'></script>
     <script id='bs-live-reload' data-sseport='3478' data-lastchange='1521367081176' src='Untitled_fichiers/livereload.js'></script>-->
-                     <script>CKEDITOR.replace( 'editor1' );</script>
+                        <script>CKEDITOR.replace('editor1');</script>
 
-                    <script src='Untitled_fichiers/analytics.htm'></script>
-                  
-                    
-
-                    </body>
+                        <script src='Untitled_fichiers/analytics.htm'></script>
 
 
-                    </html>
+
+                        </body>
+
+
+                        </html>
 
