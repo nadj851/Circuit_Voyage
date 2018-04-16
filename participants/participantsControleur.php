@@ -319,7 +319,7 @@ function afficher() {
         $rep .= "                            </div>";
 
         $rep .= "                            <div class=\"form-group row\">";
-        $rep .= "                                <label for=\"courielParticipant\" class=\"col-sm-2 col-form-label\">Couriel</label>";
+        $rep .= "                                <label for=\"courielParticipant\" class=\"col-sm-2 col-form-label\">Courriel</label>";
         $rep .= "                                <div class=\"col-sm-10\">";
         $rep .= "                                    <input type=\"text\" class=\"form-control\" id=\"courielParticipant\" name=\"courielParticipant\" placeholder=\"Entrer courriel du participant\" required>";
         $rep .= "                                </div>";
