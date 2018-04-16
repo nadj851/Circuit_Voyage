@@ -168,7 +168,7 @@ function formulaireregister(){
         	utilisateurVue(reponse);
                 
                 $('#registration_form').validate({// initialize the plugin
-        rules: {
+           rules: {
            first_name: {
                   minlength: 4
             }
