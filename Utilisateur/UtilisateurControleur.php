@@ -52,6 +52,7 @@ function register() {
     $display_name = $_POST['display_name'];
     $email = $_POST['email'];
     $password = md5($_POST['password']);
+    $active= 1;
     //$confirm_password= $_POST['confirm_password'];
 
 
@@ -60,12 +61,10 @@ function register() {
     try {
         $unModele = new circuitModel();
 
-        $requete = "INSERT INTO utilisateur VALUES(0,?,?,?,?,?)";
-        $unModele = new circuitModel($requete, array($first_name, $last_name, $display_name, $email, $password));
-        $stmt = $unModele->executer();
+        $requete = "INSERT INTO utilisateur VALUES(0,?,?,?,?,?,?)";
+        $unModele = new circuitModel($requete, array($first_name, $last_name, $display_name, $email, $password,$active));
+        $stmt = $unModele->executer();       
         
-        
-
         $tabRes['action'] = "register";
         $tabRes['msg'] = "utilisateur bien enregistrer";
     } catch (Exception $e) {
