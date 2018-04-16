@@ -272,7 +272,7 @@ function afficherDivParticipant(result) {
     result += "                                </div>";
     result += "                            </div>";
     result += "                            <div class=\"form-group row\">";
-    result += "                                <label for=\"courielParticipant\" class=\"col-sm-2 col-form-label\">Couriel</label>";
+    result += "                                <label for=\"courielParticipant\" class=\"col-sm-2 col-form-label\">Courriel</label>";
     result += "                                <div class=\"col-sm-10\">";
     result += "                                    <input type=\"text\" class=\"form-control\" id=\"courielParticipant\" name=\"courielParticipant\" placeholder=\"Entrer courriel du participant\" required>";
     result += "                                </div>";

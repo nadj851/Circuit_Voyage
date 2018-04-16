@@ -1,4 +1,7 @@
 <?php
+
+require_once("modele.inc.php");
+
 function email_exists($email) 
 {
 	global $connexion;
@@ -15,15 +18,37 @@ function email_exists($email)
 }
 
 function get_name($email) {
-	global $connexion;
+    
+    
+	/*global $connexion;
 
 	$sql = "SELECT first_name FROM utilisateur WHERE email = '$email'";
        
 	$result = $connexion->query($sql);
         
-         $row = $result->fetch_assoc();
-
-	return $row["first_name"];
+        $row = $result->etch_object();
+              
+	echo $row["first_name"];  */     
+    
+    $requete = "SELECT first_name FROM utilisateur WHERE email=?";
+    try {
+        $unModele = new circuitModel($requete, array($email));
+        $stmt = $unModele->executer();
+        
+        while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
+                      $_SESSION['firstname']=$ligne->first_name ;
+           
+        }
+    } catch (Exception $e) {
+        
+    } finally {
+        return $_SESSION['firstname'] ;
+        unset($unModele);
+    }
+           
+      
+    
+    
 }
 
 function set_message($message) 

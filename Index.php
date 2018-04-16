@@ -110,14 +110,15 @@ include_once 'includes/init.php';
                                     <li><a href='#' style='color: white' onClick='formulairelogin();'><span class='glyphicon glyphicon-log-in'></span> Se connecter</a></li>
                                 <?php else : ?>
                                     <li><a href='#' style='color: white' onClick='logoutU();'>Deconnecter</a></li>
-                                    <li><a style='color: white' href=''><?php echo 'Bonjour  ' . $_SESSION['email']; ?></a></li>
+                                    
+                                    <li><a style='color: white' href=''><?php   echo 'Bonjour  ' .get_name($_SESSION['email']) ; ?></a></li>
                                     <script> $('#register').hide();</script>
                                 <?php endif; ?>
 
 
 
                                 <?php if (!logged_in()) : ?>
-                                    <li> <a href='#' style='color: white'onClick='formulairelogin();'><span class='glyphicon glyphicon-shopping-cart'></span>Panier<span class='badge'>0</span></a>  </li>			
+                                    <li> <a href='#' style='color: white' onClick='formulairelogin();'><span class='glyphicon glyphicon-shopping-cart'></span>Panier<span class='badge'>0</span></a>  </li>			
                                 <?php elseif ($_SESSION['email'] != "admin@admin.com" && logged_in()) : ?>							
                                     <li> <a href='#' style='color: white'onClick='listerPanier();'><span class="glyphicon glyphicon-shopping-cart"></span>Panier<span  class="badge">0</span></a> </li>                          
                                 <?php endif; ?>                                                                                                                                               

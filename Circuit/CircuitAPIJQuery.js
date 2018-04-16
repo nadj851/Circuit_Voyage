@@ -33,7 +33,7 @@ function AffichageCircuit(affichageCircuits) {
         result += "<div class='panel-body'>";
         result += "<a name='afficherDetailsCircuit'  id='" + affichageCircuits[i].idCircuit + "' >	<img src='pochettes/" + affichageCircuits[i].imageCircuit + "' style='width:400px; height:400px;'></a>";
         result += "</div>";
-        result += "<div class='panel-heading'>" + "<span style='font-weight: bold;font-size: 15px;'> Description:</span>" + "<span style='font-size: 15px;'>" + affichageCircuits[i].description + "</span>";
+        result += "<div class='panel-heading'>" + "<span style='font-weight: bold;font-size: 15px;'> Description:</span>" + "<span style='font-size: 15px;color:black;'>" + affichageCircuits[i].description + "</span>";
         result += "<div class='panel-heading'>" + "<span style='font-weight: bold;font-size: 15px;'> Prix: </span>" + "<span style='font-size: 15px;'>" + affichageCircuits[i].prix + " $</span>";
         result += "</div>";
 
