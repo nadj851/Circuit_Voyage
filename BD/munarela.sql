@@ -66,9 +66,9 @@ INSERT INTO `banner` (`banner_id`, `banner_title`, `banner_image`) VALUES
 (3, 'explore d''autre horizons', 'banner-3.jpg'),
 (4, 'Oublie', 'banner-4.jpg'),
 (5, 'Caractere choix', 'banner-5.jpg'),
-(0, 'Le choix de l''évasion', 'banner-6.jpg'),
-(0, 'Un amour de voyage', 'banner-7.jpg'),
-(0, 'J''adore mon escapase', 'banner-8.jpg');
+(6, 'Le choix de l''evasion', 'banner-6.jpg'),
+(7, 'Un amour de voyage', 'banner-7.jpg'),
+(8, 'J''adore mon escapase', 'banner-8.jpg');
 
 -- --------------------------------------------------------
 

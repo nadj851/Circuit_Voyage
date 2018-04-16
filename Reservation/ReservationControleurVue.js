@@ -25,7 +25,7 @@ function formulaireR() {
 
     result += afficherDivParticipant(result);
 
-    
+
     //*******************************************************************
 
 
@@ -68,23 +68,22 @@ function formulaireR() {
 
     result += "<h4>Informations sur les participants</h4>";
 
-    result += "  <div id='vuePart' class=\"container fluid\" style=\"width: 40% ; float: left; \" >";
+    result += "  <div id='vuePart' class=\"container fluid\" style=\"width: 40% ; \" >";
 
-//    result += "                            <div class=\"form-group row\">";
-//    result += "                                <label for=\"Participants\" class=\"col-sm-2 col-form-label\">Participants </label>";
-//    result += "                                <div class=\"col-sm-10\" >";
-//    result += "                                    <select class=\"form-control\" id=\"Participants\" name=\"Participants\" required>";
-//    result += "                                        <option></option>";
-//    result += "                                    </select>    ";
-//    result += "                                </div>";
-//    result += "                            </div>";
 
     result += "                <br>";
     result += "                <br>";
 
     result += "                                <a href='#'class='btn btn-primary' cid='previsualiser'>Previsualiser la Reservation </a>";
     result += "                      </div>";
+    result += "  <div id='vuePart1' class=\"container fluid\" style=\"width: 40% ; float: left; \" >";
 
+
+    result += "                <br>";
+    result += "                <br>";
+
+    result += "                                <a href='#'class='btn btn-primary' cid='previsualiser' onclick='preview();'>Previsualiser la Reservation </a>";
+    result += "                      </div>";
 
 
     result += "                        <div class=\"container fluid\" style=\"width: 40% ; float: left; margin-left: 60px\" >";
