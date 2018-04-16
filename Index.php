@@ -231,47 +231,42 @@ include_once 'includes/init.php';
                                 <div class='container'>
                                     <div class='row'>
                                         <div class='col-sm-4 col-md-3 item' style='font-family:Lato, sans-serif;'>
-                                            <h3>Servitech </h3>
+                                            <h3>Munarella </h3>
                                             <h3><img src='Untitled_fichiers/separa_34.png' id='imagen-separa'> </h3>
                                             <ul>
-                                                <li><a href='#'>Somos una empresa que&nbsp;brinda soluciones integralesen el área de tecnología.&nbsp; </a></li>
-                                                <li><a href='#'>Reparación, mantenimiento&nbsp;de computadores, celularestablets, impresoras , soporte&nbsp;técnico, cableado estructurado. </a></li>
+                                                <li><a href='#'>Nous sommes une entreprise qui &nbsp;offre des circuits de voyage de luxe partout au monde</a></li>
                                             </ul>
                                         </div>
                                         <div class='col-sm-4 col-md-3 item' style='font-family:Lato, sans-serif;'>
-                                            <h3>Donde estamos</h3>
+                                            <h3>Où on se trouve?</h3>
                                             <h3><img src='Untitled_fichiers/separa_34.png' id='imagen-separa'> </h3>
                                             <ul>
-                                                <li><i class='fa fa-map-marker espacio-ico-01'></i><a href='#'>Dirección Carrera&nbsp;48 # 16 Sur 43 Int 102,, Cerca al ropmpoi la Aguacatala, Medellin -Poblado.</a></li>
-                                                <li><i class='fa fa-phone espacio-ico-01'></i><a href='#'>Teléfono: 3224993Movil: 310-3736281 </a></li>
+                                                <li><i class='fa fa-map-marker espacio-ico-01'></i><a href='#'>2030 Boul Pie-IX Montreal, QC H1V 2C8</a></li>
+                                                <li><i class='fa fa-phone espacio-ico-01'></i><a href='#'>Téléphone: 3224993 &nbsp; Mobile: 310-3736281 </a></li>
                                             </ul>
                                         </div>
                                         <div class='col-sm-4 col-md-3 item' style='font-family:Lato, sans-serif;'>
-                                            <h3>Servitech </h3>
+                                            <h3>Services </h3>
                                             <h3><img src='Untitled_fichiers/separa_34.png' id='imagen-separa'> </h3>
                                             <ul>
-                                                <li><a href='#'>Mantenimiento <i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
-                                                <li><a href='#'>ReparaciónPC - portatiles <i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
-                                                <li><a href='#'>Reparación Impresoras <i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
-                                                <li><a href='#'>Redes <i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
-                                                <li><a href='#'>Reparación Celulares <i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
-                                                <li><a href='#'>MantenimInsta. Cámaras Seguridad <i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
+                                                <li><a href='#'>Vente de Circuits de Vogage<i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
+                                                <li><a href='#'> Guides Specialisés<i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
                                             </ul>
                                         </div>
                                         <div class='col-sm-4 col-md-3 item' style='font-family:Lato, sans-serif;'>
-                                            <h3>Boletines </h3>
+                                            <h3>Bulletins </h3>
                                             <h3><img src='Untitled_fichiers/separa_34.png' id='imagen-separa'> </h3>
                                             <ul>
-                                                <li><a href='#'>Mantenimiento <i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
+                                                <li><a href='#'>Circuits<i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
                                             </ul>
                                             <form class='form-inline' method='post' style='margin-top:19px;'>
                                                 <div class='form-group'><input class='form-control' name='email' placeholder='Your Email' type='email'></div>
                                                 <div class='form-group'><button class='btn btn-primary' type='submit'>Subscribe </button></div>
                                             </form>
                                         </div>
-                                        <div class='col-sm-4 col-md-12 item social' style='padding-top:30px;'><a href='#'><i class='icon ion-social-facebook'></i></a><a href='#'><i class='icon ion-social-twitter'></i></a><a href='#'><i class='icon ion-social-snapchat'></i></a><a href='#'><i class='icon ion-social-instagram'></i></a></div>
+                                        <!--<div class='col-sm-4 col-md-12 item social' style='padding-top:30px;'><a href='#'><i class='icon ion-social-facebook'></i></a><a href='#'><i class='icon ion-social-twitter'></i></a><a href='#'><i class='icon ion-social-snapchat'></i></a><a href='#'><i class='icon ion-social-instagram'></i></a></div>-->
                                     </div>
-                                    <p class='copyright'>By Monarela© 2018</p>
+                                    <p class='copyright'>By Munarela© 2018</p>
                                 </div>
                             </footer>
 
