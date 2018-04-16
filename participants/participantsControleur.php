@@ -271,7 +271,7 @@ function listerParticipant() {
             $tabRes['listeParticpants'][] = $ligne;
         }
     } catch (Exception $e) {
-        
+        echo $e;
     } finally {
         unset($unModele);
     }
