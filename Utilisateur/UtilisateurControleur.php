@@ -63,6 +63,9 @@ function register() {
         $requete = "INSERT INTO utilisateur VALUES(0,?,?,?,?,?)";
         $unModele = new circuitModel($requete, array($first_name, $last_name, $display_name, $email, $password));
         $stmt = $unModele->executer();
+        
+        
+
         $tabRes['action'] = "register";
         $tabRes['msg'] = "utilisateur bien enregistrer";
     } catch (Exception $e) {
@@ -149,6 +152,7 @@ function information() {
         while ($ligne = $stmt->fetch(PDO::FETCH_OBJ)) {
             $tabRes['information'][] = $ligne;
             $_SESSION['idUtilisateur']=$ligne->idUtilisateur;
+           
         }
     } catch (Exception $e) {
         

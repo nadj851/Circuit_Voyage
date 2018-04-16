@@ -110,7 +110,8 @@ include_once 'includes/init.php';
                                     <li><a href='#' style='color: white' onClick='formulairelogin();'><span class='glyphicon glyphicon-log-in'></span> Se connecter</a></li>
                                 <?php else : ?>
                                     <li><a href='#' style='color: white' onClick='logoutU();'>Deconnecter</a></li>
-                                    <li><a style='color: white' href=''><?php echo 'Bonjour  ' . $_SESSION['email']; ?></a></li>
+                                    
+                                    <li><a style='color: white' href=''><?php   echo 'Bonjour  ' .get_name($_SESSION['email']) ; ?></a></li>
                                     <script> $('#register').hide();</script>
                                 <?php endif; ?>
 
