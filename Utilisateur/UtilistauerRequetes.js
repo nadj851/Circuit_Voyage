@@ -135,14 +135,14 @@ function formulairelogin(){
 	
 }
 
-function logoutU(){
+function logoutU(){ 
     
            var formuser = new FormData();
 	formuser.append('action','logout');//alert(formFilm.get("action"));
 	$.ajax({
 		type : 'POST',
 		url : 'Utilisateur/UtilisateurControleur.php',
-		data : formuser,
+		data : formuser, 
 		contentType : false,
 		processData : false,
 		dataType : 'json', //text pour le voir en format de string
