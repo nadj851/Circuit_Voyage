@@ -192,7 +192,7 @@ function preview() {
         processData: false,
         dataType: 'json', //text pour le voir en format de string
         success: function (reponse) {
-            alert(reponse);
+            //alert(reponse);
             filmsVue(reponse);
 
 

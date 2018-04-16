@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 13 Avril 2018 à 01:34
+-- Généré le :  Mar 17 Avril 2018 à 01:51
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.5.8
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `adresse` (
   `codePostale` varchar(45) NOT NULL,
   `pays` varchar(100) NOT NULL,
   PRIMARY KEY (`idAdresse`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=46 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=48 ;
 
 --
 -- Contenu de la table `adresse`
@@ -42,7 +42,9 @@ CREATE TABLE IF NOT EXISTS `adresse` (
 
 INSERT INTO `adresse` (`idAdresse`, `ville`, `codePostale`, `pays`) VALUES
 (44, '', '', ''),
-(45, '', '', '');
+(45, '', '', ''),
+(46, '', '', ''),
+(47, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -142,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `jour` (
   `dejeuner` tinyint(1) NOT NULL DEFAULT '0',
   `diner` tinyint(1) NOT NULL DEFAULT '0',
   `souper` tinyint(1) NOT NULL DEFAULT '0',
-  `description` longtext,
+  `descriptionJour` longtext,
   `idEtape` int(11) NOT NULL,
   KEY `idEtape` (`idEtape`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -151,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `jour` (
 -- Contenu de la table `jour`
 --
 
-INSERT INTO `jour` (`nomhotel`, `urlHotel`, `nomRestaurant`, `urlRestaurant`, `dejeuner`, `diner`, `souper`, `description`, `idEtape`) VALUES
+INSERT INTO `jour` (`nomhotel`, `urlHotel`, `nomRestaurant`, `urlRestaurant`, `dejeuner`, `diner`, `souper`, `descriptionJour`, `idEtape`) VALUES
 ('alo', 'balo', 'malo', 'talo', 0, 1, 0, '<p>un descriptif</p>\r\n', 1),
 ('aaa', 'aaa', 'cc', 'ccc', 0, 1, 1, '<p>Vol de Paris &agrave; Nairobi (direct ou via Amsterdam). R&eacute;cup&eacute;ration des bagages. Etablissement des visas. Nous sommes accueillis par Peter et Kevin, les guides de Kicheche, qui nous conduisent dans un h&ocirc;tel 4 &eacute;toiles avec leurs camionnettes.</p>\r\n', 2);
 
@@ -210,7 +212,7 @@ CREATE TABLE IF NOT EXISTS `participants` (
   PRIMARY KEY (`idparticipants`),
   KEY `idAdresse` (`idAdresse`),
   KEY `idPasspor` (`idPasspor`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
 
 --
 -- Contenu de la table `participants`
@@ -218,7 +220,9 @@ CREATE TABLE IF NOT EXISTS `participants` (
 
 INSERT INTO `participants` (`idparticipants`, `nom`, `prenom`, `courriel`, `sexe`, `tel`, `idAdresse`, `idPasspor`) VALUES
 (39, 'lala', 'nana', 'jas@hotmail.com', '', '', 44, 40),
-(40, '1111', '', '', '', '', 45, 41);
+(40, '1111', '', '', '', '', 45, 41),
+(41, 'lala', 'nana', 'jas@hotmail.com', '', '', 46, 42),
+(42, 'ddddddd', '', '', '', '', 47, 43);
 
 -- --------------------------------------------------------
 
@@ -234,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `passeport` (
   `nationalites` varchar(100) NOT NULL,
   `lieuDeliv` varchar(256) NOT NULL,
   PRIMARY KEY (`idPasspor`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=42 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=44 ;
 
 --
 -- Contenu de la table `passeport`
@@ -242,7 +246,9 @@ CREATE TABLE IF NOT EXISTS `passeport` (
 
 INSERT INTO `passeport` (`idPasspor`, `numeroPass`, `dateDelivPass`, `dateExpiration`, `nationalites`, `lieuDeliv`) VALUES
 (40, 0, '0000-00-00', '0000-00-00', '', ''),
-(41, 0, '0000-00-00', '0000-00-00', '', '');
+(41, 0, '0000-00-00', '0000-00-00', '', ''),
+(42, 0, '0000-00-00', '0000-00-00', '', ''),
+(43, 0, '0000-00-00', '0000-00-00', '', '');
 
 -- --------------------------------------------------------
 
@@ -254,8 +260,8 @@ CREATE TABLE IF NOT EXISTS `promotion` (
   `idPromotion` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(256) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
   `taux` float NOT NULL,
-  `datedebut` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
-  `datefin` timestamp(6) NOT NULL DEFAULT '0000-00-00 00:00:00.000000',
+  `datedebut` date NOT NULL,
+  `datefin` date NOT NULL,
   PRIMARY KEY (`idPromotion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -280,14 +286,15 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   UNIQUE KEY `idReservation` (`idReservation`,`montanTotal`,`idUtilisateur`,`idCircuit`),
   KEY `idCircuit` (`idCircuit`),
   KEY `idUtilisateur` (`idUtilisateur`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Contenu de la table `reservation`
 --
 
 INSERT INTO `reservation` (`idReservation`, `montanTotal`, `nbrPlaceDispo`, `nbrAdult`, `nbrEnfMTrois`, `NbrEnfBTroisONZ`, `datePaiment`, `idUtilisateur`, `idCircuit`, `solde`) VALUES
-(15, 6222, 2, 1, 0, 0, '2018-04-13 05:34:11.000000', 5, 4, 6222);
+(15, 6222, 2, 1, 0, 0, '2018-04-13 05:34:11.000000', 5, 4, 6222),
+(16, 7998, 2, 1, 0, 0, '2018-04-17 04:47:33.000000', 5, 5, 7998);
 
 -- --------------------------------------------------------
 
@@ -308,7 +315,9 @@ CREATE TABLE IF NOT EXISTS `reservationparticipant` (
 
 INSERT INTO `reservationparticipant` (`idParticipants`, `idReservation`) VALUES
 (39, 15),
-(40, 15);
+(40, 15),
+(41, 16),
+(42, 16);
 
 -- --------------------------------------------------------
 
