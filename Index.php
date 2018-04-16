@@ -118,7 +118,7 @@ include_once 'includes/init.php';
 
 
                                 <?php if (!logged_in()) : ?>
-                                    <li> <a href='#' style='color: white'onClick='formulairelogin();'><span class='glyphicon glyphicon-shopping-cart'></span>Panier<span class='badge'>0</span></a>  </li>			
+                                    <li> <a href='#' style='color: white' onClick='formulairelogin();'><span class='glyphicon glyphicon-shopping-cart'></span>Panier<span class='badge'>0</span></a>  </li>			
                                 <?php elseif ($_SESSION['email'] != "admin@admin.com" && logged_in()) : ?>							
                                     <li> <a href='#' style='color: white'onClick='listerPanier();'><span class="glyphicon glyphicon-shopping-cart"></span>Panier<span  class="badge">0</span></a> </li>                          
                                 <?php endif; ?>                                                                                                                                               
