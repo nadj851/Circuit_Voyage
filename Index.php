@@ -257,7 +257,7 @@ include_once 'includes/init.php';
                                             <h3>Bulletins </h3>
                                             <h3><img src='Untitled_fichiers/separa_34.png' id='imagen-separa'> </h3>
                                             <ul>
-                                                <li><a href='#'>Circuits<i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
+                                                <li><a href='#'>Nouveautés dans nos Circuits<i class='fa fa-arrow-circle-right espacio-ico-01'></i></a></li>
                                             </ul>
                                             <form class='form-inline' method='post' style='margin-top:19px;'>
                                                 <div class='form-group'><input class='form-control' name='email' placeholder='Your Email' type='email'></div>
